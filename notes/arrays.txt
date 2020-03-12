@@ -1,0 +1,40 @@
+- arrays can be declared two different ways
+    - int a [];
+    - int [] a;
+        - there is one difference between them;
+        int a [], b, c;// just a is array
+        int [] a, b, c;// all of them array;
+
+- length of dizi can't be positive;
+- if index is out of range arrays wil throw exception
+- member variable that  name's length, you can get length of array
+- you can't set length variable.
+- reference of array can show different array in another time
+
+- initialization rules
+    - initialization to reference and array
+        int [] a = new int[]{1,2,3,4,5};
+
+    - initialization to array
+        int [] a;
+        a = new int[]{1,2,3,4,5};
+    - when you initialize both of them you don't need to write new operator
+        int [] a = {1,2,3,4,5};
+
+- when you initalize to array we can put a comma at the end of the inialization list;
+ int [] a  = new int[]{1 ,2 ,3, 4,};
+
+- if you don't inialize to array you have to put length of array;
+    int [] a;
+    a = new int[]{1,2,3,4,5};
+    a = new int[5];
+
+- when  array is created, default value assigned to their member.
+
+- reference arrays
+  - when we create a reference array like
+     Sample [] sArr = new Sample[10];
+     - here we are not initalizing the references. we are just initializing the array.
+       so if we try the sArr[i].x = 10; // this will be error. Because, s[i] object is
+       not created.
+     - we can only use after the sArr[i] = new Sample;

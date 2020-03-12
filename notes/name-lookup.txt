@@ -1,0 +1,73 @@
+- isimler bildirildiği yerde aranmazlar
+    int a;//a ismi aranmayacak;
+    Sample s;//s aranmaz, Sample aranır.
+
+- niteliksiz isim arama kuralları
+   - Bir metot içerisinde kullanılan bir isim kullanıldığı yerden yukarıya doğru
+     metot içerisinde ve metodun parametre parantezinde aranır
+   - İsim metodun ait olduğu sınıfın içerisinde tüm metotların dışında her yerde aranır. Bu durumda
+     bulunamazsa taban sınıflarına da (super class) sırasıyla bakılır. Taban sınıf konusu ileride ele
+     alınacaktır.
+   - İsim sınıfın ait olduğu paket içerisinde aranır.  Kapsayan veya kapsanan paketlere
+     bakılmaz
+
+- nitelikli isim arama kuralları
+   - Aranan ismin solunda sınıf ismi varsa isim sınıf içerisinde aranır. Bulunamazsa taban
+     sınıflara da bakılır
+   - Aranan ismin solunda referans varsa referansa ilişkin sınıf içerisinde aranır. Bulunamazsa
+     taban sınıflara da bakılır
+   - Aranan ismin solunda paket ismi varsa isim o paket içerisinde aranır. Bulunamazsa
+     error oluşur. Üst veya alt paketlere bakılmaz.
+
+
+--- import deyimleri ---
+
+    1. import single-type declaration (yıldızsız import direktifi)
+    2. import on demand declaration (yıldızlı import direktifi)
+
+    import deyimleri niteliksiz isim aramada etkilidir. Nitelikli aramada bir etkisi olmaz.
+	import deyimlerinin paket bildirimi ile diğer bildirimler arasında olması gerekir.
+	import deyimlerinin sırasının önemi yoktur
+
+    - Yıldızlı import deyimi
+        - Sadece verilen paketin içine bakılır. Bu paketin kapsadığı yada bu paketi kapsayan paketlere bakılmaz
+        - Niteliksiz isim arama ilgili pakette bulunmaz ise *'lı import deyimlerine ilişkin paketlere bakılır.
+        - Yıldızlı import deyiminde isim arama kuralları şu sıraya göre gerçekleşir
+
+        - Eğer isim birden fazla pakette bulunur ise error oluşur.Hata import değiminden kaynaklı olmayacaktır.
+          İsim aramada ambugity hatası olacaktır.
+
+
+
+          import test.*;//class Sample;
+          import mest.*; //class Sample;
+
+
+          class App {
+          	public static void main(String [] args)
+          	{
+          		Test t;
+          		Mample m;
+          		Sample s; //error: ambiguity
+
+          	}
+          }
+
+    - Yıldızsız import deyimi
+        - Bu deyim ilgili java dosyasında hangi ismin doğrudan(niteliksiz) kullanabileceğini belirtir.
+        - Eğer ilgili java dosyasında aynı isimden bir sınıf belirtilmiş ise error oluşur. Bu import deyimi hatalıdır.
+        - yıldızsız import deyiminde derleyici isim arama kurallarını şuna göre gerçekleştirir
+            - isim bulunduğu metot'ta declare edildiği yerden yukarı doğru aranır.
+            - bulunamazsa declare edildiği sınıfta baştan sona aranır.
+            - bulunamazsa declare edildiği dosyada baştan sona aranır.
+            - bulunamazsa import deyimlerinde belirtilen ilgili sınıflara bakılır.
+            - bulunamaz ise kodun ait olduğu paket içerisinde aranır.
+
+        - aynı isimden birden çok yıldızsız import deyimi error oluşturur.
+
+
+    - import static deyimleri
+        - bu deyimler sınıfın static elemanlarına doğrudan erişmemizi sağlar.
+        - Bu deyimde aynı parametrik yapı ve isme sahip iki fonksiyon, aynı anda eklenebilir.
+          Niteliksiz kullanımı ambiguity hatası oluşturur. Sadece nitelikli kullanımı error oluşturmaz.
+        -

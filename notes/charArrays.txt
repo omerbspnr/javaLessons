@@ -1,0 +1,6 @@
+- char türünden diziler
+    - Char türünden diziler aslında String sınıfının dizi şeklindeki karakterlere ayrılmış halidir.
+
+    - String sınıfından char [] türüne toCharArray fonksiyonu ile dönüşüm sağlanır.
+    - Ayrıca String sınıfının char [] türünden parametreli ctor'u da vardır.
+        String s = new String(chars);

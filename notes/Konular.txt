@@ -1,0 +1,716 @@
+----------------------- 18 Ocak 2020 -----------
+
+- Temel türler(predifined, primitive) :
+ 	- Java da bütün tam sayı türleri işaretli olarak tutulur
+
+ 	- short				2 byte
+ 	- int				4 byte
+ 	- long				8 byte
+ 	- byte				1 byte [-128 ,127]; 1000 0000(-128), 0111 1111(127)
+
+ - Bu sistemlerde sıfır pozitif sayı olarak görülür.
+ - Java'da C, C++'da ki gibi işletim sistemlerine göre türlerin byte'ları değişmez.
+   Bütün işletim sistemleri için aynıdır.
+
+   	- float 			4 byte
+   	- double			8 byte
+
+- tam sayı türleri için default tür olarak int kullanılmalıdır. Aynı şey gerçek sayı türleri
+  için de geçerlidir ve bu tür double'dır.
+
+
+ 	- char				2 byte
+ 	  boolean			standartlarda belirtilmemiştir.
+
+----------------------- 19 Ocak 2020 -----------------
+
+- Java da değişken bildirimi üç şekilde yapılabilir.
+	1. Yerel değişkenler		(local variables)
+	2. Paremetre değişkenleri	(Parameter variables
+	3. Sınıf veri elemanları	( class member variables )
+
+- Java da istenildiği kadar iç içe bloklar olabilir.
+- Java da metot içerisinde bir bloğun herhangi bir yerde bildirilen değişkenlere
+  yerel değişkenler denir.
+
+- scope : bir değişen isminin derleyici tarafından görülebildiği alana denir.
+- yerel değişkenlerin ilk değer verilmediği halde, herhangi bir değer ile hayata gelmez.
+- iki yerel değişkenlerin isimleri aynı ise faaliyet alanlarının çalışması durumunda error oluşur.
+  Faaliyet alanları birbirini kapsar durumda ise de bu errordur.
+
+- Java da C'de ki gibi name lookup'dan kaynaklı isim saklanması olayı yoktur. Birbirini kapsayan
+  bloklarda böyle bir name lookup işlemi yapılmaksızın program hata verecektir.
+
+- Java'da içine değer atılmamış bir değişken kullanılamaz. Yerel değişkenlere değer atanması programcının
+  sorumluluğundadır. Yerel değişkenlere otomatik olarak değer atanmaz.
+
+- Java Değişken isimleri lower-upper case sensitiv olarak değerlenir.
+	int val, Val, VAL, vAl; // hepsi geçerli
+
+- Klavyeden int isteme kalıbı
+	java.util.Scanner kb = new java.util.Scanner(System.in);
+	int a = Integer.parseInt(kb.nextLine());
+- Klavyeden double isteme kalıbı
+	java.util.Scanner kb = new java.util.Scanner(System.in);
+	double a = Double.parseDouble(kb.nextLine());
+- Değişken isimleri doğrudan anahtar smzcüklerden oluşamaz. Ancak bunun istisnaları vardır.(var anahtar sözcüğü)
+
+- değişken isimleri camelcase kuralına, Sınıf isimleri Pascal(Baş harfi büyük) kuralına göre yazılır. Paket
+  isimlerinin hepsi küçük yazılır.
+
+- V&V(Verification//Kodun doğru çalışması&Validation//Kodun doğru işi yapması)
+
+- fonksiyonlarda return ifadesi geçici bir nesne oluşturulup fonksiyon çağrısının kullanıldığı yere koyulur.
+
+
+- Cast işlemleri, dönüşümler(conversions)
+
+- derleyici eğer ki tür dönüşümü durumunda bir değer kaybı söz konusu değilse dönüşümü otomatik olarak gerçekleştirir.
+  Değer kaybının söz olduğu döünşümler otomatik olarak yapılmaz. Kullanıcı tarafından yapımı zorunludur.
+
+- Küçük tam sayı türünden büyük tam sayı türüne doğrudan atama(implicit assignment) geçerlidir.
+  implicit dönüştürme operatörü olmaksızın dönüştürmeişleminin yapılması anlamında gelir.(kesin dönüşüm)
+
+- küçük tam sayı türünden büyüğe yapılan atama negatif bir değerde yapılıyor ise geriye kalan bitler bir ile beslenir.
+  Eğer sayı pozitif ise bit'ler 0 ile beslenir.
+- char türünden short'a short' türünden de char doğrudan atama geçersizdir.
+
+- byte türden ve short türünden nesnelere sabit sayılar ile kendi sınırları içerisinde kalmak şartı ile
+  yani byte için en fazla 1 byte'lık short içinde en fazla iki byte'lık sınır içerisinde yazma koşulu ile
+  sabit sayı atanabilir.
+   byte = 128;// error
+- Sınırlar içerisinde kalmak koşulu ile int türden bir sabit char türüne doğrudan atanabilir
+
+-float türünden double türüne doğrudan atama vardır.
+
+- bool türünden hiç bir türüne ve hiç bir türden de bool türüne atama yada dönüşüm(cast) yapılamaz.
+***************************************************************
+***************************************************************
+***************************************************************
+	byte 	-> short, int, long, float, double
+ 	short 	-> int, long, float, double
+ 	int 	-> long, float double
+ 	long 	-> float, double
+ 	char 	-> int, long, float, double
+ 	float 	-> double
+***************************************************************
+***************************************************************
+***************************************************************
+
+- java da bir değişkenin kullanılabilirlik alanı
+
+	do {
+	int val = 0;
+	}while(val == 0)// errordur val değişkeni do'ya ait küme parentezinde tanımlıdır.
+
+- geri dönüş değerlerinde sabit değerler(int) sınırlar içerisindeyse otomatikman short,byte ve char türler için
+  geçerlidir.
+- sabit tam sayı(10,20,35 gibi) değerleri fonksiyon çağrı konumunda char, short ve byte'a otomatik olarak dönüşmez.
+
+
+- int türü ve altındaki değerler kendi aralarında aritmetik işleme sokuldaklarında integral promotion'a tabi olurlar.
+
+- boolean türü hiç bir tür ile işleme sokulamaz.
+- boolean türünden herhangi bir türe ve herhangi bir türden boolean türüne dönüşüm yapılamaz.
+
+- Büyük tamsayı türünden küçük tamsayı türüne yapılan bilinçli dönüşümde büyük
+	tamsayı türüne ilişkin değer küçük tamsayının sınırlar içerisinde bilgi kaybı
+	oluşmaz. Aslında bu dönüşüm yüksek anlamlı byte değerlerinin atılması ile
+	gerçekleşir. Yani örneğin long türünden int türüne dönüşümde long türüne
+	ilişkin değerin yüksek anlamlı 4 byte lık kısmı atılır. Geri kalan 4 byte
+	int türüne atanır. Bu durumda kaynak türün içeriisndeki değer hedef
+	türün sınırları içerisinde kalıyorsa bu değerin yüksek anlamlı atılacak
+	byteların değerleri sıfırdır. Bu durumda kaynak türün içeriisndeki değer
+	hedef türün sınırları dışındaysa bilgi kaybı olur
+
+- byte türünden char türüne explicit dönüşüm
+
+- String sınıfının format(static public) methodu printf interface'i ile bir yazıyı
+  alıp bize String döndürür.
+
+- String sınıfının valueOf sınıfları verilen değişkenleri String'e dönüştürür.
+
+- int bir değeri String değerine dönüştürmek
+	1- val + ""//boş string
+	2- String.valueOf(val);// Her biri
+	3- String.format("%d",val);//
+
+- Bir sayıyı yazıya çevirmek için
+  - parseInt,parseDouble method'ları;//çeviri başarısız ise Exceptiın gönderir.
+
+- Wrapper sınıflar
+	Integer,Double, Long,Float gibi sınıflardır.
+
+
+- immutable sınıf, sınıf türünden nesne yaratıldığında nesnenin içeriği değiştirilemediği sınıflardır.
+
+- String sınıfı bir immutable sınıftır.
+
+---------------------------------------------------------------------------------------------
+	26.01.2020
+
+- javac her sınıf(aynı yada farklı paketlerde olması farketmeksizin) için .class uzantılı dosya(byte code) üretir.
+
+
+- Bir sınıf herhangi bir pakette olabilir. Bir proje içerisinde kullanıla- .class dosyaları mutlaka
+n sınıfların aynı pakette
+  olma zorunluluğu yoktur
+
+- Bir paket içerisinde bildirilen bir sınıfın farklı bir paketten kullanılabilmesi için
+  public olarak bildirilmesi gerekir. public olarak bildirilmeyen bir sınıf ancak
+  aynı paketteki diğer sınıflar tarafından kullanılabilir (friendly, internal//bunlar public yazmamanın anlamıdır. Anahtör sözcük değillerdir.)
+
+- Farklı paketlerdeki sınıflar için byte kodların da uygun yerde olması gerekir. Uygulamanın çalışmaya
+  başlatıldığı dizin tüm paketlerin olması gereken dizindir(java csd.App). Ancak bu durumun istisnaları olabilir(Source folder : aynı pakette olup farklı directory'lerde
+  .class dosyaları kullanabilirsin.)
+
+- Bir paket içerisinde aynı isimde birden fazla sınıf bildirimi yapılamaz. Farklı paketler
+  içerisinde aynı isimde sınıflar olabilir. Farklı paketler içinde aynı isimde class'lar kullanılabilir.
+
+- Bir .java dosyası içerisindeki sınıflar o java dosyasının başında bildirilen paket içerisinde
+  	 olurlar.
+
+- Bir .java dosyasında farklı paket bildirimleri yapılamaz
+
+- Hiç bir paket bildirimi olmayan .java dosyalarında bildirilen sınıflar isimsiz paket
+  (unnamed package) denilen bir paket içerisinde kabul edilir.
+  Ancak projelerde isimsiz paket içerisinde sınıf bildirimi yapılmamalıdır.
+
+- Bir paket içerisinde alt paketler olabilir. Alt paketler
+  package <paket ismi>.<alt paket ismi>;
+
+  biçiminde bildirilir. Alt paketlerde bulunan sınıfların .class dosyaları (byte code) paket
+  hiyararşisine uygun alt dizinlerde bulunmalıdır.
+
+- Paketler içiçe bile olsa farklı paketlerdir. Yani örneğin org.csystem.util paketi içerisinde
+  ArrayUtil sınıfı varsa org.csystem paketi içerisinde de ArrayUtil sınıfı olabilir.
+  Bu isimler kesinlikle çakışmaz.
+
+- Paket isimleri genelde firmaya ilişkin tekil bir bilgi olan domain isimleri ile
+  belirlenir. Örneğin CSD firmasının paketleri ve sınıfları domain adresi "csystem.org"
+  olduğundan "org.csystem" paketi altında yazılabilir(spring framework'ünde her şey org.spring ile başlar)
+
+ - Domain isminin altında da paketler olur.(Örneğin org.spring.util)
+- android'in bütün paketleri android ile başlar.
+
+- Bundan sonraki uygulamalarda org.csystem şeklinde başlatılacaktır.
+
+- java nın standart tüm paketleri ve sınıfları java isimli bir paket altında toplanmıştır
+
+- java.lang isimli paket altında bulunan tüm sınıflar her yerden görülebilirdir. Yani
+  buradaki isimleri paket ismi ile kombine etmeye gerek yoktur (import deyimi kullanılmadan da
+  olmadan da  kullanılabilir, Örneğin String sınıfı java.lang package'i altında tanımlanmıştır.)
+
+- Bu sadece java.lang'a özgüdür.
+
+
+ ---- İsim arama kuralları  -----
+
+- bir isim doğrudan kullanılmış ise veya . operatörünün solunda kalıyor ise niteliksiz(unqualified) olarak aranır.
+ 	Sample s =  new Sample();//Sample niteliksiz aranır
+ 	s.foo(); // burada s niteliksiz foo nitelikli aranır.
+ 	Sample.bar() // Sample niteliksiz bar fonksiyonu nitelikli aranır(qualified).
+
+
+- Niteliksiz isim arama(name lookup) kuralları(eğer kurallardan biri gerçekleşirse diğerine bakılmaz)
+	1-) Bir metot içerisinde kullanılan bir isim kullanıldığı yerden yukarıya doğru metot içerisinde
+	    ve metot'un parametre parantezinde aranır.(Bu kuralın ayrıntıları vardır.(this keyword))
+	2-) Metot'un ait olduğu sınıfın içerisinde tüm metotların dışında her yer de aranır. Bulanamazsa taban
+	    sınıflarına(super class) da sırasıyla bakılır.
+	3-) O sınıfın ait olduğu pakete bakar.Kapsayan, kapsanan paketlere bakılmaz. Bulamazsa error'dur.
+		Bu yüzden isimsiz paketlere erişim yoktur. sub package'ları niteliksiz olarak görülemez.
+
+- Aynı Faaliyet alanı içerisinde YEREL değişkenler aynı isimde iki kez tanımlanamaz.
+  Bu durum Sınıf'ların member'ları için geçerli değildir.(aynı isimde tanınınabilirler)
+
+- İsim arama kurallarında ilk olarak isim arama yapılır. Uygun kullanıp kullanılamadığına bakılır.
+
+- Nitelikli isim arama() kuralları
+	1-) Aranan ismin solunda sınıf ismi var ise, isim sınıf içerisinde aranır bulunamaz ise taban sınıflar içerisine bakılır.
+	2-) Aranan ismin solunda referans ismi var ise, isim referansa ilişkin sınıf içerisinde bulunamazsa taban sınıflara bakılır.
+	3-) Aranan ismin solunda paket ismi var ise, isim o paket içerisinde aranır bulunamaz ise error oluşur.
+
+- Paket isimleri hiyerarşik bir aramaya tabi değildir. sub package'lar niteliksiz olarak aranamaz. Mutlaka base package'lar
+  belirtilmek zorundadır. Niteliksiz arama da  paket isimlerine bakılmaz.
+
+---- import deyimi  -----
+- import deyimi iki şekilde kullanılır.
+	1- yıldızlı import (import on demand)
+	2- yıldızsız import (import type declaration)
+
+- yıldızlı import (import on demand) genel biçimi
+	import <paket_ismi>.*;
+
+- import deyimleri .java dosyasında paket bildiriminin altında tür bildirimlerinin üstünde bulunmalıdır.
+- import deyimi niteliksiz isim arama da bir isim  çalışılan paket içerisinde bulunamazsa bakılacak paketi de aramaya dahil eder.
+  (import java.util.*;//java.util paketinide bak)
+
+- import deyimi niteliksiz isim araması için geçerlidir. Nitelikli isim arama kuralları için hiç bir önemi yoktur.
+- import deyimlerinin sırasının hiç bir önemi yoktur.
+- import deyimleri paket bildiriminin altında sınıf bildiriminin üstünde olmalıdır.
+
+- Her paket(sub paket'ler buna dahil) birbirinden ayrıdır.
+
+- *'lı import deyiminde eğer niteliksiz arama en son bulunamazsa import deyimine ilişkin paket'te aranır.
+
+- *'sız importta eğer aynı java dosyasında aynı sınıftan bir tane var ve aynı sınıf import deyimi eklenmek isterse
+  import declaration'ı hatadır.
+
+- *'lı arama da önce bulunduğu yere sonra dosyaya sonra bulunduğu paket'e pakette de bulunamaz ise import deyimlerine bakar.
+- *'sız arama da ise önce bulunduğu dosyaya sonrasında import deyimlerine bulunamaz ise aynı paketin içinde aranır.
+
+- import static directive(deyimi)'i
+	import static single type declaration(yıldızsız)
+	import static on demand statement (yıldızlı)
+- Bu deyimler bir sınıfın static elemanlarının başka bir paket içerisinde
+  doğrudan kullanımını sağlar.
+
+- import static on demand statement(yıldızlı)'ın genel biçimi
+  import static [paket ismi].<sınıf ismi>.*;
+
+  import static org.csystem.util.NumberUtil.*;
+	public static void main()
+	{
+		factorial(10);
+	}
+- import static on demand statement(yıldızsız)'ın genel biçimi
+  import static [paket ismi].<sınıf ismi>.<static elemanın ismi>;
+
+  import static org.csystem.util.NumberUtil.factorial;
+	public static void main()
+	{
+		factorial(10);
+	}
+
+
+22.02.2020
+
+---- foreach(range based for loop)  -----
+
+- for (int i = 0; i  < a.length; ++i) {
+        int val = a[i];
+  }
+  for (int val : a) // temsili karşılığı
+
+- döngü değişkeni döngü scope'u boyunca geçerlidir. sonrasında kullanılamaz.
+
+-  forecah'de : noktadan sonraki kısım sadece bir kez yapılır.
+
+- döngü değişkeni ile dolaşabilen türe ilişkin her elemanın atanabileceği türde olması gerekir.
+
+- burada val'e atama yapmak dizi de ki gerçek değeri değiştirmez.
+
+- foreach döngü deyiminde indeks gerektiren bir işlem yazılmamalıdır.
+- diziyi tersten dolaşılması gereken durumlarda yapılır.
+
+- for_each döngü deyimi eğer dizi baştan sona dolaşılacak ise kullanılmalıdır.
+
+- Eğer indeks 0'dan değilde başka bir indeksten başlarsa, yada 0'dan başlayıp sonuncu hariç herhangi
+  bir indekste bitmesi durumunda kullamılması durumunda kullanılmamalıdır.
+
+- String sınıfı iterable değildir.
+    for (char ch : s) // error'dur.
+
+------ Sınıf elamanlarının erişim belirleyicileri(access modifiers) -------
+
+-   sınıfın kendisinin erişim belirleyicisi eğer yazılıcak ise public'tir.
+
+- sınıf elemanlarının erişim belirleyicileri
+    - public, protected, no-modifier, private
+
+- Java dışındaki dillerde no-modifier ile java da ki farkı çok farklıdır.
+
+- protected ve no-modifier elemanları public ve private'a göre açılır.
+- public ve private bir elemanın başka bir sınıf içerisinden erişilip erişilemeyeceği anlamına gelir.
+
+- Sınıfın public bölümümne sınıf dışından aynı pakette yada paketlerde de erişilebilir.
+- sınıfın private bölümüne sınıf dışından erişim geçersizdir.
+
+- sınıfın no-modifier bölümü aynı paketteki diğer sınıflar için public'tir.
+  Farklı paketteki sınıflar için  ise private etkisinde olacaktır.
+
+- Sınıfın protected bölümü aynı paketteki diğer sınıflar için public'tir.
+
+- Sınıfın protected bölümü türetme söz konusu değil ise farklı paketteki sınıflar için private anlamındadır.
+
+-  Erişim Belirleyici   Kendi      Aynı paketteki sınıflar         Farklı paketteki sınıflar       Türemiş sınıf
+   public               +          +                               +                               +
+   protected            +          +                               -                               +
+   no-modifier          +          +                               -                               -
+   private              +          -                               -                               -
+
+----- 23.02.2020 --------
+
+- Sınıfların elemanlarının gizlenmesi(encapsulation, data hiding)
+
+    - Sınıfları yazarken dışarıya vermek istemediğimiz veri elemanlarını private yada uygun erişim belirleyicisini kullanarak
+      dışarıya detayların yansımamasıdır.
+
+    - Sınıfların dışarıya yansıtılan(public olan kısımları) sadece dökümente edilir.
+
+- Bir veriyi gizlemek için pratikte aşağıdaki dört  koşuldan birinin  gerçekleşmesi gerekir.(Sıra önemli değildir.)
+    1-) Sınıf tasarımının ilerleyen versiyonlarında veri elemanlarının isimlerinin hatta türlerinin değişimesi durumuna
+        çok sık rastlanır. Eski kodların client'in kodunun etkilenmemesi için veri gizlenmelidir.
+
+    2-) Bir veri elemanının sınır değerleri olabilir(Öğrencinin isminin boş geçilmesi). Bu sınır değerlerinin
+        dışında değerlerin verilmemesi için veri gizlenmelidir.
+
+    3-) Bir veri elemanı değiştiğinde başka bir veri elemanının değeri hesaplanması gerekiyor olabilir.(Örneğin üçgenin
+        bir kenarının değişmesi sonucu,alanının değişmesi) Bu durumda veri gizlenmelidir.
+
+    4-) Bir veri elemanı değiştiğinde sınıfın o değere göre başka bir iş yapması gerekiyor  olabilir.
+        (Örneğin Date sınıfının, gün değerini tutan değişkenin değiştirilmesi sonucu sınıfın doğru bir tarih mi kontrolü yapması)
+
+    Bu durumların dışında (% 3 - 5 arası) elemanlar public yapılabilir.
+
+
+- Gizlenmiş bir veri elemanına erişmek için kullanılan methot'lara accessors metotlar denir.
+    - Gizlenmiş veri elemanlarının değerlerine erişmik için kullanılan methodlara getter
+    - Gizlenmiş veri elemanlarının değerlerini değiştirmek için kullanılan methodlara setter denir.
+
+    - Sınıfların get Metotları genel olarak get ile başlatılır. Bazı ortamlar(framework) bunu default
+      olarak isterler. Bu kurala bir sentaks kuralı gibi uymamız gerekir.
+
+    - Sınıfların set metotları genel olarak set ile başlatılır.Bazı ortamlar(framework) bunu default
+      olarak isterler. Bu kurala bir sentaks kuralı gibi uymamız gerekir.
+
+- Sınıfların private veri elemanlarının isimlendirilmesinde bazı önemli kurallar vardır.
+  bu elemanlar m_day, mDay ile başlamalıdır.(Kursta m_ şeklinde yazılacaktır.) Burada m member anlamındadır.
+
+- eğer member static ms_day msDay şeklindedir.
+    - pascal sistemi isimlendirme (Sınıf isimleri bütün kelimelerin baş harfleri küçük)
+    - camel case (ilk kelimenin hepsi küçük, diğer kelimelerin baş harfleri büyük)
+    - unique isimlendirme(tüm harfler küçük kelimelerin arasında _ var genelde java da kullanılmaz.)
+
+- Javadan boolean türden private elemanlara getter metotları get ile değil is ile başlar.
+  Örneğin private m_married değişkeni için isMarried kullanılır.
+
+- Bir sınıfın default ctor'u haricinde bir ctor yazıldığı zaman default ctor'un yazılıp yazılamayacağına
+  o an karar verip duruma göre yazmalıyız.
+
+- Sınıfın organizasyonu için private belli bölümlere ayrılır.
+- Örneğin set ve get fonksiyonları bir yerde toplanabilir.
+
+
+----- 29.02.2020 -----
+
+- Sınıfın veri elemanlarının yazımı tamamen şirketten şirkete değişir.
+- Şirketlerin yazım kurallarına göre
+    m_
+    _
+    ismin direk kendisi
+     şeklinde kullanılabilir.
+
+- ctor private olabilir.
+- Nesne yaratılmasının anlamının olmayacağı sınıflarda ctor'un private olabilir.(ArrayUtil sınıfı örnektir.)
+  (Array Util, Array Util gibi sınıflara mantıksal static sınıflar denir.)
+  Array Util sınıfının herhangi bir non-static veri  elamanı olmayacağı için bir anlamı olmaz.
+
+- NumberUtil sınıfı ve StringUtil sınıfının elemanlarıda private olabilir.
+- Standart kütüphanenin Math sınıfının ctor'u da private idir.
+
+- String sınıfının default ctor'u public idir ve çok gereksiz bir durumdur. Her seferinde yeni bir nesne oluşturulur.
+  Çift tırnak ise bundan çok daha efektif bir kod olur.
+
+- Design Patterns(Gang of Four Patterns)
+    - Nesne yaratan patternler (Creational)
+    - Yapısal (Structurel)
+    - Davranış(Behaivour)
+
+- Singleton design pattern'i bunlardan biridir. // Aşağıdaki kod lazy implementation denir.
+    class Singleton{
+        public static Singleton s;
+        private Singleton(){}
+
+        public Singleton getInstance() {
+
+            return s != null ? s : new Singleton();
+        }
+    }
+
+- static elemanlar program sonuna kadar yaşar. Singleton nesnesi program sonuna kadar yaşayacaktır.
+- set methodlarında eğer aynı değer set edilme durumu var ise ortada bunun kontrol edilmesi gerekir.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+                                      07.03.2020
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Eğer başka bir fonksiyonu tekrar ederek çağırmak algoritmamızı büyük ölçüde yavaşlaştıyor ise bu algoritmanın
+  kendisi bu fonksiyon çağrılmadan yazılabilir. (nextFibonacci ve next metotları böyle yazılmıştır.)
+
+--------------------- Final keywordu ---------------
+
+- Bir değişken final olarak belirlendiğinde o değişkene faaliyet alanı boyunca bir kez atama yapılabilir.
+  Bu atama ilk değer verme ifadesi olmak zorunda değildir. (Klavyeden bir değer girilebilir.)
+
+-final yerel değişkenler
+    final double PI= 3.14;
+    - final yerel değişkenler java 8 öncesinde bazı durumlarda gerekliydi. Java 8 sonrasında bu ihtiyaç yoktur.
+
+- Method parametresi final olan değişkenler.
+    - Not : methodların parametre değişkenleri method başında bildirilmiş yerel değişkenler gibidir.
+    - Java 8 öncesinde zorunluluk dışında şu an için hiç bir anlamı yoktur.
+    - Bir metotun parametre değişkeni metot çağrısında yaratılır, metot bittiğinde hayata veda eder.
+
+- final member variables
+    - final bir veri elemanına default değer atanmaz. Sınıfı yazan kişinin sorumluluğundadır.
+      Değer atanmaması durumu error  olur.
+    - final bir non-static final  veri elemanlarına 3 yerde değer atanabilir.
+      1-) Bildirim noktasında // final int a = 5;
+      2-) Ctor içerisinde, Bütün ctor'lar için yapılmalıdır
+         (Bütün final değişkenlerin hepsine atama yapmak koşulu ile) // 1. koşul yapılmamış ise
+
+      3-) non-static initializer(İleride göreceğiz.)
+
+- Derleyiciler bir değişkeni final  olarak gördüğünde bunları daha çabuk erişilebilecek bir alana koyarlar.
+  Hiç değişmeyecek bir elemanı final belirtmeliyiz. (Derleyici optimizasyon yapacaktır.)
+  Bir elemanı final yapılması gerekiyor ise yapılmalıdır.
+
+- Sınıfın static final member variable'larına da default değer atanmaz. Progmramcı sorumluluğundadır.
+    2 yerde değer atanabilir.
+        1-) Bilidirim sırasında
+        2-) sTatic initializer(ileride göreceğiz)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+                                      08.03.2020
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Sınıfın statik veri elemanları o sınıf türünden statik bir fonksiyon yada statik bir member'ı kullanıldığı anda
+  hayata gelirler.
+
+- Referans türünden bir tür final olarak belirtilmiş ise sınıfın içindeki bilgiyi değiştirebiliriz.
+  Değiştiremeyeceğiz şey referanstır. aslında final referanslar her zaman top lewel const'luğa sahiptir diyebiliriz.
+    final Sample s = new Sample();
+    s = new Sample; // error
+    s.setX(5); // ok
+
+- Ctor'ın geri dönüş değer kavramının olmamasının nedeni programcının doğrudan ctor'ı çağıramamasıdır. Ancak ve ancak
+  new operatörü ile runtime da çağırılır.
+
+- private eleman dışarının kullanılmasını istemediğimiz elemandır.
+
+- immutable sınıflarda elemanı final yapmamız gerekir.
+
+- new operatörü aynı değer ile çağırılan immutable nesneler farklı referanslardır.
+    String s = new String("ankara");
+    String s1 = new String("ankara");
+    System.out.println(s == s1); // false
+
+- factory metodlar ctor'u private olan sınıf türünden nesne döndüren public static metot'lardır. Factory metodlar
+  bizden bir değer alıp bu değere göre de nesne yaratabilirler.
+
+- IntValue(BigDecimal sınıfı) tarzı sınıfların çok kullanılan veri elemanları örneğin 1, 0 gibi elemanları final static eleman haline
+  dönüştürülür.
+  class IntValue {
+    public static final IntValue ZERO = of(0);
+  }
+
+- final keywordu her zaman top level constluk sağlar. low level constluk immutable nesnelerle sağlanabilir.
+    final String s = new String();
+    s = new String(); // error
+    final String [] strings = {"ahet", "bcd", "efg" };
+    strings[i] = "ankara"; //ok
+    strings = new String[3];//error
+
+- factory metod'lar 8'den önve valueOf ile yazılırken, 8'den sonra of  şeklinde isimlendirilmiştir.
+
+
+- ctor'ı private olan bir çok sınıf factory metod'a sahiptir. Buna factory pattern denir.
+
+- final anahtar sözcüğünün bir çok kullanımı vardır.  C#' da karşılığı readOnly sözcüğüdür.
+    - değişkenlerin final olarak bildirilmesi
+    - metotların final bildirilmesi
+    - sınıfların final bildirimesi
+    - bir kaç yerde daha var.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+                                      Enum ve enum class türleri
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- enum türü neden vardır?
+    class App {
+        public static void main(String [] args)
+        {
+            StickyMan stickyMan = new StickyMan();
+
+            stickyMan.move(1); //right
+            stickyMan.move(3); //left
+            stickyMan.move(4); //bottom
+            stickyMan.move(2); //top
+
+        }
+    }
+
+    class StickyMan {
+        //...
+        public void move(int direction)
+        {
+            //...
+        }
+    }
+
+-  Yukarıda ki örnekte programcı StickyMan sınıfı için gerekli direcktion bilgilerini her zaman aklında tutması gerekir.
+   move fonksiyonunun içinde örneğin 1 sağ, 2 top, 3 left, 4 bottom değerleri için haraket etmektedir.
+   Programcı bu kütüphaneyi kullanan birisi olara her zaman bu değerleri aklında tutmaktadır.
+
+- Burada move metodunun parametresi int türden değilde String türünden olabilirdi. Kullanıcı böylelikle
+  fonksiyon çağrısını aşağıdaki şekilde yapabilir.
+      stickyMan.move("right");
+      stickyMan.move("lef");
+      stickyMan.move("bottom");
+      stickyMan.move("top");
+
+- Ancak yukarıda ki fonksiyon String'lerin karşılaştırması olduğu için int'e göre göreceli yavaş bir fonksiyondur.
+  Ayrıca String karşılaştırması runtime' da yapıldığı için programcı hata yapıp bunun nedenini farkedemeyebilir.
+
+- Programcı sınıfı string gibi kullanabileceği ama karşılaştırmanın da int şeklinde yapılabileceği hale getirmesi gerekir.
+  Bunun için de static ve final değişkenler kullanılması gerekir.
+
+- Programcı bu durumda stickyMan sınıfınnı aşağıdaki hala getirebilir.
+    class App {
+            public static void main(String [] args)
+            {
+                StickyMan stickyMan = new StickyMan();
+
+                stickyMan.move(Direction.RIGHT;
+                stickyMan.move(Direction.LEFT);
+                stickyMan.move(Direction.BOTTOM);
+                stickyMan.move(Direction.TOP);
+
+            }
+        }
+
+
+        class Direction {
+         public static final int RIGHT = 1;
+         public static final int TOP = 2;
+         public static final int LEFT = 3;
+         public static final int  BOTTOM = 4;
+        }
+        class StickyMan {
+            //...
+            public void move(int direction)
+            {
+                //...
+            }
+        }
+
+- Yukarıdaki kodda ki sıkıntı ise move fonksiyonun parametresinin int türden olması ve herhangi bir
+  Bildiriminin olmaması (yani okunabilirlik açısından gene zayıf olması) hatta bu fonksiyona sadece Direction sınıfının
+  değerlerinin değil başka değerlerinde  atanabiliyor olması gerektiğidir.
+
+  class StickyMan {
+
+    public void move(Direction d)
+  }
+
+  class Direction {
+    private final int m_ordinal;
+    private  final Direction [] m_values = {
+        new Direction(0),
+        new Direction(1),
+        new Direction(2),
+        new Direction(3),
+    };
+
+    private Direction(int ordinal) {
+        m_ordinal = ordinal;
+    }
+    public static final Direction RIGHT = m_values[0];
+    public static final Direction TOP = m_values[1];
+    public static final Direction LEFT = m_values[2];
+    public static final Direction BOTTOM = m_values[3];
+
+    public static Direction [] values(){
+        return m_values;
+    }
+    public int ordinal() {
+        return ordinal;
+    }
+  }
+
+- enum türleri ctor'ı private yapılmış ve her bir enum türü için     içinde o sınıf türünden bir nesne tutan
+  yapılardır.
+
+  class Direction {
+    private int m_ordinal;
+    private static final Direction [] ms_values =  {
+        new Direction(0),
+        new Direction(1),
+        new Direction(2),
+        new Direction(3),
+    }
+    private Direction(int ordinal) {m_ordinal = ordinal;}
+
+    public static final Direction RIGHT = ms_values[0];
+    public static final Direction TOP = ms_values[1];
+    public static final Direction LEFT = ms_values[2];
+    public static final Direction BOTTOM = ms_values[3];
+
+    public static Direction [] values() {
+        return ms_values;
+    }
+    public int ordinal()
+    {
+        return  m_ordinal;
+    }
+  }
+
+- Enum türü bir sınıf türüdür. Bildirimi enum anahtar sözcüğü ile yapılır.
+  (Yukarıdaki sınıf aslında enum türünün nasıl yazıldığıdır.Yukarıdaki fonksiyonların  hepsi enum yazılarak yapılabilir.)
+
+- enum içerisinde bildiren isimler enum sabiti olarak adlandırılır.
+- Bu isimler public static final ve ilgili enum türündendir.
+- Ancak bildirim sırasında bunlar yazılamaz.
+
+- enum sınıfının toString metodu ilgili sabitin yazısal karşılığını verir.
+
+- her enum sınıfının ordinal(public non-static) metodu referansı gösterdiği indeksin değerini döndürür.
+
+- her enum türünün values metodu bütün sabitlerin  değerlerini tutan bir diziyi döndürür.
+
+- enum türünden bir nesne yaratılamaz.(new ile yapılamaz.)
+
+- enum  türünden nesne sadece içerideki adet kadar yaratılabilir.
+
+- Singleton nesnesinin en kolay yapılışı
+  enum Singleton {
+    INSTANCE
+  }
+--------------------------------------------------------------------------------------------------------------
+                                            16.03.2020
+--------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

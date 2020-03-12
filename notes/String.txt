@@ -1,0 +1,81 @@
+- String sınıfı immutable'dır.(Değiştirilemez. Değiştirmeye yönelik fonksiyonları yeni birer String üretir)
+
+- String sınıfının yazı üzerinde değişiklik yapan metotları immutable özellikten dolayı değiştirilmiş
+  yeni bir String nesnesine ilişkin referansı döndürür
+
+
+- String sınıfının fonksiyonları
+
+    length (return length of String)
+        -str.length()
+
+    charAt(return character)
+        -str.charAt(int index);//throw exception if index out of range;
+
+    indexOf (return index of search, if search is not found, function return -1 )
+        - str.indexof(char ch);
+        - str.indexof(char ch, int index); // start from index [index,str.length())
+        - str.indexof(String str);
+        - str.indexof(String str, int index); // start from index
+
+    lastIndexOf(Same as indexOf but start from end, range between (end,begin]);
+
+    contains (search String in another String, return boolean)
+        - str.contains(String s2);
+
+    equals(compare  Strings  caseSensitive, return boolean)
+        - s1.equals(String s2);
+
+    equalsIgnoreCase(compare Strings without case Sensitive, return boolean);
+            - s1.equalsIgnoreCase(String s2);
+
+    concat (concatenate Strings)
+            -s1.concat(String s2);
+
+    - String can be used like chain call(fluent)
+        - s1.concat(s2).toUpperCase().toLowerCase();
+
+
+    - String can be used with operator +
+        - String s = s1 + s2;
+
+    - if one of the operands of + operator is a String, the result will be String
+        - String s = "Bugün hava " + 37.5 + " derece"
+
+    - isEmpty (test if String is a empty String or not)
+        - s1.isEmpty();
+
+    - for same Strings, compiler produce same address(referece), so same String are produced just a time
+        -it is not acceptable for inputs;
+            String s1 = kb.nextLine();
+            String s2 = kb.nextLine();,
+            (s1==s2) // they will not be equal even though they have same values;
+            String s1 ="ankara";
+            String s2 = "ankara";but this will be true
+
+    - compareTo(return  difference value of the  first different character's  )
+        - s1.compareTo(s2);//lowerCase bigger than uppercase;
+
+    - compareToIgnoreCase(same as upper)
+
+    - subString(return the sub part of String [begIndex,endIndex))
+        s1.substring(int begIndex); // from begIndex to end;
+            s1.substring(0) // return whole string;
+            s1.substring(s1.length())//erturn empty string;
+
+        s1.substring(int begIndex, int endIndex); // [benIndex, endIndex);
+            s1.substring(0,s.length()); // return whole string;
+
+    - startsWith and EndsWith(return booleans if String starts with parameter),
+            s1.startsWith(s2);
+            s1.endsWith(s2);
+
+
+- String sınıfında escaper karakterler belirtmek için iki kere kullanılmalıdır.
+- String s2 = "C:\\file\\user"; gibi olmalıdır.
+- System.out.printf("%%%d", oran) // %50 sonucunu verir.
+
+- format methodu
+    - printf tarzı yeni bir String kullanılmak yaratmak için kullanılır. Static fonksiyondur
+    -  String text  = String.format("Bugün java '%2.f' reece",37.5);
+

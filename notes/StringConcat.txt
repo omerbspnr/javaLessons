@@ -1,0 +1,81 @@
+class StringConCatApp {
+
+    public static void run()
+    {
+        StringConcat stringConcat = new StringConcat("--");
+        stringConcat.run();
+        System.out.println(stringConcat.getRes());
+    }
+}
+
+class StringConcat {
+    private StringBuilder m_sb = new StringBuilder();
+    private final String delim;
+    private String res;
+
+    public StringConcat( char delim) {
+        this(delim + "");
+    }
+    public StringConcat(String delim) {
+        this.delim = delim;
+
+    }
+    private void setRes()
+    {
+        res = m_sb.substring(0,m_sb.length() - delim.length());
+    }
+    private String editString(String s )
+    {
+        StringBuilder kb = new StringBuilder(s.trim());
+        for (int i = 0; i < kb.length() - 1; ++i) {
+            if (kb.charAt(i) == kb.charAt(i + 1) && Character.isWhitespace(kb.charAt(i + 1)))
+                    kb.deleteCharAt(i--);
+        }
+
+        return new String(kb);
+    }
+    private void fillStrings()
+    {
+        System.out.println("Stringleri girmeye başlayınız");
+        Scanner kb = new Scanner(System.in);
+
+        for(;;) {
+            String s = kb.nextLine();
+            if(s.equalsIgnoreCase("exit"))
+                return;
+
+            if(s.trim().isEmpty())
+                continue;
+
+            s = editString(s);
+
+            if(setDelim(s)== 0)
+                return;
+
+        }
+
+    }
+    private int setDelim(String s)
+    {
+        int idx = 0;
+        int idxOld= 0;
+
+        while ( (idx = s.indexOf(' ',idxOld)) != -1) {
+            m_sb.append(s.substring(idxOld, idx)).append(delim);
+            idxOld = idx + 1;
+        }
+
+        if (s.substring(idxOld, s.length()).equals("exit"))
+            return 0;
+        m_sb.append(s.substring(idxOld, s.length())).append(delim);
+        return 1;
+    }
+    public void run() {
+        fillStrings();
+        setRes();
+
+    }
+    public String getRes() {
+        return res;
+    }
+}
