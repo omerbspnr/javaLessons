@@ -6,10 +6,10 @@ package org.csystem.util;
 import java.util.Random;
 
 public class StringUtil {
-	private static String ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
-	private static String ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	private static final String ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	private static final String ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
 
-	private StringUtil(){}
+	private StringUtil() {}
 	public static String capitalize(String str)
 	{
 		str = str.trim();
@@ -20,14 +20,14 @@ public class StringUtil {
 	public static int getCount(String s1, String s2)
 	{
 		int count = 0;
-
+		
 		for (int index = -1; (index = s1.indexOf(s2, index + 1)) != -1; ++count)
-			;
-
+				;	
+		
 		return count;
 	}
 
-	public static String generateRandomPassword(java.util.Random r, int n)
+	public static String generateRandomPassword(Random r, int n)
 	{
 		String chars = "abcçdefgğhıijklmnoöpqrsştuüwxvyz0123456789.:?-_";
 
@@ -47,7 +47,7 @@ public class StringUtil {
 		return generateRandomPassword(new java.util.Random(), n);
 	}
 
-	public static String getRandomString(java.util.Random r, int n, String str)
+	public static String getRandomString(Random r, int n, String str)
 	{
 		char [] c = new char[n];
 
@@ -57,12 +57,12 @@ public class StringUtil {
 		return new String(c);
 	}
 
-	public static String getRandomText(Random r, int n, String alphabet)
+	public static String getRandomText(Random r, int n, String str)
 	{
 		char [] c = new char[n];
 
 		for (int i = 0; i < n; ++i) {
-			char ch = alphabet.charAt(r.nextInt(alphabet.length()));
+			char ch = str.charAt(r.nextInt(str.length()));
 
 			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
 		}
@@ -72,7 +72,6 @@ public class StringUtil {
 
 	public static String getRandomTextEN(java.util.Random r, int n)
 	{
-
 		return getRandomText(r, n, ms_alphabetEN);
 	}
 
@@ -85,17 +84,7 @@ public class StringUtil {
 	{
 		return getRandomText(r, n, ms_alphabetTR);
 	}
-	public static int getLetterCount(String s) {
-		int count = 0;
-		for (int i = 0; i < s.length(); ++i) {
-			char ch = s.charAt(i);
 
-			if (Character.isLetter(ch))
-				++count;
-		}
-
-		return count;
-	}
 	public static String getRandomTextTR(int n)
 	{
 		return getRandomTextTR(new java.util.Random(), n);
@@ -104,40 +93,40 @@ public class StringUtil {
 	public static boolean isPalindrome(String s)
 	{
 		s = removeNonalphabetics(s);
-
+		
 		int len = s.length();
 		int halfLen = len / 2;
-
+		
 		for (int i = 0; i < halfLen; ++i) {
 			char ch1 = Character.toLowerCase(s.charAt(i));
 			char ch2 = Character.toLowerCase(s.charAt(len - 1 - i));
-
+			
 			if (ch1 != ch2)
 				return false;
 		}
-
-		return true;
+		
+		return true;		
 	}
 
 	public static boolean isPangram(String s, String alphabet)
 	{
 		int len = alphabet.length();
-
+		
 		for (int i = 0; i < len; ++i)
 			if (!s.contains(alphabet.charAt(i) + ""))
 				return false;
-
-		return true;
+		
+		return true;		
 	}
-
+	
 	public static boolean isPangramTR(String s)
 	{
-		return isPangram(s.toLowerCase(), "ms_alphabetTR");
+		return isPangram(s.toLowerCase(), ms_alphabetTR);
 	}
-
+	
 	public static boolean isPangramEN(String s)
 	{
-		return isPangram(s.toLowerCase(), "ms_alphabetEN");
+		return isPangram(s.toLowerCase(), ms_alphabetEN);
 	}
 
 	public static String padLeft(String s, int len, char ch)
@@ -168,18 +157,18 @@ public class StringUtil {
 
 	public static String removeNonalphabetics(String s)
 	{
+		String str = "";
 
 		int len = s.length();
-		char [] chars = new char[getLetterCount(s)];
-		int idx = 0;
 
 		for (int i = 0; i < len; ++i) {
 			char ch = s.charAt(i);
 
 			if (Character.isLetter(ch))
-				chars[idx++] = ch;
+				str += ch;
 		}
-		return new String(chars);
+
+		return str;
 	}
 
 	public static String repeat(int n, char ch)
@@ -201,6 +190,29 @@ public class StringUtil {
 		return new String(c);
 	}
 
+	public static String [] split(String str, String delim)
+	{
+		return split(str, delim, StringSplitOptions.NONE);
+	}
+
+	public static String [] split(String str, String delim, StringSplitOptions stringSplitOptions)
+	{
+		String specials = "[].";
+		String re = "[";
+
+		for (int i = 0; i < delim.length(); ++i) {
+			char ch = delim.charAt(i);
+
+			re += specials.indexOf(ch) >= 0 ? "\\" + ch : ch;
+		}
+
+		re += "]";
+
+		if (stringSplitOptions == StringSplitOptions.REMOVEEMPTYENTRIES)
+			re += "+";
+
+		return str.split(re);
+	}
 
 	public static String trimEnd(String s)
 	{
@@ -224,4 +236,3 @@ public class StringUtil {
 		return s.substring(i);
 	}
 }
-

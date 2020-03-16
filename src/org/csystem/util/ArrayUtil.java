@@ -6,21 +6,20 @@ package org.csystem.util;
 import java.util.Random;
 
 public class ArrayUtil {
-
-    private ArrayUtil(){}
+    private ArrayUtil() {}
     public static double average(int [] a)
     {
         return  (double)sum(a) / a.length;
     }
 
-    public static void bubbleSort (int [] a) {
-
-        bubbleSort(a,false);
-
+    public static void bubbleSort(int [] a)
+    {
+        bubbleSort(a, false);
     }
-    public static void bubbleSort (int [] a, boolean desc) {
 
-        if (desc)
+    public static void bubbleSort(int [] a, boolean desc)
+    {
+        if (desc) {
             for (int i = 0; i < a.length - 1; ++i) {
                 for (int k = 0; k < a.length - 1 - i; ++k)
                     if (a[k] < a[k + 1]) {
@@ -29,27 +28,29 @@ public class ArrayUtil {
                         a[k + 1] = temp;
                     }
             }
-        else
-         for (int i = 0; i < a.length - 1; ++i) {
-             for (int k = 0; k < a.length - 1 - i; ++k)
-                 if (a[k] > a[k + 1]) {
-                     int temp = a[k];
-                     a[k] = a[k + 1];
-                     a[k + 1] = temp;
-                 }
-         }
-
+        }
+        else {
+            for (int i = 0; i < a.length - 1; ++i) {
+                for (int k = 0; k < a.length - 1 - i; ++k)
+                    if (a[k] > a[k + 1]) {
+                        int temp = a[k];
+                        a[k] = a[k + 1];
+                        a[k + 1] = temp;
+                    }
+            }
+        }
     }
+
     public static void display(int [] a)
     {
         display(a, 1);
     }
 
-    public static void display(int [] a, int    n)
+    public static void display(int [] a, int n)
     {
         String fmt = String.format("%%0%dd ", n);
 
-       for (int val : a)
+        for (int val : a)
             System.out.printf(fmt, val);
 
         System.out.println();
@@ -61,7 +62,7 @@ public class ArrayUtil {
     }
     public static void display(int [][] a, int n)
     {
-            for (int [] array : a)
+        for (int [] array : a)
             display(array, n);
     }
 
@@ -70,7 +71,7 @@ public class ArrayUtil {
         int maxVal = max(hist);
 
         for (int val : hist) {
-            int nCh = val * n / maxVal; //(int)Math.round(hist[i] * n / (double)maxVal);
+            int nCh = val * n / maxVal;
 
             while (nCh-- > 0)
                 System.out.print(ch);
@@ -170,8 +171,8 @@ public class ArrayUtil {
     {
         String str = "";
 
-        for (String sVal : s)
-            str += sVal + delim;
+        for (String sval : s)
+            str += sval + delim;
 
         return str.substring(0, str.length() - delim.length());
     }
@@ -184,34 +185,6 @@ public class ArrayUtil {
             result = Math.max(result, a[i]);
 
         return result;
-    }
-
-    public static int mod (int [] a)
-    {
-
-        int mod = a[0];
-        int modCount = 1;
-        int cnt;
-
-
-        for (int i= 0; i < a.length - 1; ++i) {
-            cnt = 1;
-            for (int k = i + 1; k < a.length; ++k)
-                if (a[i] == a[k]){
-                    ++cnt;
-
-
-                    if (cnt > modCount) {
-                        mod = a[i];
-                        modCount = cnt;
-
-                    }
-                }
-
-        }
-
-        return mod;
-
     }
 
     public static int min(int [] a)
@@ -247,21 +220,7 @@ public class ArrayUtil {
             a[a.length - 1 - i] = temp;
         }
     }
-    public static double standartDeviation(int [] a)
-    {
-        int len = a.length;
 
-        int sum = sum(a);
-
-        double avg = (double)sum / len;
-
-        double deviationSum = 0;
-
-        for (int val : a)
-                deviationSum += Math.pow(val - avg, 2);
-
-        return Math.sqrt(deviationSum / len);
-    }
     public static int sum(int [] a)
     {
         int result = 0;
@@ -275,7 +234,6 @@ public class ArrayUtil {
     public static int sumDiagonal(int [][] a)
     {
         //...
-
         int sum = 0;
 
         for (int i = 0; i < a.length; ++i)

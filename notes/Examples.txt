@@ -9272,7 +9272,7 @@ class App {
 
 		double dist = p1.distance(p2);
 
-		System.out.println(dist);ample.x;
+		System.out.println(dist);
 
 		dist = p1.distance(50 ,50);
 
@@ -9787,8 +9787,7 @@ class BallFlow {
 		fillWithSpace(0, ballIndex);
 		System.out.print("*");
 		fillWithSpace(ballIndex + 1, width);
-	}        java.util.Random r = new java.util.Random();
-
+	}
 
 	public static void run()
 	{
@@ -9812,14 +9811,14 @@ class BallFlow {
 			else if (ballIndex == width - 1)
 				incFlag = false;
 
-			if (incFlag)
-				++ballIndex;
-			else
-				--ballIndex;
+			if (width != 1)
+                if (incFlag)
+                    ++ballIndex;
+                else
+                    --ballIndex;
 
 			System.out.println("|");
 		}
-
 	}
 }
 
@@ -10405,9 +10404,6 @@ class App {
 		Complex z = new Complex(3, 4);
 
 		z.dec();
-
-	}
-}
 		z.display();
 	}
 }
@@ -12465,7 +12461,7 @@ class StringUtil {
   	- Bir .java dosyası içerisinde public sınıf olmak zorunda değildir. public sınıf olacaksa dosya ismi
   	ile aynı isimde olan sınıf ancak public olabilir.
 
-  	- Bir .java dosyası içerisinde dosya ismi ile aynı isimde sınıf olmak zorunda değildir.
+  	- Bir .java dosyası içerisinde dosya ismi ile aynı isimde sınıf olmak zorunda değildir
 
   	- Bir .java dosyası içerisinde public olmayan istenildiği kadar sınıf yazılabilir
 
@@ -13879,8 +13875,7 @@ class App {
             System.out.printf("%d ", a[i]);
 
         System.out.println();
-    }    new
-
+    }
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -17368,7 +17363,7 @@ public class A {
     }
 }
 package mest;
- üniversite 1’de iken otonom araç projesinde, otonom elektrik süpürgesi yaptım 3 kişi ile.
+
 import test.A;
 
 public class B {
@@ -19882,9 +19877,7 @@ public class Date {
     {
         Calendar now = Calendar.getInstance();
 
-        m_day = now.get(Calendar.DAY_OF_MONTH);
-        m_mon = now.get(Calendar.MONTH) + 1;
-        m_year = now.get(Calendar.YEAR);
+        set(now.get(Calendar.DAY_OF_MONTH), now.get(Calendar.MONTH) + 1, now.get(Calendar.YEAR));
     }
 
     public Date(int day, int mon, int year)
@@ -22098,7 +22091,7 @@ enum Color {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-    enum türünden nesne hiç biryerde new opearatörü ile yaratılamaz
+    enum türünden nesne hiç bir yerde new opearatörü ile yaratılamaz
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -22112,6 +22105,1604 @@ class App {
 enum Color {
     RED, GREEN, BLUE
 }
+
+/*----------------------------------------------------------------------------------------------------------------------
+    14.03.2020
+    enun türüne sabitlerden sonra noktalı virgül konarak yeni elemanlar eklenebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color.RED.foo();
+        Color.BLUE.foo();
+    }
+}
+
+enum Color {
+    RED, GREEN, BLUE;
+    public void foo()
+    {
+        System.out.println("foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türünden nesne enum içerisinde bile yaratılamaz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color.RED.foo();
+        Color.BLUE.foo();
+    }
+}
+
+enum Color {
+    RED, GREEN, BLUE;
+    public void foo()
+    {
+        Color c = new Color(); //error
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki gibi bir bildirimde default ctor çağrılır. Aşağdaıki örnekte enum sınıfının bir elemanı
+    (dikkat sabit olması gerekmez) ilk kez kullanıldığında tamamı yaratılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color c = Color.RED;
+
+
+    }
+}
+
+enum Color {
+    RED, GREEN, BLUE;
+
+    Color()
+    {
+        System.out.println("Color.Color");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnek yukarıdaki ile birebir aynıdır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color c = Color.RED;
+
+
+    }
+}
+
+enum Color {
+    RED(), GREEN(), BLUE();
+
+    Color()
+    {
+        System.out.println("Color.Color");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türlerine uygun ctor yazılarak enum sabitine ilişkin değerler belirlenebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color c = Color.WHITE;
+
+        System.out.printf("(R = %d, G = %d, B = %d)%n", c.getR(), c.getG(), c.getB());
+    }
+}
+
+enum Color {
+    RED(255, 0, 0), GREEN(0, 255, 0), BLUE(0, 0, 255), WHITE(255, 255, 255), BLACK(0, 0, 0);
+
+    private int m_r, m_g, m_b;
+
+    Color(int r, int g, int b)
+    {
+        m_r = r;
+        m_g = g;
+        m_b = b;
+    }
+
+    public int getR()
+    {
+        return m_r;
+    }
+
+    public int getG()
+    {
+        return m_g;
+    }
+
+    public int getB()
+    {
+        return m_b;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum ile singleton sınıf tasarımı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Singleton s = Singleton.INSTANCE;
+        Singleton k = Singleton.INSTANCE;
+
+        System.out.println(s == k);
+    }
+}
+
+enum Singleton {
+    INSTANCE;
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    switch deyiminde bir sınıf referansı kullanılamaz.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Direction d = Direction.LEFT;
+
+        switch (d) { //error
+            case Direction.LEFT:
+                //...
+                break;
+        }
+
+
+    }
+}
+
+class Direction {
+    private final int m_ordinal;
+    private static final Direction [] m_values = {
+            new Direction(0),
+            new Direction(1),
+            new Direction(2),
+            new Direction(3)};
+    private Direction(int ordinal) {m_ordinal = ordinal;}
+    public static final Direction RIGHT = m_values[0];
+    public static final Direction TOP =  m_values[1];
+    public static final Direction LEFT =  m_values[2];
+    public static final Direction BOTTOM =  m_values[3];
+
+    public static Direction [] values() {return m_values;}
+    public int ordinal() {return m_ordinal;}
+}
+
+class Direction {
+    private Direction() {}
+    public static final int RIGHT = 1;
+    public static final int TOP = 2;
+    public static final int LEFT = 3;
+    public static final int BOTTOM = 4;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türleri switch deyimi ile kullanılabilir. Bu durumda case bölümlerine yazılacak enum sabitleri
+    için enum ismi kullanımı geçersizdir. Sadece sabit kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Direction d = Direction.LEFT;
+
+        switch (d) {
+            case LEFT:
+                System.out.println("left");
+                break;
+            case RIGHT:
+                System.out.println("right");
+                break;
+            default:
+                //...
+        }
+    }
+}
+
+enum Direction {
+    RIGHT, TOP, LEFT, BOTTOM
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aynı türden enum referansları == ve != operatörü ile karşılaştırılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Direction d = Direction.BOTTOM;
+
+        if (d == Direction.BOTTOM)
+            System.out.println("Aşağı yön");
+        else
+            System.out.println("Geçersiz yön");
+    }
+}
+
+enum Direction {
+    RIGHT, TOP, LEFT, BOTTOM
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türleri equals metodu ile karşılaştırılabilir. enum'lar farklı türdense equals her zaman false değerini
+    döndürür
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Direction d = Direction.LEFT;
+        Color c = Color.BLUE;
+
+        System.out.println(d.equals(c));
+    }
+}
+
+
+enum Color {
+    RED, GREEN, BLUE
+}
+enum Direction {
+    RIGHT, TOP, LEFT, BOTTOM
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türleri equals metodu ile karşılaştırılabilir. enum'lar aynı türdense enum ilgili enum referansına
+    göre karşılaştırma yapılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Direction d1 = Direction.LEFT;
+        Direction d2 = Direction.LEFT;
+
+        System.out.println(d1.equals(d2));
+    }
+}
+
+enum Direction {
+    RIGHT, TOP, LEFT, BOTTOM
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türlerinin campareTo metodu ile enumlar arasındaki ordinal farkı elde edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        DayOfWeek dayOfWeek1 = DayOfWeek.FRI;
+        DayOfWeek dayOfWeek2 = DayOfWeek.MON;
+
+        System.out.println(dayOfWeek2.compareTo(dayOfWeek1));
+    }
+}
+
+enum DayOfWeek {
+    SUN, MON, TUE, WED, THU, FRI, SAT
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Homework-015 için bir iskelet
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Card [] deck;
+
+        deck = Card.getShuffledDeck();
+
+        for (Card c : deck)
+            System.out.println(c.toString());
+    }
+}
+
+enum CardType  {  SPADE, CLUB, DIAMOND, HEART }
+
+enum CardValue {  TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, KNAVE, QUEEN, KING, ACE  }
+
+class Card {
+    private CardType m_cardType;
+    private CardValue m_cardValue;
+
+    public static Card [] getShuffledDeck()
+    {
+        Card [] deck = new Card[52];
+
+        int index = 0;
+
+        for (CardType cardType : CardType.values())
+            for (CardValue cardValue : CardValue.values())
+                deck[index++] = new Card(cardType, cardValue);
+
+        //....
+
+        return deck;
+    }
+
+    public Card(CardType cardType, CardValue cardValue)
+    {
+        m_cardType = cardType;
+        m_cardValue = cardValue;
+    }
+
+    public String toString()
+    {
+        return String.format("%s-%s", m_cardType, m_cardValue);
+    }
+
+    //...
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Date sınıfı ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.datetime.Date;
+import org.csystem.util.datetime.Month;
+
+class App {
+    public static void main(String [] args)
+    {
+        Date d = new Date(14, Month.MAR, 2020);
+
+        System.out.println(d.toLongDateStringTR());
+        System.out.println(d.getDayOfWeek().toString());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Date sınıfı ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.datetime.Date;
+import org.csystem.util.datetime.Month;
+
+class App {
+    public static void main(String [] args)
+    {
+        Date d = new Date(14, Month.MAR, 2020);
+
+        System.out.println(d.toLongDateStringTR());
+        System.out.println(d.getMonth().toString());
+
+        d.setMonth(Month.APR);
+
+        System.out.println(d.toLongDateStringTR());
+        System.out.println(d.getMonth().toString());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Date sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util.datetime;
+
+import java.util.Calendar;
+import java.util.Random;
+
+public class Date {
+    private static final String [] ms_weekDaysTR = {"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
+    private static final String [] ms_weekDaysEN = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+
+    private int m_day, m_mon, m_year;
+    private int m_dayOfWeek;
+
+    private static int getDayOfWeek(int day, int mon, int year)
+    {
+        int totalDays = getDayOfYear(day, mon, year);
+
+        for (int y = 1900; y < year; ++y)
+            totalDays += Month.isLeapYear(y) ? 366 : 365;
+
+        return totalDays % 7;
+    }
+
+    private static int getDayOfYear(int day, int mon, int year)
+    {
+        int dayOfYear = day;
+
+        for (int m = mon - 1; m >= 1; --m)
+            dayOfYear += Month.values()[m - 1].getDaysByYear(year);
+
+        return dayOfYear;
+    }
+
+    private static boolean isValidDate(int day, int mon, int year)
+    {
+        if (day < 1 || day > 31 || mon < 1 || mon > 12)
+            return false;
+
+        int days =  Month.values()[mon - 1].getDaysByYear(year);
+
+        return day <= days;
+    }
+
+    private static void doWorkForException(String msg)
+    {
+        System.out.println(msg);
+        System.exit(-1); //exception konusuna kadar sabredin
+    }
+
+    private static void control(int day, int mon, int year, String msg)
+    {
+        if (!isValidDate(day, mon, year))
+            doWorkForException(msg);
+    }
+
+    private void controlForDay(int day)
+    {
+        control(day, m_mon, m_year, "Invalid day");
+    }
+
+    private void controlForMonValue(int monVal)
+    {
+        control(m_day, monVal, m_year, "Invalid month");
+    }
+
+    private void controlForYear(int year)
+    {
+        control(m_day, m_mon, year, "Invalid year");
+    }
+
+    private void set(int day, int mon, int year)
+    {
+        m_day = day;
+        m_mon = mon;
+        m_year = year;
+        m_dayOfWeek = getDayOfWeek(m_day, m_mon, m_year);
+    }
+
+    private int getDayOfWeekValue() {return m_dayOfWeek;}
+
+    public static Date randomDate()
+    {
+        return randomDate(new Random());
+    }
+
+    public static Date randomDate(Random r)
+    {
+        Date now = new Date();
+
+        return randomDate(r, now.m_year, now.m_year);
+    }
+
+    public static Date randomDate(int year)
+    {
+        return randomDate(new Random(), year);
+    }
+
+    public static Date randomDate(Random r, int year)
+    {
+        return randomDate(r, year, year);
+    }
+    public static Date randomDate(int minYear, int maxYear)
+    {
+        return randomDate(new Random(), minYear, maxYear);
+    }
+
+    public static Date randomDate(Random r, int minYear, int maxYear)
+    {
+        int year = r.nextInt(maxYear - minYear + 1) + minYear;
+        int mon = r.nextInt(12) + 1;
+        int days =  Month.values()[mon - 1].getDaysByYear(year);
+        int day = r.nextInt(days) + 1;
+
+        return new Date(day, mon, year);
+    }
+
+    public Date()
+    {
+        Calendar now = Calendar.getInstance();
+
+        set(now.get(Calendar.DAY_OF_MONTH), now.get(Calendar.MONTH) + 1, now.get(Calendar.YEAR));
+    }
+
+    public Date(int day, Month month, int year)
+    {
+        control(day, month.ordinal() + 1, year, "Invalid date");
+        set(day, month.ordinal() + 1, year);
+    }
+
+    public Date(int day, int mon, int year)
+    {
+        control(day, mon, year, "Invalid date");
+        set(day, mon, year);
+    }
+
+    public void setDay(int day)
+    {
+        if (day == m_day)
+            return;
+
+        controlForDay(day);
+        set(day, m_mon, m_year);
+    }
+
+    public void setMonth(Month month)
+    {
+        setMonthValue(month.ordinal() + 1);
+    }
+
+    public void setMonthValue(int mon)
+    {
+        if (m_mon == mon)
+            return;
+
+        controlForMonValue(mon);
+        set(m_day, mon, m_year);
+    }
+
+    public void setYear(int year)
+    {
+        if (m_year == year)
+            return;
+
+        controlForYear(year);
+        set(m_day, m_mon, year);
+    }
+
+    public int getDay()
+    {
+        return m_day;
+    }
+    public int getMonthValue()
+    {
+        return m_mon;
+    }
+    public Month getMonth() {return Month.values()[m_mon - 1];}
+    public int getYear()
+    {
+        return m_year;
+    }
+    public DayOfWeek getDayOfWeek() {return DayOfWeek.values()[getDayOfWeekValue()];}
+    public String getDayOfWeekTR() {return ms_weekDaysTR[getDayOfWeekValue()];}
+    public String getDayOfWeekEN() {return ms_weekDaysEN[getDayOfWeekValue()];}
+    public int getDayOfYear() {return getDayOfYear(m_day, m_mon, m_year);}
+
+    public boolean isLeapYear()
+    {
+        return  Month.isLeapYear(m_year);
+    }
+
+    public boolean isWeekend()
+    {
+        return m_dayOfWeek == 0 || m_dayOfWeek == 6;
+    }
+
+    public boolean isWeekday()
+    {
+        return !isWeekend();
+    }
+
+    public String toString(char delim)
+    {
+        return String.format("%02d%c%02d%c%04d", m_day, delim, m_mon, delim, m_year);
+    }
+
+    public String toString()
+    {
+        return toString('/');
+    }
+
+    public String toStringTR()
+    {
+        return toStringTR('/');
+    }
+
+    public String toStringTR(char delim)
+    {
+        return String.format("%s %s", toString(delim), getDayOfWeekTR());
+    }
+
+    public String toStringEN()
+    {
+        return toStringEN('/');
+    }
+
+    public String toStringEN(char delim)
+    {
+        return String.format("%s %s", toString(delim), getDayOfWeekEN());
+    }
+
+    public String toLongDateStringTR()
+    {
+        //TODO:
+        return toStringTR();
+    }
+
+    public String toLongDateStringEN()
+    {
+        //TODO:
+        return toStringEN();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki Fighter sınıfında enum kullanılarak yeni eklentiler daha kolay bir biçimde yapılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Fighter f = new Fighter("lokman");
+
+        f.setHealth(70);
+        f.setAgility(30);
+        f.setPower(50);
+        f.setWeight(78);
+
+        //....
+    }
+}
+
+class Fighter {
+    private String m_name;
+    private int [] m_abilities;
+    private enum ABILITY {HEALTH, AGILITY, POWER, WEIGHT}
+
+    public Fighter(String name)
+    {
+        m_name = name;
+        m_abilities = new int[ABILITY.values().length];
+    }
+
+    public String getName()
+    {
+        return m_name;
+    }
+
+    public void setName(String name)
+    {
+        m_name = name;
+    }
+
+    public int getHealth()
+    {
+        return m_abilities[ABILITY.HEALTH.ordinal()];
+    }
+
+    public void setHealth(int health)
+    {
+        //...
+        m_abilities[ABILITY.HEALTH.ordinal()] = health;
+    }
+
+    public int getAgility()
+    {
+        return m_abilities[ABILITY.AGILITY.ordinal()];
+    }
+
+    public void setAgility(int agility)
+    {
+        //...
+        m_abilities[ABILITY.AGILITY.ordinal()] = agility;
+    }
+
+    public int getPower()
+    {
+        return m_abilities[ABILITY.POWER.ordinal()];
+    }
+
+    public void setPower(int power)
+    {
+        //...
+        m_abilities[ABILITY.POWER.ordinal()] = power;
+    }
+
+    public int getWeight()
+    {
+        return m_abilities[ABILITY.WEIGHT.ordinal()];
+    }
+
+    public void setWeight(int weight)
+    {
+        //...
+        m_abilities[ABILITY.WEIGHT.ordinal()] = weight;
+    }
+
+    public int sumOfAbilities()
+    {
+        int sum = 0;
+
+        for (int val : m_abilities)
+            sum += val;
+
+        return sum;
+    }
+
+    public double averageOfAbilities()
+    {
+        return (double)sumOfAbilities() / m_abilities.length;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki Fighter sınıfında enum kullanılarak yeni eklentiler daha kolay bir biçimde yapılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Fighter f = new Fighter("lokman");
+
+        f.setHealth(70);
+        f.setAgility(30);
+        f.setPower(50);
+        f.setWeight(78);
+
+        //....
+    }
+}
+
+class Fighter {
+    private String m_name;
+    private int [] m_abilities;
+    private enum ABILITY {HEALTH, AGILITY, POWER, WEIGHT, COUNT}
+
+    public Fighter(String name)
+    {
+        m_name = name;
+        m_abilities = new int[ABILITY.COUNT.ordinal()];
+    }
+
+    public String getName()
+    {
+        return m_name;
+    }
+
+    public void setName(String name)
+    {
+        m_name = name;
+    }
+
+    public int getHealth()
+    {
+        return m_abilities[ABILITY.HEALTH.ordinal()];
+    }
+
+    public void setHealth(int health)
+    {
+        //...
+        m_abilities[ABILITY.HEALTH.ordinal()] = health;
+    }
+
+    public int getAgility()
+    {
+        return m_abilities[ABILITY.AGILITY.ordinal()];
+    }
+
+    public void setAgility(int agility)
+    {
+        //...
+        m_abilities[ABILITY.AGILITY.ordinal()] = agility;
+    }
+
+    public int getPower()
+    {
+        return m_abilities[ABILITY.POWER.ordinal()];
+    }
+
+    public void setPower(int power)
+    {
+        //...
+        m_abilities[ABILITY.POWER.ordinal()] = power;
+    }
+
+    public int getWeight()
+    {
+        return m_abilities[ABILITY.WEIGHT.ordinal()];
+    }
+
+    public void setWeight(int weight)
+    {
+        //...
+        m_abilities[ABILITY.WEIGHT.ordinal()] = weight;
+    }
+
+    public int sumOfAbilities()
+    {
+        int sum = 0;
+
+        for (int val : m_abilities)
+            sum += val;
+
+        return sum;
+    }
+
+    public double averageOfAbilities()
+    {
+        return (double)sumOfAbilities() / ABILITY.COUNT.ordinal();
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    enum türlerinin valueOf metodu ile enum türüne ilişkin sabit isminden enum referansı elde edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Color color = Color.valueOf("GREEN");
+
+        System.out.println(color.toString());
+    }
+}
+
+enum Color {
+    RED, GREEN, BLUE
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    StringUtil sınıfının split metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.StringSplitOptions;
+import org.csystem.util.StringUtil;
+
+class App {
+    public static void main(String [] args)
+    {
+        String str = "Bugün hava çok güzel. Bu güzel havada ders mi yapılır";
+
+        for (String s : StringUtil.split(str, " .;", StringSplitOptions.REMOVEEMPTYENTRIES))
+            System.out.println(s);
+    }
+}
+
+
+
+package org.csystem.util;
+
+public enum StringSplitOptions {
+    NONE, REMOVEEMPTYENTRIES
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	StringUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+import java.util.Random;
+
+public class StringUtil {
+	private static final String ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	private static final String ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+
+	private StringUtil() {}
+	public static String capitalize(String str)
+	{
+		str = str.trim();
+
+		return !str.isEmpty() ? Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase() : "";
+	}
+
+	public static int getCount(String s1, String s2)
+	{
+		int count = 0;
+
+		for (int index = -1; (index = s1.indexOf(s2, index + 1)) != -1; ++count)
+				;
+
+		return count;
+	}
+
+	public static String generateRandomPassword(Random r, int n)
+	{
+		String chars = "abcçdefgğhıijklmnoöpqrsştuüwxvyz0123456789.:?-_";
+
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i)  {
+			char ch = chars.charAt(r.nextInt(chars.length()));
+
+			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
+		}
+
+		return new String(c);
+	}
+
+	public static String generateRandomPassword(int n)
+	{
+		return generateRandomPassword(new java.util.Random(), n);
+	}
+
+	public static String getRandomString(Random r, int n, String str)
+	{
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i)
+			c[i] = str.charAt(r.nextInt(str.length()));
+
+		return new String(c);
+	}
+
+	public static String getRandomText(Random r, int n, String str)
+	{
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i) {
+			char ch = str.charAt(r.nextInt(str.length()));
+
+			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
+		}
+
+		return new String(c);
+	}
+
+	public static String getRandomTextEN(java.util.Random r, int n)
+	{
+		return getRandomText(r, n, ms_alphabetEN);
+	}
+
+	public static String getRandomTextEN(int n)
+	{
+		return getRandomTextEN(new java.util.Random(), n);
+	}
+
+	public static String getRandomTextTR(java.util.Random r, int n)
+	{
+		return getRandomText(r, n, ms_alphabetTR);
+	}
+
+	public static String getRandomTextTR(int n)
+	{
+		return getRandomTextTR(new java.util.Random(), n);
+	}
+
+	public static boolean isPalindrome(String s)
+	{
+		s = removeNonalphabetics(s);
+
+		int len = s.length();
+		int halfLen = len / 2;
+
+		for (int i = 0; i < halfLen; ++i) {
+			char ch1 = Character.toLowerCase(s.charAt(i));
+			char ch2 = Character.toLowerCase(s.charAt(len - 1 - i));
+
+			if (ch1 != ch2)
+				return false;
+		}
+
+		return true;
+	}
+
+	public static boolean isPangram(String s, String alphabet)
+	{
+		int len = alphabet.length();
+
+		for (int i = 0; i < len; ++i)
+			if (!s.contains(alphabet.charAt(i) + ""))
+				return false;
+
+		return true;
+	}
+
+	public static boolean isPangramTR(String s)
+	{
+		return isPangram(s.toLowerCase(), ms_alphabetTR);
+	}
+
+	public static boolean isPangramEN(String s)
+	{
+		return isPangram(s.toLowerCase(), ms_alphabetEN);
+	}
+
+	public static String padLeft(String s, int len, char ch)
+	{
+		if (len <= s.length())
+			return s;
+
+		return repeat(len - s.length(), ch) + s;
+	}
+
+	public static String padLeft(String s, int len)
+	{
+		return padLeft(s, len, ' ');
+	}
+
+	public static String padRight(String s, int len, char ch)
+	{
+		if (len <= s.length())
+			return s;
+
+		return s + repeat(len - s.length(), ch);
+	}
+
+	public static String padRight(String s, int len)
+	{
+		return padRight(s, len, ' ');
+	}
+
+	public static String removeNonalphabetics(String s)
+	{
+		String str = "";
+
+		int len = s.length();
+
+		for (int i = 0; i < len; ++i) {
+			char ch = s.charAt(i);
+
+			if (Character.isLetter(ch))
+				str += ch;
+		}
+
+		return str;
+	}
+
+	public static String repeat(int n, char ch)
+	{
+		char [] c = new char[n];
+
+		while (n-- > 0)
+			c[n] += ch;
+
+		return new String(c);
+	}
+
+	public static String reverse(String str)
+	{
+		char [] c = str.toCharArray();
+
+		ArrayUtil.reverse(c);
+
+		return new String(c);
+	}
+
+	public static String [] split(String str, String delim)
+	{
+		return split(str, delim, StringSplitOptions.NONE);
+	}
+
+	public static String [] split(String str, String delim, StringSplitOptions stringSplitOptions)
+	{
+		String specials = "[].";
+		String re = "[";
+
+		for (int i = 0; i < delim.length(); ++i) {
+			char ch = delim.charAt(i);
+
+			re += specials.indexOf(ch) >= 0 ? "\\" + ch : ch;
+		}
+
+		re += "]";
+
+		if (stringSplitOptions == StringSplitOptions.REMOVEEMPTYENTRIES)
+			re += "+";
+
+		return str.split(re);
+	}
+
+	public static String trimEnd(String s)
+	{
+		int i;
+
+		for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
+			;
+
+		return s.substring(0, i + 1);
+	}
+
+	public static String trimStart(String s)
+	{
+		int i;
+
+		int len = s.length();
+
+		for (i = 0; i < len && Character.isWhitespace(s.charAt(i)); ++i)
+			;
+
+		return s.substring(i);
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	15.03.2020
+	Sınıflar arası ilişkiler:
+	1. Composition (İçerme) (has a): A ile B arasındaki A has a B ilişkisinde aşağıdaki iki kural geçerldir.
+	 Ya da aşağıdaki iki kural geçerli ise A ile B arasında bir composition ilişkisi vardır:
+	    - A nesnesine ait B nesnesi başka bir nesne tarafından kullanılamayacak
+	    - A nesnesine ait B nesnesinin ömrü A ile hemen hemen aynı olacak
+	Bu ilişki bütünsel (whole) bir ilişkidir. Yani A nesnesi kendisine ait olan B nesnesini bütünsel olarak kullanır
+	2. Aggregation (birleşme) (holds a): A ile B arasındaki A holds a B ilişkisi yukarıdaki kuralların en az bir
+	tanesinin olmadığı durumda bütünsel olan ilişkidir
+	3. Association (çağrışım): A sınıfının B sınıfını ihtiyacı ölçüsünde kullanması. Yani bütünsel kullanmaması.
+	4. Inheritance (türetme-kalıtım) (is a):
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Composition ilişkisinin genel biçimi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new A(/*...*/);
+
+        x.doWork();
+    }
+}
+
+
+class A {
+    private B m_b;
+
+    public A(/*...*/)
+    {
+        m_b = new B(/*...*/);
+    }
+
+    public void doWork()
+    {
+        m_b.doSomething();
+    }
+    //...
+}
+
+class B {
+    //...
+    public void doSomething()
+    {
+
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Car, Engine, Plane sınıfları arasındaki ilişkiler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Car car = new Car(/*...*/);
+        Plane plane = new Plane(4/*...*/);
+
+        car.run();
+        System.out.println("*************");
+        plane.fly();
+    }
+}
+
+class Plane {
+    private Engine[] m_engines;
+
+    private void startEngines()
+    {
+        for (Engine e : m_engines)
+            e.startEngine();
+    }
+
+    private void accelerateEngines()
+    {
+        for (Engine e : m_engines)
+            e.accelerateEngine();
+    }
+
+    private void slowEngines()
+    {
+        for (Engine e : m_engines)
+            e.slowEngine();
+    }
+
+    private void stopEngines()
+    {
+        for (Engine e : m_engines)
+            e.stopEngine();
+    }
+    public Plane(int n/*...*/)
+    {
+        m_engines = new Engine[n];
+        for (int i = 0; i < n; ++i)
+            m_engines[i] = new Engine(/*..*/);
+    }
+
+    public void fly()
+    {
+        startEngines();
+        accelerateEngines();
+
+        //...
+        slowEngines();
+        stopEngines();
+    }
+}
+
+class Car {
+    private Engine m_engine;
+    //...
+
+    private void brake()
+    {
+        m_engine.slowEngine();
+    }
+    public Car(/*...*/)
+    {
+        m_engine = new Engine(/*...*/);
+    }
+
+    public void run()
+    {
+        m_engine.startEngine();
+        m_engine.accelerateEngine();
+
+        //...
+        brake();
+
+        m_engine.stopEngine();
+    }
+}
+
+class Engine {
+    //...
+
+    public void startEngine()
+    {
+        System.out.println("start engine");
+    }
+
+    public void accelerateEngine()
+    {
+        System.out.println("accelerate engine");
+    }
+
+    public void slowEngine()
+    {
+        System.out.println("slow engine");
+    }
+
+    public void stopEngine()
+    {
+        System.out.println("stop engine");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aggregation ilişkisinin genel biçimi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        B x = new B(/*...*/);
+        A y = new A(x/*...*/);
+
+        y.doWork();
+
+        //...
+
+        B z = new B(/*...*/);
+
+        y.setB(z);
+
+        y.doWork();
+    }
+}
+
+class A {
+    private B m_b;
+
+    public A(B b/*...*/)
+    {
+        setB(b);
+    }
+
+    public void doWork()
+    {
+        m_b.doSomething();
+    }
+
+    public B getB() {return m_b;}
+
+    public void setB(B b)
+    {
+        //...
+        m_b = b;
+    }
+}
+
+class B {
+    //...
+    public void doSomething()
+    {
+        //...
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Connection ve Statement arasındaki aggregation ilişkisi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        String url = "jdbc:postgresql://192.34.56.78:5432/devicesappdb";
+        String username = "postgres";
+        String password = "csd1993";
+
+        Connection connection = new Connection(url, username, password);
+        Statement statementInsert = new Statement(connection, "insert into devices (name, host) values (?, ?)");
+        //...
+
+        statementInsert.executeNonQuery();
+
+        Statement statementQuery = new Statement(connection, "select * from device where device_id > ?");
+
+        statementQuery.executeQuery();
+    }
+}
+
+class Statement {
+    private Connection m_connection;
+    private String m_cmdText;
+
+    private void connect()
+    {
+        System.out.printf("URL:%s%n", m_connection.getUrl());
+        System.out.printf("Username:%s%n", m_connection.getUsername());
+        System.out.printf("Password:%s%n", m_connection.getPassword());
+    }
+    public Statement(Connection connection, String cmdText)
+    {
+        m_connection = connection;
+        m_cmdText = cmdText;
+    }
+
+    public Connection getConnection()
+    {
+        return m_connection;
+    }
+
+    public void setConnection(Connection connection)
+    {
+        m_connection = connection;
+    }
+
+    public String getCmdText()
+    {
+        return m_cmdText;
+    }
+
+    public void setCmdText(String cmdText)
+    {
+        m_cmdText = cmdText;
+    }
+
+    public void executeQuery()
+    {
+        System.out.println("executeQuery");
+        connect();
+        System.out.printf("Command:%s%n", m_cmdText);
+    }
+
+    public void executeNonQuery()
+    {
+        System.out.println("executeNonQuery");
+        connect();
+        System.out.printf("Command:%s%n", m_cmdText);
+    }
+}
+
+class Connection {
+    private String m_url;
+    private String m_username;
+    private String m_password;
+
+    public Connection(String url, String username, String password)
+    {
+        m_url = url;
+        m_username = username;
+        m_password = password;
+    }
+
+    public String getUrl()
+    {
+        return m_url;
+    }
+
+    public void setUrl(String url)
+    {
+        m_url = url;
+    }
+
+    public String getUsername()
+    {
+        return m_username;
+    }
+
+    public void setUsername(String username)
+    {
+        m_username = username;
+    }
+
+    public String getPassword()
+    {
+        return m_password;
+    }
+
+    public void setPassword(String password)
+    {
+        m_password = password;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Association ilişkisinin genel biçimi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        B x = new B(/*...*/);
+        A y = new A(/**/);
+        B z = new B(/*...*/);
+
+        y.doWork(x);
+        y.doWork(z);
+    }
+}
+
+class A {
+    public void doWork(B b)
+    {
+        b.doSomething();
+    }
+}
+class B {
+    public void doSomething()
+    {
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki durum aggregation gibi görünse de String sınıfının immutable olmasından dolayı aslında aggregation
+    değildir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        String name = "oğuz";
+
+        Person p = new Person(name);
+
+        name = "yavuz";
+        System.out.println(p.getName());
+    }
+}
+
+class Person {
+    private String m_name;
+
+    public Person(String name)
+    {
+        m_name = name;
+    }
+
+    public String getName()
+    {
+        return m_name;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Taxi, Driver ve Client sınıfları arasındaki ilişkiler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Client client1 = new Client(/*...*/);
+        Client client2 = new Client(/*...*/);
+        Driver driver = new Driver(/*...*/);
+        Taxi taxi = new Taxi(driver/*...*/);
+
+        taxi.take(client1);
+
+        taxi.take(client2);
+
+        Driver driver2 = new Driver(/*...*/);
+
+        taxi.setDriver(driver2);
+
+        taxi.take(client1);
+    }
+}
+
+class Taxi {
+    //...
+    private Driver m_driver;
+
+    public Taxi(Driver driver)
+    {
+        m_driver = driver;
+    }
+
+    public Driver getDriver()
+    {
+        return m_driver;
+    }
+
+    public void setDriver(Driver driver)
+    {
+        m_driver = driver;
+    }
+
+    public void take(Client client)
+    {
+        //...
+    }
+}
+
+class Driver {
+    //...
+}
+
+class Client {
+    //...
+}
+
 
 
 

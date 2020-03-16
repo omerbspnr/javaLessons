@@ -1,96 +1,58 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    Taxi, Driver ve Client sınıfları arasındaki ilişkiler
+----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
-
 
 class App {
     public static void main(String [] args)
     {
-        System.out.println("hello world");
-    }
+        Client client1 = new Client(/*...*/);
+        Client client2 = new Client(/*...*/);
+        Driver driver = new Driver(/*...*/);
+        Taxi taxi = new Taxi(driver/*...*/);
 
+        taxi.take(client1);
+
+        taxi.take(client2);
+
+        Driver driver2 = new Driver(/*...*/);
+
+        taxi.setDriver(driver2);
+
+        taxi.take(client1);
+    }
 }
 
-class Fighter {
-    private String m_name;
-    private int [] m_attributes;
-    enum FighterAttributes {
-        HEALTH,AGILITY,POWER,WEIGHT;
-    }
-    private void setAttributesForOrdinal(FighterAttributes ord, int val) {
-        m_attributes[ord.ordinal()] = val;
-    }
-    public Fighter(String name, int health, int agility, int power, int weight)
-    {
-        m_name = name;
-        setAttributesForOrdinal(FighterAttributes.HEALTH, health);
-        setAttributesForOrdinal(FighterAttributes.AGILITY, agility);
-        setAttributesForOrdinal(FighterAttributes.POWER, power);
-        setAttributesForOrdinal(FighterAttributes.WEIGHT, weight);
+class Taxi {
+    //...
+    private Driver m_driver;
 
-    }
-    private int getAttributesOrdinal(FighterAttributes ord)
+    public Taxi(Driver driver)
     {
-        return ord.ordinal();
-    }
-    public String getName()
-    {
-        return m_name;
+        m_driver = driver;
     }
 
-    public void setName(String name)
+    public Driver getDriver()
     {
-        m_name = name;
+        return m_driver;
     }
 
-    public int getHealth()
+    public void setDriver(Driver driver)
     {
-        return m_attributes[getAttributesOrdinal(FighterAttributes.HEALTH)];
+        m_driver = driver;
     }
 
-    public void setHealth(int health)
+    public void take(Client client)
     {
-        setAttributesForOrdinal(FighterAttributes.HEALTH,health);
-    }
-
-    public int getAgility()
-    {
-        return m_attributes[getAttributesOrdinal(FighterAttributes.AGILITY)];
-    }
-
-    public void setAgility(int agility)
-    {
-        setAttributesForOrdinal(FighterAttributes.AGILITY,agility);
-    }
-
-    public int getPower()
-    {
-        return m_attributes[getAttributesOrdinal(FighterAttributes.POWER)];
-    }
-
-    public void setPower(int power)
-    {
-        setAttributesForOrdinal(FighterAttributes.POWER,power);
-    }
-    public int getWeight() {
-        return m_attributes[getAttributesOrdinal(FighterAttributes.AGILITY)];
-
-    }
-    public void setWeight(int weight)
-    {
-        setAttributesForOrdinal(FighterAttributes.WEIGHT,weight);
-
-    }
-    public int sumOfAbilities()
-    {
-        int sum = 0;
-
-        for (FighterAttributes f : FighterAttributes.values())
-            sum += m_attributes[f.ordinal()];
-
-        return sum;
-    }
-
-    public double averageOfAbilities()
-    {
-        return (double)sumOfAbilities() / FighterAttributes.values().length;
+        //...
     }
 }
+
+class Driver {
+    //...
+}
+
+class Client {
+    //...
+}
+

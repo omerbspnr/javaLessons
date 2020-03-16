@@ -1,68 +1,68 @@
+/*----------------------------------------------------------------------------------------------------------------------
+    Rational sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.math;
-
-import org.csystem.util.NumberUtil;
 
 import java.util.Random;
 
 public class Rational {
     private int m_a, m_b;
 
-    private static double ms_coefficientNumber = 1_000_000;
-
     private static Rational plus(int a1, int b1, int a2, int b2)
     {
-
-        return new Rational(a1 * b2 + a2 * b1, b1 *b2);
+        return new Rational(a1 * b2 + a2 * b1, b1 * b2);
     }
+
     private static Rational minus(int a1, int b1, int a2, int b2)
     {
-
-        return plus(a1,b1, -a2, b2);
+        return plus(a1, b1, -a2, b2);
     }
+
     private static Rational multiply(int a1, int b1, int a2, int b2)
     {
-        return new Rational(a1 * a2, b1 * b2 );
+        return new Rational(a1 * a2, b1 * b2);
     }
-    private static Rational division(int a1, int b1, int a2, int b2)
+
+    private static Rational div(int a1, int b1, int a2, int b2)
     {
-        return multiply(a1, b1,b2,a2);
+        return multiply(a1, b1, b2, a2);
     }
 
     private static void control(int a, int b)
     {
         if (b == 0) {
-            System.out.println(a == 0 ?  "Tanımsız" : "Belirsiz");
-            System.exit(-1);
+            System.out.println(a == 0 ? "Belirsiz" : "Tanımsız");
+            System.exit(-1); //exception konusuna sabredin
         }
     }
 
-
-    public static Rational getRandomRationalNumber()
+    private void calibrateSigns()
     {
-        return getRandomRationalNumber(new Random());
+        if (m_b < 0) {
+            m_a *= -1;
+            m_b *= -1;
+        }
     }
-    public static Rational getRandomRationalNumber(Random r)
+
+    private void set(int a, int b)
     {
-        return getRandomRationalNumber(r, -10_000,10_000);
+        m_a = a;
+        if (m_a == 0) {
+            m_b = 1;
+            return;
+        }
+
+        m_b = b;
+        calibrateSigns();
+        simplify();
     }
-    public static Rational getRandomRationalNumber(int minBound, int maxBound)
+
+    private void simplify()
     {
-
-        return  getRandomRationalNumber(new Random(), minBound, maxBound);
-    }
-    public static Rational getRandomRationalNumber(Random r, int minBound, int maxBound)
-    {
-
-
-        return new Rational(r.nextInt(maxBound - minBound) + minBound, r.nextInt(maxBound - minBound) + minBound );
-    }
-    private  void simplify()
-    {
-
         int a = Math.abs(m_a);
         int b = m_b;
 
-        int min = a < b ? a : b;
+        int min = a > b ? b : a;
 
         for (int i = min; i >= 2; --i) {
             if (a % i == 0 && b % i == 0) {
@@ -72,126 +72,135 @@ public class Rational {
             }
         }
     }
-    private void changeMinus()
-    {
-        if (m_b < 0) {
-            m_a *= -1;
-            m_b *= -1;
-        }
-    }
-    private void set(int a, int b)
-    {
-        m_a = a;
 
-        if (m_a == 0) {
-            m_b = 1;
-            return;
-        }
-        m_b = b;
-        changeMinus();
-        simplify();
-
+    public static Rational randomRational(int min, int max) //[min, max)
+    {
+        return randomRational(new Random(), min, max);
     }
 
+    public static Rational randomRational(Random r, int min, int max)  //[min, max)
+    {
+        return new Rational(r.nextInt(max - min) + min, r.nextInt(max - min) + min);
+    }
 
     public Rational()
     {
         m_b = 1;
     }
+
     public Rational(int a, int b)
     {
         control(a, b);
         set(a, b);
-
     }
-    public Rational(double d)
+
+    public void setNumerator(int val)
     {
-        int a  = (int)(d * ms_coefficientNumber);
-        int b = a == 0 ? 1 : (int)ms_coefficientNumber;
-        set(a, b);
+        if (m_a == val)
+            return;
+
+        set(val, m_b);
     }
 
-    /*
-     plus methods
-     */
+    public void setDenominator(int val)
+    {
+        if (m_b == val)
+            return;
+
+        control(m_a, val);
+        set(m_a, val);
+    }
+
+    public int getNumerator()
+    {
+        return m_a;
+    }
+
+    public int getDenominator()
+    {
+        return m_b;
+    }
+
+    public double toDouble()
+    {
+        return (double)m_a / m_b;
+    }
+
+    //plus methods
+    public static Rational plus(int val, Rational r)
+    {
+        return plus(val, 1, r.m_a, r.m_b);
+    }
+
+    public Rational plus(Rational r)
+    {
+        return plus(m_a, m_b, r.m_a, r.m_b);
+    }
 
     public Rational plus(int val)
     {
-
         return plus(m_a, m_b, val, 1);
     }
 
-    public Rational plus(Rational r1)
+    //minus methods
+    public static Rational minus(int val, Rational r)
     {
+        return minus(val, 1, r.m_a, r.m_b);
+    }
 
-        return plus(m_a, m_b, r1.m_a, r1.m_b);
-    }
-    public static Rational plus(int val, Rational r1)
+    public Rational minus(Rational r)
     {
-        return plus(val, 1, r1.m_a,r1.m_b);
+        return minus(m_a, m_b, r.m_a, r.m_b);
     }
-    /*
-     Minus methods
-     */
 
     public Rational minus(int val)
     {
-
-        return minus(m_a,m_b,val,1);
+        return minus(m_a, m_b, val, 1);
     }
-    public Rational minus(Rational r1)
+
+    //multiply methods
+    public static Rational multiply(int val, Rational r)
     {
-
-        return minus(m_a,m_b,r1.m_a,r1.m_b);
+        return multiply(val, 1, r.m_a, r.m_b);
     }
-    public static Rational minus(int val, Rational r1)
+
+    public Rational multiply(Rational r)
     {
-        return minus(val, 1, r1.m_a, r1.m_b);
+        return multiply(m_a, m_b, r.m_a, r.m_b);
     }
 
-
-    /*
-     Multiply methods
-     */
     public Rational multiply(int val)
     {
         return multiply(m_a, m_b, val, 1);
     }
-    public Rational multiply(Rational r1)
+
+    //div methods
+    public static Rational div(int val, Rational r)
     {
-        return multiply(m_a,m_b,r1.m_a,r1.m_b);
-    }
-    public static Rational multiply(int val, Rational r1)
-    {
-        return multiply(val, 1, r1.m_a, r1.m_b);
+        return div(val, 1, r.m_a, r.m_b);
     }
 
-    /*
-
-     Division methods
-
-    */
-
-    public Rational division(int val)
+    public Rational div(Rational r)
     {
-        return division(m_a, m_b, val, 1);
+        return div(m_a, m_b, r.m_a, r.m_b);
     }
-    public Rational division(Rational r1)
+
+    public Rational div(int val)
     {
-        return division(m_a,m_b,r1.m_a,r1.m_b);
+        return div(m_a, m_b, val, 1);
     }
-    public static Rational division(int val, Rational r1)
-    {
-        return division(val, 1, r1.m_a, r1.m_b);
-    }
+
+    //inc methods
     public void inc()
     {
-     inc(1);
+        inc(1);
     }
     public void inc(int amount)
     {
-        this.m_a += amount * m_b;
+        m_a += amount * m_b;
     }
+
+    //dec methods
     public void dec()
     {
         dec(1);
@@ -200,48 +209,28 @@ public class Rational {
     {
         inc(-amount);
     }
+
+    //pow method
     public void pow(int n)
     {
-            m_a = (int)Math.pow(m_a,n);
-            m_b = (int)Math.pow(m_b,n);
+        m_a = (int)Math.pow(m_a, n);
+        m_b = (int)Math.pow(m_b, n);
     }
 
-    public void setNumerator(int a)
+    public int compareTo(Rational r)
     {
-        if (a == m_a)
-            return;
-        set(a,m_b);
-    }
-    public void setDenominator(int b)
-    {
-        if (m_b == b)
-            return;
-        control(m_a,b);
-        set(m_a,b);
-    }
-    public int getNumerator()
-    {
-        return m_a;
+        return m_a * r.m_b - r.m_a * m_b;
     }
 
-    public int getDenominator ()
+    public String toString()
     {
-        return m_b;
-    }
-    public double getRealValue()
-    {
-        return (double) m_a / m_b;
-    }
-    public int compareTo(Rational r1) {
-        return m_a * r1.m_b - m_b * r1.m_a;
-
-    }
-    public String toString() {
         return toString(6);
     }
-    public String toString(int n) {
-        String fmt = String.format("%%d / %%d = %%.%df",n);
 
-        return String.format(fmt,m_a,m_b);
+    public String toString(int n)
+    {
+        String fmt = String.format("%%d / %%d = %%.%df", n);
+
+        return String.format(fmt, m_a, m_b, toDouble());
     }
 }

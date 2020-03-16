@@ -676,26 +676,175 @@ n sınıfların aynı pakette
     INSTANCE
   }
 --------------------------------------------------------------------------------------------------------------
-                                            16.03.2020
+                                            14.03.2020
 --------------------------------------------------------------------------------------------------------------
 
+- final değişkenler switch deyimlerinde case ifadesi olarak  kullanılabilirler. Ancak switch deyimlerinde sınıf
+  referansları kullanılamaz.
+
+    Direction d = Direction.RIGHT; // Burada direction enum türünden değil yazdığımız sınıftır.
+    switch (d) //error
+    {
+        case LEFT: // ok
+    }
+
+
+- Enum türleri switch deyiminde ve case'lerde de kullanılabilir.
+
+    Direction d = Direction.LEFT;
+    switch (d) //ok
+    {
+        case Direction.LEFT: // error
+        case LEFT: //Doğru hali budur.Direction.LEFT kullanımı error'dur. Çünk
+    }
+
+    enum Direction {
+        RIGHT,TOP,LEFT,BOTTOM
+    }
+
+- enum türü bir referans oldukları için, aynı türden enumlar == ve != operatörleri ile karşılaştırılabilirler.
+    Direction d = Direction.LEFT;
+
+    System.out.println(d == Direction.LEFT); // true
+    enum Direction {
+        RIGHT,TOP,LEFT,BOTTOM
+    }
+
+
+- enum türleri aynı türden ise aşağıdaki üç şekilde karşılaştırılabilir.
+  1-) switch deyimleri,
+  2-) if deyimleri,
+  3-) sınıfın equals fonksiyonu // Bu fonkisiyonda farklı enum türleri karşılaşıtrabilir. == veya !='de bu yapılamaz.
+
+
+- Enum sınıfının compareTo metodu enumlar arasındaki ordinal'lerin  farkını döndürür.
+    enum DayOfWeek {
+        SUN, MON, TUE, WED, THU FRI, SAT;
+    }
+
+- enum türlerinde en sona eklenen COUNT değeri ile sınıfın uzunluğu, alınabilir.
+    enum myClass{
+        WEIGHT,POWER,ABILITY, COUNT;
+    }
+
+    enum myClass{
+            HEIGHT,LENGTH,AGILITY,POWER,ABILITY, COUNT;
+    }
+    //COUNT'ın ordinal'i myClass'ın uzunluğunu döndürür.
+
+- Her enum türünün valueOf adlı static bir metodu vardır.
+- Bu fonksiyona string türünden parametre ile kullanılır.
+
+    Color c = Color.valueOf("GREEN");
+    Color c = Color.valueOf("GREE"); //throws Exception
+
+    enum Color {
+        REG,GREEN,BLUE;
+    }
+
+--------------------------------------------------------------------------------------------------------------
+                                            15.03.2020
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+                                            SINIFLAR ARASI İLİŞKİLER
+--------------------------------------------------------------------------------------------------------------
+
+- iki tane sınıf arasında ya hiç ilişki yoktur ya da aşağıdaki dört durumdan yalnızca  biri vardır
+    1- composition (İçerme)
+    2- aggregation (Birleşme)
+    3- Association (Çağrışım)
+    4- Inheritance (Türetme, kalıtım)
+
+- İlk üç madde'yi destekleyen doğrudan bir dil desteği yoktur.
+
+- Ama inheritance için bu böyle değildir. İnheritance bir çok dil tarafından  desteklenmektedir.
+
+- Composition ve Aggregation ilişkisi birbirine çok benzemektedir. Bir sınıfın başka bir sınıfı bütünsel olarak
+  kullanmasıdır.
+
+- Association ise bir sınıfı bütünsel olarak kullanmaktadır.
+
+- İki sınıf arasında ilişki var ise biri olmadan diğeri yazılamaz. Yani bir sınıf olmadan diğer sınıf derlenemiyor
+  ise buna bağımlılık denir. (Buna Dependency denir)
+  Örneğin araba sınıfının motor sınıfına bağımlı olması gibidir.
+
+-
+
+--------------------------------------------------------------------------------------------------------------
+                                        COMPOSITION
+--------------------------------------------------------------------------------------------------------------
+
+- Composition ilişkisi --has a-- ilişkisidir.
+
+- A ile B arasında A has a B ilişkisinde aşağıdaki kural geçerlidir.
+  Yada aşağıdaki iki kural geçerli ise A ile B arasında composition ilişkisi vardır.
+      1-) A nesnesine ait B nesnesi başka bir nesne tarafından kullanılamaz.
+          (B nesnesi A'nın içinde private bir veri elemanı olmalıdır.)
+
+      2-) A nesnesine ait B nesnesinin ömrü A ile hemen hemen aynı olacaktır. (ctor'larda yaratılabilir.)
+
+- Bu ilişki bütünsel bir ilişkidir. A nesnesi kendisine ait olan B nesnesini bütünsel olarak kullanılır.
+    Sınıfın veri elemanı sınıfın bütün metodlarında kullanabilen veri elemanıdır.
+
+- Composition ilişkisinde A Sınıfı B'ye bağımlıdır. (UML'de gösterimini bulabiliriz.)
+
+- Composition'da has a ilişkisi nicelik bakımından değişiklik gösterir.
+  Örneğin Car sınıfının bir adet motoru var iken
+          Plane sınıfının motor sayısı birden fazla olabilir.(Bu durumda member elemanı Engine türünden dizi olmalıdır.)
+--------------------------------------------------------------------------------------------------------------
+                                        AGGREGATION
+--------------------------------------------------------------------------------------------------------------
+
+- A ile B arasındaki ilişki de --holds a-- şeklinde kullanılır.
+- Composition'da ki kurallardan en az  biri delinebilir ise buna aggregation denir. Bütünsellik gene geçerlidir.
+
+  - Aşağıdaki örnekte iki kuralda delinmiştir.
+  class A {
+    private B m_b;
+    public A(B b)
+    {
+        m_b = b; // new'i kendi yapmıyor. Dışarıdan var olan bir nesneyi alır.
+    }
+
+    public B getB(){ return m_b;}  // B elemanı başka sınıflar tarafından kullanılır.
+  }
+
+  class B {
+    public void doSometing()
+    {
+
+    }
+
+   }
+--------------------------------------------------------------------------------------------------------------
+                                        ASSOCIATION
+--------------------------------------------------------------------------------------------------------------
+
+- Herhangi bir fiili yoktur.(has a yada, holds a gibi)
+
+- A sınıfının B sınıfını ihtiyacı ölçüsünde kullanılması,
+  Yani bütünsel kullanmaması (Yani ihtiyacı şeklinde kullanması.)
+
+- A sınıfının bir fonksiyonunun B sınıfı türünden bir referans parametresini kullanmasıdır.  Yada fonksiyonun içinde
+  new ile yaratılıp o fonksiyon boyunca kullanılır.
+
+- String nesneleri ile yapılan işlemler yapısal olarak aggregation, aslında aggregation değildir.
+- String sınıfı ile aggreagation yapılamaz. (immutable sınıflar ile aggregation yapılamaz.)
+
+- taksi ile sürücü aggregation (Driver'ı dışarıdan alır.)
+- taksi ile müşteri ise associationdır.(Sadece bir fonksiyon için kullanılır.)
+
+--------------------------------------------------------------------------------------------------------------
+                                        KALITIM
+--------------------------------------------------------------------------------------------------------------
+
+- is a ilişkisidir.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+- varolan sınıfı kodlarına dokunmadan genişletebilmektir.
 
 
 
