@@ -2,35 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/Examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/Konular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konular.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Fighter$FighterAttributes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Fighter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Taxi.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Complex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/commandprompt/CommandPromptApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/date/DateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/examsimulation/ExamSimulation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/keyLock/KeyLockGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/lottaryapp/Lottary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/prime/PrimeApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/string/stringApps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/sudoku/Sudoku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/IntValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/NumberUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Date.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/app/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -81,12 +62,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/notes" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,6 +140,8 @@
       <workItem from="1584182971648" duration="9894000" />
       <workItem from="1584268345840" duration="8554000" />
       <workItem from="1584342801165" duration="8464000" />
+      <workItem from="1584386075813" duration="5879000" />
+      <workItem from="1584428629936" duration="9492000" />
     </task>
     <servers />
   </component>
@@ -186,38 +169,38 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1581000664298" />
-    <state width="1807" height="275" key="GridCell.Tab.0.bottom" timestamp="1584347502637">
+    <state width="1807" height="275" key="GridCell.Tab.0.bottom" timestamp="1584439770800">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584347502637" />
-    <state width="1807" height="275" key="GridCell.Tab.0.center" timestamp="1584347502637">
+    <state width="1807" height="275" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584439770800" />
+    <state width="1807" height="275" key="GridCell.Tab.0.center" timestamp="1584439770800">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584347502637" />
-    <state width="1807" height="275" key="GridCell.Tab.0.left" timestamp="1584347502636">
+    <state width="1807" height="275" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584439770800" />
+    <state width="1807" height="275" key="GridCell.Tab.0.left" timestamp="1584439770800">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584347502636" />
-    <state width="1807" height="275" key="GridCell.Tab.0.right" timestamp="1584347502637">
+    <state width="1807" height="275" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584439770800" />
+    <state width="1807" height="275" key="GridCell.Tab.0.right" timestamp="1584439770800">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584347502637" />
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1584347500492">
+    <state width="1807" height="275" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584439770800" />
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1584431734036">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584347500492" />
-    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1584347500491">
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584431734036" />
+    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1584431734036">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584347500491" />
-    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1584347500491">
+    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584431734036" />
+    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1584431734035">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584347500491" />
-    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1584347500491">
+    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584431734035" />
+    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1584431734036">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584347500491" />
+    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584431734036" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1583855880021">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -238,14 +221,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="302" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1583073112949" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1583911816911">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1584433306360">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583911816911" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584269744611">
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584433306360" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584390261081">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584269744611" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584390261081" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
