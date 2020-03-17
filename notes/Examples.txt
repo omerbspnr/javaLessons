@@ -22780,7 +22780,7 @@ class App {
         //....
     }
 }
-
+//
 class Fighter {
     private String m_name;
     private int [] m_abilities;

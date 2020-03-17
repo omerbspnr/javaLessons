@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/Konular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konular.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Fighter$FighterAttributes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Fighter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Complex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/commandprompt/CommandPromptApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/date/DateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/examsimulation/ExamSimulation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/keyLock/KeyLockGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/lottaryapp/Lottary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/prime/PrimeApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/string/stringApps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/sudoku/Sudoku.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/IntValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/NumberUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Date.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
