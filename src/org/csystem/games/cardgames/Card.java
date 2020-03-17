@@ -15,7 +15,7 @@ public class Card {
 
     private CardValue m_value;
     private CardType m_type;
-
+/*PRIVATE STATIC AREA */
     private static void doWorkForException(String msg)
     {
         System.out.println(msg);
@@ -84,6 +84,9 @@ public class Card {
             doWorkForException("Invalid Card");
     }
 
+    /*
+    PRIVATE AREA
+     */
     private void set(String str)
     {
         set(str, str.indexOf('-'));
@@ -99,6 +102,9 @@ public class Card {
         m_type = type;
     }
 
+    /*
+    PUBLIC STATIC AREA
+     */
 
     public static Card [] getShuffledDeck()
     {
@@ -155,6 +161,9 @@ public class Card {
         }
         return deck;
     }
+    /*
+        PUBLIC AREA
+     */
     public Card(CardValue val, CardType type)
     {
         set(val,type);
@@ -167,6 +176,9 @@ public class Card {
        set(str);
     }
 
+    /*
+        SETTERS
+     */
     public void setName(String str)
     {
         str = str.toUpperCase();
@@ -188,8 +200,8 @@ public class Card {
 
         controlForVal(str);
         setValue(getValue(str));
-
     }
+
     public void setValue(CardValue cardValue)
     {
         if (cardValue.ordinal() == m_value.ordinal())
@@ -209,6 +221,7 @@ public class Card {
         setType(getType(str));
 
     }
+
     public void setType(CardType cardtype)
     {
         if (cardtype.ordinal() == m_type.ordinal())
@@ -216,6 +229,9 @@ public class Card {
 
         m_type = cardtype;
     }
+    /*
+        GETTERS
+     */
     public String getType()
     {
         return m_type.toString();
@@ -225,9 +241,9 @@ public class Card {
     {
         return  m_value.toString();
     }
+
     public String toString()
     {
         return String.format("%s-%s",CardTypeTR.values()[m_type.ordinal()], CardValTR.values()[m_value.ordinal()]);
     }
-
 }

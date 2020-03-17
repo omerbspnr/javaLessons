@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/Taxi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +132,7 @@
       <workItem from="1584268345840" duration="8554000" />
       <workItem from="1584342801165" duration="8464000" />
       <workItem from="1584386075813" duration="5879000" />
-      <workItem from="1584428629936" duration="9492000" />
+      <workItem from="1584428629936" duration="9823000" />
     </task>
     <servers />
   </component>
