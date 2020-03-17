@@ -232,6 +232,7 @@ public class Card {
     /*
         GETTERS
      */
+    //
     public String getType()
     {
         return m_type.toString();
