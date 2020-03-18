@@ -15,7 +15,11 @@ public class Card {
 
     private CardValue m_value;
     private CardType m_type;
-/*PRIVATE STATIC AREA */
+
+    ///////////////////////////////////////////7
+    /*PRIVATE STATIC AREA */
+    ///////////////////////////////////////////7
+
     private static void doWorkForException(String msg)
     {
         System.out.println(msg);
@@ -57,6 +61,7 @@ public class Card {
         for (CardValTR values : CardValTR.values())
             if (values.toString().equals(val))
                 return CardValue.values()[values.ordinal()];
+
         return null;
     }
     private static CardType getType(String type)
@@ -84,13 +89,17 @@ public class Card {
             doWorkForException("Invalid Card");
     }
 
+    ///////////////////////////////////////////7
     /*
     PRIVATE AREA
      */
+    ///////////////////////////////////////////7
+
     private void set(String str)
     {
         set(str, str.indexOf('-'));
     }
+
     private void set(String str, int idx)
     {
         m_type = getType(str.substring(0, idx));
@@ -101,10 +110,61 @@ public class Card {
         m_value = val;
         m_type = type;
     }
+    private static CardType getType(int ordinal)
+    {
+        return CardType.values()[ordinal];
+    }
+    private static CardValue getValue(int ordinal)
+    {
+        return CardValue.values()[ordinal];
+    }
 
+    ///////////////////////////////////////////7
     /*
     PUBLIC STATIC AREA
      */
+    ///////////////////////////////////////////7
+
+    public static Card getRandomCard()
+    {
+     return getRandomCard(new Random());
+    }
+
+    public static Card getRandomCard(Random r)
+    {
+        return new Card(CardType.values()[r.nextInt(4)], CardValue.values()[r.nextInt(13)]);
+    }
+
+    public static Card [] getRandomNCard ()
+    {
+        return  getRandomNCard(7);
+    }
+
+    public static Card [] getRandomNCard(int n)
+    {
+        return getRandomNCard(new Random(), n);
+
+    }
+
+    public static Card [] getRandomNCard(Random r, int n)
+    {
+        Card [] cards = new Card[n];
+        boolean [] typeFlags = new boolean[4];
+        boolean [] valueFlags = new boolean[13];
+
+        for (int i = 0; i < n; ++i)
+        {
+            int type, value;
+            do {
+                type = r.nextInt(4);
+                value = r.nextInt(13);
+            } while (typeFlags[type] && valueFlags[value]);
+
+                cards[i] = new Card(getType(type), getValue(value));
+        }
+
+        return cards;
+    }
 
     public static Card [] getShuffledDeck()
     {
@@ -131,12 +191,24 @@ public class Card {
         int idx = 0;
         for (CardType type : CardType.values())
             for (CardValue value : CardValue.values())
-                deck[idx++] = new Card(value, type);
+                deck[idx++] = new Card(type, value);
 
 
             return getShuffledDeck(r, deck, n);
 
     }
+    public static Card [] getShuffledDeck(Card [] deck)
+    {
+
+        return getShuffledDeck(new Random(),deck);
+    }
+
+    public static Card [] getShuffledDeck(Random r, Card [] deck)
+    {
+
+        return getShuffledDeck(r, deck, 26);
+    }
+
     public static Card [] getShuffledDeck(Card [] deck, int n)
     {
 
@@ -159,12 +231,16 @@ public class Card {
             deck[idx1] = deck[idx2];
             deck[idx2] = tmp;
         }
+
         return deck;
     }
+    ///////////////////////////////////////////7
     /*
         PUBLIC AREA
      */
-    public Card(CardValue val, CardType type)
+    ///////////////////////////////////////////7
+
+    public Card(CardType type, CardValue val)
     {
         set(val,type);
     }
@@ -232,18 +308,19 @@ public class Card {
     /*
         GETTERS
      */
-    public String getType()
-    {
-        return m_type.toString();
-    }
-
     public String getValue()
     {
-        return  m_value.toString();
+        return  getValue(m_value.ordinal()).toString();
     }
+
+    public String getType()
+    {
+        return getType(m_type.ordinal()).toString();
+    }
+
 
     public String toString()
     {
-        return String.format("%s-%s",CardTypeTR.values()[m_type.ordinal()], CardValTR.values()[m_value.ordinal()]);
+        return String.format("%s-%s",getType(), getValue());
     }
 }
