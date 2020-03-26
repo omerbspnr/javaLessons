@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.util;
 
-public class IntValue {
+public final class IntValue {
     private final int m_val;
     private static final IntValue [] ms_cache = new IntValue[256];
 

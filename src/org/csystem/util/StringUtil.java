@@ -5,7 +5,7 @@ package org.csystem.util;
 
 import java.util.Random;
 
-public class StringUtil {
+public final class StringUtil {
 	private static final String ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
 	private static final String ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
 

@@ -5,7 +5,7 @@ package org.csystem.math;
 
 import static java.lang.Math.sqrt;
 
-public class Complex {
+public final class Complex {
 	private static Complex plus(double a1, double b1, double a2, double b2)
 	{
 		return new Complex(a1 + a2, b1 + b2);
@@ -22,7 +22,7 @@ public class Complex {
 	
 	public Complex(double re)
 	{
-		a = re;
+		this(re, 0);
 	}
 	
 	public Complex(double re, double im)

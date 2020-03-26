@@ -5,7 +5,7 @@ package org.csystem.util;
 
 import java.util.Random;
 
-public class NumberUtil {
+public final class NumberUtil {
 	private static final String [] ms_onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
 	private static final String [] ms_tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 

@@ -5,7 +5,7 @@ package org.csystem.math;
 
 import java.util.Random;
 
-public class Rational {
+public final class Rational {
     private int m_a, m_b;
 
     private static Rational plus(int a1, int b1, int a2, int b2)

@@ -5,7 +5,7 @@ package org.csystem.util;
 
 import java.util.Random;
 
-public class ArrayUtil {
+public final class ArrayUtil {
     private ArrayUtil() {}
     public static double average(int [] a)
     {

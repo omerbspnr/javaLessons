@@ -6,11 +6,17 @@ package org.csystem.math.geometry;
 import static java.lang.Math.sqrt;
 
 public class Point {
-	public int x, y;	
-	
+	public int x, y;
+
+	Point(Point p)
+	{
+		x = p.x;
+		y = p.y;
+	}
+
 	public Point()
 	{}
-	
+
 	public Point(int a)
 	{
 		x = a;

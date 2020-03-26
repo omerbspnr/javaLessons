@@ -10,10 +10,10 @@ public class Date {
     private static final String [] ms_weekDaysTR = {"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
     private static final String [] ms_weekDaysEN = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
-    private static final String[] ms_monthsOfYearTR = {"","Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
-            "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"};
-    private static final String[] ms_monthsOfYearEN = {"","Jan", "Feb", "Mar", "Apr", "May","Jun","Jul","Aug", "Sep","Oct", "Nov", "Dec"};
-
+    private static final String [] ms_monthsTR = {"", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+                                                    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" };
+    private static final String [] ms_monthsEN = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
+                                                      "Sep", "Oct", "Nov", "Dec" };
 
     private int m_day, m_mon, m_year;
     private int m_dayOfWeek;
@@ -32,8 +32,8 @@ public class Date {
     {
         int dayOfYear = day;
 
-        for (int m = 0; m < mon; ++m)
-            dayOfYear += Month.values()[m].getDaysByYear(year);
+        for (int m = mon - 1; m >= 1; --m)
+            dayOfYear += Month.values()[m - 1].getDaysByYear(year);
 
         return dayOfYear;
     }
@@ -59,21 +59,27 @@ public class Date {
         if (!isValidDate(day, mon, year))
             doWorkForException(msg);
     }
-    private static String postFixForDay(int day)
+    private static String getPostfixForDay(int day)
     {
-        String str = "th";
+        String s = "th";
 
-        switch (day) {
+        switch (day)
+        {
             case 1:
             case 21:
-            case 31: str = "st"; break;
-            case 2 :
-            case 22: str = "nd"; break;
+            case 31:
+                s = "st";
+                break;
+            case 2:
+            case 22:
+                s = "nd";
+                break;
             case 3:
-            case 23: str = "rd"; break;
+            case 23:
+                s = "rd";
         }
 
-        return str;
+        return s;
     }
     private void controlForDay(int day)
     {
@@ -135,7 +141,12 @@ public class Date {
 
         return new Date(day, mon, year);
     }
-
+    Date(Date date)
+    {
+        m_day = date.m_day;
+        m_mon = date.m_mon;
+        m_year = date.m_year;
+    }
     public Date()
     {
         Calendar now = Calendar.getInstance();
@@ -145,8 +156,7 @@ public class Date {
 
     public Date(int day, Month month, int year)
     {
-        control(day, month.ordinal() + 1, year, "Invalid date");
-        set(day, month.ordinal() + 1, year);
+        this(day, month.ordinal() + 1, year);
     }
 
     public Date(int day, int mon, int year)
@@ -252,11 +262,12 @@ public class Date {
 
     public String toLongDateStringTR()
     {
-        return String.format("%02d %s %04d %s", getDay(), ms_monthsOfYearTR[getMonthValue()],getYear(), getDayOfWeekTR());
+
+        return String.format("%d %s %d %s",m_day,ms_monthsTR[m_mon], m_year, getDayOfWeekTR() );
     }
+
     public String toLongDateStringEN()
     {
-        return String.format("%02d%s %s %04d %s",getDay(), postFixForDay(m_day), ms_monthsOfYearEN[getMonthValue()], getYear(), getDayOfWeekEN());
-
+        return String.format("%d%s %s %d %s", m_day, getPostfixForDay(m_day), ms_monthsEN[m_mon], m_year, getDayOfWeekEN());
     }
 }

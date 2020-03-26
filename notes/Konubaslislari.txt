@@ -1,0 +1,55 @@
+
+cast işlemleri
+    - implicit conversion
+    - explicit conversion
+scope
+
+paketler
+
+qualified, unqualified name look up
+
+import statement
+    - import on demand
+    - import on type decleration
+
+import static directive
+    - import static single type declaration
+    - import static on demand statement
+
+foreach (range based for loop)
+
+access modifiers
+
+Encapsulation, data hiding
+
+final variables
+
+enum
+
+Singleton design pattern
+    - lazy
+    - enum(eager)
+
+Relationships between classes
+    - Composition (has a)
+    - Aggregation (holds a)
+    - Association
+    - Inheritance
+
+Inheritance
+    - super ctor sentaks
+    - Object class
+
+this ctor sentaks
+
+
+reference types
+    - static
+    - dynamic
+
+RTTI (Run Time Type Identification)
+    - instanceof keyword
+
+final class
+
+Wrapper class

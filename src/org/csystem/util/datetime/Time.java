@@ -94,13 +94,29 @@ public class Time {
         return new Time(r.nextInt(24), r.nextInt(60), r.nextInt(60), r.nextInt(1000));
     }
 
-    //...
+    Time(Time other)
+    {
+        m_hour = other.m_hour;
+        m_minute = other.m_minute;
+        m_second = other.m_second;
+        m_millisecond = other.m_millisecond;
+    }
 
     public Time() //Bu kısmın detayları önemsiz
     {
         Calendar now = Calendar.getInstance();
 
         set(now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), now.get(Calendar.SECOND), now.get(Calendar.MILLISECOND));
+    }
+
+    public Time(int hour, int minute)
+    {
+        this(hour, minute, 0);
+    }
+
+    public Time(int hour, int minute, int second)
+    {
+        this(hour, minute, second, 0);
     }
 
     public Time(int hour, int minute, int second, int millisecond)
