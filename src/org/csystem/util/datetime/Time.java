@@ -93,7 +93,40 @@ public class Time {
     {
         return new Time(r.nextInt(24), r.nextInt(60), r.nextInt(60), r.nextInt(1000));
     }
+    public static class TimeBuilder
+    {
+        private Time m_time;
 
+        public TimeBuilder() {
+            m_time = new Time(0);
+        }
+
+        public TimeBuilder setHour(int hour)
+        {
+            this.m_time.setHour(hour);
+            return this;
+        }
+        public TimeBuilder setMinute(int minute)
+        {
+            this.m_time.setMinute(minute);
+            return this;
+        }
+        public TimeBuilder setSecond(int second)
+        {
+            this.m_time.setSecond(second);
+            return this;
+        }
+        public TimeBuilder setMillisecond(int millisecond)
+        {
+            this.m_time.setMillisecond(millisecond);
+            return this;
+        }
+
+        public Time build()
+        {
+            return m_time;
+        }
+    }
     Time(Time other)
     {
         m_hour = other.m_hour;
@@ -107,6 +140,10 @@ public class Time {
         Calendar now = Calendar.getInstance();
 
         set(now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), now.get(Calendar.SECOND), now.get(Calendar.MILLISECOND));
+    }
+    public Time(int hour)
+    {
+        this(hour, 0);
     }
 
     public Time(int hour, int minute)

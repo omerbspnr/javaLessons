@@ -638,8 +638,8 @@ class App {
 	{
 		int a;
 		
-		
-		System.out.println(a); //error		
+
+		System.out.println(a); //error
 	}
 }
 
@@ -653,9 +653,9 @@ package csd;
 class App {
 	public static void main(String [] args)
 	{
-		int a;		
+		int a;
 		int b;
-		
+
 		b = a * 2; //error
 
 	}
@@ -670,7 +670,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int 1number; //error
-					
+
 	}
 }
 
@@ -683,11 +683,11 @@ class App {
 	public static void main(String [] args)
 	{
 		int a1234;
-		
+
 		a1234 = 34;
-		
+
 		System.out.println(a1234);
-					
+
 	}
 }
 
@@ -701,11 +701,11 @@ class App {
 	public static void main(String [] args)
 	{
 		int number_of_students;
-		
+
 		number_of_students = 34;
-		
+
 		System.out.println(number_of_students);
-					
+
 	}
 }
 
@@ -718,16 +718,16 @@ class App {
 	public static void main(String [] args)
 	{
 		int _number_of_students;
-		
+
 		_number_of_students = 34;
-		
+
 		System.out.println(_number_of_students);
-					
+
 	}
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-	Alttire karakteri tek başına değişken ismi olamaz. Alttire karakterinin tek başına kullanımı 
+	Alttire karakteri tek başına değişken ismi olamaz. Alttire karakterinin tek başına kullanımı
 	Java 8 ile deprecated olmuştur, Java 9 ile değişken ismi olmaktan çıkartılmıştır
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
@@ -736,11 +736,11 @@ class App {
 	public static void main(String [] args)
 	{
 		int _; //error
-		
+
 		_ = 34;
-		
+
 		System.out.println(_);
-					
+
 	}
 }
 
@@ -753,9 +753,9 @@ class App {
 	public static void main(String [] args)
 	{
 		int number of students;
-		
-		
-					
+
+
+
 	}
 }
 
@@ -768,9 +768,9 @@ class App {
 	public static void main(String [] args)
 	{
 		int value, Value, vaLue, VaLuE;
-		
-		
-					
+
+
+
 	}
 }
 
@@ -783,8 +783,8 @@ class App {
 	public static void main(String [] args)
 	{
 		int amountOf$s = 10;
-		
-		System.out.println(amountOf$s);					
+
+		System.out.println(amountOf$s);
 	}
 }
 
@@ -797,14 +797,14 @@ class App {
 	public static void main(String [] args)
 	{
 		int $ = 10;
-		
+
 		System.out.println($);
 	}
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
 	Değişken isimlendirmede UNICODE karakterler kullanılabilir. Örneğin Türkçe karakterler geçerlidir.
-	Ancak okunabilirlik açısından İngilizce alfabedeki karakterler dışından ve İngilizce kelimeler 
+	Ancak okunabilirlik açısından İngilizce alfabedeki karakterler dışından ve İngilizce kelimeler
 	dışında kullanmayacağız
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
@@ -813,7 +813,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int öğrenciSayısı = 10;
-		
+
 		System.out.println(öğrenciSayısı);
 	}
 }
@@ -827,7 +827,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int class; //error
-						
+
 	}
 }
 
@@ -842,9 +842,9 @@ class App {
 	{
 		int var = 10; //var değişken
 		var b = 3.4; //var anahtar sözcük
-		
-		
-						
+
+
+
 	}
 }
 
@@ -857,7 +857,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int \u0144bc = 10;
-		
+
 		System.out.println(\u0144bc);
 	}
 }
@@ -871,7 +871,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int \u0041 = 10;
-		
+
 		System.out.println(A);
 	}
 }
@@ -886,11 +886,11 @@ class App {
 	public static void main(String [] args)
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
+
 		System.out.print("Bir sayı giriniz:");
-		int val = Integer.parseInt(kb.nextLine());		
+		int val = Integer.parseInt(kb.nextLine());
 		int result = val * val;
-		
+
 		System.out.println(result);
 	}
 }
@@ -904,16 +904,16 @@ class App {
 	public static void main(String [] args)
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
+
 		System.out.print("Birinci sayıyı giriniz:");
-		int a = Integer.parseInt(kb.nextLine());		
-		
+		int a = Integer.parseInt(kb.nextLine());
+
 		System.out.print("İkinci sayıyı giriniz:");
-		int b = Integer.parseInt(kb.nextLine());		
-		
+		int b = Integer.parseInt(kb.nextLine());
+
 		int result = a * b;
-		
-		System.out.println(result);	
+
+		System.out.println(result);
 
 	}
 }
@@ -927,16 +927,16 @@ class App {
 	public static void main(String [] args)
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
+
 		System.out.print("Birinci sayıyı giriniz:");
-		double a = Double.parseDouble(kb.nextLine());		
-		
+		double a = Double.parseDouble(kb.nextLine());
+
 		System.out.print("İkinci sayıyı giriniz:");
-		double b = Double.parseDouble(kb.nextLine());		
-		
+		double b = Double.parseDouble(kb.nextLine());
+
 		double result = a * b;
-		
-		System.out.println(result);	
+
+		System.out.println(result);
 
 	}
 }
@@ -950,16 +950,16 @@ class App {
 	public static void main(String [] args)
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
+
 		System.out.print("Birinci sayıyı giriniz:");
-		long a = Long.parseLong(kb.nextLine());		
-		
+		long a = Long.parseLong(kb.nextLine());
+
 		System.out.print("İkinci sayıyı giriniz:");
-		long b = Long.parseLong(kb.nextLine());		
-		
+		long b = Long.parseLong(kb.nextLine());
+
 		long result = a * b;
-		
-		System.out.println(result);	
+
+		System.out.println(result);
 
 	}
 }
@@ -974,25 +974,25 @@ class App {
 	public static void main(String [] args)
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
+
 		System.out.print("Birinci sayıyı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
+
 		System.out.print("İkinci sayıyı giriniz:");
 		int b = Integer.parseInt(kb.nextLine());
-		
+
 		int result;
-		
+
 		result = a + b;
-		
+
 		System.out.println("Toplam:" + result);
-		
+
 		result = a - b;
-		
+
 		System.out.println("Fark:" + result);
-		
+
 		result = a * b;
-		
+
 		System.out.println("Çarpım:" + result);
 	}
 }
@@ -1009,7 +1009,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1021,9 +1021,9 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
+
 		int result = a * a;
-		
+
 		return result;
 	}
 }
@@ -1038,7 +1038,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1050,7 +1050,7 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
+
 		return a * a;
 	}
 }
@@ -1064,7 +1064,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1076,8 +1076,8 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
-		return a * a;		
+
+		return a * a;
 		System.out.println("foo sonu"); //error:unreachable code
 	}
 }
@@ -1091,7 +1091,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1103,8 +1103,8 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
-		
+
+
 	}
 }
 
@@ -1117,7 +1117,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1129,11 +1129,11 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
+
 		if (a > 0)
 			return a;
-		
-		
+
+
 	}
 }
 
@@ -1147,7 +1147,7 @@ class App {
 	public static void main(String [] args)
 	{
 		int a = Sample.foo() * 2;
-		
+
 		System.out.println(a);
 	}
 }
@@ -1159,8 +1159,8 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
-		return;	//error		
+
+		return;	//error
 	}
 }
 
@@ -1186,11 +1186,11 @@ class Sample {
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		System.out.print("Bir sayı giriniz:");
 		int a = Integer.parseInt(kb.nextLine());
-		
+
 		int result = a * a;
-		
+
 		System.out.println(result);
-		
+
 		return result;
 	}
 }
@@ -12311,7 +12311,7 @@ class App {
 
 
 /*----------------------------------------------------------------------------------------------------------------------
-	String sınıfının valuOf metotları
+	String sınıfının valueOf metotları
 ----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
@@ -25013,8 +25013,7 @@ public class Time {
     }
 
     public Time() //Bu kısmın detayları önemsiz
-    {                m_time = new Time(time);
-
+    {
         Calendar now = Calendar.getInstance();
 
         set(now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), now.get(Calendar.SECOND), now.get(Calendar.MILLISECOND));
@@ -27293,6 +27292,2680 @@ class App {
     }
 }
 
+/*----------------------------------------------------------------------------------------------------------------------
+    03.04.2020
+    Boolean sınıfının TRUE ve FALSE elemanları
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Boolean.TRUE);
+        System.out.println(Boolean.FALSE);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıfların (Boolean hariç) SIZE veri elemanları ile temsil ettikleri temel türün bit cinsinden
+    uzunluğu elde edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Short.SIZE);
+        System.out.println(Integer.SIZE);
+        System.out.println(Long.SIZE);
+        System.out.println(Byte.SIZE);
+        System.out.println(Float.SIZE);
+        System.out.println(Double.SIZE);
+        System.out.println(Character.SIZE);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıfların (Boolean hariç) BYTES veri elemanları ile temsil ettikleri temel türün byte cinsinden
+    uzunluğu elde edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Short.BYTES);
+        System.out.println(Integer.BYTES);
+        System.out.println(Long.BYTES);
+        System.out.println(Byte.BYTES);
+        System.out.println(Float.BYTES);
+        System.out.println(Double.BYTES);
+        System.out.println(Character.BYTES);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıfların bir görevi de temel bir türe ilişkin değeri heap de saklayabilmektir. Bunun yararı örneğin
+    Object türü ile kullanılabilmesidir. Sarmalama yani heap de tutma işlemine kutulama (boxing) da denilmektedir
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Java 5 den önce sarmalayan sınıflar türünden nesne yalnızca ctor ile yaratılabiliyordu. Java 9 ile birlikte
+    sarmalayan sınıfların ctor elemanları deprecated olmuştur. Zaten birazxan anlatılacak gerekçe dolayısıyla
+    Java 5 ile birlikte artık ctor kullanımı tavsiye edilmemektedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int a = 10;
+        Integer iVal = new Integer(a);
+        Character ch = new Character('x');
+        Boolean b = new Boolean(true);
+        Float f = new Float("3.456");
+
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java 5 ile birlikte temel türlere ilişkin değerlerin sarmalanması için sarmalayan sınıflara temel tür parametreli
+    valueOf static metotları eklenmiştir. Yani sarmalama işlemi bu metotlar ile yapılmalıdır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int a = 10;
+
+        Integer iVal = Integer.valueOf(a);
+        Character ch = Character.valueOf('x');
+        Boolean b = Boolean.valueOf(true);
+        Float f = Float.valueOf(3.456F);
+
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Tamsayı türlerine ilişkin sarmalayan sınıflar [-128, 127] aralığındaki değerleri bir ön belleğe (cache) atarlar.
+    Yani bu aralıkltaki bir sayı ne kadar sarmalanırsa sarmalansın hep aynı nesne kullanılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i1 = Integer.valueOf(10);
+        Integer i2 = Integer.valueOf(10);
+
+        System.out.println(i1 == i2);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Tamsayı türlerine ilişkin sarmalayan sınıflar [-128, 127] aralığındaki değerler dışında kalanların önbellekte
+    tutulup tutulmayacağı garanti edilmemiştir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i1 = Integer.valueOf(128);
+        Integer i2 = Integer.valueOf(128);
+
+        System.out.println(i1 == i2);
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Character sınıfının char parametreli valueOf metodu [0, 127] sıra numarasın aralığındaki karakterleri
+    önbellekte tutar
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Character c1 = Character.valueOf('Z');
+        Character c2 = Character.valueOf('Z');
+
+        System.out.println(c1 == c2);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Character sınıfının char parametreli valueOf metodu [0, 127] sıra numarası aralığındaki karakterler dışında
+    kalanları önbellekte tutup tutmayacağını garanti etmemiştir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Character c1 = Character.valueOf('Ğ');
+        Character c2 = Character.valueOf('Ğ');
+
+        System.out.println(c1 == c2);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Boolean sınıfı da true ve false değerleri için önbellek kullanılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Boolean b1 = Boolean.valueOf(true);
+        Boolean b2 = Boolean.valueOf(true);
+
+        System.out.println(b1 == b2);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Double ve Float sınıfları da sarmalama anlaında belleği efektif kullanacağını garanti etmiştir. Yani önbellek
+    kullanırlar
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Nümerik sarmalayan sınıflar Number isimli bir sınıftan türetilmiştir. Bu sınfının xxxValue isimli
+    metotları vardır. Bu metotlar sarmalanmış olan değeri elde etmekte kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = Integer.valueOf(10);
+        int val = i.intValue();
+
+        System.out.println(val);
+
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Nümerik sarmalayan sınıflar Number isimli bir sınıftan türetilmiştir. Bu sınfının xxxValue isimli
+    metotları vardır. Bu metotlar sarmalanmış olan değeri elde etmekte kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Double i = Double.valueOf(10.4);
+        double val = i.doubleValue();
+
+        System.out.println(val);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Bu metotlar tür dönüştürme kurallarına uygun olarak çalışırlar. Aşağıdaki örnekte byteValue metodu
+    double türünden byte türüne tür dönüştürme operatörü ile yapılan (explicit) dönüşüm kurallarına
+    uygun olarak çalışmaktadır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Double i = Double.valueOf(10.4);
+        byte val = i.byteValue();
+
+        System.out.println(val);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Bu metotlar tür dönüştürme kurallarına uygun olarak çalışırlar. Aşağıdaki intValue metodu byte türünün int türüne
+    yükseltilmesi durumundaki kurallara göre çalışır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        byte b = -100;
+        Byte bVal = Byte.valueOf(b);
+        int val = bVal.intValue();
+
+        System.out.printf("b=%d%n", b);
+        System.out.printf("b=%X%n", b);
+        System.out.printf("val=%d%n", val);
+        System.out.printf("val=%X%n", val);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte RandomObjectArrayGenerator sınıfı Integer ve Double türden değerler de üretebilmektedir.
+    Yani sarmalayan sınıflar sayesinde temel türlere ilişkin değerler adeta Object referansı ile gösterilebilmektedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.randomobjarraygenerator.RandomObjectArrayGenerator;
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+        RandomObjectArrayGenerator randomObjectArrayGenerator = new RandomObjectArrayGenerator(10);
+
+        randomObjectArrayGenerator.generateArray();
+
+        for (Object obj : randomObjectArrayGenerator.getObjects()) {
+            if (obj instanceof Random) {
+                Random r = (Random)obj;
+
+                System.out.printf("Random number:%d%n", r.nextInt(100));
+            }
+            else if (obj instanceof Integer) {
+                Integer i = (Integer)obj;
+
+                System.out.printf("Val:%d%n", i.intValue());
+            }
+            else if (obj instanceof Double) {
+                double val = ((Double)obj).doubleValue();
+
+                System.out.println(val * val);
+            }
+            else if (obj instanceof String) {
+                String str = (String)obj;
+
+                System.out.printf("Str:%s, Upper:%s%n", str, str.toUpperCase());
+            }
+        }
+    }
+}
+
+package org.csystem.samples.randomobjarraygenerator;
+
+import org.csystem.util.IntValue;
+import org.csystem.util.StringUtil;
+
+import java.util.Random;
+
+public class RandomObjectArrayGenerator {
+    private Random m_random;
+    private Object [] m_objects;
+
+    public Object getObject()
+    {
+        int val = m_random.nextInt(4);
+        Object obj = new Random();
+
+        switch (val) {
+            case 0:
+                obj = StringUtil.getRandomTextTR(m_random, 10);
+                break;
+            case 1:
+                obj = Integer.valueOf(m_random.nextInt(255) - 128);
+                break;
+            case 2:
+                obj = Double.valueOf(m_random.nextDouble());
+                break;
+        }
+
+        return obj;
+    }
+
+    public RandomObjectArrayGenerator(int n)
+    {
+        m_random = new Random();
+        m_objects = new Object[n];
+    }
+
+    public Object[] getObjects()
+    {
+        return m_objects;
+    }
+
+    public void generateArray()
+    {
+        for (int i = 0; i < m_objects.length; ++i)
+            m_objects[i] = getObject();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java 5 den önce temel bir türe ilişkin değerin sarmalanıp Object referansına atanması ve geri alınması aşağıdaki
+    gibi yapılabilmekteydi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Object obj = new Integer(val); //kutulama (boxing)
+
+        int a = ((Integer)obj).intValue(); // kutuyu açma (unboxing)
+
+        System.out.println(a);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java 5 ile birlikte ismine otomatik kutulama (auto boxing) ve otomatik kutu açma (auto unboxing) eklenmiştir.
+    Buna göre temel türe ilişkin bir değer ilişkin olduğu sarmalayan sınıf referansına doğrudan atanabilmektedir (boxing)
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 10; //auto boxing: Integer.valueOf(10);
+        Double d = 3.4; //auto boxing: Double.valueOf(3.4);
+        Boolean b = true; //auto boxing: Boolean.valueOf(true);
+
+        //....
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Kutulama işlemi ilişkin olduğu sarmalayan sınıfa yapılabilir. Otomatik tür dönüştürme kurallarına uygun olsa bile
+    farklı bir sarmalayan sınıf türüne yapılamaz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+
+        Long longVal = val; //error
+
+        //...
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutulama Object sınıfına da yapılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+
+        Number n = val; //Integer.valueOf(val);
+
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutulama Object sınıfına da yapılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+
+        Object obj = val; //Integer.valueOf(val);
+
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutulama
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Object obj = 10;
+
+        System.out.println(obj.getClass().getName());
+
+        obj = 23L;
+
+        System.out.println(obj.getClass().getName());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte integral promotion dolayışıyla obj referansının dinamik türü Integer olur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        short a = 10, b = 20;
+
+        Object obj = a + b; //Integer.valueOf(a + b);
+
+        System.out.println(obj.getClass().getName());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutu açma ile sarmalayan sınıf referansı ilişkin olduğu türe doğrudan atanabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Integer iVal = val;
+
+        int a = iVal; //auto unboxing: iVal.intValue();
+
+        System.out.println(a);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutuyu açma işleminin Number türü ile yapılması
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Number n = val;
+
+        int a = (int)n; //auto unboxing: ((Integer)n).intValue(n);
+
+        System.out.println(a);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutuyu açma işleminin Object türü ile yapılması
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Object obj = val; //auto boxing: Integer.valueOf(val);
+
+        int a = (int)obj; //auto unboxing: ((Integer)obj).intValue(n);
+
+        System.out.println(a);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Otomatik kutu açma ilişkin olduğu türe yapılmalıdır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Object obj = val; //auto boxing: Integer.valueOf(val);
+
+        long a = (long)obj; //auto unboxing: ((Long)obj).longValue(n);
+
+        System.out.println(a);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Yukarıdaki problem aşağıdaki gibi çözülebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Object obj = val; //auto boxing: Integer.valueOf(val);
+        long a = (int)obj; //auto unboxing: ((Integer)obj).intValue(n);
+
+        System.out.println(a);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte tür dönüştürme operatörünün sağdan sola öncelikli olmasından yararlanılmıştır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = 10;
+        Object obj = val; //auto boxing: Integer.valueOf(val);
+        short a = (short)(int)obj; //auto unboxing: (short)((Integer)obj).intValue(n);
+
+        System.out.println(a);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    RandomObjectArrayGenerator sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.randomobjarraygenerator.RandomObjectArrayGenerator;
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+        RandomObjectArrayGenerator randomObjectArrayGenerator = new RandomObjectArrayGenerator(10);
+
+        randomObjectArrayGenerator.generateArray();
+
+        for (Object obj : randomObjectArrayGenerator.getObjects()) {
+            if (obj instanceof Random) {
+                Random r = (Random)obj;
+
+                System.out.printf("Random number:%d%n", r.nextInt(100));
+            }
+            else if (obj instanceof Integer) {
+                int val = (int)obj;
+
+                System.out.printf("Val:%d%n", val);
+            }
+            else if (obj instanceof Double) {
+                double val = (double)obj;
+
+                System.out.println(val * val);
+            }
+            else if (obj instanceof String) {
+                String str = (String)obj;
+
+                System.out.printf("Str:%s, Upper:%s%n", str, str.toUpperCase());
+            }
+        }
+    }
+}
+
+package org.csystem.samples.randomobjarraygenerator;
+
+import org.csystem.util.IntValue;
+import org.csystem.util.StringUtil;
+
+import java.util.Random;
+
+public class RandomObjectArrayGenerator {
+    private Random m_random;
+    private Object [] m_objects;
+
+    public Object getObject()
+    {
+        int val = m_random.nextInt(4);
+        Object obj = new Random();
+
+        switch (val) {
+            case 0:
+                obj = StringUtil.getRandomTextTR(m_random, 10);
+                break;
+            case 1:
+                obj = m_random.nextInt(255) - 128;
+                break;
+            case 2:
+                obj = m_random.nextDouble();
+                break;
+        }
+
+        return obj;
+    }
+
+    public RandomObjectArrayGenerator(int n)
+    {
+        m_random = new Random();
+        m_objects = new Object[n];
+    }
+
+    public Object[] getObjects()
+    {
+        return m_objects;
+    }
+
+    public void generateArray()
+    {
+        for (int i = 0; i < m_objects.length; ++i)
+            m_objects[i] = getObject();
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    auto boxing ve upcasting
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample.doWork(10); //auto boxing
+        Sample.doWork("ankara"); // upcasting
+        Sample.doWork(3.4); //auto boxing
+        Sample.doWork('Z'); //auto boxing
+        Sample.doWork(new Random()); //upcasting
+    }
+}
+
+
+class Sample {
+    public static void doWork(Object o)
+    {
+        //...
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıflar genel olarak ilişkin oldukları türler gibi davranabilirler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer iVal = 23;
+        double val = iVal + 2.3; //iVal.doubleValue() + 2.3
+
+        System.out.println(val);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıflar genel olarak ilişkin oldukları türler gibi davranabilirler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer iVal = 23;
+        Object obj = iVal + 2.3; //auto boxing: Double.valueOf(iVal.doubleValue() + 2.3);
+
+        System.out.println(obj.getClass().getName());
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıflar genel olarak ilişkin oldukları türler gibi davranabilirler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 10;
+
+        ++i; // i = Integer.valueOf(i.intValue() + 1);
+
+        System.out.println(i.intValue());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıflar genel olarak ilişkin oldukları türler gibi davranabilirler. Aşağıdaki örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 10;
+        Integer temp = i;
+
+        ++i; // i = Integer.valueOf(i.intValue() + 1);
+
+        System.out.println(i == temp); //false
+
+        System.out.println(i.intValue());
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 10;
+        Integer temp = i;
+
+        ++i; // i = Integer.valueOf(i.intValue() + 1);
+
+        System.out.println(i == temp); //false
+
+        --i; // i = Integer.valueOf(i.intValue() - 1);
+
+        System.out.println(i == temp); //true
+
+        System.out.println(i.intValue());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örneği inceleyiniz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 1000;
+        Integer temp = i;
+
+        ++i; // i = Integer.valueOf(i.intValue() + 1);
+
+        System.out.println(i == temp); //false
+
+        --i; // i = Integer.valueOf(i.intValue() - 1);
+
+        System.out.println(i == temp); //false
+
+        System.out.println(i.intValue());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnek yukarıdaki yapılana göre yani Integer kullanılarak yazıma göre göreceli hızlıdır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Integer i = 1000;
+        int val = i;
+
+        ++val;
+
+        //...
+
+        --val;
+
+        i = val;
+
+        //...
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sarmalayan sınıflar genel olarak ilişkin oldukları türler gibi davranabilirler
+    i < 10 ---> i.intValue() < 10
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        for (Integer i = 0; i < 10; ++i)
+            System.out.printf("%d ", i.intValue());
+
+        System.out.println();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir dizinin büyütülmesi. Tabii ki gerçekte bir dizi büyütülemez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.ArrayUtil;
+
+class App {
+    public static void main(String [] args)
+    {
+        int [] a = ArrayUtil.getRandomArray(10, 1, 100);
+
+        ArrayUtil.display(a, 2);
+
+        a = ArrayUtil.enlarge(a, 20);
+
+        ArrayUtil.display(a, 2);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayUtil sınıfının resize metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.ArrayUtil;
+
+class App {
+    public static void main(String [] args)
+    {
+        int [] a = ArrayUtil.getRandomArray(10, 1, 100);
+
+        ArrayUtil.display(a, 2);
+
+        a = ArrayUtil.resize(a, 5);
+
+        ArrayUtil.display(a, 2);
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    04.04.2020
+    Algoritmanın karmaşıklığı (complexity of algorithm):
+    - Hız *
+    - Kaynak kullanımı
+
+    Algoritmanın karmaşıklığı Big O notasyonu ile gösterilebilir:
+    - Polinomsal (polynomial) karmaşıklıklar
+    O(1)        -> sabit karmaşıklık: döngü yok. Örneğin:üçgenin alanının bulunması, diz elemanına erişim
+    O(logn)     -> log karmaşıklık: Tek bir döngü var. Her adımda dönme sayısı yarı yarıya azalıyor. Örnek: binary search
+    O(n)        -> doğrusal karmaşıklık: Tek döngü. Örneğin:bir dizinin elemanları toplamının bulunması, en büyük elemanın bulunması
+    O(n * logn) -> nlogn karmaşıklı: İçiçe iki döngü var, birisinde her adımda dönme sayısı yarı yarıya azalıyor. Örneğin: quick sort algoritması
+    O(n ^ 2)    -> karesel karmaşıklık: İçiçe iki döngü var. Örneğin: Bir matrisin elemanları toplamının bulunması
+    O(n ^ 3)    -> küpsel karmaşıklık: İçiçe üç döngü var. Örneğin: Bir kübün üzerindeki noktaların toplamının bulunması
+    ...
+    O(n ^ k)    -> k-sal karmaşıklık (k sabit): İçiçe k tane döngü var
+
+    - Polinomsal olmayan (non-polynomial) karmaşıklıklar
+    O(k ^ n)    -> Üstel karmaşıklık (k sabit):
+    O(n!)       -> Faktöriyel karmaşıklık
+
+    Bazen bir algoritma çoğu zaman herhangi bir karmaşıklıktayken bazı zamamnlar (bu az olmalıdır) üst bir karmaşıklıkta
+    çalışır. Bu tarz karmaşıklıklara amortize edilmiş (amortized) karmaşıklıklar denir. Örneğin, bir algoritma
+    çogu zaman O(1) karmaşıklıkta iken bazı zamanlar O(n) karmaşıklıkta çalışıyor ise amortize edilmiş sabit zamanlı
+    (amortized constant time) karmaşıklık denir
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Dinamik büyüyen dizi veri yapıları diziyi eklenen eleman sayısı kadar büyütmez. Dizinin büyütülmesi
+    gerektiği durumda büyüme işlemini biraz fazlaca yapar. İşte bu tarz veri yapılarında dizinin uzunluğuna
+    capacity değeri denir Ancak dizide mantıksal tutulan elaman sayısına size denir. size hiç bir zaman capacity
+    değerinden büyük olamaz. Capacity değeri size değerinden büyük veya size değerine eşit olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte bir dizinin mantıksal dinamik büyütülmesine ilişkin basit bir örnek kod yazılmıştır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.ArrayUtil;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        DynamicArrayDemo.run();
+    }
+}
+
+class DynamicArrayDemo {
+    private static final int DEFAULT_CAPACITY = 3;
+
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        int [] numbers = new int[DEFAULT_CAPACITY];
+        int index = 0;
+
+        for (;;) {
+            System.out.print("Bir sayı giriniz:");
+            int val = Integer.parseInt(kb.nextLine());
+
+            if (val == 0)
+                break;
+
+            if (index == numbers.length)
+                numbers = ArrayUtil.enlarge(numbers, numbers.length * 2);
+
+            numbers[index++] = val;
+
+            System.out.printf("Size:%d%n", index);
+            System.out.printf("Capacity:%d%n", numbers.length);
+        }
+
+        ArrayUtil.display(numbers, 2, index);
+        ArrayUtil.display(numbers, 2);
+
+        System.out.println("Tekrar yapıyor musunuz?");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+import java.util.Random;
+
+public final class ArrayUtil {
+    private ArrayUtil() {}
+
+    private static void copy(int [] src, int [] dest)
+    {
+        copy(src, dest, src.length);
+    }
+
+    private static void copy(int [] src, int [] dest, int n)
+    {
+        for (int i = 0; i < n; ++i)
+            dest[i] = src[i];
+    }
+
+    public static double average(int [] a)
+    {
+        return  (double)sum(a) / a.length;
+    }
+
+    public static void bubbleSort(int [] a)
+    {
+        bubbleSort(a, false);
+    }
+
+    public static void bubbleSort(int [] a, boolean desc)
+    {
+        if (desc) {
+            for (int i = 0; i < a.length - 1; ++i) {
+                for (int k = 0; k < a.length - 1 - i; ++k)
+                    if (a[k] < a[k + 1]) {
+                        int temp = a[k];
+                        a[k] = a[k + 1];
+                        a[k + 1] = temp;
+                    }
+            }
+        }
+        else {
+            for (int i = 0; i < a.length - 1; ++i) {
+                for (int k = 0; k < a.length - 1 - i; ++k)
+                    if (a[k] > a[k + 1]) {
+                        int temp = a[k];
+                        a[k] = a[k + 1];
+                        a[k + 1] = temp;
+                    }
+            }
+        }
+    }
+
+    public static void display(int [] a)
+    {
+        display(a, 1);
+    }
+
+    public static void display(int [] a, int n)
+    {
+        display(a, n, a.length);
+    }
+
+    public static void display(int [] a, int n, int len)
+    {
+        String fmt = String.format("%%0%dd ", n);
+
+        for (int i = 0; i < len; ++i)
+            System.out.printf(fmt, a[i]);
+
+        System.out.println();
+    }
+
+    public static void display(int [][] a)
+    {
+        display(a, 1);
+    }
+    public static void display(int [][] a, int n)
+    {
+        for (int [] array : a)
+            display(array, n);
+    }
+
+    public static void drawHistogram(int [] hist, int n, char ch)
+    {
+        int maxVal = max(hist);
+
+        for (int val : hist) {
+            int nCh = val * n / maxVal;
+
+            while (nCh-- > 0)
+                System.out.print(ch);
+
+            System.out.println();
+        }
+    }
+
+    public static int [] enlarge(int [] a, int newLen)
+    {
+        if (newLen <= a.length)
+            return a;
+
+        return resize(a, newLen);
+    }
+
+    public static int [] getHistogramData(int [] a, int n) //[0, n]
+    {
+        int [] counts = new int[n + 1];
+
+        for (int val : a)
+            ++counts[val];
+
+        return counts;
+    }
+
+    public static int[] getRandomArray(int n, int min, int max) //[min, max)
+    {
+        return getRandomArray(new Random(), n, min, max);
+    }
+
+    public static int[] getRandomArray(Random r, int n, int min, int max) //[min, max)
+    {
+        int [] a = new int[n];
+
+        for (int i = 0; i < n; ++i)
+            a[i] = r.nextInt(max - min) + min;
+
+        return a;
+    }
+
+    public static int[][] getRandomMatrix(int m, int n, int min, int max) //[min, max)
+    {
+        return getRandomMatrix(new Random(), m, n, min, max);
+    }
+
+    public static int[][] getRandomMatrix(Random r, int m, int n, int min, int max) //[min, max)
+    {
+        int [][] a = new int[m][];
+
+        for (int i = 0; i < m; ++i)
+            a[i] = getRandomArray(r, n, min, max);
+
+        return a;
+    }
+
+    public static int [][] getRandomSquareMatrix(int n, int min, int max)
+    {
+        return getRandomSquareMatrix(new Random(), n, min, max);
+    }
+
+    public static int [][] getRandomSquareMatrix(Random r, int n, int min, int max)
+    {
+        return getRandomMatrix(r, n, n, min, max);
+    }
+
+    public static int [][] getTransposedMatrix(int [][] a)
+    {
+        if (!isMatrix(a))
+            return new int[0][];
+
+        int row = a[0].length;
+        int col = a.length;
+        int [][] t = new int[row][col];
+
+        for (int i = 0; i < row; ++i)
+            for (int j = 0; j < col; ++j)
+                t[i][j] = a[j][i];
+
+        return t;
+    }
+
+    public static boolean isMatrix(int [][] a)
+    {
+        int col = a[0].length;
+
+        for (int i = 1; i < a.length; ++i)
+            if (a[i].length != col)
+                return false;
+
+        return true;
+    }
+
+    public static boolean isSquareMatrix(int [][] a)
+    {
+        return isMatrix(a) && a.length == a[0].length;
+    }
+
+    public static String join(String [] s, char delim)
+    {
+        return join(s, delim + "");
+    }
+
+    public static  String join(String [] s, String delim)
+    {
+        String str = "";
+
+        for (String sval : s)
+            str += sval + delim;
+
+        return str.substring(0, str.length() - delim.length());
+    }
+
+    public static int max(int [] a)
+    {
+        int result = a[0];
+
+        for (int i = 1; i < a.length; ++i)
+            result = Math.max(result, a[i]);
+
+        return result;
+    }
+
+    public static int min(int [] a)
+    {
+        int result = a[0];
+
+        for (int i = 1; i < a.length; ++i)
+            result = Math.min(result, a[i]);
+
+        return result;
+    }
+
+    public static int [] resize(int [] a, int newLen)
+    {
+        int [] res = new int[newLen];
+
+        copy(a, res, a.length);
+
+        return res;
+    }
+
+
+    public static void reverse(int [] a) //by Emre Onsur
+    {
+        int temp;
+        int halfLen = a.length / 2;
+
+        for(int i = 0; i < halfLen; ++i) {
+            temp = a[i];
+            a[i] = a[a.length - 1 - i];
+            a[a.length - 1 - i] = temp;
+        }
+    }
+
+    public static void reverse(char [] a)
+    {
+        char temp;
+        int halfLen = a.length / 2;
+
+        for(int i = 0; i < halfLen; ++i) {
+            temp = a[i];
+            a[i] = a[a.length - 1 - i];
+            a[a.length - 1 - i] = temp;
+        }
+    }
+
+    public static int sum(int [] a)
+    {
+        int result = 0;
+
+        for (int val : a)
+            result += val;
+
+        return result;
+    }
+
+    public static int sumDiagonal(int [][] a)
+    {
+        //...
+        int sum = 0;
+
+        for (int i = 0; i < a.length; ++i)
+            sum += a[i][i];
+
+        return sum;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfında capacity kullanılır ancak nasıl büyütüleceği söylenmez. Bu sebeple ArrayList sınıfının
+    capacity değerini veren bir metodu yoktur. Bu sebeple capacity bilgisi gereken kodlarda Vector sınıfı ile örnekler
+    yazılacaktır. Vector sınıfı burada anlatılmayan farklılıkları ve capacity bilgisini elde edebilmemiz dışında
+    ArrayList ile aynı düşünülebilir
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının default ctor elemanı ile capcity değerini 10 olarak nesne yaratılır. Vector
+    sınıfının capacity metodu capacity değerini döndürür. ArrayList/Vector sınıfının size metodu tutulan eleman sayısı
+    bilgisini döndürür
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector();
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının capacity parametreli ctor elemanı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector(23);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının add metodu sona eklemek için kullanılır. Şüphesiz bu metot gerektiğinde capacity
+    değerini de uygun şekilde (amortized constant time) büyütür. Vector sınıfının default capacity büyütmesi
+    var olan capacity değerinin iki katı olacak şekildedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector(6);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        for (int i = 0; i < 12; ++i)
+            numbers.add(i * 10);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        numbers.add(67);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının index parametreli add metodu araya ekleme yapmak için kullanılabilir. Bu metot
+    O(n) karmaşıklıktadır. Şüphesiz bu metot gerektiğin capacity değerini uygun şekilde büyütür
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector(6);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        for (int i = 0; i < 12; ++i)
+            numbers.add(0, i * 10);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        numbers.add(2, 67);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfının get metodu ile bir indeksteki eleman elde edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.ArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayList numbers = new ArrayList(6);
+
+        for (int i = 0; i < 12; ++i)
+            numbers.add(i * 10);
+
+        int size = numbers.size();
+
+        for (int i = 0; i < size; ++i) {
+            int val = (int)numbers.get(i);
+
+            System.out.printf("%d ", val);
+        }
+
+        System.out.println();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfının get metoduna pozitif ya da negatif bakımdan sınırlar dışında bir indeks numarası
+    verildiğinde exception oluşur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.ArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayList numbers = new ArrayList(6);
+
+        for (int i = 0; i < 12; ++i)
+            numbers.add(i * 10);
+
+        int size = numbers.size();
+
+        int val = (int)numbers.get(13);
+
+        System.out.println(val);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfı for-each döngü deyimi ile dolaşılabilir (iterable) bir sınıftır. for-each döngü deyiminin
+    her adımında içeride tutulan eleman sırasıyla elde edilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.ArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayList numbers = new ArrayList(6);
+
+        for (int i = 0; i < 10; ++i)
+            numbers.add(i * 10);
+
+        for (Object obj : numbers) {
+            int val = (int)obj;
+
+            System.out.printf("%d ", val);
+        }
+
+        System.out.println();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfının isEmpty metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.ArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayList numbers = new ArrayList(6);
+
+        numbers.add(23);
+
+        System.out.println(numbers.isEmpty() ? "Boş" : "Dolu");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfının set metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.ArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayList numbers = new ArrayList();
+
+        for (int i = 0; i < 20; ++i)
+            numbers.add(i * 10);
+
+        for (Object o : numbers) {
+            int val = (int)o;
+
+            System.out.printf("%d ", val);
+        }
+
+        System.out.println();
+
+        int oldValue = (int)numbers.set(2, 67);
+
+        for (Object o : numbers) {
+            int val = (int)o;
+
+            System.out.printf("%d ", val);
+        }
+
+        System.out.println();
+        System.out.printf("Old Value:%d%n", oldValue);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının clear metodu tüm elemanları siler. Bu sınıflarda silme yapan metotlar yani size değerini
+    azaltan metotlar capacity değerini değiştirmezler
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector();
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        for (int i = 0; i < 15; ++i)
+            numbers.add(i * 10);
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        numbers.clear();
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının remove metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector numbers = new Vector();
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        for (int i = 0; i < 15; ++i)
+            numbers.add(i * 10);
+
+
+        for (Object o : numbers) {
+            int val = (int)o;
+
+            System.out.printf("%d ", val);
+        }
+        System.out.println();
+
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+
+        int oldVal = (int)numbers.remove(2);
+
+        for (Object o : numbers) {
+            int val = (int)o;
+
+            System.out.printf("%d ", val);
+        }
+        System.out.println();
+
+        System.out.printf("Old value:%d%n", oldVal);
+        System.out.printf("Capacity:%d%n", numbers.capacity());
+        System.out.printf("Size:%d%n", numbers.size());
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte bir dizinin mantıksal dinamik büyütülmesine ilişkin basit bir örnek kod yazılmıştır.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        ArrayListTest.run();
+    }
+}
+
+class ArrayListTest {
+    private static final int DEFAULT_CAPACITY = 3;
+
+    public static void run()
+    {
+        Scanner kb = new Scanner(System.in);
+        int index = 0;
+        Vector list = new Vector(DEFAULT_CAPACITY);
+
+        for (;;) {
+            System.out.print("Bir sayı giriniz:");
+            int val = Integer.parseInt(kb.nextLine());
+
+            if (val == 0)
+                break;
+
+            list.add(val);
+
+            System.out.printf("Size:%d%n", list.size());
+            System.out.printf("Capacity:%d%n", list.capacity());
+        }
+
+        for (Object o : list) {
+            int val = (int)o;
+
+            System.out.printf("%d ", val);
+        }
+
+        System.out.println();
+
+        System.out.println("Tekrar yapıyor musunuz?");
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList sınıfının trimToSize metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.StringUtil;
+
+import java.util.Random;
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector passwords = new Vector();
+        Random r = new Random();
+
+        for (int i = 0; i < 15; ++i)
+            passwords.add(StringUtil.generateRandomPassword(10));
+
+        for (Object o : passwords)
+            System.out.println((String)o);
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.trimToSize();
+
+        System.out.println("**************************************");
+        for (Object o : passwords)
+            System.out.println((String)o);
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Vector sınıfının trimToSize metodu size sıfır ise capacity değerini de sıfır yapar
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.StringUtil;
+
+import java.util.Random;
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector passwords = new Vector();
+        Random r = new Random();
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.trimToSize();
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.add(StringUtil.generateRandomPassword(r, 10));
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.add(StringUtil.generateRandomPassword(r, 5));
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.add(StringUtil.generateRandomPassword(r, 15));
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayList/Vector sınıfının ensureCapcity metodu capacity değerini aşağıdaki şekilde değiştirmekte (veya değiştirememekte)
+    kullanılabilir:
+    - Yeni capacity değeri var olan capacity değerinden küçük ve eşitse değişiklik yopmaz
+    - Yeni capacity değeri var olan capacity değerinin artması gereken değerinden küçük veya eşitse
+    artması gereken değere çeker
+    - Yeni capacity değeri var olan capacity değerinin artması gereken değerinden büyükse yeni capacity değerine çeker
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.StringUtil;
+
+import java.util.Random;
+import java.util.Vector;
+
+class App {
+    public static void main(String [] args)
+    {
+        Vector passwords = new Vector();
+        Random r = new Random();
+
+        for (int i = 0; i < 15; ++i)
+            passwords.add(StringUtil.generateRandomPassword(r, 10));
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.ensureCapacity(17);
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.ensureCapacity(30);
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+
+        passwords.ensureCapacity(87);
+
+        System.out.printf("Size:%d%n", passwords.size());
+        System.out.printf("Capacity:%d%n", passwords.capacity());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    null, referans türlerine atanabilen kullanılmayan adresi temsil eden bir anahtar sözcüktür
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+        String s = null;
+        Random r = null;
+        Sample k = null;
+        int [] a = null;
+        Integer iVal = null;
+        double val = null; //error
+
+        //...
+    }
+}
+
+enum Sample {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    05.04.2020
+    Bir referansın içerisinde null değeri olup olmadığı == veya != operatörleri ile test edilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = null;
+
+        System.out.println(s == null);
+        System.out.println(s != null);
+    }
+}
+
+
+class Sample {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir referansın default değeri null'dır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A a = new A();
+
+        System.out.println(a.b == null);
+    }
+}
+
+class B {
+
+}
+
+class A {
+    public B b;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    İçerisinde null değeri olan bir referans ile sınıfın elemanlarına erişim exception oluşturur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        String s = null;
+
+        System.out.println(s.toLowerCase());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    İçerisinde null değeri olan bir referans ile sınıfın elemanlarına erişim exception oluşturur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        String [] str = new String[10];
+
+        for (String s : str)
+            System.out.println(s.toLowerCase());
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    null değer kontrol amaçlı kullanılabilir. Yani bir referansın nesne gösterip göstermediği testi yapılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Singleton s = Singleton.getInstance();
+        Singleton k = Singleton.getInstance();
+
+        System.out.println(k == s);
+    }
+}
+
+class Singleton {
+    //...
+    private static Singleton ms_instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance()
+    {
+        if (ms_instance == null)
+            ms_instance = new Singleton();
+
+        return ms_instance;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    ArrayUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+import java.util.Random;
+
+public final class ArrayUtil {
+    private ArrayUtil() {}
+
+    private static void copy(int [] src, int [] dest)
+    {
+        copy(src, dest, src.length);
+    }
+
+    private static void copy(int [] src, int [] dest, int n)
+    {
+        for (int i = 0; i < n; ++i)
+            dest[i] = src[i];
+    }
+
+    public static double average(int [] a)
+    {
+        return  (double)sum(a) / a.length;
+    }
+
+    public static void bubbleSort(int [] a)
+    {
+        bubbleSort(a, false);
+    }
+
+    public static void bubbleSort(int [] a, boolean desc)
+    {
+        if (desc) {
+            for (int i = 0; i < a.length - 1; ++i) {
+                for (int k = 0; k < a.length - 1 - i; ++k)
+                    if (a[k] < a[k + 1]) {
+                        int temp = a[k];
+                        a[k] = a[k + 1];
+                        a[k + 1] = temp;
+                    }
+            }
+        }
+        else {
+            for (int i = 0; i < a.length - 1; ++i) {
+                for (int k = 0; k < a.length - 1 - i; ++k)
+                    if (a[k] > a[k + 1]) {
+                        int temp = a[k];
+                        a[k] = a[k + 1];
+                        a[k + 1] = temp;
+                    }
+            }
+        }
+    }
+
+    public static void display(int [] a)
+    {
+        display(a, 1);
+    }
+
+    public static void display(int [] a, int n)
+    {
+        display(a, n, a.length);
+    }
+
+    public static void display(int [] a, int n, int len)
+    {
+        String fmt = String.format("%%0%dd ", n);
+
+        for (int i = 0; i < len; ++i)
+            System.out.printf(fmt, a[i]);
+
+        System.out.println();
+    }
+
+    public static void display(int [][] a)
+    {
+        display(a, 1);
+    }
+    public static void display(int [][] a, int n)
+    {
+        for (int [] array : a)
+            display(array, n);
+    }
+
+    public static void drawHistogram(int [] hist, int n, char ch)
+    {
+        int maxVal = max(hist);
+
+        for (int val : hist) {
+            int nCh = val * n / maxVal;
+
+            while (nCh-- > 0)
+                System.out.print(ch);
+
+            System.out.println();
+        }
+    }
+
+    public static int [] enlarge(int [] a, int newLen)
+    {
+        if (newLen <= a.length)
+            return a;
+
+        return resize(a, newLen);
+    }
+
+    public static int [] getHistogramData(int [] a, int n) //[0, n]
+    {
+        int [] counts = new int[n + 1];
+
+        for (int val : a)
+            ++counts[val];
+
+        return counts;
+    }
+
+    public static int[] getRandomArray(int n, int min, int max) //[min, max)
+    {
+        return getRandomArray(null, n, min, max);
+    }
+
+    public static int[] getRandomArray(Random r, int n, int min, int max) //[min, max)
+    {
+        if (r == null)
+            r = new Random();
+
+        int [] a = new int[n];
+
+        for (int i = 0; i < n; ++i)
+            a[i] = r.nextInt(max - min) + min;
+
+        return a;
+    }
+
+    public static int[][] getRandomMatrix(int m, int n, int min, int max) //[min, max)
+    {
+        return getRandomMatrix(null, m, n, min, max);
+    }
+
+    public static int[][] getRandomMatrix(Random r, int m, int n, int min, int max) //[min, max)
+    {
+        if (r == null)
+            r = new Random();
+
+        int [][] a = new int[m][];
+
+        for (int i = 0; i < m; ++i)
+            a[i] = getRandomArray(r, n, min, max);
+
+        return a;
+    }
+
+    public static int [][] getRandomSquareMatrix(int n, int min, int max)
+    {
+        return getRandomSquareMatrix(new Random(), n, min, max);
+    }
+
+    public static int [][] getRandomSquareMatrix(Random r, int n, int min, int max)
+    {
+        return getRandomMatrix(r, n, n, min, max);
+    }
+
+    public static int [][] getTransposedMatrix(int [][] a)
+    {
+        if (!isMatrix(a))
+            return new int[0][];
+
+        int row = a[0].length;
+        int col = a.length;
+        int [][] t = new int[row][col];
+
+        for (int i = 0; i < row; ++i)
+            for (int j = 0; j < col; ++j)
+                t[i][j] = a[j][i];
+
+        return t;
+    }
+
+    public static boolean isMatrix(int [][] a)
+    {
+        int col = a[0].length;
+
+        for (int i = 1; i < a.length; ++i)
+            if (a[i].length != col)
+                return false;
+
+        return true;
+    }
+
+    public static boolean isSquareMatrix(int [][] a)
+    {
+        return isMatrix(a) && a.length == a[0].length;
+    }
+
+    public static String join(String [] s, char delim)
+    {
+        return join(s, delim + "");
+    }
+
+    public static  String join(String [] s, String delim)
+    {
+        String str = "";
+
+        for (String sval : s)
+            str += sval + delim;
+
+        return str.substring(0, str.length() - delim.length());
+    }
+
+    public static int max(int [] a)
+    {
+        int result = a[0];
+
+        for (int i = 1; i < a.length; ++i)
+            result = Math.max(result, a[i]);
+
+        return result;
+    }
+
+    public static int min(int [] a)
+    {
+        int result = a[0];
+
+        for (int i = 1; i < a.length; ++i)
+            result = Math.min(result, a[i]);
+
+        return result;
+    }
+
+    public static int [] resize(int [] a, int newLen)
+    {
+        int [] res = new int[newLen];
+
+        copy(a, res, a.length);
+
+        return res;
+    }
+
+
+    public static void reverse(int [] a) //by Emre Onsur
+    {
+        int temp;
+        int halfLen = a.length / 2;
+
+        for(int i = 0; i < halfLen; ++i) {
+            temp = a[i];
+            a[i] = a[a.length - 1 - i];
+            a[a.length - 1 - i] = temp;
+        }
+    }
+
+    public static void reverse(char [] a)
+    {
+        char temp;
+        int halfLen = a.length / 2;
+
+        for(int i = 0; i < halfLen; ++i) {
+            temp = a[i];
+            a[i] = a[a.length - 1 - i];
+            a[a.length - 1 - i] = temp;
+        }
+    }
+
+    public static int sum(int [] a)
+    {
+        int result = 0;
+
+        for (int val : a)
+            result += val;
+
+        return result;
+    }
+
+    public static int sumDiagonal(int [][] a)
+    {
+        //...
+        int sum = 0;
+
+        for (int i = 0; i < a.length; ++i)
+            sum += a[i][i];
+
+        return sum;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    null referans metotların gerçeriz durumlarda döndürdüğü değer olarak da kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+        double [] a = Util.getRandomArray(new Random(), 10, 20, 10);
+
+        System.out.println(a == null);
+    }
+}
+
+class Util {
+    public static double[] getRandomArray(Random r, int n, double min, double max)
+    {
+        if (r == null || n <= 0 || min >= max)
+            return null;
+
+        double [] a = new double[n];
+
+        for (int i = 0; i < n; ++i)
+            a[i] = r.nextDouble() * (max - min) + min;
+
+        return a;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte derleyici programcının algoritmasını anlayamacağı için (ya da anlamak zorunda olmadığı için)
+    s referansına değer atanmazsa switch deyiminden sonra error oluşur. Bu error'u engellemek için null
+    değeri kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        if (val < 1 || val > 3) {
+            System.out.println("Geçersiz değerleri");
+            return;
+        }
+
+        Sample s = null;
+
+        switch (val) {
+            case 1:
+                s = new Sample(10);
+                break;
+            case 2:
+                s = new Sample(34);
+                break;
+            case 3:
+                s = new Sample(46);
+                break;
+        }
+
+        System.out.println(s.getVal());
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public Sample(int val)
+    {
+        m_val = val;
+    }
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public void setVal(int val)
+    {
+        m_val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte derleyici programcının algoritmasını anlayamacağı için (ya da anlamak zorunda olmadığı için)
+    s referansına değer atanmazsa switch deyiminden sonra error oluşur. Bu error'u engellemek için null
+    değeri kullanılabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        if (val < 1 || val > 3) {
+            System.out.println("Geçersiz değerleri");
+            return;
+        }
+
+        Sample s = null;
+
+        switch (val) {
+            case 1:
+                s = new Sample(10);
+                break;
+            case 2:
+                s = new Sample(34);
+                break;
+            case 3:
+                s = new Sample(46);
+                break;
+        }
+
+        System.out.println(s.getVal());
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public Sample(int val)
+    {
+        m_val = val;
+    }
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public void setVal(int val)
+    {
+        m_val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir nesne garbage colloctor denilen çöp toplayıcı tarafından yok edilir. Bir nesnenin artık kullanılmadığına
+    yönelik çeşitli algoritmalar kullanılır. Bunlardan en tipik olan referans sayma yöntemidir. Bu yönteme göre
+    yaratılmış her nesne için bir referans sayacı tutulur. Nesnenin her referansa atanması durumunda bu sayaç bir
+    artırılır her referanstan kopartılması durumunda da bir azaltılır. Bir nesne için sayaç sıfır değerine
+    gelmişse nesne artık kullanılmıyor durumdadır yani çöp olmuştur. Buna İngilizce olarak "garbage collected" veya
+    "eligible" terimi kullanılmaktadır. Bir nesne kullanılmıyor durumda iken çöp toplayıcı program (garbage collector)
+    devre girdiğinde yok edilir. Çöp toplayıcı programın ne zaman devreye gireceğine yönelik bir
+    standart belirlenmemiştir. Bu işlem çöp toplayıcıyı yazanlara bırakılmıştır. Ancak JRE için bunun etkinliğine
+    güvenilir.
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte referans yöntemi kullanıldığı varsayılarak sayaçları durumu gösterilmiştir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s;
+
+        s = new Sample(); //reference counter (rc1): 1
+
+        {
+            Sample k = s; //rc1=2
+
+        } //rc1=1
+
+        Mample.foo(s); //rc1=2 ---> rc1=3
+        //rc1=1
+
+        Sample k = s; //rc1=2
+        s = new Sample(); //rc1 = 1, rc2=1
+        s = null; //rc2:0 (garbage colected (gc))
+
+        //Burada çöp toplayıcının geleceği garanti değil
+        k = new Sample(); //rc1:0 (gc), rc3:1
+
+        //...
+    }
+}
+
+class Mample {
+    public static void foo(Sample s)
+    {
+        Sample k = s;
+
+        //...
+    }
+}
+
+class Sample {
+
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    System sınıfının gc isimli metodu ile garbage collector devreye sokulabilir. Ancak bunun sürekli yapılmaması.
+    Daha açık bir ifadeyle dikkatli yapılması gerekir. ünkü çoğu zaman garbage collector'ün kendi algoritmasına
+    güvenilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s;
+
+        s = new Sample(); //reference counter (rc1): 1
+
+        {
+            Sample k = s; //rc1=2
+
+        } //rc1=1
+
+        Mample.foo(s); //rc1=2 ---> rc1=3
+        //rc1=1
+
+        Sample k = s; //rc1=2
+        s = new Sample(); //rc1 = 1, rc2=1
+        s = null; //rc2:0 (garbage colected (gc))
+
+        System.gc();
+
+        //Burada çöp toplayıcının geleceği garanti değil
+        k = new Sample(); //rc1:0 (gc), rc3:1
+
+        //...
+    }
+}
+
+class Mample {
+    public static void foo(Sample s)
+    {
+        Sample k = s;
+
+        //...
+    }
+}
+
+class Sample {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    CSDArrayList sınıfı ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.collection.CSDArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        CSDArrayList list = new CSDArrayList();
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        for (int i = 0; i < 10; ++i)
+            list.add(i * 10);
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        list.add(67);
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        list.trimToSize();
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    CSDArrayList sınıfı ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.collection.CSDArrayList;
+
+class App {
+    public static void main(String [] args)
+    {
+        CSDArrayList list = new CSDArrayList();
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        for (int i = 0; i < 10; ++i)
+            list.add(i * 10);
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        list.add(67);
+        list.clear();
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+
+        list.trimToSize();
+
+        System.out.printf("Capacity:%d%n", list.capacity());
+        System.out.printf("Size:%d%n", list.size());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    CSDArrayList sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.collection;
+
+public class CSDArrayList {
+    private static final int DEFAULT_CAPACITY = 10;
+    private Object [] m_elems;
+    private int m_index;
+
+    private static void doWorkForException(String msg)
+    {
+        System.out.println(msg);
+        System.exit(-1); //exception konusuna kadar sabredin
+    }
+
+    private static void checkForIllegalArgumentException(int capacity)
+    {
+        if (capacity < 0)
+            doWorkForException("Invalid capacity");
+    }
+
+    private static void checkForIndexOutOfBounds(int index, int end)
+    {
+        if (index < 0 || index >= end)
+            doWorkForException("Index out of bounds");
+    }
+
+    private void allocateCapacity(int capacity)
+    {
+        Object [] temp = new Object[capacity];
+
+        for (int i = 0; i < m_index; ++i)
+            temp[i] = m_elems[i];
+
+        m_elems = temp;
+    }
+
+    private void checkAndAllocCapacity(int capacity)
+    {
+        if (m_index < m_elems.length)
+            return;
+
+        allocateCapacity(capacity);
+    }
+
+    public CSDArrayList()
+    {
+        this(DEFAULT_CAPACITY);
+    }
+
+    public CSDArrayList(int initialCapacity)
+    {
+        checkForIllegalArgumentException(initialCapacity);
+        m_elems = new Object[initialCapacity];
+    }
+
+    public boolean add(Object elem)
+    {
+        checkAndAllocCapacity(m_elems.length * 2);
+        m_elems[m_index++] = elem;
+        return true;
+    }
+
+    public void add(int index, Object elem)
+    {
+        checkAndAllocCapacity(m_elems.length * 2);
+        checkForIndexOutOfBounds(index, m_index + 1); // add size verildiğinde sona ekler
+        //TODO:
+    }
+
+    public int capacity() {return m_elems.length;}
+
+    public void clear()
+    {
+        for (int i = 0; i < m_index; ++i)
+            m_elems[i] = null;
+
+        m_index = 0;
+    }
+
+    public Object get(int index)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+
+        return m_elems[index];
+    }
+
+    public Object set(int index, Object elem)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+        Object old = m_elems[index];
+
+        m_elems[index] = elem;
+
+        return old;
+    }
+
+    public Object remove(int index)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+        Object old = m_elems[index];
+
+        //TODO:
+        return old;
+    }
+    public int size() {return m_index;}
+
+    public void trimToSize()
+    {
+        if (m_index == m_elems.length)
+            return;
+
+        allocateCapacity(m_index == 0 ? DEFAULT_CAPACITY : m_index);
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın içerisinde tüm metotların dışında static anahtar sözcüğü ile tanımlanan bloklara sınıfın
+    static blokları (static initializers) denir. Bu bloklar istenildiği kadar tanımlanabilir. Sınıfın
+    herhangi bir elamanı ilk kez kullanıldığında tüm static bloklar yukarıdan aşağıya sırasıya bir kez olmak
+    üzere çalıştırılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample.foo();
+        Sample.foo();
+    }
+}
+
+class Sample {
+    static {
+        System.out.println("static initializer1");
+    }
+    //...
+
+    static {
+        System.out.println("static initializer2");
+    }
+
+    static {
+        System.out.println("static initializer3");
+    }
+
+    public static void foo()
+    {
+        //..
+    }
+
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    static bloklar static metotlar gibidir yani bu bloklarda sınıfın yalnızca static elemanlarına erişilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample.foo();
+        Sample.foo();
+    }
+}
+
+class Sample {
+    static {
+        System.out.println("static initializer1");
+        foo();
+        bar();//error
+    }
+
+    public static void foo()
+    {
+        //..
+    }
+
+    public void bar()
+    {
+        //..
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıfın final static veri elemanlarına static bloklarda değer atanabilir. Şüphesiz burada atanabilmesi
+    için bildirim noktasında atanmaması gerekir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    public static final double PI;
+    static {
+        PI = 3.14;
+    }
+    //...
+
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    static bloğun bir kullanımı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Sample.VAL);
+        System.out.println(Sample.VAL);
+    }
+}
+
+class Sample {
+    public static final int VAL;
+
+    static {
+        Random r = new Random();
+
+        Scanner kb = new Scanner(System.in);
+        System.out.print("min?");
+        int min = Integer.parseInt(kb.nextLine());
+
+        System.out.print("max?");
+        int max = Integer.parseInt(kb.nextLine());
+
+        VAL = r.nextInt(max - min) + min;
+    }
+    //...
+}
 
 
 

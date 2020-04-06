@@ -3,57 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-005.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-006.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-007.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-007.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-008.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-008.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-009.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-009.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-010.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-010.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-011.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-011.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-012.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-012.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeworks/Homework-Java-013.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/homeworks/Homework-Java-013.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Examples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/Konubaslislari.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konubaslislari.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Konular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konular.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/String.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/String.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Complex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Complex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/geometry/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/geometry/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/ArrayUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/ArrayUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/IntValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/IntValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/NumberUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/NumberUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Month.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Month.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/CardValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Complex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/commandprompt/CommandPromptApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/date/DateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/examsimulation/ExamSimulation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/lottaryapp/Lottary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/IntValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/NumberUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringSplitOptions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Date.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/DateTime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/DayOfWeek.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Month.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/myDate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/myDayOfWeek.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/myMonth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +64,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -202,6 +162,19 @@
       <workItem from="1585125548797" duration="36000" />
       <workItem from="1585215881718" duration="5362000" />
       <workItem from="1585227594608" duration="34000" />
+      <workItem from="1585339686119" duration="680000" />
+      <workItem from="1585399441715" duration="13972000" />
+      <workItem from="1585564848559" duration="20784000" />
+      <workItem from="1585825300639" duration="7821000" />
+      <workItem from="1585916046923" duration="15934000" />
+      <workItem from="1585989953406" duration="12047000" />
+      <workItem from="1586026127974" duration="5934000" />
+      <workItem from="1586076371087" duration="49000" />
+      <workItem from="1586080793977" duration="12125000" />
+      <workItem from="1586119552497" duration="5295000" />
+      <workItem from="1586155356514" duration="2656000" />
+      <workItem from="1586160074972" duration="12941000" />
+      <workItem from="1586198210994" duration="2404000" />
     </task>
     <servers />
   </component>
@@ -213,18 +186,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1041" y="215" width="847" height="677" key="#Project_Structure/67.27.1853.1053@67.27.1853.1053" timestamp="1580639944855" />
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585227604199">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585596722181">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585227604199" />
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585596722181" />
     <state x="1143" y="357" width="639" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582375179935">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1143" y="357" width="639" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1582375179935" />
-    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1585071987433">
+    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1586028185692">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585071987433" />
+    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1586028185692" />
     <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581860222110">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -237,50 +210,50 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585222261615" />
-    <state width="1807" height="275" key="GridCell.Tab.0.bottom" timestamp="1585227627557">
+    <state width="1807" height="210" key="GridCell.Tab.0.bottom" timestamp="1586199135832">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585227627557" />
-    <state width="1807" height="275" key="GridCell.Tab.0.center" timestamp="1585227627556">
+    <state width="1807" height="210" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135832" />
+    <state width="1807" height="210" key="GridCell.Tab.0.center" timestamp="1586199135831">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585227627556" />
-    <state width="1807" height="275" key="GridCell.Tab.0.left" timestamp="1585227627555">
+    <state width="1807" height="210" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
+    <state width="1807" height="210" key="GridCell.Tab.0.left" timestamp="1586199135831">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585227627555" />
-    <state width="1807" height="275" key="GridCell.Tab.0.right" timestamp="1585227627556">
+    <state width="1807" height="210" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
+    <state width="1807" height="210" key="GridCell.Tab.0.right" timestamp="1586199135831">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="275" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585227627556" />
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1585082366842">
+    <state width="1807" height="210" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1586180241207">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585082366842" />
-    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1585082366842">
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241207" />
+    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1586180241206">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585082366842" />
-    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1585082366841">
+    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
+    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1586180241206">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585082366841" />
-    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1585082366842">
+    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
+    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1586180241206">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585082366842" />
-    <state x="482" y="187" width="1024" height="845" key="SettingsEditor" timestamp="1584953022010">
+    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
+    <state x="482" y="187" width="1024" height="845" key="SettingsEditor" timestamp="1586173299141">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1584953022010" />
+    <state x="482" y="187" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1586173299141" />
     <state x="1102" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580904676317">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1102" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580904676317" />
-    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583511367759">
+    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585855570830">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1583511367759" />
+    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585855570830" />
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585038162490">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -293,14 +266,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="302" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1585222273212" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1585216384451">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1586124269379">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585216384451" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1585216822094">
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586124269379" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1586155387388">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585216822094" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586155387388" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

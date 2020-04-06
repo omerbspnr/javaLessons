@@ -1,6 +1,8 @@
 ----------------------- 18 Ocak 2020 -----------
 
-- Temel türler(predifined, primitive) :
+- Temel türler(predifined, primitive, built-in türler)
+- Temel türler herhangi bir progralama dilindeki bir kütüphane eklenmeden kullanabilen türlerdir.
+
  	- Java da bütün tam sayı türleri işaretli olarak tutulur
 
  	- short				2 byte
@@ -153,13 +155,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
                                         26.01.2020
-///////////////////////////////////////////////////////////////////////////////////////////////////- javac her sınıf(aynı yada farklı paketlerde olması farketmeksizin) için .class uzantılı dosya(byte code) üretir.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- javac her sınıf(aynı yada farklı paketlerde olması farketmeksizin) için .class uzantılı dosya(byte code) üretir.
 
 
-- Bir sınıf herhangi bir pakette olabilir. Bir proje içerisinde kullanıla- .class dosyaları mutlaka
-n sınıfların aynı pakette
+- Bir sınıf herhangi bir pakette olabilir. Bir proje içerisinde kullanılan sınıfların aynı pakette
   olma zorunluluğu yoktur
-
+- .class dosyaları mutlaka
 - Bir paket içerisinde bildirilen bir sınıfın farklı bir paketten kullanılabilmesi için
   public olarak bildirilmesi gerekir. public olarak bildirilmeyen bir sınıf ancak
   aynı paketteki diğer sınıflar tarafından kullanılabilir (friendly, internal//bunlar public yazmamanın anlamıdır. Anahtör sözcük değillerdir.)
@@ -225,7 +227,7 @@ n sınıfların aynı pakette
 - Aynı Faaliyet alanı içerisinde YEREL değişkenler aynı isimde iki kez tanımlanamaz.
   Bu durum Sınıf'ların member'ları için geçerli değildir.(aynı isimde tanınınabilirler)
 
-- İsim arama kurallarında ilk olarak isim arama yapılır. Uygun kullanıp kullanılamadığına bakılır.
+- İsim arama kuralların- .class dosyaları mutlakada ilk olarak isim arama yapılır. Uygun kullanıp kullanılamadığına bakılır.
 
 - Nitelikli isim arama() kuralları
 	1-) Aranan ismin solunda sınıf ismi var ise, isim sınıf içerisinde aranır bulunamaz ise taban sınıflar içerisine bakılır.
@@ -353,8 +355,8 @@ n sınıfların aynı pakette
              Sınıfların elemanlarının gizlenmesi(encapsulation, data hiding)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    - Sınıfları yazarken dışarıya vermek istemediğimiz veri elemanlarını private yada uygun erişim belirleyicisini kullanarak
-      dışarıya detayların yansımamasıdır.
+    - Sınıfları yazarken dışarıya vermek istemediğimiz veri elemanlarını private yada uygun erişim belirleyicisini
+      kullanarak dışarıya detayların yansıtılmasını engellemek sağlanır.
 
     - Sınıfların dışarıya yansıtılan(public olan kısımları) sadece dökümente edilir.
 
@@ -381,18 +383,18 @@ n sınıfların aynı pakette
     - Sınıfların get Metotları genel olarak get ile başlatılır. Bazı ortamlar(framework) bunu default
       olarak isterler. Bu kurala bir sentaks kuralı gibi uymamız gerekir.
 
-    - Sınıfların set metotları genel olarak set ile başlatılır.Bazı ortamlar(framework) bunu default
-      olarak isterler. Bu kurala bir sentaks kuralı gibi uymSınıf elamanlarının erişim belirleyicileri(access modifiers)amız gerekir.
+    - Sınıfların set metotları genel olarak set ile başlatılır.Bazı ortamlar(framework) bunu def belirlault
+      olarak isterler. Bu kurala bir sentaks kuralı gibi uymamız gerekir.
 
 - Sınıfların private veri elemanlarının isimlendirilmesinde bazı önemli kurallar vardır.
   bu elemanlar m_day, mDay ile başlamalıdır.(Kursta m_ şeklinde yazılacaktır.) Burada m member anlamındadır.
 
 - eğer member static ms_day msDay şeklindedir.
-    - pascal sistemi isimlendirme (Sınıf isimleri bütün kelimelerin baş harfleri küçük)
-    - camel case (ilk kelimenin hepsi küçük, diğer kelimelerin baş harfleri büyük)
+    - pascal sistemi isimlendirme (Sınıf isimleri bütün kelimelerin baş harfleri büyük)
+    - camel case (ilk kelimenin hepsi küçük, diğer kelixmelerin baş harfleri büyük)
     - unique isimlendirme(tüm harfler küçük kelimelerin arasında _ kullanılır. Genelde java da kullanılmaz.)
 
-- Javadan boolean türden private elemanlara getter metotları get ile değil is ile başlar.
+- Javada boolean türden private elemanlara getter metotları get ile değil is ile başlar.
   Örneğin private boolean m_married değişkeni için isMarried kullanılır.
 
 - Bir sınıfın default ctor'u haricinde bir ctor yazıldığı zaman default ctor'un yazılıp yazılamayacağına
@@ -422,14 +424,16 @@ n sınıfların aynı pakette
     - Yapısal (Structurel)
     - Davranış(Behaivour)
 
-- Singleton design pattern'i bunlardan biridir. // Aşağıdaki kod lazy implementation denir.
+- Singleton design pattern'i bunlardan biridir. // Aşağıdaki kod yapısına lazy implementation'dır.
     class Singleton{
-        public static Singleton s;
+        private static Singleton s;
         private Singleton(){}
 
         public static Singleton getInstance() {
+            if (s == null)
+                s = new Singleton();
 
-            return s != null ? s : new Singleton();
+             return s;
         }
     }
 
@@ -443,6 +447,9 @@ n sınıfların aynı pakette
 
 - Eğer başka bir fonksiyonu tekrar ederek çağırmak algoritmamızı büyük ölçüde yavaşlaştıyor ise bu algoritmanın
   kendisi bu fonksiyon çağrılmadan yazılabilir. (Numbertil'in içindeki nextFibonacci ve next metotları böyle yazılmıştır.)
+
+- Bazı durumlarda aynı işlemleri yapan başka bir fonksiyonu çağırmak fonksiyonumuzun karmaşıklığını O(n)'den
+  O(n^2)' ye çıkartabilir.
 ///////////////////////////////////////////////////////////////////////////////////////////////////
                                      Final keywordu
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -470,7 +477,7 @@ n sınıfların aynı pakette
       3-) non-static initializer(İleride göreceğiz.)
 
 - Derleyiciler bir değişkeni final  olarak gördüğünde bunları daha çabuk erişilebilecek bir alana(cache yani önbelleğe)
-  koyarlar. Hiç değişmeyecek bir elemanı final belirtmeliyiz. (Derleyici optimizasyon yapacaktır.)
+  koyarlar. Hiç değişmeyecek bir elemanı final belirtmeliyiz. (Derleyicinin optimizasyonu için gereklidir.)
   Bir elemanı final yapılması gerekiyor ise yapılmalıdır.
 
 - Sınıfın static final member variable'larına da default değer atanmaz. Progmramcı sorumluluğundadır.
@@ -478,18 +485,18 @@ n sınıfların aynı pakette
         1-) Bilidirim sırasında
         2-) sTatic initializer(ileride göreceğiz)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                      08.03.2020
+                                        08.03.2020
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Sınıfın statik veri elemanları o sınıf türünden statik bir fonksiyon yada statik bir member'ı kullanıldığı anda
   hayata gelirler.
 
 - Referans türünden bir tür final olarak belirtilmiş ise sınıfın içindeki bilgiyi değiştirebiliriz.
-  Değiştiremeyeceğiz şey referanstır. aslında final referanslar her zaman top lewel const'luğa sahiptir diyebiliriz.
+  Değiştiremeyeceğiz şey referanstır. aslında final referanslar her zaman low lewel const'luğa sahiptir diyebiliriz.
     final Sample s = new Sample();
     s = new Sample; // error
     s.setX(5); // ok
-
+    - yani final referansların gösterdiği nesne modify edilebilir.
 - Ctor'ın geri dönüş değer kavramının olmamasının nedeni programcının doğrudan ctor'ı çağıramamasıdır. Ancak ve ancak
   new operatörü ile runtime da çağırılır.
 
@@ -497,7 +504,9 @@ n sınıfların aynı pakette
 
 - immutable sınıflarda elemanı final yapmamız gerekir.
 
-- new operatörü aynı değer ile çağırılan immutable nesneler farklı referanslardır.
+- new operatörü aynı değer ile çağırılan immutable nesneler farklı referanslardır. Böyle durumlarda valueOf
+  fonksiyonu kullanılabilir. Referanstan bağımsız yapılacak karşılaştırmalar için ,
+  Object sınıfının equals yada sınıfın kendi compareTo metodu kullanılabilir.
     String s = new String("ankara");
     String s1 = new String("ankara");
     System.out.println(s == s1); // false
@@ -505,13 +514,13 @@ n sınıfların aynı pakette
 - factory metodlar ctor'u private olan sınıf türünden nesne döndüren public static metot'lardır. Factory metodlar
   bizden bir değer alıp bu değere göre de nesne yaratabilirler.
 
-- IntValue(BigDecimal sınıfı) tarzı sınıfların çok kullanılan veri elemanları örneğin 1, 0 gibi elemanları final static eleman haline
-  dönüştürülür.
+- IntValue(BigDecimal sınıfı) tarzı sınıfların çok kullanılan veri elemanları örneğin 1, 0 gibi elemanları final static
+  eleman haline dönüştürülür.
   class IntValue {
     public static final IntValue ZERO = of(0);
   }
 
-- final keywordu her zaman top level constluk sağlar. low level constluk immutable nesnelerle sağlanabilir.
+- final keywordu referans nesneler için her zaman top level constluk sağlar.
     final String s = new String();
     s = new String(); // error
     final String [] strings = {"ahet", "bcd", "efg" };
@@ -523,11 +532,11 @@ n sınıfların aynı pakette
 
 - ctor'ı private olan bir çok sınıf factory metod'a sahiptir. Buna factory pattern denir.
 
-- final anahtar sözcüğünün bir çok kullanımı vardır.  C#' da karşılığı readOnly sözcüğüdür.
+- final anahtar sözcüğünün dilden dile bir çok farklı kullanım biçimi vardır.  C#' da karşılığı readOnly sözcüğüdür.
     - değişkenlerin final olarak bildirilmesi
     - metotların final bildirilmesi
     - sınıfların final bildirimesi
-    - bir kaç yerde daha var.
+    - bir kaç yer daha vardır.
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
                                       Enum türü
@@ -556,7 +565,9 @@ n sınıfların aynı pakette
 
 -  Yukarıda ki örnekte programcı StickyMan sınıfı için gerekli direction bilgilerini  ait değerleri
    her zaman aklında tutması gerekir. move fonksiyonunun içinde örneğin 1 sağ, 2 top, 3 left, 4 bottom
-   değerleri için haraket etmektedir. Programcı bu kütüphaneyi kullanan birisi olara her zaman bu değerleri bilmelidir.
+   değerleri için haraket etmektedir. Programcı bu kütüphaneyi kullanan birisi olarak her zaman bu değerleri bilmesi
+   ve ayrıca aklında tutması gerekir.
+
 
 - Burada move metodunun parametresi int türden değilde String türünden olabilirdi. Kullanıcı böylelikle
   fonksiyon çağrısını aşağıdaki şekilde yapabilir.
@@ -566,7 +577,9 @@ n sınıfların aynı pakette
       stickyMan.move("top");
 
 - Ancak yukarıda ki fonksiyon String'lerin karşılaştırması olduğu için int'e göre göreceli yavaş bir fonksiyondur.
-  Ayrıca String karşılaştırması runtime' da yapıldığı için programcı hata yapıp bunun nedenini farkedemeyebilir.
+  Ayrıca String karşılaştırması runtime' da yapıldığı için programcı hata yapıp bunun nedenini farkedemeyebilir(Buradaki
+  error programcının isteği şeklinde çalışmaması olacaktır.).
+
 
 - Programcı sınıfı string gibi kullanabileceği ama karşılaştırmanın da int şeklinde yapılabileceği hale getirmesi gerekir.
   Bunun için de static ve final değişkenler kullanılması gerekir.
@@ -601,8 +614,8 @@ n sınıfların aynı pakette
         }
 
 - Yukarıdaki kodda ki sıkıntı ise move fonksiyonun parametresinin int türden olması ve herhangi bir
-  Bildiriminin olmaması (yani okunabilirlik açısından gene zayıf olması) hatta bu fonksiyona sadece Direction sınıfının
-  değerlerinin değil başka değerlerinde  atanabiliyor olması gerektiğidir.
+  Bildiriminin olmaması (yani okunabilirlik açısından gene zayıf olması) ayrıca bu fonksiyona sadece Direction sınıfının
+  değerlerinin değil başka değerlerinde  atanabiliyor olması ayrıca bir hata içerir.
 
   class StickyMan {
 
@@ -612,7 +625,7 @@ n sınıfların aynı pakette
   class Direction {
     private final int m_ordinal;
     private  final Direction [] m_values = {
-        new Direction(0),
+        new Direction(0),hatta
         new Direction(1),
         new Direction(2),
         new Direction(3),
@@ -633,40 +646,16 @@ n sınıfların aynı pakette
         return ordinal;
     }
   }
+- Enum türü bir sınıf türüdür. Bildirimi enum anahtar sözcüğü ile yapılır.
+  (Yukarıdaki sınıf aslında enum türünün çok yakın bir implementasyonudur.Yukarıdaki fonksiyonların  hepsi enum yazılarak yapılabilir.)
 
-- enum türleri ctor'ı private yapılmış ve her bir enum türü için     içinde o sınıf türünden bir nesne tutan
+- enum türleri ctor'ı private yapılmış ve her bir enum türü için, içinde o sınıf türünden bir nesne tutan
   yapılardır.
 
-  class Direction {
-    private int m_ordinal;
-    private static final Direction [] ms_values =  {
-        new Direction(0),
-        new Direction(1),
-        new Direction(2),
-        new Direction(3),
-    }
-    private Direction(int ordinal) {m_ordinal = ordinal;}
-
-    public static final Direction RIGHT = ms_values[0];
-    public static final Direction TOP = ms_values[1];
-    public static final Direction LEFT = ms_values[2];
-    public static final Direction BOTTOM = ms_values[3];
-
-    public static Direction [] values() {
-        return ms_values;
-    }
-    public int ordinal()
-    {
-        return  m_ordinal;
-    }
-  }
-
-- Enum türü bir sınıf türüdür. Bildirimi enum anahtar sözcüğü ile yapılır.
-  (Yukarıdaki sınıf aslında enum türünün çok yakın bir gösterimidir.Yukarıdaki fonksiyonların  hepsi enum yazılarak yapılabilir.)
 
 - enum içerisinde bildiren isimler enum sabiti olarak adlandırılır.
 - Bu isimler public static final ve ilgili enum türündendir.
-- Ancak bildirim sırasında bunlar yazılamaz.
+- Ancak bildirim sırasında bunların yazılması errordur
 
 - enum sınıfının toString metodu ilgili sabitin yazısal karşılığını verir.
 
@@ -683,7 +672,7 @@ n sınıfların aynı pakette
     INSTANCE
   }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            14.03.2020
+                                    14.03.2020
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - final değişkenler switch deyimlerinde case ifadesi olarak  kullanılabilirler. Ancak switch deyimlerinde sınıf
@@ -709,7 +698,7 @@ n sınıfların aynı pakette
         RIGHT,TOP,LEFT,BOTTOM
     }
 
-- enum türü bir referans oldukları için, aynı türden enumlar == ve != operatörleri ile karşılaştırılabilirler.
+- enum türü bir referans türü olduğu  için, aynı türden enumlar == ve != operatörleri ile karşılaştırılabilirler.
     Direction d = Direction.LEFT;
 
     System.out.println(d == Direction.LEFT); // true
@@ -720,7 +709,7 @@ n sınıfların aynı pakette
 
 - enum türleri aynı türden ise aşağıdaki üç şekilde karşılaştırılabilir.
   1-) switch deyimleri,
-  2-) if deyimleri,
+  2-) if deyimleri içerisinde,
   3-) sınıfın equals fonksiyonu // Bu fonkisiyonda farklı enum türleri karşılaşıtrabilir. == veya !='de bu yapılamaz.
 
 
@@ -750,11 +739,11 @@ n sınıfların aynı pakette
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            15.03.2020
+                                    15.03.2020
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            SINIFLAR ARASI İLİŞKİLER
+                                    SINIFLAR ARASI İLİŞKİLER
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - iki tane sınıf arasında ya hiç ilişki yoktur ya da aşağıdaki dört durumdan yalnızca  biri vardır
@@ -766,6 +755,12 @@ n sınıfların aynı pakette
 - İlk üç madde'yi destekleyen doğrudan bir dil desteği yoktur.
 
 - Ama inheritance için bu böyle değildir. İnheritance bir çok dil tarafından  desteklenmektedir.
+
+- Composition, inheritance ve aggregation'da sınıflar ile açıklama yapılırken genellikle A ve B sınıfı kullanılacaktır.
+      Composition (A has a B)
+      Aggregation (A holds a B)
+      Inheritance (B extends A)
+
 
 - Composition ve Aggregation ilişkisi birbirine çok benzemektedir. Bir sınıfın başka bir sınıfı bütünsel olarak
   kullanmasıdır.
@@ -781,6 +776,7 @@ n sınıfların aynı pakette
 ///////////////////////////////////////////////////////////////////////////////////////////////////
                                         COMPOSITION
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 - Composition ilişkisi --has a-- ilişkisidir.
 
@@ -825,7 +821,7 @@ n sınıfların aynı pakette
 
    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                        ASSOCIATION
+                                       ASSOCIATION
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - A sınıfının B sınıfını ihtiyacı ölçüsünde kullanılması,bütünsel kullanım söz konusu değildir.
@@ -833,8 +829,8 @@ n sınıfların aynı pakette
 - A sınıfının bir fonksiyonunun B sınıfı türünden bir referans parametresini kullanmasıdır.  Yada fonksiyonun içinde
   new ile yaratılıp o fonksiyon boyunca kullanılır.
 
-- String nesneleri ile yapılan işlemler yapısal olarak aggregation, aslında aggregation değildir.
-- String sınıfı ile aggreagation yapılamaz. (immutable sınıflar ile aggregation yapılamaz.)
+- String(immutable sınıfların hepsi)  ile yapılan yapısal olarak aggregation gibi görünen işlemler ,
+  xaslında aggregation değildir.
 
 - taksi ile sürücü aggregation (Driver'ı dışarıdan alır.)
 - taksi ile müşteri ise associationdır.(Sadece bir fonksiyon için kullanılır.)
@@ -849,7 +845,7 @@ n sınıfların aynı pakette
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            21.03.2020
+                                        21.03.2020
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - A sınıfındna türetilen B sınıfı durumunda (B is a A ) A sınıfına B sınıfının taban sınıfı(base class), B sınıfına ise
@@ -862,15 +858,15 @@ n sınıfların aynı pakette
 
 - Indirect super class (Vapur ve Araç ilişkisi)
 
-- Java da multiple inheritance olamaz. Bir sınıf sadece tek bir sınıftan türetilebilir.
+- Java da multiple inheritance yoktur. Bir sınıf sadece tek bir sınıftan türetilebilir.
 
 - Java da türetme işlemi extends anahtar sözcüğü ile yapılır.
 
 - A sınıfından türetilen bir B sınıfında(class B extends A) A sınıfının private ve non-modifier metodları hariç tüm
   metodları kullanılabilir. Aynı şeyler veri elamanları içinde geçerlidir.
 
-- B sınıfından türetilen bir C sınıfında A sınıfının, ve B sınıfının bütün private ve non-modifier fonksiyonlarını
-  kullanabilir.
+- B sınıfından türetilen bir C sınıfında A sınıfının, ve B sınıfının public ve protected metodları ve memberlarına erişim
+  sağlanabilir.
 
 - C sınıfının base class(yada direct class'ı)'ı B'dir. indirect base class'ı ise A'dır.
 
@@ -889,9 +885,10 @@ n sınıfların aynı pakette
 - Türetme durumunda taban sınıf türünden nesnenin sizeof'u kadarlık bir bölğm türemiş sınıf türünden nesne içinde bulunur.
 
 - Composition'da ve aggregation'da bu durum sadece içinde diğer sınıf türünden bir referans bulundurur.
-- Kalıtımda bu durumda veri elemanları tamamen türemiş sınıfı türünden olur.
 
-- Türemiş sınıf  nesnesinin unluğu e  = taban sınıf nesnesinin uzunluğu ve yeni eklenen
+- Kalıtımda ise Taban sınıfı türünden bir nesne türemiş sınıf içinde vardır.(Burada resimlere bakılabilir)
+
+- Türemiş sınıf  nesnesinin uzunluğu  = taban sınıf nesnesinin uzunluğu ve yeni eklenen
   non-static veri elemanlarının uzunluklarının toplamından daha az olamaz. Fazla olabilir.
 
 - Metodlar sınıf içerisinde yer kaplamaz.
@@ -916,7 +913,7 @@ n sınıfların aynı pakette
 - Bu durumlarda özel bir sentaks vardır. İsmi super ctor sentaksıdır.
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            super ctor sentaksı
+                                        super ctor sentaksı
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Programcı türemiş sınıfının ctor'unun hemen başında taban sınıfının ilgili ctor'unun çağrılmasını sağlayabilir.
@@ -924,16 +921,24 @@ n sınıfların aynı pakette
 - Bu durumda super ctor sentaksı kullanılabilir.
 
 - super ctor sentaksı ancak ve ancak türemiş sınıfın ctor'u içerisinde geçerlidir. ve ctor'un ilk statement'ı olmalıdır.
+    class B extends A
+    {
+        public B()
+        {
+          int x = 5;
+          super();//error, super ctor sentaks have to be first statement of ctor
+        }
+    }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                            this ctor sentaksı
+                                        this ctor sentaksı
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - this anahtar sözcüğü ile ilgili sınıfın başka bir ctor'ının çağrılması sağlanır.
 - bu sentaksı super ctor sentaksından ayıran şey this ctor'u yazılmadığnda herhangi bir şey  yapılmaz,
   ancak super ctor sentaksında bir şey yazılmaz ise taban sınıfın default ctor'ına çağrı yapılır.
 
--Bunların ayrıca this ve super referansı adı verilen sentaksları vardır. this ctor sentaksı da en başta olmalıdır.
+-Bunların ayrıca this ve super referansı adı verilen referans'larıda vardır. this ctor sentaksı da en başta olmalıdır.
 
 - this sentaksı ve super ctor sentaksı aynı anda kullanımı hatadır. Ve hiç bir tasarım kalıbı bizi bu duruma sürüklemez.
 
@@ -957,20 +962,20 @@ n sınıfların aynı pakette
     }
 
 - Bir elemanı gizlerken ondan türemiş olan sınıfların erişip erişemeyeceğini  belirlemekte önceden gereklidir.
+  Ancak bir veri elemanının gizlenmesi yani private yapılmasının kuralları gene geçerlidir.
 
-- Bir veri elemanın protected olması için öncelikli olarak private olmama kurallarının hepsinin sağlanması lazım.
+- Bir veri elemanın protected olması için öncelikli olarak private olmasını gerektiren koşulların hepsinin problemimizi
+  etkilemiyor olması lazım.
 
-- Programcının
-
-- içeride sarmaladığı bir sınıfın aynı isimli aynı parametreli fonksiyonlarını yazmaya delegate etme denir.
-  Buna delegate metod, pass true metod yada forwarding metod denir.
+- içeride sarmaladığı(composition yada aggregation'a sahip) bir sınıfın aynı isimli aynı parametreli fonksiyonlarını
+  yazmaya delegate etme denir. Buna delegate metod, pass true metod denir.
 
 - Java da her sınıf doğrudan yada dolaylı olarak Object sınıfından türetilmiştir.
 
 - Object'in extends ile yazılması sorun oluşturmaz. Ancak yazılmaması daha uygundur.
-        B b = (B)a;
 
 - UML diagramları çizerken en tepeye Object sınıfı koyulmaz.
+  (Her java progamcısı en tepede Object sınıfının olduğunu bilir.)
 
 - Java' da türemiş sınıf türünden bir referans taban sınıf türünden bir referansa atanabilir.(upcasting)
 
@@ -985,9 +990,9 @@ n sınıfların aynı pakette
   çağırabiliriz.
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             22.03.2020
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Bir referansın iki türü vardır. static ve dinamik türleridir.
 
@@ -1026,9 +1031,9 @@ n sınıfların aynı pakette
 
 - referanslar'da  her zaman statik tür ne ise o türe ilişkin fonksiyonlar ve member'lara erişim sağlanır.
   upcasting kuralıda bu kurala dahil değildir.
-///////////////////////////////////////////////////////////////////////////////////////////////////
-                                RTTI (RUN TIME TYPE IDENFTIFICATION)-> Çalışma zamanında tür belirleme
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    RTTI (RUN TIME TYPE IDENFTIFICATION)-> Çalışma zamanında tür belirleme
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - instanceof operatörü, iki operandlı  araek bir operatördür, birinci operandı referans ,
   ikinci operandı da referans tür ismidir.
@@ -1041,9 +1046,9 @@ n sınıfların aynı pakette
 - instanceof operatörünün mantıksal değilini döndüren herhangi bir operatör bulunmaktadır.
   bunu sağlamak için ancak ve ancak if(!(obj instanceof reftype)) şeklinde kullanılabilir.
 - ! operatörü instance of'dan öncelikli seviye'ye sahiptir.
-///////////////////////////////////////////////////////////////////////////////////////////////////
-                                FINAL CLASS
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                     FINAL CLASS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Bir sınıftan türetme yapılması istenmiyor ise  sınıf bildiriminde final olarak belirtilmelidir.
     final class intValue{}
@@ -1066,9 +1071,9 @@ n sınıfların aynı pakette
 
 - enum türünün ctor'u private olduğundan türetme yapılamaz. ayrıca başına final konulmasına izin verilmez.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-                                Wrapper(Sarmalayan) Sınıflar
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                 Wrapper(Sarmalayan) Sınıflar
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Her temel(primitive) türe karşılık bir sarmalayan sınıf getirilmiştir.
     byte        Byte
@@ -1083,9 +1088,11 @@ n sınıfların aynı pakette
 
     boolean     Boolean
 
-- Bu sınıflardan gerçek sayı ve tam sayı türüne ilişkin olanlar yani nümerik sınıfların(Byte, Short, Integer, Long, Float, Double ) türleri
-  java.lang.Number isimli bir sınıftan türetilmiştir.
+- Bu sınıflardan gerçek sayı ve tam sayı türüne ilişkin olanlar yani nümerik sınıfların(Byte, Short, Integer, Long,
+  Float, Double ) türleri java.lang.Number isimli bir sınıftan türetilmiştir.
+
 - Bu sınıflar immutable olarak yazılmıştır ve final olarak bildirilmiştir.
+
 - Sarmalayan sınıfların ctor elemanları java 9 ile birlikte deprecated yapılmuıştır. Bu ctor'ların
   Java 5'den itibaren kullanımı kötü bir tekniktir.
 
@@ -1094,5 +1101,357 @@ n sınıfların aynı pakette
         Integer.parseInt(String s, int radix); // klasik parseInt 10'luk sayı sistemine göre sayıyı alır.
 
     Nümerik sınıfların sarmaladıkları türe ilişkin bir takım değerleri içeren final static veri elemanları bulunur.
-        Her birinde bulunan MAX_VALUE, MIN_VALUE
-        Ayrıca Character sınıfının MAX_VALUE, MIN_VALUE değişkenleri vardır. (Bu elemanlarının türü char'dır.)
+        Her birinde bulunan MAX_VALUE, MIN_VALUE ilgili sınıf hangi türden ise o türe geri dönerler.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            03.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Boolean class
+    - Herhangi bir şekilde min yada max valuedeğerleri yoktur.
+    - SIZE değeri yoktur
+    - BYTES değeri yoktur.
+- Java da built-in türlerin uzunluklarını Sarmalayan sınıfların  final static veri elemanı olan SIZE ilgili türün
+  kaç bit'lik yer tuttuğu yazılmıştır. Boolean türünün SIZE değişkeni yoktur, Çünkü standartlarda boolean türünün
+  kapladığı yere dair herhangi bir bilgi bulunmamaktadır. Bu derleyiciyi yazan kişilere bırakılmıştır.
+
+
+
+- Sarmalayan sınıfların diğer bir görevi de temel bir türe ilişkin değeri heap'de tutmamızı sağlar.
+
+
+- Bunun yararı örneğin object türü ile kullanılabilmesidir. Bu sarmalama işlemine yani heap'te tutma işlemine
+  boxing (kutulama) denir.
+
+- Java 9 ile birlikte ctor elemananları deprecated olmuştur. Deprecated bir fonksiyon kullanılmamalıdır.
+
+- Java 5 ile birlikte sarmalayan sınıflar için valueOf metodları eklenmiştir(Temel tür parametreli olanlar.).
+  Java 5'ten sonra hiçkimse new operatörü ile sarmalayan sınıf yaratmamaktadır.
+
+- valueOf tarzı sınıflara factory metodlar denir.
+
+- Tüm sarmalayan sınıflar immutable olarak yazılmıştır.
+
+- Integer sınıfı -128 ile + 127 aralığını cache atmaktadır. (Yani final static bir dizi olarak belirilmiştir.)
+- Tüm sayı sınıfları aynı işlemi yapar.
+
+- String parametreli valueOf metodlarının böyle bir sonuç vereceği kesin değildir. tür parametreli ile kullanmak
+  her zaman daha iyidir.
+
+- Character sınıfının negatif bir değeri olmadığı için sadece [0, 127] arasındaki değerleri tutar.  Character sınıfının
+  bu değerler dışındaki karakterleri ön bellekte tutup tutmayacağı garanti değildir. Aynı durum integer sınıfı içinde
+  geçerlidir.
+
+- Double ve Float sınıfları da sarmalama anlamında belleği efektif kullanacağını garanti eder.
+
+- Nümerik sarmalayan sınıflar Number isimli bir sınıftan türetilmiştir.
+    - Number sınıfının xxxValue(intValue, byteValue) sarmaladığımız değeri  elde etmemizi sağlar.
+    - Bu metodlar örneğin Integer.byteValue(); metodu klasik tür dönüştürme kurallarına göre çalışır.
+      (Tür dönüştürme kurallarını tekrar et) Bu duruma(unboxing denir.)
+- narrowing(daraltıcı), widening(genişletici)
+
+- Sarmalayan sınıflar ile temel türleri de object referansına atanabilir hale gelmektedir.
+
+- java 5 ile birlikte auto boxing ve auto unboxing eklenmiştir.
+  Buna göre temel türe ilişkin değer sarmalayan sınıfa doğrudan atanabilmektedir.
+  Integer i = 10; //Derleyici burada Integer i = Integer.valueOf(10) şeklinde yazacaktır. Yani auto boxing
+  Double d = 1.; // Double d = Double.valueOf(1.);
+
+- Bu özellik sadece sarmalayan sınıflara ait bir özelliktir.
+
+- Kutulama işlemi Object türü içinde geçerlidir.
+  Object o =  10;
+
+- Kutulama(auto boxing) işleminde otomatik tür dönüştürme kurallarına uygun olsa bile bir primitive tür
+  Başka türden bir sarmalayan bir sınıfa atanamaz.
+  Double dval = 6;//error
+
+- Bir referansın dinamik türü Object sınıfının getClass fonksiyonunun geri dönüş değerinin getName fonksiyonu
+  ise referansın dinamik türünü verir.
+
+- String sınıfında auto boxing gibi bir durum söz konusu değildir
+    String s = "ankara";//derleyici burada "ankara" yazısı için bellekte  bir yer ayırır ve bu String nesnesinin
+    referansını döndürür.
+
+- integral promotion kuralları burada da geçerlidir.
+
+- auto unboxing
+     Double d = 1.; // Double d = Double.valueOf(1.);
+     double dval = d; // double dval = d.doubleValue() auto unboxing.
+     Burada primitive tür ne ise ona göre tür değiştirme fonksiyonunu çağırır.
+     int ival = d; // d.intValue();
+
+
+- auto unboxing' de Number türünden  doğrudan primitive türe atama yapanaamz.
+    Number n = 10;
+    int a = n; // error
+    int a = (int)n;//ok Tür dönüştürme operatörü kullanılmalıdır.Aynı durum Object türü içinde geçerlidir.
+
+    Object n = 10;
+    int a = n; // error
+    int a = (int)n;//ok
+
+- otomatik kutu açma da primitive türün doğrudan sarmalandığı türe downcasting yapılabilir. Bunun dışında yapılan
+  dönüşüm error olacaktır.
+    Object o = 10; // o.getClass().getName(); == Integer
+    long l = (long)o; // throws Exception Integer can't cast to Long
+
+
+- int val = 10;
+  Object o = val;
+    short a= (int)o;//error int can't cast to short;
+    short a = (short)(int)o; //ok (short)((Integer)o).intValue() burada tür dönüştürme operatörünün önceliği sağdan soladır.
+
+
+- Sarmalayan sınıflar temel türün Sınıf karşılığıdır. Sarmalayan sınıflarda  dört işlem  yapılabilir.
+    Integer iVal = 23;
+    double val = ival + 2.3; // double val = ival.doubleValue() + 2.3;
+  Sarmalayan sınıflar ilişkin oldukları türler gibi davranabilirler.
+
+- Wrapper sınıflar' da ++ operatörünün operandı olan referans işlemden sonra  başka bir nesneyi gösterir
+  (immutable olmasından kaynaklıdır.).
+  Integer i = 10;
+  ++i; // i = Integer.valueOf(i.intValue() + 1);
+
+- Wrapper sınıflar ile yapılacak işlemler için yapaılacak işlemler için kod ilgili primitive türe dönüşütülüp
+  o türler ile devam edilir
+    Integer i = 1000;
+    ++i; // i = Integer.valueOf(i.intValue() + 1);
+    --i; // i = Integer.valueOf(i.intValue() - 1);
+    ++i; // i = Integet.valueOf(i.intValue() + 1);
+
+- Yukarıdaki kod aşağıdaki şekilde yazılması göreceli daha iyidir.
+    Integer i = 1000;
+    int val = 10;
+    ++val;
+    --val;
+    ++val;
+    i = val; // Integer.valueOf(val);
+
+- Sarmalayan sınıflar auto boxing ve auto unboxing  sayesinde bir primitive türmüş gibi kullanılabilir.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            04.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Algoritma nedir : bir problemin doğru çözüm adımlarına denir.
+- Algoritmanın incelemensine  algoritma analizi denir. Algoritma analizindeki en tipik durumlardan birisi algoritmanın
+  karmaşıklığıdır.
+
+- Algoritmanın karmaşıklığı
+    - Hız *
+    - Kaynak kullanımına bağlıdır.
+    - Burada hız genel olarak daha ön planda tutulur.
+
+- Algoritmanın karmaşıklığı
+    O(1)        -> döngü yok
+    O(logn)     -> tek bir döngü var her adımda dönme sayısı yarı yarıya azaltılır.(Binary search algoritması)
+    O(n)        -> tek döngü vardır.
+    O(n * logn) -> iç içe iki döngü vardır ve birisi her adımda yarı yarıya azalır.(içteki veya dıştaki farketmez.)
+                   Quick sort algoritması böyle bir algoritmadır.
+    O(n ^ 2)    -> iç içe iki döngü vardır.
+    O(n ^ 3)    ->
+    O(n ^ k)    -> böyle bir ihtimal çok düşüktür.
+    O(k ^ n)    -> k ^ n'sel karmaşıklık
+    O(n!)       -> faktöriyel karmaşıklık
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            Arraylist/Vector sınıfları
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Arraylist/vector aynı StringBuilder(StringBuilder sınıfı için length ve capacity) sınıfı gibi capacity ve size adlı iki
+  değişkeni vardır. Arraylist dinamik olarak büyüyebilen bir sınıftır.
+
+- Arraylist olsun başka Collection sınıflar olsun capacity ile size arasındaki herhangi bir bölgeye
+  doğrudan erişmek run time hatasıdır.
+
+- Arraylist sınıfının capacity'yi veren bir metodu yoktur. Bunu gerektiren durumlarda ArrayList yerine Vector sınıfı
+  kullanılacaktır. Bu sınıflar java.util paketi altındadır.
+
+- Default belirlenen(Ne demek olduğu Collection'lar konusunda daha iyi anlaşılacaktır.) ArrayList objeleri içerisinde
+  Object türünden dizi referansı  tutar.
+
+- ArrayList/Vector sınıflarının default ctor'larında capacity değeri 10 olur.
+
+- ArrayList/Vector sınıflarının add metodları sona ekleme yapmak için kullanılır
+  Gerektiğinde capacity değerini de büyütür.
+
+- Sınıfın index parametreli add metodları parametre olarak gönderilen index geçerli bir değer değer ise o indexe
+  ekleme yapıp sınıfı bir kaydıracaktır.
+- ArrayList/Vector sınıfının capacity artırılması gerektiği zaman capacity'i 2 katına çıkartır.
+
+- ArrayList/Vector sınıflarınının ekleme yapan metodları capacity'i genişletirken
+  silme yapan metodları  capacity de herhangi bir küçültme yapmaz.
+
+- Sınıfın araya ekleme yapan (index parametreli) add metodları O(n) karmaşıklığında çalışır. Çünkü kaydırma
+  işlemi yapacaktır. ArrayList.add(T idx, T value)
+
+- get metodları verilen indexteki objeyi döndürür.
+    int val = ArrayList.get(int index); // error Object can't cast to int;
+    int val = (int)ArrayList.get(int index); // ok
+
+- ArrayList/Vector tarzı sınıflara iterable sınıflar denir(Bu tarz sınıflar for-each döngü deyimi ile dolaşılabilir.).
+
+-  set metodu
+    - Object set(int index, int val); // set ettiğimiz elemanın eski değeri Object nesnesi olarak geti döndürür.
+      int val = obj.set(10, 25); // 10.  indexteki elemanı değiştirebiliriz. val değeri 10. indeksteki set'ten önceki
+      değerini döndürür.
+
+-  clear metodu(Capacity değerini değiştirmez)
+     - ArrayList.clear(); // içindeki bütün elemanları siler.(Böyle sınıfların silme yapan metodları capacity'de
+       herhangi bir değişikliğe gitmez. Yalnızca size'ı değiştirir.)
+
+- remove metodu // belirli bir indekteki değeri siler. O sildiği objeyi geri döndürür.
+    int val = (int)ArrayList.remove(int index);
+
+- trimtoSize(); // capacity'yi size'a çeker.
+
+
+- ensureCapacity(int newCapacity) // capacity'i sadece büyütmemizi sağlar. küçültme işlemi için kullanılamaz.
+    - Örnek için Boş bir Vector türü kullanılacaktır.(Vector v = new Vector();) // default capacity değeri 10'dur
+    - Varolan capacity değerinden daha düşük bir değer girilirse capacity'yi varolan capacity değerini korur.
+        (capacity <= 10)
+    - Varolan capacity değerinin artması gereken değerden büyük ise
+        (capacity >= 10 && capacity <= 20 ise capacity 20 olur.)
+    - Eğer varolan capacity değerinden büyük ise o zaman parametre ile verilen capacity değerine çekilir.
+            (capacity > 20 ise capacity fonksiyona argüman geçilen değer olacaktır.)
+- Bu tarz sınıfların setLength gibi length'i doğrudan değiştirmemizi sağlayan bir metodu yoktur.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            null referans (Tony Hoare tarafından ortaya atılmıştır.)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- kullanılmayan bir adresi temsil etmek için null  anahtar sözcüğü kullanılır.(aslında null bir sabit değerdir.)
+  null adresi ancak referanslara atanabilir.
+    - sınıflar
+    - diziler
+    - enum türünden referanslara null değeri atanabilir.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            05.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- null değer kontrolü adres kontrolü olduğu için == yada != operatörü ile kontrol edilebilir.
+    Sample s = null;
+    System.out.println(s == null); //  true
+    System.out.println(s != null); //  false
+
+- bir referansın default değeri null'dır.(Yani referansın mantıksal 0 değeri null'dır.)
+
+- null değeri neden kullanırız.
+    1-) Singleton(lazy implementation) yani kontrol amaçlı kullanılabilir.Bir referansın nesne gösterip göstermediği
+        testi yapılabilir.
+    Not : içerisinde null olan bir referans'a erişim exception hatasıdır.
+    2-) türe dönen fonksiyonlarda yanlış bir argüman geçildiğinde null döner.(örneği random fonksiyonlarda min ve max
+        değerleri yanlış girildiyse) Uygulama kursunda daha gelişmiş java 8 ile dile eklenen bir araç ile yapılır.
+
+    3-) Hiç bir şey atanmamış bir sınıf referansını null ile initialize edilmelidir.
+    4-) Nesneyi gösteren referanstan nesneyi kopartmamızı sağlar. (s = null;)
+
+- Nesneler ne zaman ölür
+    - yerel değişkenler scope'ları bittikten sonra ölürler(Yerel değişkenlerden kastımız parametre değişkenleri ayrıca,
+      Tür referansları da birer yerel değişkendir.)
+    - static değişkenler program da hayata geldikleri andan itibaren program sonuna kadar hayatına devam edebilir.
+    - Java da programcı nesneyi öldüremez(nesneyi öldürecek olan garbage collector denilen mekanizmadır.). Sadece nesnenin
+      ölmesine sebep olabilir. Nesnenin kullanılmadığına yönelik algoritmalar vardır. Bunlardan en tipik olanı referans
+      sayma yöntemidir. Bu yönteme göre yaratılmış her nesne için bir referans sayacı tutulur. Nesnenin her referansa
+      atanması durumunda bu sayaç bir artırılır. Her referans'tan koparıldığında bu sayaç bir azaltılır. referans'a
+      null değeri atanabilir. Nesne için referans sayacı 0 değerine gelmişse nesne artık kullanılmıyor durumdadır. Yani
+      çöp olmuşturç Buna ingilizce olarak "garbage collected(Java da daha çok bu kullanılır)" veya "eligible" terimi
+      kullanılmaktadır. Bir nesne kullanılmıyor(Yani garbage collected ) durumda ise garbage collector devreye girdiğinde
+      yok edilir. Standartlara göre çöp toplayıcı programın ne zaman devreye gireceğine yönelik bir standart
+      belirlenmemiştir. Bu işlem garbage collector'u yazanlara bırakılmıştır. Ancak  JRE(Java runtime edition) için
+      bunun etkinliğine güvenilir(Python'da sayaç sıfıra düştüğü garbage collector hemen gelip nesneyi yokeder).
+      Java da bir programcı nesnenin ancak ölümüne sebep verebilir.
+    - Garbage collector nesnesinin ne zaman çalışığına dair bir mekanizma yoktur.
+
+    - Programcı istediği zamanda garbage collector'u çağırabilir.(System sınıfının gc isimli metodu ile garbage collector
+      devreye sokulabilir. Ancak bunun sürekli yapılmaması daha açık bir ifade ile dikkatli yapılması gerekmektedir. Çoğu
+      zaman garbage collector'un kendi algoritmasına güvenilebilir.)
+
+  - Bir nesnenin adresinin bir statik referansta olması demek o referansın ve nesnenin programın sonuna kadar yaşayacağı
+    anlamına gelir.
+
+
+- ArrayList'in add metodları boolean döner(Ancak her zaman true döner).
+- ArrayList sınfı tarzı sınıfların(Collection sınıfların) implementasyonu mülakatlarda sorulabilir.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            static  initializer
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Sınıfın içerisindde static bloklar istenildiği kadar tanımlanabilir. Bu blokların her birinin içine kod yazılabilir
+- Bir sınıfın herhangi bir elemanı ilk kez kullanıldığında, tüm statik bloklar yukarıdan aşağıya sırasıyla bir kez
+  olmak üzere çalıştırılır.
+    class A {
+        static {
+
+        }
+        static {
+        }
+    }
+
+- static bloklar herhangi bir static metod  gibidir. Yani bu bloklarda sınıfın yalnızca statik elemanlarına erişilebilir.
+
+- static initializer ne işe yarar?
+    - sınıfın final static yada sadece static veri elemanlarına atama yapılabilir. Burada atama yapılabilmesi için
+      bildirim noktasında atama yapılmamış olması lazımdır.
+
+- Bir sınıfın static elemanları ne zaman yaratılır ? yada statik bloğu ne zaman çalışır.
+    - Sınıfın herhangi bir elemanının ilk kez kullanılımında (bu ctor olabilir yada başka bir static eleman olabilir.)
+
+- sınıfın veri elemanları yada static block sınıfın herhangi bir yerine yazılabilir.
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            non-static  initializer
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

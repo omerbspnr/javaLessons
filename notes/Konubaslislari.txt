@@ -23,6 +23,9 @@ access modifiers
 Encapsulation, data hiding
 
 final variables
+    - final local variable
+    - final function parameter
+    - final member variable
 
 enum
 
@@ -53,3 +56,10 @@ RTTI (Run Time Type Identification)
 final class
 
 Wrapper class
+
+
+boxing, unboxing, auto-boxing, auto unboxing
+
+ArrayList/Vector class
+
+null reference

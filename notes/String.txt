@@ -35,6 +35,10 @@
     - String can be used like chain call(fluent)
         - s1.concat(s2).toUpperCase().toLowerCase();
 
+    - replace metodu(char oldChar, char newChar);
+    - replace metodu(CharSequence old, CharSequence new);
+    - replaceAll(String regex, String replacement);
+    - replaceFirst(String regex, String replacement);
 
     - String can be used with operator +
         - String s = s1 + s2;

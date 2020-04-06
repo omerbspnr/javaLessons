@@ -1,15 +1,29 @@
-/*----------------------------------------------------------------------------------------------------------------------
-    Nümerik sarmalayan sınıfların ve Character sınıfının MAX_VALUE ve MIN_VALUE veri elemanları.
-    Dikkat Character sınıfının bu elemanlarının türü char'dır
-----------------------------------------------------------------------------------------------------------------------*/
+/*
+Başlamadan sor allocCapacity fonksiyonu null atama yapması gerekmiyor mu
+??
+ */
+
 package org.csystem.app;
 
-import org.csystem.util.datetime.Date;
+
+import org.csystem.collection.CSDArrayList;
+import org.csystem.util.StringUtil;
+import org.csystem.util.datetime.Time;
+
+import java.util.*;
 
 class App {
+
     public static void main(String [] args)
     {
-        System.out.println(new Date().toLongDateStringEN());
+        Time time = new Time.TimeBuilder()
+                            .setMinute(55)
+                            .build();
+
+        System.out.println(time.toLongTimeString());
+
+        Time time2 = new Time.TimeBuilder().setHour(23).build();
+        System.out.println(time.toLongTimeString());
+        System.out.println(time2.toLongTimeString());
     }
 }
-
