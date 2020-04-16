@@ -26,6 +26,11 @@ public class Manager extends Employee {
         return m_departmentName;
     }
 
+    public double calculateInsurance()
+    {
+        return m_salary * 8 / 100;
+    }
+
     public void setDepartmentName(String departmentName)
     {
         m_departmentName = departmentName;

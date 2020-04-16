@@ -27,6 +27,11 @@ public class Worker extends Employee {
         return m_hourPerDay;
     }
 
+    public double calculateInsurance()
+    {
+        return m_hourPerDay * m_feePerHour * 1.25;
+    }
+
     public void setHourPerDay(int hourPerDay)
     {
         m_hourPerDay = hourPerDay;

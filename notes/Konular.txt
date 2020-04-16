@@ -1407,36 +1407,331 @@
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            10.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             non-static  initializer
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+- Bir sınıf nesnesi yaratılmadan önce gerçekleştirilen fonksiyondur gibi diyebiliriz.
+
+- super sentaksı non-static initializer'dan daha önce yapılır.
+
+- Kalıtım durumunda öncelikli olarak taban sınıfın ctor'u  çağırılır. Yani taban sınıfın varsa  önce
+  non-static initializer'ı sonra taban sınıfın ilgili ctor'u sonrasında ise türemiş sınıfın  varsa non-static
+  initializer'ı yoksa ilgili ctor'u çağırılır.
+
+- non-static initializer'ı ile, sınıfın non-static final değişkenlerine değer atanabilir.
+
+- static blok'lar uygulamada non-static bloklara göre daha çok karşımmıza çıkar.
+
+- static bloklar okuma amaçlı olarak sınıfın daha derli toplu gözükmesi için yazılabilir.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            this  reference
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Java da aşağı seviye de bütün non-static metodlar static metoda dönüştürülür. Metodlara this referansı dediğimiz
+  yani hangi sınıfa ait bir fonksiyon ise o sınıf nesnesinin adresi ile çağrılır.
+
+- class Myclass {
+    public void foo(){}
+    // foo metodu aşağı seviyede tamamen aşağıdaki gibi yazılır diyebiliriz.
+    public static void foo(Myclass m) {}
+  }
+}
+- aslında aşağı seviyede yazılan bütün metodlar static metodlardır.
+- aşağı seviyede foo methodunun Myclass türünden bir referans parametresi vardır.
+- bu fonksiyonun çağrılmasında ise derleyici aşağı seviyede şöyle bir kod yazmaktadır
+    Sample s = new Sample();
+    s.foo();
+    // Sample.foo(s); derleyici aşağı seviyede kodu bu hale getirir.
+
+- this referansına atama yapılamaz.
+
+- this referansını okunabilirliği artırmak için non-static metodlar için kullanılacaktır ve tercih edilecektir.
+
+- fluent kalıbı illa ki this reference'ı ile yapılacak diye bir şey yoktur.
+- String sınıfı fluent çağrıya uygundur.
+- immutable sınıflarda da yeni bir sınıf nesnesi dönen sınıflar fluent kalıpları
+  ile yapılabilir.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            11.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            Polymorphism(Run time polymorphism)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- 2 çeşite ayrılır
+    1- Run time polymorphism
+    2- Compile time polymorphism(Generic'ler ile başlanacak)
 
 
+- Polymorphism'in nesne yönelimli programlamada 3 tane tanımından bahsedilebilir.
+    1- Biyolojik tanımı            : Taban sınıfın bir fonksiyonunun türemiş sınıfta yeniden gerçekleştirilmesidir.
+    2- Yazılım Mühendisliği Tanımı : Türden bağımsız kod yazabilmektir. Hangi türden işlem yapacağınızı bilmeden kod
+                                     yazmaktır.
+
+    3- Aşağı seviyeli tanımı       : Önceden yazılmış kodların sonradan yazılmış kodları çağırabilmesidir.
+                                     Burada söylenmek istenen taban sınıf türünden bir referans ile türemiş sınıfın
+                                     fonksiyonu çağırılabilir.
+
+- Java da polymorphism sanal metotlar ile gerçekleştirilir.
+- Sanal metotlar non-static ve final olmayan metotlar sanal metotlardır.
+- static metotlar sanal metot olarak ele alınmazlar.
+
+- Taban sınıfın bir metodunun türemiş sınıf içerisinde geri dönüş değeri ve imzası aynı olarak yeniden yazılmasına
+  "override" fiili kullanılır. Burada erişim belirleyici aynı olmayabilir. Ancak bu konunun detayları vardır,
+  ileride ele alınacaktır.
+
+- Override edilen bir fonksiyon static olarak bildirilemez.
+
+- Sanal bir metotun türemiş sınıfta overrride edilmesi zorunlu değildir. Durum tamamen senaryomuza bağlıdır.
+
+- Sanal bir metot çağırısında referansın dinamik türüne ilişkin ilgili sanal metot override edilmiş ise ilgili
+  dinamik türün fonksiyonu çağrılmasıdır.
+
+- Override edilmemiş ise dinamik türe ait sınıfın taban sınıfına yada sınıflarına bakılır. Bunların hepsi run time da
+  yapılır.
+
+- Ortada inheritance yok ise polymorphism'den bahsedilemez.
+
+- isim arama kuralları statik referans'a göre yapılır. Dinamik türe  bakılarak hangş fonksiyonun çağrılacağı belli olur.
+
+- augmentation = override edilmiş bir fonksiyon taban sınıfın ilgili fonksiyonunu çağrılıp yeni eklemeler yapılmasıdır.
+                 companyapp örneğindeki toString metodları bunun örneğidir.
 
 
+- augmentation genel olarak şöyle bir yapıdır. Türemiş sınıfın ilgili metodu taban sınıfın ilgili metodunu
+  super keywordu ile çağırır. Ayrıca override edilmiş fonksiyon da yeni eklemeler yapılması durumudur.
+
+    class A {
+        public void foo()
+        {
+            System.out.println("A.foo()");
+        }
+    }
+
+    class B extends A{
+        public void foo()
+        {
+            // dinamik türler super referansı dışında herhangi bir şekilde taban sınıfın fonksiyonunu çağıramaz.
+            super.foo();
+            //bunun dışında yeni özellikler eklenirse  bu gibi durumlara augmentation denir.
+            System.out.println("B.foo()");
+        }
+    }
+
+- Taban sınıfın içerisinde bildirilmiş bir veri elemanı ile aynı isimde bir değişken türemiş sınıfında da bildirilebilir.
+
+- Ancak bu durumun polymorphism ile ilgisi yoktur. Bu durum kullanılan referansın (A x = b; bahsedilen referans A'dır)
+  statik referansına ilişkin bir durumdur.
+
+- polymorphism doğrudan metota ilişkin bir kavramdır.
+
+- Java'da override edilen bir methodun erişim belirleyicisi ancak ve ancak yükseltilebilir. Düşürülemez.
+
+    class A {
+       public void foo(){}
+    }
+
+    class B extends A {
+        protected void foo(){}//error access modifier can't reduce, Erişim belirleyicisi düşürülemez.
+    }
+
+- Aşağıdaki örnekte erişim belirleyici yükseltilmiştir.
+    class A {
+       protected void foo(){}
+    }
+
+    class B extends A {
+        public void foo(){}// ok. erişim belirleyicisi yükseltilebilir.
+    }
+
+    - public bir erişim belirleyicisine sahip bir fonksiyon public olarak override edilebilir.
+    - protected bir erişim belirleyicisi nadir de olsa bile public'e yükseltildiği durumlar vardır.
+
+    Not : Java da herkese protected olan bir eleman konulamaz.
+
+- covariant return type : polymorphism'i ilgilendiren özel bir durumdur. Geri dönüş değeri referans olan metotlar
+  için geçerlidir.
+
+- taban sınıf içerisinde referans geri dönüş değeri olan bir metod, türemiş sınıfta override edilirken geri dönüş değeri
+  olarak taban sınıftaki metodun geri dönüş türünden veya o türden türetilmiş bir sınıf türüne dönebilir.
+
+- Bu durum sadece geri dönüş değeri referans olan metotlar için ve geri dönüş değeri için bir geçerli bir durumdur.
+
+- Aşağıdaki durum sadece covariant return type için geçerli bir durumdur. Normalde bir fonksiyon override edilirken geri
+  dönüş değeri(primitive bir tür ise yada final belirtilmiş bir tür ise) bu türün değiştirilmesi error olur.
+
+- Aşağıdaki örnek covariant return type için bir örnektir. Java'da bunun alışkanlığı yoktur. Daha çok C++'da görünür.
+    class A {
+        public X foo()
+        {
+            return new X();
+        }
+    }
+    class B extends A {
+        public Y foo()
+        {
+            return new Y();
+        }
+    }
+    class Y extends X {}
+    class X{}
 
 
+- static  fonksiyonlar nesneden bağımsız oldukları için override edilemez.
+- Türemiş sınıf içerisinde taban sınıfın statik bir metodu aynı geri dönüş değeri ve imza ile yazılabilir. Buna
+  bazı kaynaklar logical static override derler. Ancak polymorphism anlamındaki bir override kesinlikle değildir.
+
+- metotlar için final keywordu : bir türetme hiyerarşisinde ilgili fonksiyonu türetmeye kapatmak için kullanılır.
+  Kısaca final olarak bildirilmiş bir metot override edilemez.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            12.04.2020
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Java bir fonksiyonu override ettirmeme durumunu bizim vermemiz gereken bir karardır.
 
 
+- Aslında bütün sınıflar object sınıfından üretildiği için toString() metodu çoğu zaman
+  override edilir.
+
+- eğer toString metodu override edilmemiş ise toString metodu nensneye yönelik tekil bir
+  bilgi verir. Bu bilginin pratikte çok anlamı yoktur.
+
+- toString metodu en çok override edilen metodlardandır.
+
+- printf, println metodlarına bir referans verildiğinde toString gerçekleşir, bu metodlar nesne null bir referans
+  göstermiyor ise ilgili referansın toString metodunu çağırır.
+
+- println metodu tarzı metodlar primitive türler için overload edilnmişken, printf için auto-boxing
+  yapılırak gönderilir.
+
+- operatörlerden biri String ve birisi herhangi bir primitive tür ise primitive autoboxing yapılarak toString metodu
+  çağırılır.
+    int degree = 10;
+    String str = "Derece : " + a; // "Derece : " +Integer.valueOf(degree).toString();
+
+- tosString metodu ile bir String ile herhangi bir nesne toplanabilir.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            Abstract class
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Kendi başına bir anlam ifade etmeyen ancak kendisinden türetilmiş sınıfların anlam kazandığı sınıflara abstract(soyut)
+  sınıflar denir. Soyut olmayan sınıflara concrete(somut) sınıf denir.
+
+- Soyut bir sınıf abstract anahtar sözcüğü ile bildirilir.
+
+- Bir sınıfın abstract metodları olabilir. abstract metodlar gövdesi olmayan metodlardır. Bu metodlar sanaldır
+  dolayısıyla override edilebilir. En az bir tane abstract metodu olan bir sınıf  abstract olarak bildirilmelidir.
+  Aksi durumda error oluşur.
+
+- abstract metod ve class'ın implementasyonu
+   abstract class Sample {
+        public abstract void foo();
+   }
+
+- abstract bir metoda sahip bir sınıfın abstract bildirilmesi zorunludur.
+
+- abstract sınıf türünden bir nesne new operatörü ile yaratılamaz(abstract sınıf türünden nesne yaratılamaz değildir).
+  Sınıf içerisinde dahi yaratılamaz. Yalnızca bir türemiş referanstan upcasting yapılarak oluşturulabilir.
+
+- abstract sınıfların veri elemanları olabilirler.
+
+- abstract metodlar sanal metodlardır. (Yani override edilebilen fonksiyonlardır.)
+
+- abstract bir metod, override edilirken abstract olarak belirtilemez.
+- abstaract bir sınıftan türetilmiş sınıf bir taban sınıfın en az bir tane  abstract fonksiyonunu override etmemiş
+  ise türetilmiş sınıfta abstract bir sınıftır.
+
+- türetme hiyerarşisinde taban sınıfın bütün abstract metodları override edilmiş ise  ancak somut(concrete) bir
+  sınıf olur.
+    abstract class A {
+        public abstract void foo();
+        public abstract void tar();
+    }
+    abstract class B extends A {
+        public  void foo()[} // B sınıfı halen abstract olur.
+    }
+    class C extends B {
+         public void tar(); // C sınıfı artık somut bir sınıftır.
+    }
+
+- static bir fonksiyon abstract olarak bildirilemez. Abstract'lık tamamen nesne ile alakalı bir kavramdır.
+
+- abstract bir sınıfın anlamı taban sınıfı türünden bir referans bildirilip bu referansa türemiş abstract olmayan
+  bir referans atanabieceği içindir. Buda polymorphism için çok önemli bir detaydır. Burada new ile yaratılan nesne
+  kesinlikle somut bir sınıftır.
+
+- polymorphism'in kullanıldığı sınıflar da genel olarak en tepe de bir abstract sınıf vardır.
+- Object sınıfı abstract bir sınıf değildir.
+
+- abstract sınıf türünden bir nesne yaratılabilir. Ancak o nesneler kullanıcı tarafından yaratılamaz.
+  zaten türemiş sınıf içinde taban sınıf türünden bir nesne mutlaka yaratılır.
+
+- Abstract sınıfların ctor'u olabilir. Çünkü o sınıftan türetilmiş bir sınıf ilgili ctor'u çağırmak istiyor olabilir.
+  Ancak abstract sınıfların çoğu zaman ctor'unun public olması
+
+- abstract sınıflarda ctor'un anlamı tamamen türemiş sınıflar içindir. Bu yüzden de okunabilirlik açısından
+  ctor'un protected yapılması önemli bir işlemdir. Abstract sınıfların ctor'unun public yapılması çoğu zaman
+  anlamsızdır.  abstract sınıfların ctor'u genel olarak  protected yapılır. Çok az rastlanan durumlar için de
+  private yapılır.
+
+- abstrac sınıf yada metodlar aynı zamanda final bildirilemez.
+
+- concrete metotlar denildiğinde aklımıza non-static metodlar gelmelidir.
+
+- sınıfın non-static metodları sadece bir tanedir. Yalnızca sınıf türünden referansı olan bir fonksiyonu vardır.
+
+- Genel de abstract bir sınıfın en az bir adet abstract metodu vardır.
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            Exception Handling
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Java da exception işlemleri için aşağıdaki anahtar sözcükler kullanılır.
+    try, catch, throw, finally, throws
+
+- Exception genel olarak programın çalışma zamanında  oluşabilecek hatalı durumlar için kullanılır.
 
 
+- Java da Exception hiyerarişisi
+    en tepe de
+    throwable <- Exception <- RunTimeException
+              <- Error
 
+- Exception sınıfları throwable'dan yada throwable'dan türemiş herhangi bir sınıftan türetilmesi gerekmektedir.
 
+- Bir exception fırlatıldığında akış exception'ın fırlatıldığı metoddan bir daha geri dönmemek üzere o sınıftan
+  çıkar.
 
+- Doğrudan dolaylı olarak throwable sınıfı türünden türetilmemiş bir sınıf ile exception throw işlemi yapılamaz.
 
+- akış exception bakımında ele alınacak ise try bloğu   içerisinde yazılmalıdır. try bloğunu en az bir tane
+  catch bloğu yada tek bir finally bloğu yada catch blokları ve finally bloğu ile devam edebilir.
+  try bloğu mutlaka ve mutlaka catch yada finally blokları içinde olamlıdır.
 
+- bir exception yakalanmak isteniyor ise mutlaka try bloğu içerisine konulmalıdır.
 
+- catch bloğu aşağıdaki şekildedir. catch parametresi mutlaka ve mutlaka gene exception hiyerarşisinden
+  türetilmiş bir sınıf olmalıdır.
+    catch (catch_parameter)
 
+- Java da exception handling yapılmadan program yazılamaz(C++'da exception handling'den olabildiğince kaçınılmalıdır.).
 
+- catch blokları sadece bir tane olmak zorunda değildir. Birden çok catch bloğu olabilir. Ayrıca exception throw
+  edilen kodda farklı kod yerlerinde farklı exception nesneleri fırlatabilir.
 
-
-
-
-
+- catch blokları yukarıdan aşağıya switch deyimi gibi kontrol eder. Uygun catch bloğu bulunur ise akış oraya girer.
+  Uygun catch bloğu aramasında upcasting işlemi de geçerlidir. Uygun catch bloğu bulunamaz ise proram sona erer.
 
 
 

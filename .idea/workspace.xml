@@ -4,16 +4,23 @@
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/Konubaslislari.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konubaslislari.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Konular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konular.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/String.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/String.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/collection/CSDArrayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/collection/CSDArrayList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card$CardTypeTR.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card$CardValTR.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/collection/CSDArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/DateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/DateTime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +71,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/homeworks" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -174,7 +182,21 @@
       <workItem from="1586119552497" duration="5295000" />
       <workItem from="1586155356514" duration="2656000" />
       <workItem from="1586160074972" duration="12941000" />
-      <workItem from="1586198210994" duration="2404000" />
+      <workItem from="1586198210994" duration="2405000" />
+      <workItem from="1586239909525" duration="5365000" />
+      <workItem from="1586373230718" duration="3700000" />
+      <workItem from="1586423086400" duration="11599000" />
+      <workItem from="1586441489374" duration="970000" />
+      <workItem from="1586514874293" duration="14126000" />
+      <workItem from="1586594938097" duration="14761000" />
+      <workItem from="1586634449171" duration="224000" />
+      <workItem from="1586685188171" duration="12391000" />
+      <workItem from="1586723996694" duration="1558000" />
+      <workItem from="1586770653643" duration="24583000" />
+      <workItem from="1586847120225" duration="21039000" />
+      <workItem from="1586898110373" duration="4463000" />
+      <workItem from="1586938624075" duration="17982000" />
+      <workItem from="1586968305292" duration="3000000" />
     </task>
     <servers />
   </component>
@@ -198,10 +220,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1586028185692" />
-    <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581860222110">
+    <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586786674756">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1581860222110" />
+    <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1586786674756" />
     <state x="1179" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580640088001">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -210,54 +232,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585222261615" />
-    <state width="1807" height="210" key="GridCell.Tab.0.bottom" timestamp="1586199135832">
+    <state width="1807" height="418" key="GridCell.Tab.0.bottom" timestamp="1586972141435">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="210" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135832" />
-    <state width="1807" height="210" key="GridCell.Tab.0.center" timestamp="1586199135831">
+    <state width="1807" height="418" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141435" />
+    <state width="1807" height="418" key="GridCell.Tab.0.center" timestamp="1586972141434">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="210" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
-    <state width="1807" height="210" key="GridCell.Tab.0.left" timestamp="1586199135831">
+    <state width="1807" height="418" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141434" />
+    <state width="1807" height="418" key="GridCell.Tab.0.left" timestamp="1586972141434">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="210" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
-    <state width="1807" height="210" key="GridCell.Tab.0.right" timestamp="1586199135831">
+    <state width="1807" height="418" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141434" />
+    <state width="1807" height="418" key="GridCell.Tab.0.right" timestamp="1586972141435">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="210" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586199135831" />
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1586180241207">
+    <state width="1807" height="418" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141435" />
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1586968223171">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241207" />
-    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1586180241206">
+    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586968223171" />
+    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1586968223171">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
-    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1586180241206">
+    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586968223171" />
+    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1586968223171">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
-    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1586180241206">
+    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586968223171" />
+    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1586968223171">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586180241206" />
-    <state x="482" y="187" width="1024" height="845" key="SettingsEditor" timestamp="1586173299141">
+    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586968223171" />
+    <state x="482" y="187" width="1024" height="845" key="SettingsEditor" timestamp="1586894524031">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1586173299141" />
+    <state x="482" y="187" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1586894524031" />
     <state x="1102" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580904676317">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1102" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580904676317" />
-    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585855570830">
+    <state x="1097" y="170" width="823" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586967932216">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1110" y="170" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585855570830" />
-    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585038162490">
+    <state x="1097" y="170" width="823" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1586967932216" />
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586551253111">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585038162490" />
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1586551253111" />
     <state x="929" y="28" width="753" height="706" key="dock-window-1" timestamp="1582972935066">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -266,14 +288,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="302" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1585222273212" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1586124269379">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1586698006132">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586124269379" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1586155387388">
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586698006132" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1586969518418">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586155387388" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586969518418" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,29 +1,22 @@
-/*
-Başlamadan sor allocCapacity fonksiyonu null atama yapması gerekmiyor mu
-??
- */
-
 package org.csystem.app;
+import org.csystem.samples.asciiimage.AsciiImageApp;
+import org.csystem.util.NumberUtil;
 
-
-import org.csystem.collection.CSDArrayList;
-import org.csystem.util.StringUtil;
-import org.csystem.util.datetime.Time;
-
-import java.util.*;
-
-class App {
-
-    public static void main(String [] args)
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class App {
+    public static void main(String[] args)
     {
-        Time time = new Time.TimeBuilder()
-                            .setMinute(55)
-                            .build();
-
-        System.out.println(time.toLongTimeString());
-
-        Time time2 = new Time.TimeBuilder().setHour(23).build();
-        System.out.println(time.toLongTimeString());
-        System.out.println(time2.toLongTimeString());
+        AsciiImageApp.run();
     }
+}
+
+class A {
+    public void foo(int a){}
+}
+
+class B extends  A {
+    public void foo(int b){}
+
 }

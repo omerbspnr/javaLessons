@@ -12497,7 +12497,7 @@ class StringUtil {
 	- java nın standart tüm paketleri ve sınıfları java isimli bir paket altında toplanmıştır
 
 	- java.lang isimli paket altında bulunan tüm sınıflar her yerden görülebilirdir. Yani
-	buradaki isimleri paket ismi ile kombine etmeye gerek yoktur (import deyimi olmadan da kullanılabilir)
+	buradaki isimleri paket ismi ile kombine etmeye gerek yoktur (import bildirimi olmadan da kullanılabilir)
 ----------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -13110,17 +13110,17 @@ class App {
 
 
 /*----------------------------------------------------------------------------------------------------------------------
-	 import deyimleri:
-	 1. import single-type declaration (yıldızsız import direktifi)
-	 2. import on demand declaration (yıldızlı import direktifi)
+	 import bildirimleri:
+	 1. import single-type declaration (yıldızsız import bildirimi)
+	 2. import on demand declaration (yıldızlı import bildirimi)
 
-	 import deyimleri niteliksiz isim aramada etkilidir. Nitelikli aramada bir etkisi olmaz.
-	 import deyimlerinin paket bildirimi ile diğer bildirimler arasında olması gerekir.
-	 import deyimlerinin sırasının önemi yoktur
+	 import bildirimleri niteliksiz isim aramada etkilidir. Nitelikli aramada bir etkisi olmaz.
+	 import bildirimleri paket bildirimi ile diğer bildirimler arasında olması gerekir.
+	 import bildirimleri sırasının önemi yoktur
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
 	01.02.2020
-	Yıldızlı import deyiminin genel biçimi:
+	Yıldızlı import bildiriminin genel biçimi:
 
 	import <paket ismi>.*;
 
@@ -13203,7 +13203,7 @@ class App {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-	Niteliksiz bir isim için ilgili pakette de bulunamzsa tüm yıldızlı import deyimine
+	Niteliksiz bir isim için ilgili pakette de bulunamzsa tüm yıldızlı import bildirimine
 	ilişkin paketlere bakılır. Birden fazla pakette isim bulunursa error oluşur
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
@@ -13243,10 +13243,10 @@ class App {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-	Yıldızsız import deyiminin genel biçimi:
+	Yıldızsız import bildiriminin genel biçimi:
 	import [paket ismi].<sınıf ismi>;
 
-	Bu deyim aslında bir ilgili java dosyasında hangi ismin niteliksiz kullanılabileceğini belirtir.
+	Bu bildirim aslında bir ilgili java dosyasında hangi ismin niteliksiz kullanılabileceğini belirtir.
 	Nitelisiz isim arama kurallarında isim ilgili sınıf içerisinde bulunamazsa bu deyimdeki kullanılır.
 ----------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------
@@ -13298,7 +13298,7 @@ class App {
 
 /*----------------------------------------------------------------------------------------------------------------------
 	Aşağıdaki örnekte ilgili java dosyasında NumberUtil sınıfı bildirildiğinden import
-	deyiminde error oluşur
+	bildiriminde error oluşur
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -13395,22 +13395,22 @@ public class NumberUtil {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-	import static deyimleri: (Java 5 ile eklenmiştir)
+	import static bildirimleri: (Java 5 ile eklenmiştir)
 	1. import static single type declaration statement (yıldızsız import static)
-	2. import static on demand statement (yıldızlı import static)
+	2. import static on demand declaration (yıldızlı import static)
 
-	Bu deyimler bir sınıfın static elemanlarının başka bir paket içerisinde (yani sınıf içerisinde)
+	Bu bildirimler bir sınıfın static elemanlarının başka bir paket içerisinde (yani sınıf içerisinde)
 	doğrudan kullanımını sağlar
 
-	Yıldızlı import static deyiminin genel biçimi:
+	Yıldızlı import static bildiriminin genel biçimi:
 	import static [paket ismi].<sınıf ismi>.*;
 
-	Yıldızsız import static deyiminin genel biçimi:
+	Yıldızsız import static bildiriminin genel biçimi:
 	import static [paket ismi].<sınıf ismi>.<static eleman ismi>;
 ----------------------------------------------------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------------------------------------------------
-	Yıldızlı import static deyimi
+	Yıldızlı import static bildirimi
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -13424,7 +13424,7 @@ class App {
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
-	Yıldızsız import static deyimi
+	Yıldızsız import static bildirimi
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -29795,8 +29795,8 @@ public class CSDArrayList {
 
     public void add(int index, Object elem)
     {
-        checkAndAllocCapacity(m_elems.length * 2);
         checkForIndexOutOfBounds(index, m_index + 1); // add size verildiğinde sona ekler
+        checkAndAllocCapacity(m_elems.length * 2);
         //TODO:
     }
 
@@ -29913,8 +29913,8 @@ class Sample {
     }
 }
 /*----------------------------------------------------------------------------------------------------------------------
-    Sınıfın final static veri elemanlarına static bloklarda değer atanabilir. Şüphesiz burada atanabilmesi
-    için bildirim noktasında atanmaması gerekir
+    Sınıfın final static veri elemanlarına static bloklarda değer atanabilir. Şüphesiz burada değer atanabilmesi
+    için bildirim noktasında atanmamış olması gerekir
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -29927,6 +29927,7 @@ class App {
 
 class Sample {
     public static final double PI;
+
     static {
         PI = 3.14;
     }
@@ -29964,6 +29965,4395 @@ class Sample {
 
         VAL = r.nextInt(max - min) + min;
     }
+    //...
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    10.04.2020
+    Yukarıdaki örnek özelinde static blok aşağıdaki gibi yazılan metot olarak düşünülebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Sample.VAL);
+        System.out.println(Sample.VAL);
+    }
+}
+
+class Sample {
+    private static int initVal()
+    {
+        Random r = new Random();
+
+        Scanner kb = new Scanner(System.in);
+        System.out.print("min?");
+        int min = Integer.parseInt(kb.nextLine());
+
+        System.out.print("max?");
+        int max = Integer.parseInt(kb.nextLine());
+
+        return r.nextInt(max - min) + min;
+    }
+
+
+    public static final int VAL = initVal();
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıf içerisindeki tüm static blokların kendi faaliyet alanları vardır. Yani aslında bunlar ayrı metotlar
+    gibi düşünülebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        System.out.println(Sample.VAL1);
+        System.out.println(Sample.VAL2);
+    }
+}
+
+class Sample {
+    public static final int VAL1;
+    public static final int VAL2;
+
+    static {
+        System.out.println("static initializer1");
+        int a = 10;
+
+        VAL1 = a * 2;
+    }
+
+    static {
+        System.out.println("static initializer2");
+        int a = 20;
+
+        VAL2 = a * 3;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın non-static blokları olabilir. Bu bloklar her nesne için yukarıdan aşağıya olmak üzere çalıştırılır.
+    Detaylar aşağıdaki örneklerdedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample();
+
+        //...
+    }
+}
+
+class Sample {
+    {
+        System.out.println("non-static initializer1");
+    }
+
+
+    {
+        System.out.println("non-static initializer2");
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın non-static blokları olabilir. Bu bloklar her nesne için yukarıdan aşağıya olmak üzere çalıştırılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample(10);
+
+        //...
+    }
+}
+
+class Sample {
+    {
+        System.out.println("non-static initializer1");
+    }
+
+
+    {
+        System.out.println("non-static initializer2");
+    }
+
+    public Sample()
+    {
+        System.out.println("Sample.Sample()");
+    }
+
+    public Sample(int a)
+    {
+        System.out.println("Sample.Sample(int)");
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın non-static blokları her ctor'un başında çalıştırılacak kısımdır. Yani non-static bloğa ilişkin
+    kodların her ctor'un gizlice yerleştirildiğini düşünebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample(10);
+
+        //...
+    }
+}
+
+class Sample {
+    public int a;
+
+    {
+        System.out.printf("a=%d%n", a);
+    }
+
+    public Sample()
+    {
+        System.out.println("Sample.Sample()");
+    }
+
+    public Sample(int a)
+    {
+        System.out.println("Sample.Sample(int)");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın ctor'u içerisinde o sınfın başka bir ctor'unun çağrılması kodu yazılmışsa (this ctor)
+    bu durumda çağıran için non-static initiliazer kodu yerleştirilmez. Çünkü zaten çağrılan ctor' da ya olacaktır ya da
+    o da başka bir ctor'u olsa da sonuçta yerleştirilecek bir ctor mutlaka olacaktır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample(10);
+
+        //...
+    }
+}
+
+class Sample {
+    public int a;
+
+    {
+        System.out.println("non-static initializer");
+    }
+
+    public Sample()
+    {
+        System.out.println("Sample.Sample()");
+    }
+
+    public Sample(int a)
+    {
+        this();
+        System.out.println("Sample.Sample(int)");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    super ctor sentaksı kullanıldığında non-static blokların çalıştırılma sırası
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        B x = new B();
+
+        System.out.println("*****************");
+        B y = new B(20);
+
+    }
+}
+
+class A {
+    {
+        System.out.println("non-static initializer of A");
+    }
+
+    public A()
+    {
+        System.out.println("A.A()");
+    }
+
+    public A(int a)
+    {
+        System.out.println("A.A(int)");
+    }
+}
+
+class B extends A {
+    {
+        System.out.println("non-static initializer of B");
+    }
+
+    public B()
+    {
+        System.out.println("B.B()");
+    }
+
+    public B(int a)
+    {
+        super(a);
+        System.out.println("B.B(int)");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıfın non-static final veri elemanlarına non-static blok içerisinde değer atanabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        System.out.printf("s.val=%d%n", s.val);
+
+        Sample k = new Sample();
+
+        System.out.printf("k.val=%d%n", k.val);
+    }
+}
+
+class Sample {
+    public final int val;
+
+    {
+        Scanner kb = new Scanner(System.in);
+        Random r = new Random();
+        System.out.print("min?");
+        int min = Integer.parseInt(kb.nextLine());
+
+        System.out.print("max?");
+        int max = Integer.parseInt(kb.nextLine());
+
+        val = r.nextInt(max - min) + min;
+    }
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    IntValue sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+public final class IntValue {
+    private final int m_val;
+    private static final IntValue [] ms_cache;
+
+    static {
+        ms_cache = new IntValue[256];
+        ZERO = of(0);
+        ONE = of(1);
+    }
+
+    private IntValue(int val)
+    {
+        m_val = val;
+    }
+
+    public static final IntValue ZERO;
+    public static final IntValue ONE;
+
+    public static IntValue of(int val)
+    {
+        if (val < -128 || val > 127)
+            return new IntValue(val);
+
+        if (ms_cache[val + 128] == null)
+            ms_cache[val + 128] = new IntValue(val);
+
+        return ms_cache[val + 128];
+    }
+
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public IntValue inc()
+    {
+        return plus(1);
+    }
+
+    public IntValue plus(IntValue other)
+    {
+        return plus(other.m_val);
+    }
+
+    public IntValue plus(int val)
+    {
+        return of(m_val + val);
+    }
+
+    public int compareTo(IntValue other)
+    {
+        return m_val - other.m_val;
+    }
+
+    public String toString()
+    {
+        return m_val + "";
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Date sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util.datetime;
+
+import java.util.Calendar;
+import java.util.Random;
+
+public class Date {
+    private static final String [] ms_weekDaysTR;
+    private static final String [] ms_weekDaysEN;
+
+    static {
+        ms_weekDaysTR = new String[]{"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
+        ms_weekDaysEN = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    }
+
+    private int m_day, m_mon, m_year;
+    private int m_dayOfWeek;
+
+    private static int getDayOfWeek(int day, int mon, int year)
+    {
+        int totalDays = getDayOfYear(day, mon, year);
+
+        for (int y = 1900; y < year; ++y)
+            totalDays += Month.isLeapYear(y) ? 366 : 365;
+
+        return totalDays % 7;
+    }
+
+    private static int getDayOfYear(int day, int mon, int year)
+    {
+        int dayOfYear = day;
+
+        for (int m = mon - 1; m >= 1; --m)
+            dayOfYear += Month.values()[m - 1].getDaysByYear(year);
+
+        return dayOfYear;
+    }
+
+    private static boolean isValidDate(int day, int mon, int year)
+    {
+        if (day < 1 || day > 31 || mon < 1 || mon > 12)
+            return false;
+
+        int days =  Month.values()[mon - 1].getDaysByYear(year);
+
+        return day <= days;
+    }
+
+    private static void doWorkForException(String msg)
+    {
+        System.out.println(msg);
+        System.exit(-1); //exception konusuna kadar sabredin
+    }
+
+    private static void control(int day, int mon, int year, String msg)
+    {
+        if (!isValidDate(day, mon, year))
+            doWorkForException(msg);
+    }
+
+    private void controlForDay(int day)
+    {
+        control(day, m_mon, m_year, "Invalid day");
+    }
+
+    private void controlForMonValue(int monVal)
+    {
+        control(m_day, monVal, m_year, "Invalid month");
+    }
+
+    private void controlForYear(int year)
+    {
+        control(m_day, m_mon, year, "Invalid year");
+    }
+
+    private void set(int day, int mon, int year)
+    {
+        m_day = day;
+        m_mon = mon;
+        m_year = year;
+        m_dayOfWeek = getDayOfWeek(m_day, m_mon, m_year);
+    }
+
+    private int getDayOfWeekValue() {return m_dayOfWeek;}
+
+    public static Date randomDate()
+    {
+        return randomDate(new Random());
+    }
+
+    public static Date randomDate(Random r)
+    {
+        Date now = new Date();
+
+        return randomDate(r, now.m_year, now.m_year);
+    }
+
+    public static Date randomDate(int year)
+    {
+        return randomDate(new Random(), year);
+    }
+
+    public static Date randomDate(Random r, int year)
+    {
+        return randomDate(r, year, year);
+    }
+    public static Date randomDate(int minYear, int maxYear)
+    {
+        return randomDate(new Random(), minYear, maxYear);
+    }
+
+    public static Date randomDate(Random r, int minYear, int maxYear)
+    {
+        int year = r.nextInt(maxYear - minYear + 1) + minYear;
+        int mon = r.nextInt(12) + 1;
+        int days =  Month.values()[mon - 1].getDaysByYear(year);
+        int day = r.nextInt(days) + 1;
+
+        return new Date(day, mon, year);
+    }
+
+    public Date()
+    {
+        Calendar now = Calendar.getInstance();
+
+        set(now.get(Calendar.DAY_OF_MONTH), now.get(Calendar.MONTH) + 1, now.get(Calendar.YEAR));
+    }
+
+    public Date(int day, Month month, int year)
+    {
+        this(day, month.ordinal() + 1, year);
+    }
+
+    public Date(int day, int mon, int year)
+    {
+        control(day, mon, year, "Invalid date");
+        set(day, mon, year);
+    }
+
+    public void setDay(int day)
+    {
+        if (day == m_day)
+            return;
+
+        controlForDay(day);
+        set(day, m_mon, m_year);
+    }
+
+    public void setMonth(Month month)
+    {
+        setMonthValue(month.ordinal() + 1);
+    }
+
+    public void setMonthValue(int mon)
+    {
+        if (m_mon == mon)
+            return;
+
+        controlForMonValue(mon);
+        set(m_day, mon, m_year);
+    }
+
+    public void setYear(int year)
+    {
+        if (m_year == year)
+            return;
+
+        controlForYear(year);
+        set(m_day, m_mon, year);
+    }
+
+    public int getDay()
+    {
+        return m_day;
+    }
+    public int getMonthValue()
+    {
+        return m_mon;
+    }
+    public Month getMonth() {return Month.values()[m_mon - 1];}
+    public int getYear()
+    {
+        return m_year;
+    }
+    public DayOfWeek getDayOfWeek() {return DayOfWeek.values()[getDayOfWeekValue()];}
+    public String getDayOfWeekTR() {return ms_weekDaysTR[getDayOfWeekValue()];}
+    public String getDayOfWeekEN() {return ms_weekDaysEN[getDayOfWeekValue()];}
+    public int getDayOfYear() {return getDayOfYear(m_day, m_mon, m_year);}
+
+    public boolean isLeapYear()
+    {
+        return  Month.isLeapYear(m_year);
+    }
+
+    public boolean isWeekend()
+    {
+        return m_dayOfWeek == 0 || m_dayOfWeek == 6;
+    }
+
+    public boolean isWeekday()
+    {
+        return !isWeekend();
+    }
+
+    public String toString(char delim)
+    {
+        return String.format("%02d%c%02d%c%04d", m_day, delim, m_mon, delim, m_year);
+    }
+
+    public String toString()
+    {
+        return toString('/');
+    }
+
+    public String toStringTR()
+    {
+        return toStringTR('/');
+    }
+
+    public String toStringTR(char delim)
+    {
+        return String.format("%s %s", toString(delim), getDayOfWeekTR());
+    }
+
+    public String toStringEN()
+    {
+        return toStringEN('/');
+    }
+
+    public String toStringEN(char delim)
+    {
+        return String.format("%s %s", toString(delim), getDayOfWeekEN());
+    }
+
+    public String toLongDateStringTR()
+    {
+        //TODO:
+        return toStringTR();
+    }
+
+    public String toLongDateStringEN()
+    {
+        //TODO:
+        return toStringEN();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	NumberUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+import java.util.Random;
+
+public final class NumberUtil {
+	private static final String [] ms_onesTR;
+	private static final String [] ms_tensTR;
+
+	static {
+		ms_onesTR = new String[]{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+		ms_tensTR = new String[]{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	}
+
+	private NumberUtil() {}
+	private static String numToTextMax3DigitsTR(int val)
+	{
+		if (val == 0)
+			return "sıfır";
+
+		String str = val < 0 ? "eksi" : "";
+
+		val = Math.abs(val);
+
+		int a = val / 100;
+		int b = val / 10 % 10;
+		int c = val % 10;
+
+		if (a != 0) {
+			if (a != 1)
+				str += ms_onesTR[a];
+			str += "yüz";
+		}
+
+		if (b != 0)
+			str += ms_tensTR[b];
+
+		if (c != 0)
+			str += ms_onesTR[c];
+
+		return str;
+	}
+
+	private static int [] getDigits(int n, int val)
+	{
+		val = Math.abs(val);
+		int len = val == 0 ? 1 : (int)Math.log10(val) / n + 1;
+		int [] a = new int[len];
+
+		for (int i = len - 1; i >= 0; --i) {
+			int pow = (int)Math.pow(10, n);
+
+			a[i] = val % pow;
+			val /= pow;
+		}
+
+		return a;
+	}
+
+	public static long factorial(int n)
+	{
+		if (n < 0)
+			return -1;
+
+		long result = 1;
+
+		for (int i = 2; i <= n; ++i)
+			result *= i;
+
+		return result;
+	}
+
+	public static int [] getDigits(int val)
+	{
+		return getDigits(1, val);
+	}
+
+	public static int [] getDigitsInThree(int val)
+	{
+		return getDigits(3, val);
+	}
+
+	public static int getDigitsCount(int val)
+	{
+		return val == 0 ? 1 : (int)Math.log10(Math.abs(val)) + 1;
+	}
+
+	public static int getDigitsSum(int val)
+	{
+		int sum = 0;
+
+		while (val != 0) {
+			sum += val % 10;
+			val /= 10;
+		}
+
+		return Math.abs(sum);
+	}
+
+	public static int getNextFibonacciNumber(int val)
+	{
+		if (val < 0)
+			return 0;
+
+		int prev1 = 0, prev2 = 1, number = 0;
+
+		for (;;) {
+			number = prev1 + prev2;
+			if (number > val)
+				return number;
+
+			prev1 = prev2;
+			prev2 = number;
+		}
+	}
+
+	public static int getFibonnaciNumber(int n)
+	{
+		if (n <= 0)
+			return -1;
+
+		if (n <= 2)
+			return n - 1;
+
+		int prev1 = 0, prev2 = 1, val = 0;
+
+		for (int i = 2; i < n; ++i) {
+			val = prev1 + prev2;
+			prev1 = prev2;
+			prev2 = val;
+		}
+
+		return val;
+	}
+
+	public static int getPrime(int n)
+	{
+		if (n <= 0)
+			return -1;
+
+		int count = 0, val = 0;
+
+		for (int i = 2; count < n; ++i) {
+			if (isPrime(i)) {
+				++count;
+				val = i;
+			}
+		}
+
+		return val;
+	}
+
+	public static int getRandom4DigitsNumber()
+	{
+		return getRandom4DigitsNumber(new Random());
+	}
+
+	public static int getRandom4DigitsNumber(Random r)
+	{
+		boolean [] flags = new boolean[10];
+		int result = 0;
+		int val = r.nextInt(9) + 1;
+
+		flags[val] = true;
+		result = val * 1000;
+
+		for (int i = 3; i >= 1; --i) {
+			for (;;) {
+				val = r.nextInt(10);
+				if (!flags[val])
+					break;
+			}
+			result += val * (int)Math.pow(10, i - 1);
+			flags[val] = true;
+		}
+
+		return result;
+	}
+
+	public static int getReverse(int val)
+	{
+		int rev = 0;
+
+		while (val != 0) {
+			rev = rev * 10 + val % 10;
+			val /= 10;
+		}
+
+		return rev;
+	}
+
+	public static int getSum(int val)
+	{
+		int n = getDigitsCount(val);
+
+		int sum = 0;
+
+		while (val != 0) {
+			sum += pow(val % 10, n);
+			val /= 10;
+		}
+
+		return sum;
+	}
+
+	public static boolean isArmstrong(int val)
+	{
+		if (val < 0)
+			return false;
+
+		return val == getSum(val);
+	}
+
+	public static boolean isEven(int val)
+	{
+		return val % 2 == 0;
+	}
+
+	public static boolean isNegative(int val)
+	{
+		return val < 0;
+	}
+
+	public static boolean isOdd(int val)
+	{
+		return !isEven(val);
+	}
+
+	public static boolean isPalindrome(int val)
+	{
+		return getReverse(val) == val;
+	}
+
+	public static boolean isPrime(int val)
+	{
+		if (val <= 1)
+			return false;
+
+		if (val % 2 == 0)
+			return val == 2;
+
+		if (val % 3 == 0)
+			return val == 3;
+
+		if (val % 5 == 0)
+			return val == 5;
+
+		if (val % 7 == 0)
+			return val == 7;
+
+		for (int i = 11; i * i <= val; i += 2)
+			if (val % i == 0)
+				return false;
+
+		return true;
+	}
+
+	public static boolean isPositive(int val)
+	{
+		return val > 0;
+	}
+
+	public static int pow(int a, int b)
+	{
+		b = Math.abs(b);
+		int result = 1;
+
+		while (b-- > 0)
+			result *= a;
+
+		return result;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	StringUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+import java.util.Random;
+
+public final class StringUtil {
+	private static final String ms_alphabetTR;
+	private static final String ms_alphabetEN;
+
+	static {
+		ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+		ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	}
+
+	private StringUtil() {}
+	public static String capitalize(String str)
+	{
+		str = str.trim();
+
+		return !str.isEmpty() ? Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase() : "";
+	}
+
+	public static int getCount(String s1, String s2)
+	{
+		int count = 0;
+
+		for (int index = -1; (index = s1.indexOf(s2, index + 1)) != -1; ++count)
+				;
+
+		return count;
+	}
+
+	public static String generateRandomPassword(Random r, int n)
+	{
+		String chars = "abcçdefgğhıijklmnoöpqrsştuüwxvyz0123456789.:?-_";
+
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i)  {
+			char ch = chars.charAt(r.nextInt(chars.length()));
+
+			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
+		}
+
+		return new String(c);
+	}
+
+	public static String generateRandomPassword(int n)
+	{
+		return generateRandomPassword(new java.util.Random(), n);
+	}
+
+	public static String getRandomString(Random r, int n, String str)
+	{
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i)
+			c[i] = str.charAt(r.nextInt(str.length()));
+
+		return new String(c);
+	}
+
+	public static String getRandomText(Random r, int n, String str)
+	{
+		char [] c = new char[n];
+
+		for (int i = 0; i < n; ++i) {
+			char ch = str.charAt(r.nextInt(str.length()));
+
+			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
+		}
+
+		return new String(c);
+	}
+
+	public static String getRandomTextEN(java.util.Random r, int n)
+	{
+		return getRandomText(r, n, ms_alphabetEN);
+	}
+
+	public static String getRandomTextEN(int n)
+	{
+		return getRandomTextEN(new java.util.Random(), n);
+	}
+
+	public static String getRandomTextTR(java.util.Random r, int n)
+	{
+		return getRandomText(r, n, ms_alphabetTR);
+	}
+
+	public static String getRandomTextTR(int n)
+	{
+		return getRandomTextTR(new java.util.Random(), n);
+	}
+
+	public static boolean isPalindrome(String s)
+	{
+		s = removeNonalphabetics(s);
+
+		int len = s.length();
+		int halfLen = len / 2;
+
+		for (int i = 0; i < halfLen; ++i) {
+			char ch1 = Character.toLowerCase(s.charAt(i));
+			char ch2 = Character.toLowerCase(s.charAt(len - 1 - i));
+
+			if (ch1 != ch2)
+				return false;
+		}
+
+		return true;
+	}
+
+	public static boolean isPangram(String s, String alphabet)
+	{
+		int len = alphabet.length();
+
+		for (int i = 0; i < len; ++i)
+			if (!s.contains(alphabet.charAt(i) + ""))
+				return false;
+
+		return true;
+	}
+
+	public static boolean isPangramTR(String s)
+	{
+		return isPangram(s.toLowerCase(), ms_alphabetTR);
+	}
+
+	public static boolean isPangramEN(String s)
+	{
+		return isPangram(s.toLowerCase(), ms_alphabetEN);
+	}
+
+	public static String padLeft(String s, int len, char ch)
+	{
+		if (len <= s.length())
+			return s;
+
+		return repeat(len - s.length(), ch) + s;
+	}
+
+	public static String padLeft(String s, int len)
+	{
+		return padLeft(s, len, ' ');
+	}
+
+	public static String padRight(String s, int len, char ch)
+	{
+		if (len <= s.length())
+			return s;
+
+		return s + repeat(len - s.length(), ch);
+	}
+
+	public static String padRight(String s, int len)
+	{
+		return padRight(s, len, ' ');
+	}
+
+	public static String removeNonalphabetics(String s)
+	{
+		String str = "";
+
+		int len = s.length();
+
+		for (int i = 0; i < len; ++i) {
+			char ch = s.charAt(i);
+
+			if (Character.isLetter(ch))
+				str += ch;
+		}
+
+		return str;
+	}
+
+	public static String repeat(int n, char ch)
+	{
+		char [] c = new char[n];
+
+		while (n-- > 0)
+			c[n] += ch;
+
+		return new String(c);
+	}
+
+	public static String reverse(String str)
+	{
+		char [] c = str.toCharArray();
+
+		ArrayUtil.reverse(c);
+
+		return new String(c);
+	}
+
+	public static String [] split(String str, String delim)
+	{
+		return split(str, delim, StringSplitOptions.NONE);
+	}
+
+	public static String [] split(String str, String delim, StringSplitOptions stringSplitOptions)
+	{
+		String specials = "[].";
+		String re = "[";
+
+		for (int i = 0; i < delim.length(); ++i) {
+			char ch = delim.charAt(i);
+
+			re += specials.indexOf(ch) >= 0 ? "\\" + ch : ch;
+		}
+
+		re += "]";
+
+		if (stringSplitOptions == StringSplitOptions.REMOVEEMPTYENTRIES)
+			re += "+";
+
+		return str.split(re);
+	}
+
+	public static String trimEnd(String s)
+	{
+		int i;
+
+		for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
+			;
+
+		return s.substring(0, i + 1);
+	}
+
+	public static String trimStart(String s)
+	{
+		int i;
+
+		int len = s.length();
+
+		for (i = 0; i < len && Character.isWhitespace(s.charAt(i)); ++i)
+			;
+
+		return s.substring(i);
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    non-static metotlar aşağı seviye adeta static metotlara dönüştürülür. Dolayısıyla bu metotların çağrısı da
+    dönüştürümüş static metotların çağrısı biçimine dönüştürülür
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        s.foo(10);
+
+        //non-static foo metodunun çağrısının aşağı seviyeli temsili karşılığı
+        Sample.foo(s, 10);
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public void foo(int val)
+    {
+        m_val = val;
+    }
+
+    //non-static foo metodunun bildiriminin aşağı seviyedeki temsili karşılığı
+    public static void foo(Sample s, int val)
+    {
+        s.m_val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    non-static bir metodu çağıran referansa metodun bildiriminde this anahtar sözcüğü ile erişilir. this'in bu şekilde
+    kullanıldığı durumda this referansı denilmektedir. this aslında yukarıda anlatılan dönüştürmede metoda
+    eklenmiş olan referansı temsil eder
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public void foo(int val)
+    {
+        this.m_val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    static metotlar içerisinde this referansı kullanılamaz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    private static int ms_val;
+
+    public static void foo(int val)
+    {
+        this.ms_val = val; //error
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    this referansına atama yapılamaz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public void foo(int val)
+    {
+        this = new Sample(); //error
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------
+    Sınıfın non-static metotları içerisinde sınıfın non-static elemanlarına this referansı ile erişilebilir.
+    Aşağıdaki örnekte doğrudan kullanmakla this referansı ile kullanmak arasında fark yoktur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public void foo(int val)
+    {
+        this.m_val = val;
+        this.bar();
+    }
+
+    public void bar()
+    {
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Biz sınıfın non-static veri elemanlarına erişimde gerekmedikçe this referansı kullanmayacağız. Ancak metot
+    çağırmalarda okunabilirliği artırmak için this referansını çoğunlukla tercih edeceğiz. Yani sınıfın
+    non-static metotlarını this referansı ile çağıracağız. Bu durumda sınıfın static metotları ile non-static
+    metotları çağrı sırasından anlaşılmış olacak.
+    Aşağıdaki örnekte foo metodu içerisinde bar non-static olduğundan this referansı ile çağrılmıştır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    private int m_val;
+
+    public static void tar()
+    {
+
+    }
+    public void foo(int val)
+    {
+        m_val = val;
+        this.bar();
+        tar();
+    }
+
+    public void bar()
+    {
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşğıdaki kod yazım tekniğinde this referansı ile veri elemanına erişim zorunludur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample(20);
+
+        System.out.println(s.getVal());
+
+        s.setVal(10);
+
+        System.out.println(s.getVal());
+    }
+}
+
+class Sample {
+    private int val;
+
+    public Sample(int val)
+    {
+        this.val = val;
+    }
+
+    public int getVal() {return val;}
+
+    public void setVal(int val)
+    {
+        this.val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Point sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.math.geometry;
+
+import static java.lang.Math.sqrt;
+
+public class Point {
+	public int x, y;
+
+	Point(Point p)
+	{
+		x = p.x;
+		y = p.y;
+	}
+
+	public Point()
+	{}
+
+	public Point(int x)
+	{
+		this(x, 0);
+	}
+
+	public Point(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+
+	public double distance()
+	{
+		return this.distance(0, 0);
+	}
+
+	public double distance(Point p)
+	{
+		return this.distance(p.x, p.y);
+	}
+
+	public double distance(int a, int b)
+	{
+		return sqrt((x - a) * (x - a) + (y - b) * (y - b));
+	}
+
+	public void offset(int dx, int dy)
+	{
+		x += dx;
+		y += dy;
+	}
+
+	public void offset(int dxy)
+	{
+		this.offset(dxy, dxy);
+	}
+
+	public String toString()
+	{
+		return String.format("(%d, %d)", x, y);
+	}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Circle sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.math.geometry;
+
+public class Circle {
+    private double m_r;
+
+    public Circle()
+    {}
+
+    public Circle(double r)
+    {
+        this.setRadius(r);
+    }
+
+    public void setRadius(double r)
+    {
+        if (m_r == r)
+            return;
+
+        m_r = Math.abs(r);
+    }
+
+    public double getRadius() {return m_r;}
+    public double getArea() {return Math.PI * m_r * m_r;}
+    public double getCircumference() {return 2 * Math.PI * m_r;}
+}
+
+package org.csystem.math.geometry;
+
+public class AnalyticalCircle extends Circle {
+    private Point m_center;
+
+    public AnalyticalCircle()
+    {
+        this(0);
+    }
+
+    public AnalyticalCircle(double r)
+    {
+        this(r, 0, 0);
+    }
+
+    public AnalyticalCircle(int x, int y)
+    {
+        this(0, x, y);
+    }
+
+    public AnalyticalCircle(double r, Point center)
+    {
+        this(r, center.x, center.y);
+    }
+
+    public AnalyticalCircle(double r, int x, int y)
+    {
+        super(r);
+        m_center = new Point(x, y);
+    }
+
+    public int getX() {return m_center.x;}
+    public int getY() {return m_center.y;}
+    public Point getCenter() {return new Point(m_center);}
+
+    public void setX(int x)
+    {
+        m_center.x = x;
+    }
+
+    public void setY(int y)
+    {
+        m_center.y = y;
+    }
+
+    public void setCenter(Point center)
+    {
+        this.setCenter(center.x, center.y);
+    }
+
+    public void setCenter(int x, int y)
+    {
+        this.setX(x);
+        this.setY(y);
+    }
+
+    public void offset(int dxy) //delegate method
+    {
+        this.offset(dxy, dxy);
+    }
+
+    public void offset(int dx, int dy) //delegate method
+    {
+        m_center.offset(dx, dy);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+	Complex sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.math;
+
+import static java.lang.Math.sqrt;
+
+public final class Complex {
+	private static Complex plus(double a1, double b1, double a2, double b2)
+	{
+		return new Complex(a1 + a2, b1 + b2);
+	}
+
+	private static Complex minus(double a1, double b1, double a2, double b2)
+	{
+		return plus(a1, b1, -a2, -b2);
+	}
+
+	public double a, b;
+
+	public Complex() {}
+
+	public Complex(double a)
+	{
+		this(a, 0);
+	}
+
+	public Complex(double a, double b)
+	{
+		this.a = a;
+		this.b = b;
+	}
+
+	public double getNorm() {return sqrt(a * a + b * b);}
+
+	public Complex getConjugate() {return new Complex(a, -b);}
+
+	//plus methods
+
+	public static Complex plus(double val, Complex z)
+	{
+		return plus(val, 0, z.a, z.b);
+	}
+
+	public Complex plus(Complex z)
+	{
+		return plus(a, b, z.a, z.b);
+	}
+
+	public Complex plus(double val)
+	{
+		return plus(a, b, val, 0);
+	}
+
+	//minus methods
+
+	public static Complex minus(double val, Complex z)
+	{
+		return minus(val, 0, z.a, z.b);
+	}
+
+	public Complex minus(Complex z)
+	{
+		return minus(a, b, z.a, z.b);
+	}
+
+	public Complex minus(double val)
+	{
+		return minus(a, b, val, 0);
+	}
+
+	//inc methods
+
+	public void inc()
+	{
+		this.inc(1);
+	}
+
+	public void inc(int amount)
+	{
+		a += amount;
+	}
+
+	//dec methods
+
+	public void dec()
+	{
+		this.dec(1);
+	}
+
+	public void dec(int amount)
+	{
+		this.inc(-amount);
+	}
+
+	public String toString()
+	{
+		return String.format("|%.2f + %.2fi|=%f", a, b, getNorm());
+	}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Rational sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.math;
+
+import java.util.Random;
+
+public final class Rational {
+    private int m_a, m_b;
+
+    private static Rational plus(int a1, int b1, int a2, int b2)
+    {
+        return new Rational(a1 * b2 + a2 * b1, b1 * b2);
+    }
+
+    private static Rational minus(int a1, int b1, int a2, int b2)
+    {
+        return plus(a1, b1, -a2, b2);
+    }
+
+    private static Rational multiply(int a1, int b1, int a2, int b2)
+    {
+        return new Rational(a1 * a2, b1 * b2);
+    }
+
+    private static Rational div(int a1, int b1, int a2, int b2)
+    {
+        return multiply(a1, b1, b2, a2);
+    }
+
+    private static void control(int a, int b)
+    {
+        if (b == 0) {
+            System.out.println(a == 0 ? "Belirsiz" : "Tanımsız");
+            System.exit(-1); //exception konusuna sabredin
+        }
+    }
+
+    private void calibrateSigns()
+    {
+        if (m_b < 0) {
+            m_a *= -1;
+            m_b *= -1;
+        }
+    }
+
+    private void set(int a, int b)
+    {
+        m_a = a;
+        if (m_a == 0) {
+            m_b = 1;
+            return;
+        }
+
+        m_b = b;
+        this.calibrateSigns();
+        this.simplify();
+    }
+
+    private void simplify()
+    {
+        int a = Math.abs(m_a);
+        int b = m_b;
+
+        int min = a > b ? b : a;
+
+        for (int i = min; i >= 2; --i) {
+            if (a % i == 0 && b % i == 0) {
+                m_a /= i;
+                m_b /= i;
+                break;
+            }
+        }
+    }
+
+    public static Rational randomRational(int min, int max) //[min, max)
+    {
+        return randomRational(new Random(), min, max);
+    }
+
+    public static Rational randomRational(Random r, int min, int max)  //[min, max)
+    {
+        return new Rational(r.nextInt(max - min) + min, r.nextInt(max - min) + min);
+    }
+
+    public Rational()
+    {
+        m_b = 1;
+    }
+
+    public Rational(int a, int b)
+    {
+        control(a, b);
+        this.set(a, b);
+    }
+
+    public void setNumerator(int val)
+    {
+        if (m_a == val)
+            return;
+
+        this.set(val, m_b);
+    }
+
+    public void setDenominator(int val)
+    {
+        if (m_b == val)
+            return;
+
+        control(m_a, val);
+        this.set(m_a, val);
+    }
+
+    public int getNumerator()
+    {
+        return m_a;
+    }
+
+    public int getDenominator()
+    {
+        return m_b;
+    }
+
+    public double toDouble()
+    {
+        return (double)m_a / m_b;
+    }
+
+    //plus methods
+    public static Rational plus(int val, Rational r)
+    {
+        return plus(val, 1, r.m_a, r.m_b);
+    }
+
+    public Rational plus(Rational r)
+    {
+        return plus(m_a, m_b, r.m_a, r.m_b);
+    }
+
+    public Rational plus(int val)
+    {
+        return plus(m_a, m_b, val, 1);
+    }
+
+    //minus methods
+    public static Rational minus(int val, Rational r)
+    {
+        return minus(val, 1, r.m_a, r.m_b);
+    }
+
+    public Rational minus(Rational r)
+    {
+        return minus(m_a, m_b, r.m_a, r.m_b);
+    }
+
+    public Rational minus(int val)
+    {
+        return minus(m_a, m_b, val, 1);
+    }
+
+    //multiply methods
+    public static Rational multiply(int val, Rational r)
+    {
+        return multiply(val, 1, r.m_a, r.m_b);
+    }
+
+    public Rational multiply(Rational r)
+    {
+        return multiply(m_a, m_b, r.m_a, r.m_b);
+    }
+
+    public Rational multiply(int val)
+    {
+        return multiply(m_a, m_b, val, 1);
+    }
+
+    //div methods
+    public static Rational div(int val, Rational r)
+    {
+        return div(val, 1, r.m_a, r.m_b);
+    }
+
+    public Rational div(Rational r)
+    {
+        return div(m_a, m_b, r.m_a, r.m_b);
+    }
+
+    public Rational div(int val)
+    {
+        return div(m_a, m_b, val, 1);
+    }
+
+    //inc methods
+    public void inc()
+    {
+        this.inc(1);
+    }
+    public void inc(int amount)
+    {
+        m_a += amount * m_b;
+    }
+
+    //dec methods
+    public void dec()
+    {
+        this.dec(1);
+    }
+    public void dec(int amount)
+    {
+        this.inc(-amount);
+    }
+
+    //pow method
+    public void pow(int n)
+    {
+        m_a = (int)Math.pow(m_a, n);
+        m_b = (int)Math.pow(m_b, n);
+    }
+
+    public int compareTo(Rational r)
+    {
+        return m_a * r.m_b - r.m_a * m_b;
+    }
+
+    public String toString()
+    {
+        return this.toString(6);
+    }
+
+    public String toString(int n)
+    {
+        String fmt = String.format("%%d / %%d = %%.%df", n);
+
+        return String.format(fmt, m_a, m_b, toDouble());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    CSDArrayList sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.collection;
+
+public class CSDArrayList {
+    private static final int DEFAULT_CAPACITY = 10;
+    private Object [] m_elems;
+    private int m_index;
+
+    private static void doWorkForException(String msg)
+    {
+        System.out.println(msg);
+        System.exit(-1); //exception konusuna kadar sabredin
+    }
+
+    private static void checkForIllegalArgumentException(int capacity)
+    {
+        if (capacity < 0)
+            doWorkForException("Invalid capacity");
+    }
+
+    private static void checkForIndexOutOfBounds(int index, int end)
+    {
+        if (index < 0 || index >= end)
+            doWorkForException("Index out of bounds");
+    }
+
+    private void allocateCapacity(int capacity)
+    {
+        Object [] temp = new Object[capacity];
+
+        for (int i = 0; i < m_index; ++i)
+            temp[i] = m_elems[i];
+
+        m_elems = temp;
+    }
+
+    private void checkAndAllocCapacity(int capacity)
+    {
+        if (m_index < m_elems.length)
+            return;
+
+        this.allocateCapacity(capacity);
+    }
+
+    public CSDArrayList()
+    {
+        this(DEFAULT_CAPACITY);
+    }
+
+    public CSDArrayList(int initialCapacity)
+    {
+        checkForIllegalArgumentException(initialCapacity);
+        m_elems = new Object[initialCapacity];
+    }
+
+    public boolean add(Object elem)
+    {
+        this.checkAndAllocCapacity(m_elems.length * 2);
+        m_elems[m_index++] = elem;
+
+        return true;
+    }
+
+    public void add(int index, Object elem)
+    {
+        checkForIndexOutOfBounds(index, m_index + 1); // add size verildiğinde sona ekler
+        this.checkAndAllocCapacity(m_elems.length * 2);
+
+        //TODO:
+    }
+
+    public int capacity() {return m_elems.length;}
+
+    public void clear()
+    {
+        for (int i = 0; i < m_index; ++i)
+            m_elems[i] = null;
+
+        m_index = 0;
+    }
+
+    public Object get(int index)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+
+        return m_elems[index];
+    }
+
+    public Object set(int index, Object elem)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+        Object old = m_elems[index];
+
+        m_elems[index] = elem;
+
+        return old;
+    }
+
+    public Object remove(int index)
+    {
+        checkForIndexOutOfBounds(index, m_index);
+        Object old = m_elems[index];
+
+        //TODO:
+        return old;
+    }
+    public int size() {return m_index;}
+
+    public void trimToSize()
+    {
+        if (m_index == m_elems.length)
+            return;
+
+        this.allocateCapacity(m_index == 0 ? DEFAULT_CAPACITY : m_index);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    IntValue sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+public final class IntValue {
+    private final int m_val;
+    private static final IntValue [] ms_cache;
+
+    static {
+        ms_cache = new IntValue[256];
+        ZERO = of(0);
+        ONE = of(1);
+    }
+
+    private IntValue(int val)
+    {
+        m_val = val;
+    }
+
+    public static final IntValue ZERO;
+    public static final IntValue ONE;
+
+    public static IntValue of(int val)
+    {
+        if (val < -128 || val > 127)
+            return new IntValue(val);
+
+        if (ms_cache[val + 128] == null)
+            ms_cache[val + 128] = new IntValue(val);
+
+        return ms_cache[val + 128];
+    }
+
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public IntValue inc()
+    {
+        return this.plus(1);
+    }
+
+    public IntValue plus(IntValue other)
+    {
+        return this.plus(other.m_val);
+    }
+
+    public IntValue plus(int val)
+    {
+        return of(m_val + val);
+    }
+
+    public int compareTo(IntValue other)
+    {
+        return m_val - other.m_val;
+    }
+
+    public String toString()
+    {
+        return m_val + "";
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    this referansı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Sample {
+    public int val;
+
+    public void foo(int val)
+    {
+        //...
+        this.bar(val);
+    }
+
+    public void bar(int val)
+    {
+        //...
+        this.val = val;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki zincir çağrısında (fluent pattern) metotların this referansını döndürmesi gerekir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+
+        s.foo().bar().foo().tar().bar().zar();
+    }
+}
+
+class Sample {
+    //...
+    public Sample foo()
+    {
+        System.out.println("foo");
+
+        return this;
+    }
+
+    public Sample bar()
+    {
+        System.out.println("bar");
+
+        return this;
+    }
+
+    public Sample tar()
+    {
+        System.out.println("tar");
+
+        return this;
+    }
+
+    public Sample zar()
+    {
+        System.out.println("zar");
+
+        return this;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    String sınıfı fluent çağrıya uygundur. Şüphesiz this referansını döndürmez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        String s = "ankara";
+
+        s = s.toUpperCase().trim().substring(1);
+
+        System.out.println(s);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    IntValue sınıfı da fluent çağırmaya uygundur fakat metotlar sınıf immutable olduğundan this referansını
+    döndürmez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.IntValue;
+
+class App {
+    public static void main(String [] args)
+    {
+        int val = IntValue.of(10).plus(3).inc().getVal();
+
+        System.out.println(val);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    IntValue sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+public final class IntValue {
+    private final int m_val;
+    private static final IntValue [] ms_cache;
+
+    static {
+        ms_cache = new IntValue[256];
+        ZERO = of(0);
+        ONE = of(1);
+    }
+
+    private IntValue(int val)
+    {
+        m_val = val;
+    }
+
+    public static final IntValue ZERO;
+    public static final IntValue ONE;
+
+    public static IntValue of(int val)
+    {
+        if (val < -128 || val > 127)
+            return new IntValue(val);
+
+        if (ms_cache[val + 128] == null)
+            ms_cache[val + 128] = new IntValue(val);
+
+        return ms_cache[val + 128];
+    }
+
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public IntValue inc()
+    {
+        return this.plus(1);
+    }
+
+    public IntValue plus(IntValue other)
+    {
+        return this.plus(other.m_val);
+    }
+
+    public IntValue plus(int val)
+    {
+        return of(m_val + val);
+    }
+
+    public int compareTo(IntValue other)
+    {
+        return m_val - other.m_val;
+    }
+
+    public String toString()
+    {
+        return m_val + "";
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    MutableIntValue sınıfı da fluent çağırmaya uygundur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.MutableIntValue;
+
+class App {
+    public static void main(String [] args)
+    {
+        MutableIntValue mutableIntValue = new MutableIntValue(10);
+
+        mutableIntValue.plus(3).inc();
+
+        System.out.println(mutableIntValue.getVal());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    MutableIntValue sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.util;
+
+public final class MutableIntValue {
+    private int m_val;
+
+    public MutableIntValue(int val)
+    {
+        m_val = val;
+    }
+
+    public int getVal()
+    {
+        return m_val;
+    }
+
+    public void setVal(int val)
+    {
+        m_val = val;
+    }
+
+    public MutableIntValue inc()
+    {
+        return this.plus(1);
+    }
+
+    public MutableIntValue plus(MutableIntValue other)
+    {
+        return this.plus(other.m_val);
+    }
+
+    public MutableIntValue plus(int val)
+    {
+        m_val += val;
+
+        return this;
+    }
+
+    public int compareTo(MutableIntValue other)
+    {
+        return m_val - other.m_val;
+    }
+
+    public String toString()
+    {
+        return m_val + "";
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    11.04.2020
+    Polymorphism (çok biçimlilik)(runtime polymorphism):
+    Biyolojideki tanım: Farklı doku ya da organların evrim süreci içerisinde temel hedefi aynı kalmak koşuluyla
+    o hedefe ulaşmadaki yönteminin değişebilmesidir. Örneğin, görmek hedefi canlıdan canlıya aktarılırken değişmez.
+    Ancak kalıtım sürecinde görme algoritması değişebilir.
+
+    Polymorphism'in nesne yönelimli programlamada 3 tane tanımından bahsedilebilir:
+    1. Biyolojik Tanımı: Taban sınıfın bir fonksiyonunun türemiş sınıfta yeniden gerçekleştirilmesi
+    2. Yazılım Mühendisliği Tanımı: Türden bağımsız kod yazabilmek
+    3. Aşağı Seviyeli Tanım: Önceden yazılmış kodların sonradan yazılmış kodları çağırabilmesidir
+----------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------
+    Sanal (virtual) metot: non-static bildirilmiş ve final olmayan metotlardır.
+    Java' da polymorphism sanal metotlar kullanılarak gerçekleştirilir.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class A {
+    public static void tar() //sanal değil
+    {
+
+    }
+
+    public void foo() //sanal
+    {
+
+    }
+
+    public final void bar() //sanal değil
+    {
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Taban sınıfın bir metodunun türemiş sınıf içerisinde geri dönüş değeri ve imzası aynı
+    olarak yeniden yazılmasına İngilizce olarak "override" denilmektedir. Burada erişim belirleyici
+    aynı olmayabilir ancak bu konunun detayları vardır, ileride ele alınacaktır. Örneğin public
+    ise public override edilmelidir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class C extends B {
+    public void foo() //override
+    {
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    public void foo() //override
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sanal bir metodun türemiş sınıfta override edilmesi zorunlu değildir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class C extends B {
+    public void foo() //override
+    {
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    //...
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sanal bir metot çağrısında önce referansın dinamik türüne bakılır. Referansın dinamik türüne
+    ilişkin sınıfta ilgili sanal metot override edilmişse override edilen çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        A x;
+
+        if (val > 0)
+            x = new C();
+        else if (val == 0)
+            x = new B();
+        else
+            x = new A();
+
+        x.foo();
+    }
+}
+
+class C extends B {
+    public void foo() //override
+    {
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    public void foo() //override
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Sanal bir metot çağrısında önce referansın dinamik türüne bakılır. Referansın dinamik türüne
+    ilişkin sınıfta ilgili sanal metot override edilmemişse taban sınıfına bakılır. Taban sınıfta
+    override edilmişse taban sınıfınki çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        A x;
+
+        if (val > 0)
+            x = new C();
+        else if (val == 0)
+            x = new B();
+        else
+            x = new A();
+
+        x.foo();
+    }
+}
+
+class C extends B {
+
+}
+
+class B extends A {
+    public void foo() //override
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Türemiş sınıfların hiç birisinde override edilmemiş bile olsa sanal metodun başlatıldığı
+    taban sınıfınki çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        A x;
+
+        if (val > 0)
+            x = new C();
+        else if (val == 0)
+            x = new B();
+        else
+            x = new A();
+
+        x.foo();
+    }
+}
+
+class C extends B {
+
+}
+
+class B extends A {
+
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki doWork metodu A dan türemiş sınıflardan bağımsız yani onları bilmeden yazılmıştır.
+    Çalışma zamanı sırasında foo sanal metodunu çağırdığı için dinamik türe ilişkin
+    işlem yapabilmektedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        A x;
+
+        if (val > 0)
+            x = new C();
+        else if (val == 0)
+            x = new B();
+        else
+            x = new A();
+
+        Sample s = new Sample();
+
+        s.doWork(x);
+    }
+}
+
+class Sample {
+    public void doWork(A x)
+    {
+        x.foo();
+    }
+}
+
+class C extends B {
+    public void foo()
+    {
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki doWork metodu A dan türemiş sınıflardan bağımsız yani onları bilmeden yazılmıştır.
+    Çalışma zamanı sırasında foo sanal metodunu çağırdığı için dinamik türe ilişkin
+    işlem yapabilmektedir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir sayı giriniz:");
+        int val = Integer.parseInt(kb.nextLine());
+
+        A x;
+
+        if (val > 0)
+            x = new C();
+        else if (val == 0)
+            x = new B();
+        else
+            x = new D();
+
+        Sample s = new Sample();
+
+        s.doWork(x);
+    }
+}
+
+class Sample {
+    public void doWork(A x)
+    {
+        x.foo();
+    }
+}
+
+class D extends B {
+    public void foo()
+    {
+        System.out.println("D.foo");
+    }
+}
+
+class C extends B {
+    public void foo()
+    {
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+      super referansı ile türemiş sınıfın bir metodunda taban sınıfının bir metodu çağrılabilir.
+      Aşağıdaki örnekte override edilen foo içerisinde taban sınıfın foo metodu da çağrılmıştır (augmentation).
+      Aşağıdaki örnek için super zorunludur.
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new B();
+
+        x.foo();
+    }
+}
+
+
+class B extends A {
+    public void foo()
+    {
+        super.foo();
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+  super referansı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new B();
+
+        x.foo();
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        bar();
+        super.bar();
+        System.out.println("B.foo");
+    }
+
+    public void bar()
+    {
+        System.out.println("B.bar");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+
+    public void bar()
+    {
+        System.out.println("A.bar");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+  super referansı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new C();
+
+        x.foo();
+    }
+}
+
+class C extends B {
+    public void foo()
+    {
+        super.foo();
+        System.out.println("C.foo");
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        super.foo();
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Android uygulama geliştirmede Activity lifecycle da kullanılan metotlar çok biçimli olarak
+    ve taban sınıfın ilgili metodunun çağrılması gerektiği biçiminde tasarlanmıştır. Aşağıda
+    bu durumun bir demosu gösterilmiştir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Activity activity = new ChatActivity();
+
+        activity.onCreate(new Bundle());
+        //...
+        activity.onPause();
+    }
+}
+
+class ChatActivity extends AppCompatActivity {
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        System.out.println("ChatActivity.onCreate");
+    }
+
+    public void onPause()
+    {
+        super.onPause();
+        System.out.println("ChatActivity.onPause");
+    }
+}
+
+class AppCompatActivity extends Activity {
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        System.out.println("AppCompatActivity.onCreate");
+    }
+
+    public void onPause()
+    {
+        super.onPause();
+        System.out.println("AppCompatActivity.onPause");
+    }
+}
+
+class Activity {
+    public void onCreate(Bundle savedInstanceState)
+    {
+        System.out.println("Activity.onCreate");
+    }
+
+    public void onPause()
+    {
+        System.out.println("Activity.onPause");
+    }
+}
+
+class Bundle {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    companyapp sınıfları ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.companyapp.*;
+
+class App {
+    public static void main(String [] args)
+    {
+        HumanResources humanResources = new HumanResources();
+        Worker worker = new Worker("12345", "Ali", 45, 8);
+        ProjectWorker projectWorker = new ProjectWorker("123456", "Veli", 46.7, 7, "Otomasyon");
+        Manager manager = new Manager("1234567", "Selami", 20000, "Muhasebe");
+        SalesManager salesManager = new SalesManager("123458", "Ayşe", 23000, "Pazarlama", 3000);
+
+        System.out.println(worker.toString());
+        System.out.println(projectWorker.toString());
+        System.out.println(manager.toString());
+
+        System.out.println("******************");
+        humanResources.payInsurance(worker);
+        humanResources.payInsurance(projectWorker);
+        humanResources.payInsurance(manager);
+        humanResources.payInsurance(salesManager);
+    }
+}
+
+
+
+package org.csystem.samples.companyapp;
+
+public class Employee {
+    private String m_citizenId;
+    private String m_name;
+    //...
+
+    public Employee(String citizenId, String name)
+    {
+        m_citizenId = citizenId;
+        m_name = name;
+    }
+
+    public String getCitizenId()
+    {
+        return m_citizenId;
+    }
+
+    public void setCitizenId(String citizenId)
+    {
+        m_citizenId = citizenId;
+    }
+
+    public String getName()
+    {
+        return m_name;
+    }
+
+    public void setName(String name)
+    {
+        m_name = name;
+    }
+
+    public double calculateInsurance()
+    {
+        return 0;
+    }
+
+    public String toString()
+    {
+        return String.format("[%s]%s", m_citizenId, m_name);
+    }
+}
+package org.csystem.samples.companyapp;
+
+public class HumanResources {
+    //...
+    public void payInsurance(Employee employee)
+    {
+        System.out.printf("Citizen Id:%s%n", employee.getCitizenId());
+        System.out.printf("Name:%s%n", employee.getName());
+        System.out.printf("Insurance amount:%f%n", employee.calculateInsurance());
+    }
+}
+
+package org.csystem.samples.companyapp;
+
+public class Manager extends Employee {
+    private double m_salary;
+    private String m_departmentName;
+
+    public Manager(String citizenId, String name, double salary, String departmentName)
+    {
+        super(citizenId, name);
+        m_salary = salary;
+        m_departmentName = departmentName;
+    }
+
+    public double getSalary()
+    {
+        return m_salary;
+    }
+
+    public void setSalary(double salary)
+    {
+        m_salary = salary;
+    }
+
+    public String getDepartmentName()
+    {
+        return m_departmentName;
+    }
+
+    public void setDepartmentName(String departmentName)
+    {
+        m_departmentName = departmentName;
+    }
+
+    public double calculateInsurance()
+    {
+        return m_salary * 1.25;
+    }
+
+    public String toString()
+    {
+        return String.format("%s:%s:%s", m_departmentName, m_salary, super.toString());
+    }
+}
+package org.csystem.samples.companyapp;
+
+public class SalesManager extends Manager {
+    private double m_extra;
+
+    public SalesManager(String citizenId, String name, double salary, String departmentName, double extra)
+    {
+        super(citizenId, name, salary, departmentName);
+        m_extra = extra;
+    }
+
+    public double getExtra()
+    {
+        return m_extra;
+    }
+
+    public void setExtra(double extra)
+    {
+        m_extra = extra;
+    }
+
+    public double calculateInsurance()
+    {
+        return super.calculateInsurance() + m_extra;
+    }
+
+    public String toString()
+    {
+        return String.format("%s:%f", super.toString(), getSalary() +  m_extra);
+    }
+}
+package org.csystem.samples.companyapp;
+
+public class Worker extends Employee {
+    private double m_feePerHour;
+    private int m_hourPerDay;
+
+    //...
+    public Worker(String citizenId, String name, double feePerHour, int hourPerDay)
+    {
+        super(citizenId, name);
+        m_feePerHour = feePerHour;
+        m_hourPerDay = hourPerDay;
+    }
+
+    public double getFeePerHour()
+    {
+        return m_feePerHour;
+    }
+
+    public void setFeePerHour(double feePerHour)
+    {
+        m_feePerHour = feePerHour;
+    }
+
+    public int getHourPerDay()
+    {
+        return m_hourPerDay;
+    }
+
+    public void setHourPerDay(int hourPerDay)
+    {
+        m_hourPerDay = hourPerDay;
+    }
+
+    public double calculateInsurance()
+    {
+        return m_feePerHour * m_hourPerDay * 30;
+    }
+
+    public String toString()
+    {
+        return String.format("%s:%f", super.toString(), m_feePerHour * m_hourPerDay);
+    }
+}
+
+package org.csystem.samples.companyapp;
+
+public class ProjectWorker extends Worker {
+    private String m_projectName;
+
+    public ProjectWorker(String citizenId, String name, double feePerHour, int hourPerDay, String projectName)
+    {
+        super(citizenId, name, feePerHour, hourPerDay);
+        m_projectName = projectName;
+    }
+
+    public String getProjectName()
+    {
+        return m_projectName;
+    }
+
+    public void setProjectName(String projectName)
+    {
+        m_projectName = projectName;
+    }
+
+    public double calculateInsurance()
+    {
+        return super.calculateInsurance() * 1.15;
+    }
+
+    public String toString()
+    {
+        return String.format("%s:%s", m_projectName, super.toString());
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Taban sınıf ile türemiş sınıf içerisinde aynı isimde birden veri elemanları olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        B b = new B();
+
+        b.foo(10);
+
+        A x = b;
+
+        System.out.printf("b.a=%d%n", b.a);
+        System.out.printf("x.a=%d%n", x.a);
+    }
+}
+
+class B extends A {
+    public int a;
+
+    public void foo(int val)
+    {
+        a = val;
+        super.a = val * 2;
+    }
+}
+
+class A {
+    public int a;
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java' da override edilen bir metodun erişim belirleyicisi erşim anlamında düşürülemez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class B extends A {
+    protected void foo() //error
+    {
+
+    }
+}
+
+class A {
+    public void foo()
+    {
+
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java' da override edilen bir metodun erişim belirleyicisi erşim anlamında aynı kalabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class B extends A {
+    protected void foo()
+    {
+
+    }
+}
+
+class A {
+    protected void foo()
+    {
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java' da override edilen bir metodun erişim belirleyicisi erşim anlamında yükseltilebilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+
+    }
+}
+
+class A {
+    protected void foo()
+    {
+
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki örnekte foo metodu çağrı sırasında erişilebilir bir metottur. App sınıfı da A sınıfı
+    ile aynı pakette olduğundan bu durum geçerlidir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new B();
+
+        x.foo();
+    }
+}
+
+class B extends A {
+    void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+class A {
+    void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Aşağıdaki örnekte foo metodu çağrı sırasında erişilebilir bir metot değildir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import test.A;
+import test.B;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new B();
+
+        x.foo(); //error
+
+        B y = new B();
+
+        y.foo();
+    }
+}
+
+package test;
+
+public class A {
+    void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+package test;
+
+public class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Aşağıdaki örnekte foo metodu çağrı sırasında erişilebilir bir metot değildir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import test.A;
+import test.B;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new B();
+
+        x.foo(); //error
+
+        B y = new B();
+
+        y.foo();
+    }
+}
+
+package test;
+
+public class A {
+    protected void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+package test;
+
+public class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     covariant return type: taban sınıf içerisinde referans geri dönüş değeri olan bir metot
+     türemiş sınıfta override edilirken geri dönüş değeri olarak taban sınıftaki metodun
+     geri dönüş türünden veya o türden türetilmiş bir sınıf türünden yazılabilir. Bu durum
+     sadece geri dönüş değeri referans olan metotlar için ve geri dönüş değeri için
+     istisna bir durumdur. Örneğin parameterler için böyle bir kural yoktur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class C extends A {
+    public Y foo() //covariant return type
+    {
+        //...
+        return new Y();
+    }
+}
+
+class B extends A {
+    public X foo()
+    {
+        //...
+        return new X();
+    }
+}
+
+class A {
+    public X foo()
+    {
+        //...
+        return new X();
+    }
+}
+
+class Y extends X {
+
+}
+
+class X {
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     covariant return type: taban sınıf içerisinde referans geri dönüş değeri olan bir metot
+     türemiş sınıfta override edilirken geri dönüş değeri olarak taban sınıftaki metodun
+     geri dönüş türünden veya o türden türetilmiş bir sınıf türünden yazılabilir. Bu durum
+     sadece geri dönüş değeri referans olan metotlar için ve geri dönüş değeri için
+     istisna bir durumdur. Örneğin parameterler için böyle bir kural yoktur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Random;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class C extends A {
+    public Random foo() //covariant return type
+    {
+        //...
+        return new Random();
+    }
+}
+
+class B extends A {
+    public String foo()
+    {
+        //...
+        return "izmir";
+    }
+}
+
+class A {
+    public Object foo()
+    {
+        //...
+        return "ankara";
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+     covariant return type'ın bir kullanımı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        MyType myType = new MyType();
+        MyType mt = myType.copy();
+
+        //...
+    }
+}
+
+class MyType extends Type {
+    public MyType copy()
+    {
+        return new MyType();
+    }
+}
+class Type {
+    public Type copy()
+    {
+        //...
+        return new Type();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Yukarıdaki örnekte covariant return type kullanılmasaydı downcasting yapılması gerekirdi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        MyType myType = new MyType();
+        MyType mt = (MyType)myType.copy();
+
+        //...
+    }
+}
+
+class MyType extends Type {
+    public Type copy()
+    {
+        return new MyType();
+    }
+}
+class Type {
+    public Type copy()
+    {
+        //...
+        return new Type();
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Türemiş sınıf içerisinde taban sınıfın static bir metodu da aynı geri dönüş değeri ve imza
+     ile yazılabilir. Buna bazı kaynaklar "logical static override" derler. Ancak polymorphism
+     anlamındaki bir override kesinlikle değildir. Çünkü polymophism olması için ortada bir nesne
+     ve şüphesiz sanal metotlar olması gerekir. Yani aşağıdaki sorunun cevabı HAYIR'dır
+     Soru: static metotlar override edilebilir mi? HAYIR
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A.foo();
+        B.foo();
+    }
+}
+
+class B extends A {
+    public static void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public static void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Türemiş sınıf içerisinde taban sınıfın static bir metodu da aynı geri dönüş değeri ve imza
+     ile yazılabilir. Buna bazı kaynaklar "logical static override" derler. Ancak polymorphism
+     anlamındaki bir override kesinlikle değildir. Çünkü runtime polymophism olması için ortada bir nesne
+     ve şüphesiz sanal metotlar olması gerekir. Yani aşağıdaki sorunun cevabı HAYIR'dır
+     Soru: static metotlar override edilebilir mi? HAYIR
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A.foo();
+        B.foo();
+    }
+}
+
+class B extends A {
+    public static void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+class A {
+    public static void foo()
+    {
+        System.out.println("A.foo");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     final olarak bildirilmiş bir metot override edilemez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+
+    public void bar() //error
+    {
+        System.out.println("B.bar");
+    }
+}
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+
+    public final void bar()
+    {
+        System.out.println("A.bar");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     final olarak bildirilmiş bir metot override edilemez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+
+class D extends A {
+    public void foo()
+    {
+        System.out.println("D.foo");
+    }
+
+    public final void bar()
+    {
+        System.out.println("D.bar");
+    }
+}
+
+class C extends B {
+    public void foo()
+    {
+        System.out.println("C.foo");
+    }
+
+    public final void bar() //error
+    {
+        System.out.println("C.bar");
+    }
+}
+
+class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+
+    public final void bar()
+    {
+        System.out.println("B.bar");
+    }
+}
+
+class A {
+    public void foo()
+    {
+        System.out.println("A.foo");
+    }
+
+    public void bar()
+    {
+        System.out.println("A.bar");
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Circle sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.math.geometry;
+
+public class Circle {
+    private double m_r;
+
+    public Circle()
+    {}
+
+    public Circle(double r)
+    {
+        this.setRadius(r);
+    }
+
+    public final void setRadius(double r)
+    {
+        if (m_r == r)
+            return;
+
+        m_r = Math.abs(r);
+    }
+
+    public final double getRadius() {return m_r;}
+    public final double getArea() {return Math.PI * m_r * m_r;}
+    public final double getCircumference() {return 2 * Math.PI * m_r;}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    12.04.2020
+    parserapp uygulaması
+    (parserapp.png dosyasına bakınız)
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.parserapp.ParserTest;
+
+class App {
+    public static void main(String [] args)
+    {
+        ParserTest.run();
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+import java.util.Scanner;
+
+public class ParserTest {
+    private static String getString()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Bir yazı giriniz:");
+
+        return kb.nextLine();
+    }
+
+    public static void run()
+    {
+        String str = getString();
+        StringSource ss = new StringSource(str);
+        CharArraySource cs = new CharArraySource(str);
+        Parser p = new Parser(ss);
+
+        p.doParse();
+        p.setSource(cs);
+        p.doParse();
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+public class Source {
+    public int getChar()
+    {
+        return -1;
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+public class Parser {
+    private Source m_source;
+
+    public Parser(Source source)
+    {
+        this.setSource(source);
+    }
+
+    public void setSource(Source source)
+    {
+        //...
+        m_source = source;
+    }
+
+    public void doParse()
+    {
+        int count = 0;
+
+        int ch;
+
+        while ((ch = m_source.getChar()) != -1)
+            if (Character.isLetter((char)ch))
+                ++count;
+
+        System.out.printf("Count:%d%n", count);
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+public class StringSource extends Source {
+    private final String m_str;
+    private final int m_length;
+    private int m_index;
+
+    public StringSource(String str)
+    {
+        m_str = str;
+        m_length = m_str.length();
+    }
+
+    public int getChar()
+    {
+        return m_index == m_length ? -1 : m_str.charAt(m_index++);
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+public class CharArraySource extends Source {
+    private final char [] m_chars;
+    private int m_index;
+
+    public CharArraySource(char [] chars)
+    {
+        m_chars = chars;
+    }
+
+    public CharArraySource(String str)
+    {
+        this(str.toCharArray());
+    }
+
+    public int getChar()
+    {
+        return m_index == m_chars.length ? -1 : m_chars[m_index++];
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Object sınıfının toString sanal metodu nesneye yönelik tekil bir bilgi verir. Bu bilginin pratikte
+    çok anlamı yoktur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample();
+
+        System.out.println(s.toString());
+        System.out.println(k.toString());
+    }
+}
+
+class Sample {
+
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Object sınıfınon toString metodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample();
+
+        System.out.println(s.toString());
+        System.out.println(k.toString());
+    }
+}
+
+class Sample {
+    public String toString()
+    {
+        return "Sample";
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    print ve println metotları bir referans için toString metodunu çağırarak geri döndürdüğü yazıyı ekrana basar
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample();
+        Sample k = new Sample();
+
+        System.out.println(s);
+        System.out.println(k);
+    }
+}
+
+class Sample {
+    public String toString()
+    {
+        return "Sample";
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    printf metodunda s format karakteri ile bir referans verildiğinde toString metodu çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.math.geometry.Point;
+
+class App {
+    public static void main(String [] args)
+    {
+        Point p = new Point(100, 45);
+
+        System.out.printf("point:%s%n", p);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Temel türlerin String ile + işlemi sınrasında yazıya dönüştürülmesi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        int degree = 10;
+        String str = "Derece:" + degree; // "Derece:" + Integer.valueOf(degree).toString()
+
+        System.out.println(str);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir referansın bir String ile + işlemine sokulması durumda referans için toString metodu çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.math.geometry.Point;
+
+class App {
+    public static void main(String [] args)
+    {
+        Point p = new Point(100, 56);
+        String str = "Point:" + p; // "Point:" + p.toString()
+
+        System.out.println(str);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir referansın bir String ile + işlemine sokulması durumda referans için toString metodu çağrılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.util.datetime.Date;
+
+class App {
+    public static void main(String [] args)
+    {
+        Date date = new Date();
+        String str = "Date:" + date;
+
+        System.out.println(str);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bazı durumlarda bir sınıf bir kavramı soyut olarak temsil ediyor olabilir. Bu durumda sınıfın tek başına
+    anlamı yoktur. Yani nesne yönelimli programlama bakış açısıyla o sınıf türünden nesnenin anlamı yoktur. Ancak
+    o sınıftan türeyen sınıfların nesne olarak anlamı vardır. Bu tarz sınıflara soyut (abstract) sınıflar denir.
+    Soyut olmayan sınıflara da somut (concrete) sınıflar denir. Soyut bir sınıf abstract anahtar sözcüğü ile bildirilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+abstract class Sample {
+    //...
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Bir sınıfın abstract metotları olabilir. abstract metotlar gövdesi olmayan metotlardır. Bu metotlar sanaldır.
+    Dolayısıyla override edilebilir. En az bir tane abstract metodu olan bir sınıf abstract olarak bildirilmelidir.
+    Aksi durumda error oluşur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class Mample { //error
+    public abstract void bar();
+}
+
+abstract class Sample {
+    public abstract void foo();
+    public abstract void tar();
+
+    public void bar()
+    {}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    abstract sınıf türünden bir nesne new operatörü ile yaratılamaz
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample(); //error
+    }
+}
+
+abstract class Sample {
+    public abstract void foo();
+    public abstract void tar();
+
+    public void bar()
+    {
+        Sample s = new Sample(); //error
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    abstract sınıfların da veri elemanları olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        Sample s = new Sample(); //error
+    }
+}
+
+abstract class Sample {
+    private int m_x;
+    public abstract void foo();
+    public abstract void tar();
+
+    public void bar()
+    {
+        Sample s = new Sample(); //error
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    abstract bir sınıftan türetilmiş olan bir sınıf taban sınıfının en az bir tane abstract metodunu override etmezse
+    türemiş sınıf da abstract olarak bildirilmek zorundadır. Sınıf içerisinde hiç abstract metot kalmadıysa bu durumda
+    sınıf concrete olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+abstract class E extends A {
+    public void foo()
+    {
+        //...
+    }
+    public void bar()
+    {
+        //...
+    }
+}
+
+class C extends A {
+    public void foo()
+    {
+        //...
+    }
+    public void bar()
+    {
+        //...
+    }
+}
+
+abstract class D extends A {
+    public void foo()
+    {
+        //...
+    }
+}
+
+class B extends A {//error
+    public void foo()
+    {
+        //...
+    }
+}
+
+abstract class A {
+    public abstract void foo();
+    public abstract void bar();
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Aşağıdaki durumda C sınıfında artık hiç abstract metot kalmadığından concrete olabilir
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+
+
+class C extends B {
+    public void bar()
+    {
+        //...
+    }
+}
+
+abstract class B extends A {
+    public void foo()
+    {
+        //...
+    }
+}
+
+abstract class A {
+    public abstract void foo();
+    public abstract void bar();
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    abstract sınıf referansları taban sınıf referansı olarak anlamlıdır ve polymorphism de kullanılır
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        A x = new C();
+
+        x.foo();
+        x.bar();
+    }
+}
+
+class C extends B {
+    public void bar()
+    {
+        System.out.println("C.bar");
+    }
+}
+
+abstract class B extends A {
+    public void foo()
+    {
+        System.out.println("B.foo");
+    }
+}
+
+abstract class A {
+    public abstract void foo();
+    public abstract void bar();
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    abstract sınıflarda ctor olabilir. Ancak ctor'un public olması çoğu zaman anlamsızdır.
+    public yerine protected yapılması çoğu zaman daha uygundur
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+        B b = new B(10, 20);
+
+        //..
+    }
+}
+
+class B extends A {
+    private int m_y;
+
+    public B(int x, int y)
+    {
+        super(x);
+        m_y = y;
+    }
+
+    public void foo()
+    {
+
+    }
+}
+
+abstract class A {
+    private int m_x;
+
+    private A()
+    {
+        //...
+    }
+
+    protected A(int x)
+    {
+        m_x = x;
+    }
+
+    public int getX()
+    {
+        return m_x;
+    }
+
+    public void setX(int x)
+    {
+        m_x = x;
+    }
+
+    public abstract void foo();
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     companyapp sınıfları ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.companyapp.*;
+
+class App {
+    public static void main(String [] args)
+    {
+        HumanResources humanResources = new HumanResources();
+        Worker worker = new Worker("12345", "Ali", 45, 8);
+        ProjectWorker projectWorker = new ProjectWorker("123456", "Veli", 46.7, 7, "Otomasyon");
+        Manager manager = new Manager("1234567", "Selami", 20000, "Muhasebe");
+        SalesManager salesManager = new SalesManager("123458", "Ayşe", 23000, "Pazarlama", 3000);
+
+        System.out.println(worker.toString());
+        System.out.println(projectWorker.toString());
+        System.out.println(manager.toString());
+
+        System.out.println("******************");
+        humanResources.payInsurance(worker);
+        humanResources.payInsurance(projectWorker);
+        humanResources.payInsurance(manager);
+        humanResources.payInsurance(salesManager);
+    }
+}
+
+
+
+package org.csystem.samples.companyapp;
+
+public abstract class Employee {
+    private String m_citizenId;
+    private String m_name;
+    //...
+
+    protected Employee(String citizenId, String name)
+    {
+        m_citizenId = citizenId;
+        m_name = name;
+    }
+
+    public String getCitizenId()
+    {
+        return m_citizenId;
+    }
+
+    public void setCitizenId(String citizenId)
+    {
+        m_citizenId = citizenId;
+    }
+
+    public String getName()
+    {
+        return m_name;
+    }
+
+    public void setName(String name)
+    {
+        m_name = name;
+    }
+
+    public abstract double calculateInsurance();
+
+
+    public String toString()
+    {
+        return String.format("[%s]%s", m_citizenId, m_name);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+     parserapp sınıfları ve test kodu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import org.csystem.samples.parserapp.ParserTest;
+
+class App {
+    public static void main(String [] args)
+    {
+        ParserTest.run();
+    }
+}
+
+package org.csystem.samples.parserapp;
+
+public abstract class Source {
+    public abstract int getChar();
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Java' da exception işlemleri için aşağıdaki anahtar sözcükler kullanılır:
+    try, catch, throw, finally, throws
+
+    Bir exception throw anahtar sözcüğü ile fırlatılabilir. throw anahtar sözcüğünün genel biçimi şöyledir:
+
+    throw <referans>;
+
+    throw anahtar sözcüğü bir referans alır. throw anahtar sözcüğünün aldığı referansın Throwable sınıfından doğrudan
+    ya da dolaylı olarak türemiş bir sınıf türünden olması gerekir. Bir exception fırlatıldığında akış exception'ın
+    fırlatıldığı metottan çıkar.
+
+    Bir exception yakalanamaz ise bu durumda exception ın fırlatıldığı akış (thread) sonlanır.
+
+    Akış exception bakımından ele alınacaksa (handling) try bloğu içerisinde yazılmalıdır. try bloğu
+    catch bloğu veya blokları veya tek başına finally bloğu veya catch blokları ve finally bloğu
+    ile devam edebilir. try bloğu tek başına olamaz. try bloğu tüm diğer blokları ile birlikte tek bir deyimdir.
+    try bloğu içerisinde bulunan diğer bloklar arasında herhangi bir deyim yazılamaz.
+
+    catch bloğunun parantezi içerisinde yazılan parametreye catch parametresi denir. catch parametresine
+    ilişkin türün bir exception sınıfı yani Throwable dan doğrudan ya da dolaylı olarak türetilmiş
+    bir sınıf türünden olması gerekir.
+
+    Exception oluşursa (fırlatılırsa) akış try bloğundan bir daha geri dönmemek üzere (non-resumptive) catch bloklarına
+    sıçrar. catch blokları yukarıdan aşağıya switch deyimi gibi teker teker kontrol edilir.
+    Uygun catch bloğu bulunursa o catch bloğu çalıştırılır. Uygun catch bloğu fırlatılan exception nesnesinin adresinin
+    (referansının) ilgili catch parametresine doğrudan atanabildiği ilk catch bloğudur. Exception yakalanırsa yakalanan
+    catch bloğuna ilişkin kodlar çalıştırılır. Kodlar bitince tüm diğer catch blokları atlanarak akış devam eder
+    Eğer exception yakalanamazsa akış çöker. Yani bir catch bloğu çalıştırılırsa diğer catch blokları
+    çalıştırılmaz. try bloğu exception oluşmadan sonlanırsa tüm catch blokları atlanarak akış devam eder.
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Aşağıdaki örnekte MyException sınıfı doğrudan ya da dolaylı olarak Throwable sınıfından türetilmediği için
+     throw' a referans olarak verilemez
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+class App {
+    public static void main(String [] args)
+    {
+
+    }
+}
+
+class MathUtil {
+    public static double myLog(double val)
+    {
+        if (val <= 0) {
+            MyException ex = new MyException();
+
+            throw ex; //error
+        }
+
+    }
+
+}
+
+class MyException {
+
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Exception fırlatan bir metodun yazılması ve çeğrılması durumu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.printf("Bir sayı giriniz:");
+        double val = Double.parseDouble(kb.nextLine());
+
+        System.out.println(MathUtil.myLog(val));
+        System.out.printf("Tekrar yapıyor musunuz?");
+    }
+}
+
+class MathUtil {
+    public static double myLog(double val)
+    {
+        if (val <= 0) {
+            MyException ex = new MyException();
+            throw ex;
+        }
+
+        return Math.log(val);
+    }
+}
+
+class MyException extends RuntimeException {
+
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Exception fırlatan bir metodun yazılması ve çeğrılması durumu
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.printf("Bir sayı giriniz:");
+        double val = Double.parseDouble(kb.nextLine());
+
+        System.out.println(MathUtil.myLog(val));
+        System.out.printf("Tekrar yapıyor musunuz?");
+    }
+}
+
+class MathUtil {
+    public static double myLog(double val)
+    {
+        if (val <= 0)
+            throw new MyException();
+
+        return Math.log(val);
+    }
+}
+
+class MyException extends RuntimeException {
+    //...
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+     Exception işlemlerinin çalışma biçimi
+----------------------------------------------------------------------------------------------------------------------*/
+package org.csystem.app;
+
+import java.util.Scanner;
+
+class App {
+    public static void main(String [] args)
+    {
+        try {
+            Scanner kb = new Scanner(System.in);
+            System.out.printf("Bir sayı giriniz:");
+            double val = Double.parseDouble(kb.nextLine());
+
+            System.out.println(MathUtil.myLog(val));
+            System.out.println("Tekrar yapıyor musunuz?");
+        }
+        catch (MyException ex) {
+            System.out.println("MyException yakalandı");
+        }
+        catch (YourException ex) {
+            System.out.println("YourException yakalandı");
+        }
+
+        System.out.println("main sonu");
+    }
+}
+
+class MathUtil {
+    public static double myLog(double val)
+    {
+        if (val < 0)
+            throw new MyException();
+
+        if (val == 0)
+            throw new YourException();
+
+        return Math.log(val);
+    }
+}
+
+class MyException extends RuntimeException {
+    //...
+}
+
+class YourException extends RuntimeException {
     //...
 }
 
