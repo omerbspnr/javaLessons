@@ -6,8 +6,13 @@ package org.csystem.util;
 import java.util.Random;
 
 public final class StringUtil {
-	private static final String ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
-	private static final String ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	private static final String ms_alphabetTR;
+	private static final String ms_alphabetEN;
+
+	static {
+		ms_alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+		ms_alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	}
 
 	private StringUtil() {}
 	public static String capitalize(String str)
@@ -31,20 +36,12 @@ public final class StringUtil {
 	{
 		String chars = "abcçdefgğhıijklmnoöpqrsştuüwxvyz0123456789.:?-_";
 
-		char [] c = new char[n];
-
-		for (int i = 0; i < n; ++i)  {
-			char ch = chars.charAt(r.nextInt(chars.length()));
-
-			c[i] = r.nextBoolean() ? Character.toUpperCase(ch) : ch;
-		}
-
-		return new String(c);
+		return getRandomText(r, n, chars);
 	}
 
 	public static String generateRandomPassword(int n)
 	{
-		return generateRandomPassword(new java.util.Random(), n);
+		return generateRandomPassword(new Random(), n);
 	}
 
 	public static String getRandomString(Random r, int n, String str)
@@ -70,24 +67,24 @@ public final class StringUtil {
 		return new String(c);
 	}
 
-	public static String getRandomTextEN(java.util.Random r, int n)
+	public static String getRandomTextEN(Random r, int n)
 	{
 		return getRandomText(r, n, ms_alphabetEN);
 	}
 
 	public static String getRandomTextEN(int n)
 	{
-		return getRandomTextEN(new java.util.Random(), n);
+		return getRandomTextEN(new Random(), n);
 	}
 
-	public static String getRandomTextTR(java.util.Random r, int n)
+	public static String getRandomTextTR(Random r, int n)
 	{
 		return getRandomText(r, n, ms_alphabetTR);
 	}
 
 	public static String getRandomTextTR(int n)
 	{
-		return getRandomTextTR(new java.util.Random(), n);
+		return getRandomTextTR(new Random(), n);
 	}
 
 	public static boolean isPalindrome(String s)

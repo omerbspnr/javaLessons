@@ -6,8 +6,13 @@ package org.csystem.util;
 import java.util.Random;
 
 public final class NumberUtil {
-	private static final String [] ms_onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
-	private static final String [] ms_tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	private static final String [] ms_onesTR;
+	private static final String [] ms_tensTR;
+
+	static {
+		ms_onesTR = new String[]{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+		ms_tensTR = new String[]{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	}
 
 	private NumberUtil() {}
 	private static String numToTextMax3DigitsTR(int val)

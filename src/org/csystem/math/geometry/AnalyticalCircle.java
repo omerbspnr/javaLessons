@@ -45,18 +45,18 @@ public class AnalyticalCircle extends Circle {
 
     public void setCenter(Point center)
     {
-        setCenter(center.x, center.y);
+        this.setCenter(center.x, center.y);
     }
 
     public void setCenter(int x, int y)
     {
-        setX(x);
-        setY(y);
+        this.setX(x);
+        this.setY(y);
     }
 
     public void offset(int dxy) //delegate method
     {
-        offset(dxy, dxy);
+        this.offset(dxy, dxy);
     }
 
     public void offset(int dx, int dy) //delegate method

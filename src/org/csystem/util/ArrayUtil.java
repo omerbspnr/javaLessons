@@ -7,6 +7,18 @@ import java.util.Random;
 
 public final class ArrayUtil {
     private ArrayUtil() {}
+
+    private static void copy(int [] src, int [] dest)
+    {
+        copy(src, dest, src.length);
+    }
+
+    private static void copy(int [] src, int [] dest, int n)
+    {
+        for (int i = 0; i < n; ++i)
+            dest[i] = src[i];
+    }
+
     public static double average(int [] a)
     {
         return  (double)sum(a) / a.length;
@@ -48,10 +60,15 @@ public final class ArrayUtil {
 
     public static void display(int [] a, int n)
     {
+        display(a, n, a.length);
+    }
+
+    public static void display(int [] a, int n, int len)
+    {
         String fmt = String.format("%%0%dd ", n);
 
-        for (int val : a)
-            System.out.printf(fmt, val);
+        for (int i = 0; i < len; ++i)
+            System.out.printf(fmt, a[i]);
 
         System.out.println();
     }
@@ -80,6 +97,14 @@ public final class ArrayUtil {
         }
     }
 
+    public static int [] enlarge(int [] a, int newLen)
+    {
+        if (newLen <= a.length)
+            return a;
+
+        return resize(a, newLen);
+    }
+
     public static int [] getHistogramData(int [] a, int n) //[0, n]
     {
         int [] counts = new int[n + 1];
@@ -92,11 +117,14 @@ public final class ArrayUtil {
 
     public static int[] getRandomArray(int n, int min, int max) //[min, max)
     {
-        return getRandomArray(new Random(), n, min, max);
+        return getRandomArray(null, n, min, max);
     }
 
     public static int[] getRandomArray(Random r, int n, int min, int max) //[min, max)
     {
+        if (r == null)
+            r = new Random();
+
         int [] a = new int[n];
 
         for (int i = 0; i < n; ++i)
@@ -107,11 +135,14 @@ public final class ArrayUtil {
 
     public static int[][] getRandomMatrix(int m, int n, int min, int max) //[min, max)
     {
-        return getRandomMatrix(new Random(), m, n, min, max);
+        return getRandomMatrix(null, m, n, min, max);
     }
 
     public static int[][] getRandomMatrix(Random r, int m, int n, int min, int max) //[min, max)
     {
+        if (r == null)
+            r = new Random();
+
         int [][] a = new int[m][];
 
         for (int i = 0; i < m; ++i)
@@ -128,6 +159,19 @@ public final class ArrayUtil {
     public static int [][] getRandomSquareMatrix(Random r, int n, int min, int max)
     {
         return getRandomMatrix(r, n, n, min, max);
+    }
+
+    public static int [] getSubArray(int []a, int start, int end) //[start, end)
+    {
+        if (a == null || start < 0 || end < 0 || start >= end || start >= a.length || end > a.length)
+            throw new IllegalArgumentException("Invalid arguments");
+
+        int [] res = new int[end - start];
+
+        for (int i = start; i < end; ++i)
+            res[i - start] = a[i];
+
+        return res;
     }
 
     public static int [][] getTransposedMatrix(int [][] a)
@@ -196,6 +240,16 @@ public final class ArrayUtil {
 
         return result;
     }
+
+    public static int [] resize(int [] a, int newLen)
+    {
+        int [] res = new int[newLen];
+
+        copy(a, res, a.length);
+
+        return res;
+    }
+
 
     public static void reverse(int [] a) //by Emre Onsur
     {

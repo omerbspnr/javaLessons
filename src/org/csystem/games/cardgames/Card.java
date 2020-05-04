@@ -1,5 +1,6 @@
 package org.csystem.games.cardgames;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class Card {
@@ -17,30 +18,28 @@ public class Card {
 
     private static void doWorkForException(String msg)
     {
-        System.out.println(msg);
-        System.exit(-1);
+        throw new IllegalArgumentException(msg);
     }
 
     private static void control(String str)
     {
         control(str, str.indexOf('-'));
     }
+
     private static void control(String str, int idx)
     {
-
         if (idx == -1)
             doWorkForException("Invalid Enter, please enter like cardtype-cardValue");
 
         if (!isValidType(str.substring(0, idx)) || !isValidVal(str.substring(idx + 1)))
             doWorkForException("Invalid Card Type or Value");
     }
+
     private static void controlForType(String str)
     {
         if (!isValidType(str))
             doWorkForException("Invalid type");
     }
-
-
 
     private static void controlForVal(String str)
     {
@@ -66,22 +65,22 @@ public class Card {
         return false;
     }
 
-    private static CardValue getValue(String val) //never return null
+    private static Optional<CardValue> getValue(String val) //never return null
     {
 
-        for (String s :  CARDVALUESTR)
-            if (s.equals(val))
-                return CardValue.valueOf(val);
+        for (int i = 0; i <CARDVALUESTR.length; ++i )
+            if (CARDVALUESTR[i].equals(val))
+                return Optional.of(getValue(i));
 
-        return null;
+        return Optional.empty();
     }
-    private static CardType getType(String type)//never return null
+    private static Optional<CardType> getType(String type)//never return null
     {
-        for (String s :  CARDTYPESTR)
-            if (s.equals(type))
-                return CardType.valueOf(type);
+        for (int i = 0; i <CARDTYPESTR.length; ++i )
+            if (CARDTYPESTR[i].equals(type))
+                return Optional.of(getType(i));
 
-        return null;
+        return Optional.empty();
     }
 
 
@@ -107,7 +106,10 @@ public class Card {
 
     private void set(String str, int idx)
     {
-        this.set(getType(str.substring(0, idx)), getValue(str.substring(idx + 1)));
+        String type = str.substring(0, idx);
+        String value = str.substring(idx + 1);
+        this.set(getType(type).orElse(CardType.valueOf(type)),
+                getValue(value).orElse(CardValue.valueOf(value)));
     }
     private void set(CardType type, CardValue val)
     {
@@ -123,7 +125,7 @@ public class Card {
 
     public static Card getRandomCard()
     {
-     return getRandomCard(new Random());
+        return getRandomCard(new Random());
     }
 
     public static Card getRandomCard(Random r)
@@ -160,7 +162,7 @@ public class Card {
                 deck[idx++] = new Card(type, value);
 
 
-            return getShuffledDeck(r, deck, n);
+        return getShuffledDeck(r, deck, n);
 
     }
     public static Card [] getShuffledDeck(Card [] deck)
@@ -216,9 +218,9 @@ public class Card {
 
     public Card(String name)
     {
-       name = name.toUpperCase();
-       control(name);
-       this.set(name);
+        name = name.toUpperCase();
+        control(name);
+        this.set(name);
     }
 
     /*
@@ -245,7 +247,7 @@ public class Card {
 
         controlForVal(value);
 
-        this.setValue(getValue(value));
+        this.setValue(getValue(value).orElse(CardValue.valueOf(value)));
     }
 
     public void setValue(CardValue cardValue)
@@ -262,15 +264,12 @@ public class Card {
 
         controlForType(type);
 
-        this.setType(getType(type));
+        this.setType(getType(type).orElse(CardType.valueOf(type)));
 
     }
 
     public void setType(CardType cardtype)
     {
-
-
-
         m_type = cardtype;
     }
     /*

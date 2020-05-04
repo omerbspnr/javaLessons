@@ -17,25 +17,25 @@ public class Point {
 	public Point()
 	{}
 
-	public Point(int a)
+	public Point(int x)
 	{
-		x = a;
+		this(x, 0);
 	}
 	
-	public Point(int a, int b)
+	public Point(int x, int y)
 	{
-		x = a;
-		y = b;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public double distance()
 	{
-		return distance(0, 0);		
+		return this.distance(0, 0);
 	}
 	
 	public double distance(Point p)
 	{
-		return distance(p.x, p.y);
+		return this.distance(p.x, p.y);
 	}
 	
 	public double distance(int a, int b)
@@ -51,9 +51,10 @@ public class Point {
 	
 	public void offset(int dxy)
 	{
-		offset(dxy, dxy);
+		this.offset(dxy, dxy);
 	}
-	
+
+
 	public String toString()
 	{		
 		return String.format("(%d, %d)", x, y);

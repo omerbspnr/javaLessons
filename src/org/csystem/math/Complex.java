@@ -20,15 +20,15 @@ public final class Complex {
 	
 	public Complex() {}
 	
-	public Complex(double re)
+	public Complex(double a)
 	{
-		this(re, 0);
+		this(a, 0);
 	}
 	
-	public Complex(double re, double im)
+	public Complex(double a, double b)
 	{
-		a = re;
-		b = im;
+		this.a = a;
+		this.b = b;
 	}
 	
 	public double getNorm() {return sqrt(a * a + b * b);}
@@ -73,7 +73,7 @@ public final class Complex {
 	
 	public void inc()
 	{
-		inc(1);
+		this.inc(1);
 	}
 	
 	public void inc(int amount)
@@ -85,12 +85,12 @@ public final class Complex {
 	
 	public void dec()
 	{
-		dec(1);
+		this.dec(1);
 	}
 	
 	public void dec(int amount)
 	{
-		inc(-amount);
+		this.inc(-amount);
 	}
 	
 	public String toString()

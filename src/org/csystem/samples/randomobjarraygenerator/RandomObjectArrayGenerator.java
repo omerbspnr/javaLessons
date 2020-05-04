@@ -11,7 +11,7 @@ public class RandomObjectArrayGenerator {
 
     public Object getObject()
     {
-        int val = m_random.nextInt(3);
+        int val = m_random.nextInt(4);
         Object obj = new Random();
 
         switch (val) {
@@ -19,7 +19,10 @@ public class RandomObjectArrayGenerator {
                 obj = StringUtil.getRandomTextTR(m_random, 10);
                 break;
             case 1:
-                obj = IntValue.of(m_random.nextInt(255) - 128);
+                obj = m_random.nextInt(255) - 128;
+                break;
+            case 2:
+                obj = m_random.nextDouble();
                 break;
         }
 

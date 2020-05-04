@@ -20,7 +20,6 @@ public abstract class Employee {
     {
         m_citizenId = citizenId;
     }
-    public  abstract double calculateInsurance();
 
     public String getName()
     {
@@ -31,6 +30,9 @@ public abstract class Employee {
     {
         m_name = name;
     }
+
+    public abstract double calculateInsurance();
+
 
     public String toString()
     {

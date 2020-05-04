@@ -1,7 +1,9 @@
 
 cast işlemleri
-    - implicit conversion
-    - explicit conversion
+    - implicit conversion (doğrudan atama -> upcasting) bilgi kaybına yol açmayacak dönüşümler
+    - explicit conversion (tür dönüşüme ile atama -> down casting yapılabilir)
+       bilgi kaybına yol açabilecek dönüşümlerdir.
+
 scope
 
 paketler
@@ -63,3 +65,54 @@ boxing, unboxing, auto-boxing, auto unboxing
 ArrayList/Vector class
 
 null reference
+
+static and non-static initializer
+
+this reference(fluent pattern)
+
+polymorphism
+    - virtual method
+    - meaning of override
+    - dynamic and static type of references
+    - meaning of augmentation
+    - logical static override
+    - final declared functions
+
+covariant return type
+
+concat of String and primitive type
+
+abstract class
+
+exception handling(checked and unchecked exception)
+    - rethrow operation
+    - try-catch blocks
+    - try-catches blocks
+    - try-finally blocks
+    - try-catch-finally block
+    - try-catches-finally blocks
+
+    - unchecked exception
+    - checked exception
+    - | operator
+
+interface
+    - interface static variables
+    - method's(public abstract)
+    - default method's(just public) // since java 8
+    - private method's(private) // since Java 9
+    - static method's(public static) // since java 8
+    - private static method's(private static) // since Java 9
+    - implements keyword
+    - implements of multiple interface
+    - usage of interface like base class reference
+    - polymorphism with interfaces
+    - inheritance of interfaces
+    - multiple inheritance of interfaces
+    - cloneable, closeable,
+
+generics
+
+
+
+

@@ -2,25 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87eaaab2-54da-4ae0-8c29-a90813d80f71" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Examples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/Konubaslislari.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konubaslislari.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/Konular.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes/Konular.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/collection/CSDArrayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/collection/CSDArrayList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card$CardTypeTR.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card$CardValTR.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Worker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/META-INF/Sample.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/app/B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/collection/CSDArrayList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/CardType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/cardgames/CardValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/games/sudoku/Sudoku.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Complex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/Rational.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/geometry/AnalyticalCircle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/geometry/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/math/geometry/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/arraylistapp/ArrayListApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/arraylistapp/ArrayListTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/asciiimage/AsciiImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/asciiimage/AsciiImageApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/asciiimage/AsciiImageArrayList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/asciiimage/AsciiImageChar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/asciiimage/AsciiImageString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/commandprompt/CommandPromptApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/HumanResources.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/ProjectWorker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/SalesManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/companyapp/Worker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/date/DateUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/examsimulation/ExamSimulation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/lottaryapp/Lottary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/parseapp/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/parseapp/Source.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/ArrayUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/IntValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/NumberUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringSplitOptions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/StringUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Date.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DateTime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/DayOfWeek.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Month.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time$TimeBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/Time.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/myDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/myDayOfWeek.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sample/org/csystem/util/datetime/myMonth.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/csystem/collection/CSDArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/collection/CSDArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/collection/CSDArrayList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/games/cardgames/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Complex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/Complex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/Rational.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/AnalyticalCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/geometry/AnalyticalCircle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/geometry/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/math/geometry/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/math/geometry/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/arraylistapp/ArrayListApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/arraylistapp/ArrayListApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/arraylistapp/ArrayListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/asciiimage/AsciiImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/asciiimage/AsciiImageApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/asciiimage/AsciiImageArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/asciiimage/AsciiImageChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/asciiimage/AsciiImageString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/commandprompt/CommandPromptApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/commandprompt/CommandPromptApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/HumanResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/HumanResources.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/ProjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/ProjectWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/SalesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/SalesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/companyapp/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/date/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/date/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/examsimulation/ExamSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/examsimulation/ExamSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/lottaryapp/Lottary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/lottaryapp/Lottary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/samples/randomobjarraygenerator/RandomObjectArrayGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/IntValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/IntValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/NumberUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/NumberUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringSplitOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/StringSplitOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/DateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/DateTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/DayOfWeek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/DayOfWeek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/Month.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/csystem/util/datetime/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,20 +138,20 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/notes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/homeworks" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/notes" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager">
@@ -197,6 +268,26 @@
       <workItem from="1586898110373" duration="4463000" />
       <workItem from="1586938624075" duration="17982000" />
       <workItem from="1586968305292" duration="3000000" />
+      <workItem from="1587062913768" duration="162000" />
+      <workItem from="1587139750715" duration="12266000" />
+      <workItem from="1587162136271" duration="835000" />
+      <workItem from="1587163255520" duration="737000" />
+      <workItem from="1587204302914" duration="15868000" />
+      <workItem from="1587238956447" duration="2600000" />
+      <workItem from="1587284322903" duration="3395000" />
+      <workItem from="1587288297027" duration="2810000" />
+      <workItem from="1587305192328" duration="6827000" />
+      <workItem from="1587375258680" duration="5703000" />
+      <workItem from="1587385716124" duration="9281000" />
+      <workItem from="1587451530813" duration="31578000" />
+      <workItem from="1587535951360" duration="36679000" />
+      <workItem from="1587629102003" duration="32164000" />
+      <workItem from="1587798017137" duration="2531000" />
+      <workItem from="1588018229414" duration="628000" />
+      <workItem from="1588075909966" duration="196000" />
+      <workItem from="1588076954006" duration="8710000" />
+      <workItem from="1588347361230" duration="72000" />
+      <workItem from="1588559691601" duration="688000" />
     </task>
     <servers />
   </component>
@@ -208,46 +299,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1041" y="215" width="847" height="677" key="#Project_Structure/67.27.1853.1053@67.27.1853.1053" timestamp="1580639944855" />
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585596722181">
+    <state x="583" y="214" width="800" height="677" key="#Updates" timestamp="1587488014377">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585596722181" />
-    <state x="1143" y="357" width="639" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582375179935">
+    <state x="583" y="214" width="800" height="677" key="#Updates/67.27.1853.1053@67.27.1853.1053" timestamp="1587488014377" />
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587062931599">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1143" y="357" width="639" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1582375179935" />
-    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1586028185692">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587062931599" />
+    <state x="1143" y="357" width="664" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587577877437">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1586028185692" />
+    <state x="1143" y="357" width="664" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587577877437" />
+    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1587798177734">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="714" y="256" width="548" height="592" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587798177734" />
+    <state x="366" y="445" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587062959901">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="366" y="445" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587062959901" />
     <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586786674756">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1078" y="27" width="727" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1586786674756" />
-    <state x="1179" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580640088001">
+    <state x="1179" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587630282081">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1179" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580640088001" />
-    <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl" timestamp="1585222261615">
+    <state x="1179" y="302" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587630282081" />
+    <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl" timestamp="1587486296473">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585222261615" />
-    <state width="1807" height="418" key="GridCell.Tab.0.bottom" timestamp="1586972141435">
+    <state x="771" y="295" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587486296473" />
+    <state width="1807" height="192" key="GridCell.Tab.0.bottom" timestamp="1588087879013">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="418" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141435" />
-    <state width="1807" height="418" key="GridCell.Tab.0.center" timestamp="1586972141434">
+    <state width="1807" height="192" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1588087879013" />
+    <state width="1807" height="192" key="GridCell.Tab.0.center" timestamp="1588087879011">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="418" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141434" />
-    <state width="1807" height="418" key="GridCell.Tab.0.left" timestamp="1586972141434">
+    <state width="1807" height="192" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1588087879011" />
+    <state width="1807" height="192" key="GridCell.Tab.0.left" timestamp="1588087879011">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="418" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141434" />
-    <state width="1807" height="418" key="GridCell.Tab.0.right" timestamp="1586972141435">
+    <state width="1807" height="192" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1588087879011" />
+    <state width="1807" height="192" key="GridCell.Tab.0.right" timestamp="1588087879012">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="418" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1586972141435" />
+    <state width="1807" height="192" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1588087879012" />
     <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1586968223171">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -284,32 +383,17 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="929" y="28" width="753" height="706" key="dock-window-1/67.27.1853.1053@67.27.1853.1053" timestamp="1582972935066" />
-    <state x="302" y="154" width="1372" height="796" key="new project wizard" timestamp="1585222273212">
+    <state x="302" y="154" width="1372" height="796" key="new project wizard" timestamp="1587486302348">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="302" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1585222273212" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1586698006132">
+    <state x="302" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1587486302348" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1587800937405">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586698006132" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1586969518418">
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587800937405" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1588083175742">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1586969518418" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/csystem/util/StringUtil.java</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/csystem/util/ArrayUtil.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1588083175742" />
   </component>
 </project>

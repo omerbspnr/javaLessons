@@ -209,8 +209,10 @@
 
 - Bu sadece java.lang'a özgüdür.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////                                 İsim arama kuralları
-///////////////////////////////////////////////////////////////////////////////////////////////////- bir isim doğrudan kullanılmış ise veya . operatörünün solunda kalıyor ise niteliksiz(unqualified) olarak aranır.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+                                 İsim arama kuralları
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- bir isim doğrudan kullanılmış ise veya . operatörünün solunda kalıyor ise niteliksiz(unqualified) olarak aranır.
  	Sample s =  new Sample();//Sample niteliksiz aranır
  	s.foo(); // burada s niteliksiz foo nitelikli aranır.
  	Sample.bar() // Sample niteliksiz bar fonksiyonu nitelikli aranır(qualified).
@@ -236,9 +238,9 @@
 
 - Paket isimleri hiyerarşik bir aramaya tabi değildir. sub package'lar niteliksiz olarak aranamaz. Mutlaka base package'lar
   belirtilmek zorundadır. Niteliksiz arama da  paket isimlerine bakılmaz.
-///////////////////////////////////////////////////////////////////////////////////////7
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                          import deyimi
-///////////////////////////////////////////////////////////////////////////////////////7
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - import deyimi iki şekilde kullanılır.
 	1- yıldızlı import (import on demand)
 	2- yıldızsız import (import type declaration)
@@ -247,16 +249,19 @@
 	import <paket_ismi>.*;
 
 - import deyimleri .java dosyasında paket bildiriminin altında tür bildirimlerinin üstünde bulunmalıdır.
-- import deyimi niteliksiz isim arama da bir isim  çalışılan paket içerisinde bulunamazsa bakılacak paketi de aramaya dahil eder.
+- import deyimi niteliksiz isim arama da bir isim  çalışılan paket içerisinde bulunamazsa bakılacak paketi de aramaya
+  dahil eder.
   (import java.util.*;//java.util paketinide bak)
 
-- import deyimi niteliksiz isim araması için geçerlidir. Nitelikli isim arama kuralları için hiç bir önemi yoktur.
+- import deyimleri niteliksiz isim araması için geçerlidir. Nitelikli isim arama kuralları için hiç bir önemi yoktur.
 - import deyimlerinin sırasının hiç bir önemi yoktur.
 - import deyimleri paket bildiriminin altında sınıf bildiriminin üstünde olmalıdır.
 
 - Her paket(sub paket'ler buna dahil) birbirinden ayrıdır.
 
 - *'lı import deyiminde eğer niteliksiz arama en son bulunamazsa import deyimine ilişkin paket'te aranır.
+- *'sız import deyiminde ise niteliksiz belirtilen sınıf önce ilgili java dosyasında sonra belirtilen pakette bulunumazsa
+  eğer sınıfın olduğu pakette aranır.
 
 - *'sız importta eğer aynı java dosyasında aynı sınıftan bir tane var ve aynı sınıf import deyimi eklenmek isterse
   import declaration'ı hatadır.
@@ -647,7 +652,8 @@
     }
   }
 - Enum türü bir sınıf türüdür. Bildirimi enum anahtar sözcüğü ile yapılır.
-  (Yukarıdaki sınıf aslında enum türünün çok yakın bir implementasyonudur.Yukarıdaki fonksiyonların  hepsi enum yazılarak yapılabilir.)
+  (Yukarıdaki sınıf aslında enum türünün çok yakın bir implementasyonudur.Yukarıdaki fonksiyonların  hepsi enum
+   ile hazır olarak implemente edilmiştir..)
 
 - enum türleri ctor'ı private yapılmış ve her bir enum türü için, içinde o sınıf türünden bir nesne tutan
   yapılardır.
@@ -729,7 +735,8 @@
     //COUNT'ın ordinal'i myClass'ın uzunluğunu döndürür.
 
 - Her enum türünün valueOf adlı static bir metodu vardır.
-- Bu fonksiyona string türünden parametre ile kullanılır.
+- Bu fonksiyon string türünden parametre ister. Girilen string parametresi uygun ise ilgili enum sabitini geri döndürür.
+  Değilse exception fırlatır.
 
     Color c = Color.valueOf("GREEN");
     Color c = Color.valueOf("GREE"); //throws Exception
@@ -738,13 +745,13 @@
         REG,GREEN,BLUE;
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                     15.03.2020
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                     SINIFLAR ARASI İLİŞKİLER
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - iki tane sınıf arasında ya hiç ilişki yoktur ya da aşağıdaki dört durumdan yalnızca  biri vardır
     1- composition (İçerme)
@@ -762,7 +769,7 @@
       Inheritance (B extends A)
 
 
-- Composition ve Aggregation ilişkisi birbirine çok benzemektedir. Bir sınıfın başka bir sınıfı bütünsel olarak
+- Composition ve Aggregation ilişkisi birbirine çok benzemektedir. Composition sınıfın başka bir sınıfı bütünsel olarak
   kullanmasıdır.
 
 - Association ise bir sınıfı bütünsel olarak kullanmamaktadır.
@@ -773,9 +780,9 @@
 
 -
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                         COMPOSITION
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 - Composition ilişkisi --has a-- ilişkisidir.
@@ -820,13 +827,13 @@
     }
 
    }
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                        ASSOCIATION
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - A sınıfının B sınıfını ihtiyacı ölçüsünde kullanılması,bütünsel kullanım söz konusu değildir.
 
-- A sınıfının bir fonksiyonunun B sınıfı türünden bir referans parametresini kullanmasıdır.  Yada fonksiyonun içinde
+- A sınıfının bir fonksiyonu B sınıfı türünden bir referans parametresini kullanmasıdır.  Yada fonksiyonun içinde
   new ile yaratılıp o fonksiyon boyunca kullanılır.
 
 - String(immutable sınıfların hepsi)  ile yapılan yapısal olarak aggregation gibi görünen işlemler ,
@@ -835,18 +842,18 @@
 - taksi ile sürücü aggregation (Driver'ı dışarıdan alır.)
 - taksi ile müşteri ise associationdır.(Sadece bir fonksiyon için kullanılır.)
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                         KALITIM
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - is a ilişkisidir.
 
 - varolan sınıfı kodlarına dokunmadan genişletebilmektir.
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                         21.03.2020
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - A sınıfındna türetilen B sınıfı durumunda (B is a A ) A sınıfına B sınıfının taban sınıfı(base class), B sınıfına ise
   derived(Türemiş class denir.) Bu duruma extension(genişletme) denir.
@@ -863,7 +870,8 @@
 - Java da türetme işlemi extends anahtar sözcüğü ile yapılır.
 
 - A sınıfından türetilen bir B sınıfında(class B extends A) A sınıfının private ve non-modifier metodları hariç tüm
-  metodları kullanılabilir. Aynı şeyler veri elamanları içinde geçerlidir.
+  metodları kullanılabilir(Sınıflar aynı pakette ise non-modifier member'larınada erişilebilir. Ancak bu erişim
+  türetmeden kaynaklı değildir.Tamamen aynı pakette olmasından kaynaklıdır.). Aynı şeyler veri elamanları içinde geçerlidir.
 
 - B sınıfından türetilen bir C sınıfında A sınıfının, ve B sınıfının public ve protected metodları ve memberlarına erişim
   sağlanabilir.
@@ -912,9 +920,9 @@
 
 - Bu durumlarda özel bir sentaks vardır. İsmi super ctor sentaksıdır.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                         super ctor sentaksı
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Programcı türemiş sınıfının ctor'unun hemen başında taban sınıfının ilgili ctor'unun çağrılmasını sağlayabilir.
 
@@ -930,9 +938,9 @@
         }
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                         this ctor sentaksı
-///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - this anahtar sözcüğü ile ilgili sınıfın başka bir ctor'ının çağrılması sağlanır.
 - bu sentaksı super ctor sentaksından ayıran şey this ctor'u yazılmadığnda herhangi bir şey  yapılmaz,
@@ -990,9 +998,9 @@
   çağırabiliriz.
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             22.03.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Bir referansın iki türü vardır. static ve dinamik türleridir.
 
@@ -1016,7 +1024,8 @@
   A a = new B();
 
   a. ile ancak ve ancak a'nın statik referansına uygun metodlar çağırabilir. Eğer ki ilgili metod override edilmemiş ise
-  (Yani A sınıfının içindeki fonksiyonlar)
+  (Yani A sınıfının içindeki fonksiyonlar) Aslında bu olay tamamen nitelikli isim arama kuralları ile belirlenebilir.
+
 
 - Bir referansın dinamik türü aşağıdaki gibi ekrana yazdırabilir.
     Sout(a.getClass().getName());
@@ -1024,21 +1033,21 @@
 - Derleyici çalışma zamanında ki değişebilecek değerleri umursamaz.
 
 - downcasting tür dönüşümlerinde eğer yapılan dönüşümde referansa atanan dinamik tür, o referansı
-  kapsıyor ise bu dönüşüm geçerlidir.
+  kapsıyor ise bu dönüşüm geçerlidir. Aksi türde  error oluşur.
 
 - Java da adreslere doğrudan erişim sağlanamamaktadır. Run time da yada aşağı seviyede erişmemizi sağlayan
   araçlar vardır.
 
 - referanslar'da  her zaman statik tür ne ise o türe ilişkin fonksiyonlar ve member'lara erişim sağlanır.
   upcasting kuralıda bu kurala dahil değildir.
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     RTTI (RUN TIME TYPE IDENFTIFICATION)-> Çalışma zamanında tür belirleme
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - instanceof operatörü, iki operandlı  araek bir operatördür, birinci operandı referans ,
   ikinci operandı da referans tür ismidir.
-- Operatör birinci operandına ilişkin referansın dinamik türünün ikinci operandına ilişkin türü
-  kapsayıp kapsamadığına göre  boolean türüne geri döner.
+- Operatör birinci operandına ilişkin referansın dinamik türünün ikinci operandına ilişkin türetilmiş bir tür olup
+  olmadığına  boolean türüne geri döner.
   if (obj instanceof Employee) // Eğer obj referansının dinamik türü Worker, ProjectWorker, Manager
   SalesManager türünden biri ise doğru dönecektir.
   Yani is a ilişkisine de bakar.
@@ -1046,9 +1055,9 @@
 - instanceof operatörünün mantıksal değilini döndüren herhangi bir operatör bulunmaktadır.
   bunu sağlamak için ancak ve ancak if(!(obj instanceof reftype)) şeklinde kullanılabilir.
 - ! operatörü instance of'dan öncelikli seviye'ye sahiptir.
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                      FINAL CLASS
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Bir sınıftan türetme yapılması istenmiyor ise  sınıf bildiriminde final olarak belirtilmelidir.
     final class intValue{}
@@ -1071,9 +1080,9 @@
 
 - enum türünün ctor'u private olduğundan türetme yapılamaz. ayrıca başına final konulmasına izin verilmez.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                  Wrapper(Sarmalayan) Sınıflar
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Her temel(primitive) türe karşılık bir sarmalayan sınıf getirilmiştir.
     byte        Byte
@@ -1103,9 +1112,9 @@
     Nümerik sınıfların sarmaladıkları türe ilişkin bir takım değerleri içeren final static veri elemanları bulunur.
         Her birinde bulunan MAX_VALUE, MIN_VALUE ilgili sınıf hangi türden ise o türe geri dönerler.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             03.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Boolean class
     - Herhangi bir şekilde min yada max valuedeğerleri yoktur.
@@ -1148,7 +1157,9 @@
     - Number sınıfının xxxValue(intValue, byteValue) sarmaladığımız değeri  elde etmemizi sağlar.
     - Bu metodlar örneğin Integer.byteValue(); metodu klasik tür dönüştürme kurallarına göre çalışır.
       (Tür dönüştürme kurallarını tekrar et) Bu duruma(unboxing denir.)
-- narrowing(daraltıcı), widening(genişletici)
+
+
+
 
 - Sarmalayan sınıflar ile temel türleri de object referansına atanabilir hale gelmektedir.
 
@@ -1163,8 +1174,11 @@
   Object o =  10;
 
 - Kutulama(auto boxing) işleminde otomatik tür dönüştürme kurallarına uygun olsa bile bir primitive tür
-  Başka türden bir sarmalayan bir sınıfa atanamaz.
+  Başka türden bir sarmalayan bir sınıfa atanamaz(Bunlara Character, Byte, Short türleri dahil değildir.).
   Double dval = 6;//error
+
+- Yani primitive türden wrapper sınıf türüne( yani widening(genişletici) ) implicit atama ve wrapper class'tan
+  primitive türe doğrudan(implicitly) yapılan atama(yani  narrowing(daraltıcı) )  errordur.
 
 - Bir referansın dinamik türü Object sınıfının getClass fonksiyonunun geri dönüş değerinin getName fonksiyonu
   ise referansın dinamik türünü verir.
@@ -1230,9 +1244,9 @@
 
 - Sarmalayan sınıflar auto boxing ve auto unboxing  sayesinde bir primitive türmüş gibi kullanılabilir.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             04.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Algoritma nedir : bir problemin doğru çözüm adımlarına denir.
 - Algoritmanın incelemensine  algoritma analizi denir. Algoritma analizindeki en tipik durumlardan birisi algoritmanın
@@ -1256,12 +1270,12 @@
     O(n!)       -> faktöriyel karmaşıklık
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             Arraylist/Vector sınıfları
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Arraylist/vector aynı StringBuilder(StringBuilder sınıfı için length ve capacity) sınıfı gibi capacity ve size adlı iki
-  değişkeni vardır. Arraylist dinamik olarak büyüyebilen bir sınıftır.
+  değişkeni vardır. Bu sınıflar dinamik olarak büyüyebilen sınıflardır.
 
 - Arraylist olsun başka Collection sınıflar olsun capacity ile size arasındaki herhangi bir bölgeye
   doğrudan erişmek run time hatasıdır.
@@ -1275,10 +1289,11 @@
 - ArrayList/Vector sınıflarının default ctor'larında capacity değeri 10 olur.
 
 - ArrayList/Vector sınıflarının add metodları sona ekleme yapmak için kullanılır
-  Gerektiğinde capacity değerini de büyütür.
+  Gerektiğinde capacity değerini de büyütür.(Her zaman true döner.)
 
 - Sınıfın index parametreli add metodları parametre olarak gönderilen index geçerli bir değer değer ise o indexe
-  ekleme yapıp sınıfı bir kaydıracaktır.
+  ekleme yapıp sınıfı bir kaydıracaktır. (geri dönüi değeri yoktur.)
+
 - ArrayList/Vector sınıfının capacity artırılması gerektiği zaman capacity'i 2 katına çıkartır.
 
 - ArrayList/Vector sınıflarınının ekleme yapan metodları capacity'i genişletirken
@@ -1287,7 +1302,7 @@
 - Sınıfın araya ekleme yapan (index parametreli) add metodları O(n) karmaşıklığında çalışır. Çünkü kaydırma
   işlemi yapacaktır. ArrayList.add(T idx, T value)
 
-- get metodları verilen indexteki objeyi döndürür.
+- get metodları verilen indexteki objeyi döndürür. Eğer indeks geçersiz ise IndexOutOfBounds fırlatır.
     int val = ArrayList.get(int index); // error Object can't cast to int;
     int val = (int)ArrayList.get(int index); // ok
 
@@ -1318,9 +1333,9 @@
             (capacity > 20 ise capacity fonksiyona argüman geçilen değer olacaktır.)
 - Bu tarz sınıfların setLength gibi length'i doğrudan değiştirmemizi sağlayan bir metodu yoktur.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             null referans (Tony Hoare tarafından ortaya atılmıştır.)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - kullanılmayan bir adresi temsil etmek için null  anahtar sözcüğü kullanılır.(aslında null bir sabit değerdir.)
   null adresi ancak referanslara atanabilir.
@@ -1329,9 +1344,9 @@
     - enum türünden referanslara null değeri atanabilir.
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             05.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - null değer kontrolü adres kontrolü olduğu için == yada != operatörü ile kontrol edilebilir.
     Sample s = null;
@@ -1371,16 +1386,19 @@
       devreye sokulabilir. Ancak bunun sürekli yapılmaması daha açık bir ifade ile dikkatli yapılması gerekmektedir. Çoğu
       zaman garbage collector'un kendi algoritmasına güvenilebilir.)
 
+
   - Bir nesnenin adresinin bir statik referansta olması demek o referansın ve nesnenin programın sonuna kadar yaşayacağı
     anlamına gelir.
 
+  - Bir dizi referansının(eğer dizi referansı statik değil ise) içindeki referanslar dizi referansı öldüğü zaman,
+    hayata veda ederler.
 
 - ArrayList'in add metodları boolean döner(Ancak her zaman true döner).
 - ArrayList sınfı tarzı sınıfların(Collection sınıfların) implementasyonu mülakatlarda sorulabilir.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             static  initializer
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Sınıfın içerisindde static bloklar istenildiği kadar tanımlanabilir. Bu blokların her birinin içine kod yazılabilir
 - Bir sınıfın herhangi bir elemanı ilk kez kullanıldığında, tüm statik bloklar yukarıdan aşağıya sırasıyla bir kez
@@ -1407,13 +1425,13 @@
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             10.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             non-static  initializer
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Bir sınıf nesnesi yaratılmadan önce gerçekleştirilen fonksiyondur gibi diyebiliriz.
 
@@ -1429,9 +1447,9 @@
 
 - static bloklar okuma amaçlı olarak sınıfın daha derli toplu gözükmesi için yazılabilir.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             this  reference
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Java da aşağı seviye de bütün non-static metodlar static metoda dönüştürülür. Metodlara this referansı dediğimiz
   yani hangi sınıfa ait bir fonksiyon ise o sınıf nesnesinin adresi ile çağrılır.
@@ -1458,13 +1476,13 @@
 - immutable sınıflarda da yeni bir sınıf nesnesi dönen sınıflar fluent kalıpları
   ile yapılabilir.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             11.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             Polymorphism(Run time polymorphism)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - 2 çeşite ayrılır
     1- Run time polymorphism
@@ -1472,7 +1490,7 @@
 
 
 - Polymorphism'in nesne yönelimli programlamada 3 tane tanımından bahsedilebilir.
-    1- Biyolojik tanımı            : Taban sınıfın bir fonksiyonunun türemiş sınıfta yeniden gerçekleştirilmesidir.
+    1- Biyolojik tanımı            : Taban sınıfın bir fonksiyonunun türemiş sınıfta yeniden kullanılmasıdır.
     2- Yazılım Mühendisliği Tanımı : Türden bağımsız kod yazabilmektir. Hangi türden işlem yapacağınızı bilmeden kod
                                      yazmaktır.
 
@@ -1502,8 +1520,8 @@
 
 - isim arama kuralları statik referans'a göre yapılır. Dinamik türe  bakılarak hangş fonksiyonun çağrılacağı belli olur.
 
-- augmentation = override edilmiş bir fonksiyon taban sınıfın ilgili fonksiyonunu çağrılıp yeni eklemeler yapılmasıdır.
-                 companyapp örneğindeki toString metodları bunun örneğidir.
+- augmentation = türemiş sınıf içerisinde override edilmiş bir fonksiyon taban sınıfın ilgili fonksiyonunu çağrılıp yeni
+                 eklemeler yapılmasıdır. Companyapp örneğindeki toString metodları bunun örneğidir.
 
 
 - augmentation genel olarak şöyle bir yapıdır. Türemiş sınıfın ilgili metodu taban sınıfın ilgili metodunu
@@ -1519,10 +1537,7 @@
     class B extends A{
         public void foo()
         {
-            // dinamik türler super referansı dışında herhangi bir şekilde taban sınıfın fonksiyonunu çağıramaz.
-            super.foo();
-            //bunun dışında yeni özellikler eklenirse  bu gibi durumlara augmentation denir.
-            System.out.println("B.foo()");
+            System.out.println(super.foo() + "B::foo");
         }
     }
 
@@ -1592,9 +1607,9 @@
 - metotlar için final keywordu : bir türetme hiyerarşisinde ilgili fonksiyonu türetmeye kapatmak için kullanılır.
   Kısaca final olarak bildirilmiş bir metot override edilemez.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             12.04.2020
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Java bir fonksiyonu override ettirmeme durumunu bizim vermemiz gereken bir karardır.
 
@@ -1620,9 +1635,9 @@
 
 - tosString metodu ile bir String ile herhangi bir nesne toplanabilir.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             Abstract class
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Kendi başına bir anlam ifade etmeyen ancak kendisinden türetilmiş sınıfların anlam kazandığı sınıflara abstract(soyut)
   sınıflar denir. Soyut olmayan sınıflara concrete(somut) sınıf denir.
@@ -1693,9 +1708,9 @@
 - Genel de abstract bir sınıfın en az bir adet abstract metodu vardır.
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                             Exception Handling
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - Java da exception işlemleri için aşağıdaki anahtar sözcükler kullanılır.
     try, catch, throw, finally, throws
@@ -1713,7 +1728,7 @@
 - Bir exception fırlatıldığında akış exception'ın fırlatıldığı metoddan bir daha geri dönmemek üzere o sınıftan
   çıkar.
 
-- Doğrudan dolaylı olarak throwable sınıfı türünden türetilmemiş bir sınıf ile exception throw işlemi yapılamaz.
+- Doğrudan yada dolaylı olarak throwable sınıfı türünden türetilmemiş bir sınıf ile exception throw işlemi yapılamaz.
 
 - akış exception bakımında ele alınacak ise try bloğu   içerisinde yazılmalıdır. try bloğunu en az bir tane
   catch bloğu yada tek bir finally bloğu yada catch blokları ve finally bloğu ile devam edebilir.
@@ -1733,10 +1748,552 @@
 - catch blokları yukarıdan aşağıya switch deyimi gibi kontrol eder. Uygun catch bloğu bulunur ise akış oraya girer.
   Uygun catch bloğu aramasında upcasting işlemi de geçerlidir. Uygun catch bloğu bulunamaz ise proram sona erer.
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            17.04.2020
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Bir Exception sınıfı doğrudan yada dolayı olarak RuntimeException yada Error sınıfından türetiliyor ise bu sınıflara
+  unchecked, Exception yada Throwable sınıfından türetiliyor ise bunlara checked Exception'dır.
+
+- throw anahtar sözcüğü operandı bir referans olmalıdır. Bu referans RuntimeException, Error yada Exception sınıfı
+  türünden olmalıdır.
+
+- new operatörü bir referans(Aşağı seviyede adres) üretir.
+
+- Bir akış exception tarafından ele alınacak ise try bloğu içerisinde olmalıdır.
+
+- akışın catch bloklarından herhangi birine girmesi için o catch bloklarına ait bir referans throw edilmesi lazım.
+
+- türemiş sınıf parametreli catch bloğu taban sınıf parametreli catch bloğundan sonra yazılamaz. Türemiş sınıf
+  parametreli catch bloğu daha önce yazılmalıdır.
+
+- java da unreachable bir kod genel olarak error olur.
+
+- Eğer bir try bloğu takip eden catch bloklarında Throwable sınıfı herhangi bir catch bloğunun parametresi olacak ise
+  en sona yazılmalıdır.
+
+- Eğer bir exception ilgili try catch bloğunda yakalanmaz ise ilgili try metodunu kapsayan try metodunun catch'lerine
+  bakılır. Böyle böyle bütün kapsayan try bloklarına bakalır. Eğer bir exception hiç bir şekilde yakalanamaz ise
+  program çöker.
+
+- Bir catch bloğunda yakalanan exception'ın throw  edilmesine rethrow denir.
+
+- exception'ın rethrow edilme işlemi çok sık karşımıza çıkan bir durumudur. Uygulamada sık sık kullanılacaktır.
+
+- finally bloğu akış try blouğunu nasıl bitirirse bitirsin çalıştırılacak bloktur. Yani try bloğunda exception
+  oluşsun yada oluşmasın her türlü çalıştıracaktır. Program çökecek olsa bile finally bloğu çalıştırılacaktır.
+
+  try {
+  }
+  finally {
+  }
+  //yukarıdaki syntax uygundur.
+
+
+- finally bloğu her durumda çalıştırılır. bir try metodunu ya finally bloğu, en az bir catch bloğu yada en az bir catch
+  bloğu ve finally bloğu yazılabilir.
+
+- try finally bloğunun anlamı akış normal giderse finally bloğu çalışsın, ama yakalamak istemediğimiz bir exception
+  fırlatılır ise de finally bloğu çalışsın exception rethrow edilsin.
+
+- finally bloğu tam olarak akış try bloğunu terkederken çalışan bir bloktur.
+
+    public static StringBuilder foo()
+    {
+        StringBuilder s = new StringBuilder();
+        try {
+            s.append("cool");
+            return s.append("try");
+        }
+        finally{
+            s.appends("1");
+        }
+    }
+
+- Yukarıdaki kod da geri dönüş nesnesi str + "try" + "finally" şeklindedir. finally bloğu akış try bloğunu terkedeceği
+  zaman çalışılacaktır.
+
+- Throwable sınıfı içerisinde exception işlemlerine yönelik bir takım veri elemanları bulunmaktadır.
+  Bunlardan en temel olanı mesaja karşılık gelen elemandır. Throwable sınıfından türetilmiş olan
+  sınıflar yani exception sınıfları genel olarak String parametreli ctor elemanını yazarlar böylelikle
+  hiyararşik olarak mesaj elemanı Throwable sınıfına aktarılmış olur. İsterse programcı başka bilgileri de
+  yazdığı exception sınıfına ekleyebilir
+
+- Exception sınıfları genel olarak içinde super sentaksı ile taban sınıfın ctor'unu çağırır. Böyle durumlarda
+  bir çok Exception sınıfı getMessage() metodunu da override eder ve içinde Throwable sınıfının getMessage metodunu
+  çağırır(Yani augmentation yapılır).
+
+- printStackTrace()
+
+
+- unchecked Exception :
+    RuntimeException ve Error sınıfından türetilen sınıflar unchecked exception'dır.
+
+- checked Exception : checked Exception mümkün olduğunca uzak durulması gereken bir Exception türüdür.
+    Exception ve Throwable(Throwable sınıfından türetilme çok azdır.) sınıfından türetilen sınıflar unchecked
+    exception'dır. Checked bir exception eğer throw edilen metodun içerisinde handle edilmeyecekse throws bildirimi
+    yapılmalıdır. aksi durumda error olur.
+
+- checked exception'lar türetilen sınıflarda eğer bir metodda  exception throw işlemi yapılır ve içerisinde try-catch
+  işlemi yapılmayacak ise throws anahtar sözcüğü ile hangi nesnelerin throws edileceği bildirilmelidir.
+  class Myclass {
+    public static void foo() throws MyException,YourException
+  }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            18.04.2020
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- throws bildirimi olan bir metodun override edilmesi durumunda override edilen fonksiyonda throws list'esindeki
+  Exception'lar kaldırılabilir. Ancak override edilen fonksiyonda bir exception olacak ise bunlar base deki fonksiyonun
+  throws listesindeki sınıflardan biri yada bunlardan türetilmiş bir sınıf olabilir.
+
+- runtime da exception'ların checked yada unchecked exception olmasının hiç bir önemi yoktur. checked bir exception sadece
+  compile time'a artı bazı syntax kuralları getirir. throws anahtar sözcüğü unchecked exception sınıfları içinde
+  kullanılır. Ancak kodun doğruluğunun sağlanması için tamamen checked exceptionlara yöneliktir.
+
+- checked exception fırlatan bir fonksiyon mutlaka throws list'ini mutlaka fonksiyonun yazılmalıdır.
+
+- Java da bir dökümanda mutlaka exception'lardan da bahsedilir.
+
+- Exception sınıflarında bazen yalnızca türetmeye bir ekleme yapmak için tamamen adının ilgili durumu hatırlatması
+  içindir(Number format exception bunlardan biridir).
+
+- Bir Exception sınıfı fırlatılacaksa özel bir durum yoksa(örneğin checked exception yazmak istemiyorsak) işimiz görüyor
+  ise Java'nın kendi Exception sınıflarından biri fırlatılır.
+
+- Java'da yada herhangi bir programlama dilinde herhangi bir şekilde bir iş compile time da çözülebiliyor ise bu
+  işlemler compile time'da halledilmelidir. Örneğin NullPointer Exception ve ClassCastException sınıfları bu durumlar
+  için geçerlidir.
+
+- ClassCastException fırlatan fonksiyonlar genel olarak yanlış tasarlanmıştır. Bu fonksiyonların o türden bir
+  exception fırlatmak yerine o türün fonksiyon içinde instanceof ile control edilmesi gerekir.
+
+- NullPointerException' da catch yapılacak bir Exception sınıfı değildir. Bunları compile time'da null kontrolü ile
+  kontrol etmemiz gerekir.
+
+- NullPointerException yakalayan bir catch bloğu hiç bir profesyonel programlamada yazılmaz.
+
+- IllegalArgumentException : fonksiyonun argümanlarının geçersiz olması durumlarında geçerlidir. Handle edilmesi
+  gereken bir Exception'dır.
+
+- unsportedOperationException : soyut bir sınıftan türetilmiş ama somut olması gerekirken soyut sınıfın bütün abstract
+  metotlarını override etmediği için override etmemiş sınıflar için kullanılması bir örnektir.
+
+
+  class A {
+    public abstract void foo();
+    public abstract void tar();
+  }
+
+  class B extends A {
+    public void foo()
+    {
+        System.out.println("a");
+    }
+    public void tar()
+    {
+        throw new unsupportedOperationException();// sadece sınıfın concrete olması için override edilmiştir bu fonksiyon
+    }
+
+  }
+
+
+- iki vaya ikiden de fazla Exception sınıfları için ortak  catch bloğu söz konusu olacak ise | operatörü ile yapılır.
+  Aşağıdaki durum bunun bir örneğidir. Burada MyException içinde YourException durumunda fırlatılan Exception aynı
+  şekilde handle(ele alınmak) edilecektir. Türetme hiyerarşisinde bulunan Exception'lar böyle yazılamaz.
+    try {
+        Sample.run(val)
+    } catch (YourException | MyException ex) {
+         System.out.println(ex.getMessage());
+    }
+
+    Sample {
+        public static void run(int val)
+        {
+            if (val < 0)
+                throw new MyException();
+            if (val == 0)
+                throw new YourException();
+        }
+    }
+
+- Genel dikkat edilmesi gerekenler :
+    1-) Eğer kendi exception'ımızı yazacak isek bir zorunluluk söz konusu değil ise unexpected exception türünden
+        yani RuntimeException'dan türetmeliyiz.
+
+    2-) Bazen sadece okunabilirlik için kendi Exception sınıfımızı yazabiliriz. (Örneğin DateTimeException, yada
+        NumberFormatException(NumberFormatException IllegalArgumentExceptiondan türetilmiştir.))
+
+    3-) Kendi yazdığımız bir exception'da genel olarak msg parametreli ctor içinde msg parametresi super ctor sentaksı
+        ile taban sınıfın ctor'una iletilmelidir. Bir çok Exception sınıfı böyle çalışır.
+
+    4-) Yazdığımız exception sınıfının getmessage metodu içerisinde taban sınıfın getmessage metodunu çağrırır.
+        Bu fonksiyona  gerekli eklemeler yapılır. Bu duruma augmentation denir.
+
+    5-) finally bloğu bir exception yakalansın yada yakalanmasın akış try bloğunu ne zaman terk eder ise o zaman yapılır.
+        Burada try'daki akış return ile de terkedilebilir. Örnek mülakat soruları bulunmaktadır.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            INTERFACE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Java da türler ikiye ayrılır
+    1-) Temel türler
+    2-) Referans türleri(Kullanıcının tanımladığı türler ve diziler, Sınıflar, enumlar, interfaceler, annotationlar)
+
+- interfaceler kullanıcının belirlediği önemli bir reerans türüdür.
+- abstract sınıflara çok benzemektedir. Ancak nesne özelliği göstermemektedir.
+- Tüm metodları abstract olan abstract sınıflara çok benzemektedir.
+
+- interface'i declare etmek için interface keywordu ile başlar. Okunabilirlik açısından interface'leri isimlendirirken
+  I harfi ile başlar.
+
+- interface içerisinde veri elemanı bildirimi yapılabilir, bu elemanlar yazılsın yada yazılmasın public static final
+  olarak bildirilir.
+
+- interface içerisinde non-static veri elemanı bildiremeyiz.
+
+- interface içerisinde bildirilen gövdesiz fonksiyonlar( void foo(); gibi ) dil tarafından public ve abstract
+  bildirilmiştir.
+
+- içerisinde hiç bir abstract metodu olmayan interface'lere marker interfaces denir. marker interface'lerin içi
+  genel olarak boş bırakılır.
+
+- java 8 ile birlikte abstract olmayan non-static  metotlar yazılablir.Bu metotlar default anahtar sözcüğü ile
+  bildirilmek zorundadır.
+  interface IX {
+    default void foo() //yazılsın yada yazılmasın public metotlardır. since Java 8
+    {
+    }
+  }
+
+- Java 8 ile birlikte interface'e static  metotlar eklenebilir. static metodlarında gövdesi olmasoı gerekir(çünkü override
+  edilemez). yazılsın yada yazılmasın public'tir.
+
+- Java 8 ile birlikte içerisinde sadece bir tane abstract metodu olan interface'e functional interface denir. Bu
+  fonksiyonel programlama tekniğinin temelini oluşturur.
+
+- Java 9 ile birlikte interface içerisinde private metotlar yazılabilir.Gövdesi olmak zorundadır. Çok kullanılan bir
+  durum değildir.
+
+- interface'lerde static veri elemanının yazılımı pratikte çok az görülür.
+
+- java 9 ile birlikte private static fonksiyonlar bilidirilebilir.
+
+- interface içerisinde hiç abstract metod yok ise marker, bir tane var ise functional interface olur.
+
+- Aşğıadaki durum interface içerisinde olabilen bütün durumlara bir örnektir.
+  interface IX {
+      int NUM = 10; // public static final int NUM = 10;
+      private void foo() //Since Java 9 // private void foo(){} gövdesi olmak zorunda override edilemez
+      {
+
+      }
+      private static void bar() //Since Java 9 private static void foo(){} // gövdesi olmak zorunda override edilemez
+      {
+
+      }
+
+      default void tar() //Since Java 8 // public void tart(){} // gövdesi olmak zorunda override edilebilir
+      {
+
+      }
+      static void func() // Since Java 8 gövdesi olmak zorunda override edilemez
+      {
+
+      }
+
+      void zar(); // public abstract void zar();
+      void car(); // public abstract void car();
+  }
+- interface türünden nesne yaratılamaz(Herhangi bir tür içierisinde de yaratılamaz).
+
+- bir sınıf bir interface'i implements anahtar sözcüğü ile destekler. Bu duruma implementation denir.
+
+- Bir sınıf birden fazla arayüzü destekleyebilir. Hangi arayüzün listede olduğunun bir önemi yoktur.
+    class A implements IX,IY,IZ {}// ok
+
+- Bir sınıf başka bir sınıftan türetilip aynı zamanda birden çok interface'i destekleyebilir. Bu durumda türetme
+  listenin başında olmalıdır.
+  class A extends X implements IX, IY, IZ {}//ok
+  class A  implements IX, IY, IZ extends X {}//error
+
+- Bir sınıf bir interface'i destekliyor ise interface'in tüm metodlarını implemente etmelidir. Birini bile override
+  etmez ise o sınıf abstract bir sınıf olur.
+
+- interface'ler belli anlamda çoklu türetmenin bir örneğidir.
+
+- Arayüz referansları taban sınıf referansı gibi kullanabilir. Yani bir interface gibi davranan sınıflar o interface
+  türünden bir referansa atanabilir. Böylelik polymorphism interface'ler ile de yapılabilir.
+
+- Birden fazla arayüz içerisinde aynı imzaya ve aynı geri dönüş değerine sahip bir metod varsa ve bir sınıf bu interface'leri
+  implemente ediyor ise sınıfın içine yazılan fonksiyon o iki sınıfın fonksiyonlarını da ayrı ayrı override eder.
+
+- Arayüz referanslarına o arayüzü implemete eden(destekleyen) sınıflar atanabilir. Yani arayüz referanslarını bir taban
+  sınıfı referansı gibi davranılabilir.
+
+- Bir sınıf bir interface destekliyor ise o sınıfdan türetilen sınıflar da o interface'i desteklemektedir. interface
+  listesine yazılmak zorunda değildir. aşağıdaki implements IX, IY, IZ yazılan yer interface listesidir.
+  class A implements IX , IY,IZ {}
+
+  class B extends A {} // class B extends A implements IX, IY, IZ {} ile aynı anlama gelir.
+
+- interface ile polymorphism çok iç içe kavramlardır.
+
+- interface'lerin override edilen metodları da final belirtilebilir.
+    class A extends IX {
+        public final void foo(){}
+    }
+    interface IX {
+        void foo();
+    }
+- bir arayüz başka bir arayüzden türetilebilir(extends anahtar sözcüğü ile yapılır). Burada taban interface'in fonksiyonları
+  türemiş interface'ine aktarılır. Burada extends anahtar sözcüğü kullanılır.
+
+- Bir interface birden fazla interface'den türetilebilir.
+  interface IX extends IY, IZ {} //IX interface'i hem IY'yi hemde IZ'nin public metodlarına sahip olur.
+
+- default metodlar da override edilebilir.
+
+- eğer yapılabilecekse bir abstract sınıf mutlaka interface yapılmalıdır.
+
+- abstract sınıfın belirli metodları da interface'e dönüştürülebilir.
+
+
+- sınıflar  kopyalama özelliğine shallow(sığ) yada deep copy şeklinde yapılabilir. Klonlama işlemi nasıl yapılacaksa
+  yapılsın bu nesnenin bunu nesnenin kendisi yapmalıdır.
+
+- covariant return type : clonable sınıflarda kullanılabilirdi ancak hiç biri javanın kendi standart kütüphanesi bile
+  kullanamaz.
+
+- cloneable interface'i tamamen C++'daki copy ctor gibi çalışır. Yani programcının yapacağı implementasyona
+  göre shallow copy (Sığ basit kopyalama) yada deep copy(Derin kopyalama) yar. Bir sınıf Clonea
+    - Shallow copy : eğer nesne bir referans içeriyor ise nesnenin kopyası da aynı referansı gösterecektir.
+    class A {
+    private B b;
+    } // A nesnesinin shallow copy'ye göre implementasyonunda kopya A nesnesindeki b referansı da aynı nesneyi gösterecektir.
+
+    - deep copy'de ise nesne içeren referanslar içerisinde tuttukları referans'ın da kopyası yapılacaktır.
+
+- clone fonksiyonu cloneable interface'inin
+
+- bir nesnenin kopyasını ancak nesnenin kendisi çıkartılabilir.
+
+- Java da bir sınıf cloneable interface'ini destekliyor ise bu nesne kopyasını çıkartabiliyor demektir(ArrayList).
+
+- ArrayList sınıfı shallow copy yapar.
+
+- closable interface'i : implement edilen sınıflar, genel olarak bir kaynak kullanılan sınıflardır. Sınıfın
+  close fonksiyonu override edilmelidir.  Kaynak ile ilgili işlem bittiğinde sınıfın close metodu çağrılmalıdır.
+  eğer close metodu override edilmez ise ilgili sınıf abstract olur.
+
+- closeable sınıfı implemente edildiğini gören bir programcı bu sınıfın bir kaynak kullandığını ve işi bitince sınıfın
+  close metodunun çağrılması ile ilgili kaynağın başka bir programcı tarafından kullanılabileceğidir. Burada
+  kaynaktan kastımızın örneğin bir veri tabanı bağlantısı olabileceğidir.
+
+- closable interface'inin close fonksiyonu checked türden olan IOException fırlatır.
+- closeable interfaceini destekleyen sınıflar tasarlanırken close metodu özellikle IOException fırlatır.
+
+- Bir kaynağın kullanılması işleminde exception oluşabileceği göz önünde bulundurularak, kaynak finally metodunda
+  kapatılır. Eğer ki finally bloğunda  da close methodu çağırılır ise bu ilgili yerinde bir try catch'e alınması
+  gerekir. Çünkü close metodu IOException fırlatabileceği için yani checked bir exception fırlatacağı için try
+  catch bloğunu alınması gerekir. Örnek aşağıdadır
+    public static void main(String [] args)
+    {
+        Connection con  = null;
+
+        try {
+            con = new Connection("postgresql:jdbc://localhost:8080/devicesdb");
+            con.doWork();
+        }
+        catch (Throwable ex) {
+            System.out.printf(ex.getMessage());
+        }
+        finally {
+            con.close();//kodun buraya yazımı error oluşturur. Eğer böyle bir kod yazılır
+            ise metoda yani bu kod main fonksiyonunun içindeyse main fonksiyonuna throws Exception
+            bildirimi yapılmalıdır.
+            try {
+                if (con != null)
+                    con.close();
+            }
+            catch (IOException ex) {
+                //...
+            } // bu şekilde yazılan bir kod çok kirli bir koddur.
+        }
+    }
+
+
+- Yukarıda ki kodun daha temiz yazım biçimi Java 7'den önce aşağıdaki gibidir. Aşağıdaki kod
+  try-with-resources sentaksının karşılığı olan bir koddur.
+    public static void main(String [] args)
+    {
+        Connection con  = null;
+
+        try {
+            try {
+                con = new Connection("postgresql:jdbc://localhost:8080/devicesdb");
+                con.doWork();
+            }
+            finally {
+                if (con != null)
+                    con.close();
+            }
+        }
+        catch (Throwable ex) {
+            System.out.printf(ex.getMessage());
+        }
+    }
 
 
 
 
+- Java 7 ile beraber checked exception'dan kaynaklı(sadece bu sınıfın sorununu çözmemektedir) olarak
+  try with resources sentaksı dile eklenmiştir. Proramcının close metodunu çağırmayı unutmasından kaynaklı
+  olarak oluşabilecek herhangi bir sıkıntı da olmayacaktır.
+
+- Java 7 ile birlikte eklenen try-with resources (twr) deyimi ile yukarıdaki problem çok daha etkin olarak çözülebilir.
+  twr deyimi ile AutoCloseable arayüzünü destekleyen sınıflar kullanılabilir. twr yukarıdaki işlemin
+  otomatik olarak yapılanı biçiminde düşünülebilir. Closeable arayüzü AutoCloseable arayüzünden türetilmiştir.
+  Bu deyim ile close metodunun çağrılacağı da garanti altında olduğundan programcının çağırmayı unutması gibi
+  bir durum da yaşanmaz.
+
+  try (Connection con = new Connection("postgresql:jdbc://localhost:8080/devicesdb")) {
+        con.doWork();
+  }
+  catch (Throwable ex) {
+      System.out.printf(ex.getMessage());
+  }
+
+- twr sentaksına ancak ve ancak auto-closeable(closeable sınıfı auto-closeable'dan türetilmiştir) interface'ini
+  implemente eden sınıflar ile kullanılabilir.
+
+- twr sentaksı birden fazla nesne için de kullanılabilir, nesneye ilk değer verilmesi yada atama yapılması ; ile
+  birliktw farklı deyimler şeklinde yapılır.
+  try (var con = new Connetion(/*...*/); var image = new Image(/*...*/))
+  {
+  /*
+  */
+  } catch() //şeklinde yapılabilir.
+
+- closeable interface'ini auto-closeable interface'iden extends ettiler. Böylelikle closeable interface'ini
+  implemente eden sınıflar auto-closeable interface'ine de atanabilecek durumdadırlar.
+
+- Aslında closable interface'i bir destructor görevi görmek için kullanılır. Ancak bunu programcı kendi çağırmalıdır.
+
+- Java 9'dan önce twr referansları try bloğunun içinde belirtilebiliyordu. Java 9'dan  sonra ise referansı
+  try bloğundan önce atama yapılabilirdi. burada kullanılan referanslar effective'ly final olarak ele alınır.
+  Yani try-catch'in bulunduğu kod bloğu bitene kadar o nesneye yeni bir atama yapılamaz.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                            Generic sınıf bildirimi
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- Türdem bağımsız işlemler polymorphsim ile run time da yapılabilir.
+
+- Generic'ler compile time'da türden bağımsız kod yazmamızı sağlar. Buna compile time polymorphism'i de denebiilir.
+  Generic sınıflar C++ da  ki template yapısının çok daha zayıflatılmış halidir.
+
+--- Generic sınıf bildirimleri ----
+
+- Generic sınıf bildirimde generic parametreler denilen isimler kullanılır. Bu isimler açısal parantezler arasında ,'ler
+  ile ayrılır.
+
+- Gnereic sınıfları kullanırken açılım ile kullanılabilir. Generic bir sınıf temel türler ile açılım yapılamaz.
+  Bu kural java için geçerlidir. C++'da generic parametreler temel tür olabilir.
+
+- Generic bir sınıf açılımsız kullanılır ise generic parametre object kabul edilir.
+- Generic türden sınıflardan referanslar açarken herhangi bir tür ile açılmaz ise, o tür Object olarak bilinir.
+
+- Generic bir sınıfı hiç bir zaman doğrudan   açmamalıyız. Eğer yazılacak tür Object olsa bile Object yazmamız gerekir.
+  ArrayList a = new ArrayList<>(); // bu kod kötü bir yazım biçimidir. Generic kodlar her zaman tür ile açılmalıdır.
+  ArrayList<Object> a new ArrayList<>(); // şeklinde yapılmalıdır. Yani generic bir sınıf her zaman açılım yapılarak
+  kullanılmalıdır.
+
+- Generic sınıfı türünden nesne yaratılırken new operatörü ile yaratılırken açısal parantez ile kontrol yapılmalıdır.
+
+- Java 7 ile birlikte new operatörü ile sadece açısal  parantezi koymak koşulu ile türün atanan referansa göre
+  tanınmasını sağlayabiliriz. Buna diamond syntax yazılabilir.
+    A<Integer,Character> a = new A<>();
+  Burada new operatörünü aslında derleyici new  A<Integer,Character>(); şeklinde bir kod yazmıştır
+
+
+- Generic sınıflar da açılım Object türünden olsa bile Object açılımı yapılmalıdır.
+    Arraylist<Object> a = new ArrayList<>();
+
+- Generic sınıflar generic olmayan bir sınıftan türetilebilir. Bu durumda her farklı açılım taban sınıf türünden
+  türetilmiş gibidir.
+
+- Generic olmayan bir sınıf generic bir sınıftan türetileblir. Bu durumda her farklı açılım için farklı bir tür
+  elde edilir.
+
+- Generic bir sınıf yazılırken mutlaka açılım şekli yazılmalıdır. Burada açılımda eğer type deduction(tür anlama)
+  sağlanabiliyor ise türün yazımına gerek yoktur. Bu durum özellikle fonksiyonlar için geçerlidir.
+
+- Generic bir sınıfın fonksiyonu override edilebilir.
+
+- Generic bir sınıf başka bir generic sınıfın aynı türden açılımından türetilebilir.
+    class A<T> {}
+
+    class B<T> extends A<T>{}
+
+- Generic bir sınıf başka bir generic sınıfın farklı türden açılımından türetilebilir.
+    class A<T> {}
+
+    class B<T, K> extends A<K>{}
+
+
+- generic kavramı derleme zamanında tür kontrolü için düşünülmüştür.
+
+- çalışma zamanında generic bir sınıfa ilişkin tek bir tür vardır.
+ A<String> as = new A<>();
+ A<Integer> ai = new A<>();
+ A<Boolean> ab = new A<>(); // runtime'da üçünün de türü aynıdır.getclass().getName() ile bu kanıtlanabilir.
+- ilgili nesnenin generic parametresi arakodda hep Object'e dönüşür. Bundan kaynaklı olarakta yukarıdaki
+  üç referansında dinamik türü A'dır.
+
+- interface'ler de generic olarak implemente edilebilir.
+    interface IX<T> {
+        void foo(T val)
+    }
+
+- Generic bir arayüzü implemente eden bir sınıf o sınıf türünden uygun bir tür ile override edilmelidir.
+
+- Bir sınıf generic arayüzün birden fazla açılımını implemente edilemez(Çünkü runtime da her şey Object'e dönecektir.).
+  class Sample implements IX<String>,IX<Integer> {} // error
+
+- generic sınıflar için invariant ve contravariant tabirleri
+    - invariant : Generic bir sınıfın türemiş sınıf açılımının aynı generic sınıfın taban sınıf açılımına doğrudan
+                  veya tür dönüşümü ile atanamamasıdır(Bir nevi upcasting gibi).
+                  class A {}
+                  class B extends A {}
+                  ArrayList<A> a = new ArrayList<B>(); // error; can't cast
+                  ArrayList<A> a = (ArrayList<A>)new ArrayList<B>();//error
+
+    - invariant sorununun çözümü için ? extends className şeklinde kullanılmalıdır(Bu duruma covariant denir).
+                  ArrayList<? extends A> a = new ArrayList<B>(); // ok
+                  //yukarıdaki kodda a  'nin dinamik türü ArrayList'tir.
+
+    - contravariant : Generic bir sınıfın taban sınıf açılımının aynı generic sınıfın türemiş sınıf açılımına doğrudan
+                      yada tür dönüştürme yoluyla atanamamasıdır(Bir nevi downcasting gibi).
+                      ArrayList<B> b = new ArrayList<A>();//error
+                      ArrayList<B> b = (ArrayList<A>)new ArrayList<A>();//error
+
+    - contravariant sorununun çözümü için de ? super className şeklinde kullanılmalıdır.
+                      ArrayList<? super B> b = new ArrayList<A>();//ok
+                      //yukarıdaki kodda b'nin dinamik türü ArrayList'tir.
+
+---- generic metodlar
+
+- Diğer dillerin aksine generic parametreler metodun geri dönüş değerinin öncesine yazılır. Eğer generic metodları
+  çağrı sırasında tür tespit edilebiliyor(Type deduction) ise açılım yapmadan da kod yazılabilir.
+
+- generic parametre belirtilmiş fonkiyon çağrılarda eğer overload edilmiş bir fonksiyon var ise tür belirtilse bile
+  best match'e uygun metod çağırılır. Java da best match her zaman önceliklidir.
+
+- Java da doğrudan generic türden bir dizi yaratılamaz. Bu türden diziler ancak ve ancak object türünden yaratılıp ilgili
+  türe dönüştürülebilir.
 
 
 

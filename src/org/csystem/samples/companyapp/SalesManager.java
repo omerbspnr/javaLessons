@@ -19,6 +19,11 @@ public class SalesManager extends Manager {
         m_extra = extra;
     }
 
+    public double calculateInsurance()
+    {
+        return super.calculateInsurance() + m_extra;
+    }
+
     public String toString()
     {
         return String.format("%s:%f", super.toString(), getSalary() +  m_extra);

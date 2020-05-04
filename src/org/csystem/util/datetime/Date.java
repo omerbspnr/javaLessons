@@ -7,13 +7,13 @@ import java.util.Calendar;
 import java.util.Random;
 
 public class Date {
-    private static final String [] ms_weekDaysTR = {"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
-    private static final String [] ms_weekDaysEN = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    private static final String [] ms_weekDaysTR;
+    private static final String [] ms_weekDaysEN;
 
-    private static final String [] ms_monthsTR = {"", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-                                                    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" };
-    private static final String [] ms_monthsEN = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
-                                                      "Sep", "Oct", "Nov", "Dec" };
+    static {
+        ms_weekDaysTR = new String[]{"Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"};
+        ms_weekDaysEN = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    }
 
     private int m_day, m_mon, m_year;
     private int m_dayOfWeek;
@@ -50,8 +50,7 @@ public class Date {
 
     private static void doWorkForException(String msg)
     {
-        System.out.println(msg);
-        System.exit(-1); //exception konusuna kadar sabredin
+        throw new DateTimeException(msg);
     }
 
     private static void control(int day, int mon, int year, String msg)
@@ -59,28 +58,7 @@ public class Date {
         if (!isValidDate(day, mon, year))
             doWorkForException(msg);
     }
-    private static String getPostfixForDay(int day)
-    {
-        String s = "th";
 
-        switch (day)
-        {
-            case 1:
-            case 21:
-            case 31:
-                s = "st";
-                break;
-            case 2:
-            case 22:
-                s = "nd";
-                break;
-            case 3:
-            case 23:
-                s = "rd";
-        }
-
-        return s;
-    }
     private void controlForDay(int day)
     {
         control(day, m_mon, m_year, "Invalid day");
@@ -141,12 +119,7 @@ public class Date {
 
         return new Date(day, mon, year);
     }
-    Date(Date date)
-    {
-        m_day = date.m_day;
-        m_mon = date.m_mon;
-        m_year = date.m_year;
-    }
+
     public Date()
     {
         Calendar now = Calendar.getInstance();
@@ -262,12 +235,13 @@ public class Date {
 
     public String toLongDateStringTR()
     {
-
-        return String.format("%d %s %d %s",m_day,ms_monthsTR[m_mon], m_year, getDayOfWeekTR() );
+        //TODO:
+        return toStringTR();
     }
 
     public String toLongDateStringEN()
     {
-        return String.format("%d%s %s %d %s", m_day, getPostfixForDay(m_day), ms_monthsEN[m_mon], m_year, getDayOfWeekEN());
+        //TODO:
+        return toStringEN();
     }
 }

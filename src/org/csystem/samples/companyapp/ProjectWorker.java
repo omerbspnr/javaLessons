@@ -19,6 +19,11 @@ public class ProjectWorker extends Worker {
         m_projectName = projectName;
     }
 
+    public double calculateInsurance()
+    {
+        return super.calculateInsurance() * 1.15;
+    }
+
     public String toString()
     {
         return String.format("%s:%s", m_projectName, super.toString());

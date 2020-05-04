@@ -3,13 +3,11 @@
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.math;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Random;
 
 public final class Rational {
     private int m_a, m_b;
-    private static final BigDecimal MULTIPLIER = BigDecimal.valueOf(1_000_000_000);
+
     private static Rational plus(int a1, int b1, int a2, int b2)
     {
         return new Rational(a1 * b2 + a2 * b1, b1 * b2);
@@ -33,14 +31,13 @@ public final class Rational {
     private static void control(int a, int b)
     {
         if (b == 0) {
-            System.out.println(a == 0 ? "Belirsiz" : "Tanımsız");
-            System.exit(-1); //exception konusuna sabredin
+            if (a == 0)
+                throw new RationalException("Belirsiz", RationalExceptionStatus.INDEFINITE);
+
+            throw new RationalException("Tanımsız", RationalExceptionStatus.UNDEFINED);
         }
     }
-    private static BigInteger gcd(BigInteger a, BigInteger b)
-    {
-        return a.mod(b) == BigInteger.ZERO ? b :  gcd(b, a.mod(b));
-    }
+
     private void calibrateSigns()
     {
         if (m_b < 0) {
@@ -48,25 +45,7 @@ public final class Rational {
             m_b *= -1;
         }
     }
-    private void set(BigDecimal bigDecimal)
-    {
-        if (bigDecimal.equals(BigDecimal.ZERO))
-        {
-            m_a = 0;
-            m_b = 1;
-            return;
-        }
 
-        BigInteger numer = bigDecimal.multiply(MULTIPLIER).toBigInteger();
-
-        BigInteger denom = MULTIPLIER.toBigInteger();
-
-        BigInteger divisor = gcd(numer, denom);
-        numer = numer.divide(divisor);
-        denom = denom.divide(divisor);
-
-        set(numer.intValue(), denom.intValue());
-    }
     private void set(int a, int b)
     {
         m_a = a;
@@ -76,8 +55,8 @@ public final class Rational {
         }
 
         m_b = b;
-        calibrateSigns();
-        simplify();
+        this.calibrateSigns();
+        this.simplify();
     }
 
     private void simplify()
@@ -96,7 +75,6 @@ public final class Rational {
         }
     }
 
-
     public static Rational randomRational(int min, int max) //[min, max)
     {
         return randomRational(new Random(), min, max);
@@ -107,20 +85,15 @@ public final class Rational {
         return new Rational(r.nextInt(max - min) + min, r.nextInt(max - min) + min);
     }
 
-
-
     public Rational()
     {
         m_b = 1;
     }
-    public Rational(double d)
-    {
-        set(new BigDecimal(String.format("%f",d)));
-    }
+
     public Rational(int a, int b)
     {
         control(a, b);
-        set(a, b);
+        this.set(a, b);
     }
 
     public void setNumerator(int val)
@@ -128,7 +101,7 @@ public final class Rational {
         if (m_a == val)
             return;
 
-        set(val, m_b);
+        this.set(val, m_b);
     }
 
     public void setDenominator(int val)
@@ -137,7 +110,7 @@ public final class Rational {
             return;
 
         control(m_a, val);
-        set(m_a, val);
+        this.set(m_a, val);
     }
 
     public int getNumerator()
@@ -222,7 +195,7 @@ public final class Rational {
     //inc methods
     public void inc()
     {
-        inc(1);
+        this.inc(1);
     }
     public void inc(int amount)
     {
@@ -232,11 +205,11 @@ public final class Rational {
     //dec methods
     public void dec()
     {
-        dec(1);
+        this.dec(1);
     }
     public void dec(int amount)
     {
-        inc(-amount);
+        this.inc(-amount);
     }
 
     //pow method
@@ -253,7 +226,7 @@ public final class Rational {
 
     public String toString()
     {
-        return toString(6);
+        return this.toString(6);
     }
 
     public String toString(int n)
